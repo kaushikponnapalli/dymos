@@ -1,9 +1,55 @@
 import numpy as np
 import openmdao.api as om
 
-mu_dict = {'earth-moon': 1,
-           'sun-earth': 1,
-           'jupiter-europa': 1}
+mu_dict = {'earth-moon': 0.0121505856,
+           'sun-earth': 3.04042385e-6,
+           'jupiter-europa': 0.002521721}
+
+
+def richardson_approximation(orbit_options=None):
+    # Initial guess generation for periodic orbits about collinear equilibrium points
+
+    if orbit_options is None:
+        orbit_options = {'system': 'earth-moon', 'point': 'L1', 'init_state': np.zeros(6),
+                         'period': 1}
+    num_points = 1000
+    data = np.zeros((num_points, 6))
+    mu = mu_dict[orbit_options['system']]
+    t = np.linspace(0, orbit_options['period'], num=num_points)
+
+    y0 = (mu * (1 - mu) ** (1 / 3)) / 3
+    y = y0 + 1
+
+    while abs(y - y0) > 1e-9:
+        y0 = y
+        if orbit_options['point'] == 'L1':
+            y = (mu * (y0 - 1)**2 / (3 - 2 * mu - y0 * (3 - mu - y0))) ** (1 / 3)
+        elif orbit_options['point'] == 'L2':
+            y = (mu * (y0 + 1)**2 / (3 - 2 * mu + y0 * (3 - mu + y0))) ** (1 / 3)
+        elif orbit_options['point'] == 'L3':
+            y = ((1 - mu) * (y0 + 1)**2 / (1 + 2 * mu + y0 * (2 + mu + y0))) ** (1 / 3)
+
+    point_location = {'L1': 1 - mu - y, 'L2': 1 - mu + y, 'L3': -mu - y}
+
+    c2 = {'L1': (mu + (1 - mu) * y ** 3 / ((1 - y) ** 3)) / (y ** 3),
+          'L2': (mu + (1 - mu) * y ** 3 / ((1 + y) ** 3)) / (y ** 3),
+          'L3': (1 - mu + mu*(y/(y + 1)) ** 3) / (y ** 3)}
+
+    L = np.sqrt(0.5 * (2 - c2[orbit_options['point']] + np.sqrt(9 * c2[orbit_options['point']] ** 2 -
+                                                                8 * c2[orbit_options['point']])))
+    k = 2 * L / (L ** 2 + 1 - c2[orbit_options['point']])
+
+    Ax = orbit_options['init_state'][0]
+    Az = orbit_options['init_state'][2]
+
+    data[:, 0] = point_location[orbit_options['point']] - Ax * np.cos(L*t)
+    data[:, 1] = k * Ax * np.sin(L*t)
+    data[:, 2] = Az * np.sin(L*t)
+    data[:, 3] = L * Ax * np.sin(L*t)
+    data[:, 4] = k * L * Ax * np.cos(L*t)
+    data[:, 5] = L * Az * np.cos(L*t)
+
+    return t, data
 
 
 class crtbp_ode(om.ExplicitComponent):
