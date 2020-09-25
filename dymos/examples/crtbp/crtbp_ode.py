@@ -63,7 +63,7 @@ class crtbp_ode(om.ExplicitComponent):
 
     def setup(self):
         nn = self.options['num_nodes']
-        mu_val = mu_dict[self.options['system']]*np.ones(nn)
+        mu_val = mu_dict[self.options['system']]
 
         self.add_input('mu', val=mu_val, desc='gravitational parameter for the specified CRTBP system')
         self.add_input('x', val=np.ones(nn), desc='x-position in rotating frame')
@@ -73,29 +73,37 @@ class crtbp_ode(om.ExplicitComponent):
         self.add_input('y_dot', val=np.ones(nn), desc='y-velocity in rotating frame')
         self.add_input('z_dot', val=np.ones(nn), desc='z-velocity in rotating frame')
 
+        self.add_output('vx', val=np.ones(nn), desc='computed velocity in the rotating frame')
+        self.add_output('vy', val=np.ones(nn), desc='computed velocity in the rotating frame')
+        self.add_output('vz', val=np.ones(nn), desc='computed velocity in the rotating frame')
         self.add_output('vx_dot', val=np.ones(nn), desc='computed acceleration in the rotating frame')
         self.add_output('vy_dot', val=np.ones(nn), desc='computed acceleration in the rotating frame')
         self.add_output('vz_dot', val=np.ones(nn), desc='computed acceleration in the rotating frame')
 
         # Setup partials
-        ar = np.arange(self.options['num_nodes'])
+        ar = np.arange(nn)
+        c = np.zeros(nn)
+
+        self.declare_partials(of='vx_dot', wrt='x_dot', rows=ar, cols=ar, val=1.0)
+        self.declare_partials(of='vy_dot', wrt='y_dot', rows=ar, cols=ar, val=1.0)
+        self.declare_partials(of='vz_dot', wrt='z_dot', rows=ar, cols=ar, val=1.0)
 
         self.declare_partials(of='vx_dot', wrt='x', rows=ar, cols=ar)
         self.declare_partials(of='vx_dot', wrt='y', rows=ar, cols=ar)
         self.declare_partials(of='vx_dot', wrt='z', rows=ar, cols=ar)
         self.declare_partials(of='vx_dot', wrt='y_dot', rows=ar, cols=ar, val=2.0)
-        self.declare_partials(of='vx_dot', wrt='mu', rows=ar, cols=ar)
+        self.declare_partials(of='vx_dot', wrt='mu', rows=ar, cols=c)
 
         self.declare_partials(of='vy_dot', wrt='x', rows=ar, cols=ar)
         self.declare_partials(of='vy_dot', wrt='y', rows=ar, cols=ar)
         self.declare_partials(of='vy_dot', wrt='z', rows=ar, cols=ar)
         self.declare_partials(of='vy_dot', wrt='x_dot', rows=ar, cols=ar, val=-2.0)
-        self.declare_partials(of='vy_dot', wrt='mu', rows=ar, cols=ar)
+        self.declare_partials(of='vy_dot', wrt='mu', rows=ar, cols=c)
 
         self.declare_partials(of='vz_dot', wrt='x', rows=ar, cols=ar)
         self.declare_partials(of='vz_dot', wrt='y', rows=ar, cols=ar)
         self.declare_partials(of='vz_dot', wrt='z', rows=ar, cols=ar)
-        self.declare_partials(of='vz_dot', wrt='mu', rows=ar, cols=ar)
+        self.declare_partials(of='vz_dot', wrt='mu', rows=ar, cols=c)
 
     def compute(self, inputs, outputs):
         mu = inputs['mu']
@@ -104,9 +112,14 @@ class crtbp_ode(om.ExplicitComponent):
         z = inputs['z']
         x_dot = inputs['x_dot']
         y_dot = inputs['y_dot']
+        z_dot = inputs['z_dot']
 
         r1 = np.sqrt((x+mu)**2 + y**2 + z**2)
         r2 = np.sqrt((x+mu-1)**2 + y**2 + z**2)
+
+        outputs['vx'] = x_dot
+        outputs['vy'] = y_dot
+        outputs['vz'] = z_dot
 
         outputs['vx_dot'] = x + 2*y_dot - (1 - mu)*(x + mu)/(r1 ** 3) - mu*(x + mu - 1)/(r2 ** 3)
         outputs['vy_dot'] = y - 2*x_dot - (1 - mu)*y/(r1 ** 3) - mu*y/(r2 ** 3)
