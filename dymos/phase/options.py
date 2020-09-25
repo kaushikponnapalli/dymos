@@ -344,8 +344,8 @@ class StateOptionsDictionary(om.OptionsDictionary):
         self.declare(name='desc', types=str, default='',
                      desc='description of the state variable')
 
-        self.declare(name='shape', types=Iterable, default=(1,),
-                     desc='shape of the state variable')
+        self.declare(name='shape', types=Iterable, allow_none=True, default=None,
+                     desc='shape of the state variable, as determined by introspection')
 
         self.declare(name='rate_source', types=str,
                      desc='ODE-path to the derivative of the state variable')
@@ -519,6 +519,8 @@ class GridRefinementOptionsDictionary(om.OptionsDictionary):
 
         self.declare(name='max_order', types=int, default=14,
                      desc='Maximum transcription order for segments in this phase.')
+        self.declare(name='smoothness_factor', types=float, default=1.2,
+                     desc='Maximum allowed ratio of state second derivatives across refinement iterations')
 
 
 class _ForDocs(object):  # pragma: no cover

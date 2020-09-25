@@ -82,6 +82,10 @@ def min_time_climb(optimizer='SLSQP', num_seg=3, transcription='gauss-lobatto',
     # Minimize time at the end of the phase
     phase.add_objective('time', loc='final', ref=1.0)
 
+    # test mixing wildcard ODE variable expansion and unit overrides
+    phase.add_timeseries_output(['aero.*', 'prop.thrust', 'prop.m_dot'],
+                                units={'aero.f_lift': 'lbf', 'prop.thrust': 'lbf'})
+
     p.model.linear_solver = om.DirectSolver()
 
     p.setup(check=True, force_alloc_complex=force_alloc_complex)
@@ -114,6 +118,17 @@ class TestMinTimeClimb(unittest.TestCase):
         # Verify that ODE output mach is added to the timeseries
         assert_near_equal(p.get_val('traj.phase0.timeseries.mach')[-1], 1.0, tolerance=1.0E-2)
 
+        # verify all wildcard timeseries exist
+        output_dict = dict(p.model.list_outputs(units=True))
+        ts = [k for k, v in output_dict.items() if 'timeseries' in k]
+        for c in ['mach', 'CD0', 'kappa', 'CLa', 'CL', 'CD', 'q', 'f_lift', 'f_drag', 'thrust', 'm_dot']:
+            assert(any([True for t in ts if 'timeseries.' + c in t]))
+        # verify time series units
+        assert(output_dict['traj.phases.phase0.timeseries.thrust']['units'] == 'lbf')  # no wildcard, from units dict
+        assert(output_dict['traj.phases.phase0.timeseries.m_dot']['units'] == 'kg/s')  # no wildcard, from ODE
+        assert(output_dict['traj.phases.phase0.timeseries.f_drag']['units'] == 'N')    # wildcard, from ODE
+        assert(output_dict['traj.phases.phase0.timeseries.f_lift']['units'] == 'lbf')  # wildcard, from units dict
+
     @use_tempdirs
     def test_results_radau(self):
         p = min_time_climb(optimizer='SLSQP', num_seg=12, transcription_order=3,
@@ -124,6 +139,17 @@ class TestMinTimeClimb(unittest.TestCase):
 
         # Verify that ODE output mach is added to the timeseries
         assert_near_equal(p.get_val('traj.phase0.timeseries.mach')[-1], 1.0, tolerance=1.0E-2)
+
+        # verify all wildcard timeseries exist
+        output_dict = dict(p.model.list_outputs(units=True))
+        ts = [k for k, v in output_dict.items() if 'timeseries' in k]
+        for c in ['mach', 'CD0', 'kappa', 'CLa', 'CL', 'CD', 'q', 'f_lift', 'f_drag', 'thrust', 'm_dot']:
+            assert(any([True for t in ts if 'timeseries.' + c in t]))
+        # verify time series units
+        assert(output_dict['traj.phases.phase0.timeseries.thrust']['units'] == 'lbf')  # no wildcard, from units dict
+        assert(output_dict['traj.phases.phase0.timeseries.m_dot']['units'] == 'kg/s')  # no wildcard, from ODE
+        assert(output_dict['traj.phases.phase0.timeseries.f_drag']['units'] == 'N')    # wildcard, from ODE
+        assert(output_dict['traj.phases.phase0.timeseries.f_lift']['units'] == 'lbf')  # wildcard, from units dict
 
 
 if __name__ == '__main__':  # pragma: no cover
