@@ -73,12 +73,12 @@ class crtbp_ode(om.ExplicitComponent):
         self.add_input('y_dot', val=np.ones(nn), desc='y-velocity in rotating frame')
         self.add_input('z_dot', val=np.ones(nn), desc='z-velocity in rotating frame')
 
-        self.add_output('vx', val=np.ones(nn), desc='computed velocity in the rotating frame')
-        self.add_output('vy', val=np.ones(nn), desc='computed velocity in the rotating frame')
-        self.add_output('vz', val=np.ones(nn), desc='computed velocity in the rotating frame')
-        self.add_output('vx_dot', val=np.ones(nn), desc='computed acceleration in the rotating frame')
-        self.add_output('vy_dot', val=np.ones(nn), desc='computed acceleration in the rotating frame')
-        self.add_output('vz_dot', val=np.ones(nn), desc='computed acceleration in the rotating frame')
+        self.add_output('vx', val=np.ones(nn), desc='computed velocity in the rotating frame', units='1.0/s')
+        self.add_output('vy', val=np.ones(nn), desc='computed velocity in the rotating frame', units='1.0/s')
+        self.add_output('vz', val=np.ones(nn), desc='computed velocity in the rotating frame', units='1.0/s')
+        self.add_output('vx_dot', val=np.ones(nn), desc='computed acceleration in the rotating frame', units='1.0/s')
+        self.add_output('vy_dot', val=np.ones(nn), desc='computed acceleration in the rotating frame', units='1.0/s')
+        self.add_output('vz_dot', val=np.ones(nn), desc='computed acceleration in the rotating frame', units='1.0/s')
 
         # Setup partials
         ar = np.arange(nn)

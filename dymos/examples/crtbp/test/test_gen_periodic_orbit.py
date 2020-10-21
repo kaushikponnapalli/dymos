@@ -11,7 +11,7 @@ from dymos.examples.crtbp.crtbp_ode import crtbp_ode, richardson_approximation
 from dymos.examples.hyper_sensitive.hyper_sensitive_ode import HyperSensitiveODE
 
 
-def make_problem(transcription=GaussLobatto, num_segments=10, order=3, compressed=True, optimizer='IPOPT',
+def make_problem(transcription=GaussLobatto, num_segments=50, order=3, compressed=True, optimizer='IPOPT',
                  orbit_options=None):
     if orbit_options is None:
         orbit_options = {'system': 'earth-moon', 'point': 'L1', 'init_state': np.zeros(6), 'period': 1}
@@ -29,19 +29,20 @@ def make_problem(transcription=GaussLobatto, num_segments=10, order=3, compresse
         # p.driver.opt_settings['nlp_scaling_method'] = 'user-scaling'
         p.driver.opt_settings['print_level'] = 5
         p.driver.opt_settings['linear_solver'] = 'mumps'
+        p.driver.opt_settings['max_iter'] = 500
 
     traj = p.model.add_subsystem('traj', Trajectory())
     phase = traj.add_phase('phase', Phase(ode_class=crtbp_ode, transcription=transcription(num_segments=num_segments,
                                                                                            order=order,
                                                                                            compressed=compressed)))
 
-    phase.set_time_options(fix_initial=True, fix_duration=True)
+    phase.set_time_options(fix_initial=True, fix_duration=False)
     phase.add_state('x', rate_source='vx', units=None)
-    phase.add_state('y', rate_source='vz', fix_initial=True, units=None)
+    phase.add_state('y', rate_source='vz', fix_initial=True, fix_final=True, units=None)
     phase.add_state('z', rate_source='vz', units=None)
-    phase.add_state('x_dot', rate_source='vx_dot', fix_initial=True, units=None)
+    phase.add_state('x_dot', rate_source='vx_dot', fix_initial=True, fix_final=True, units=None)
     phase.add_state('y_dot', rate_source='vy_dot', units=None)
-    phase.add_state('z_dot', rate_source='vz_dot', fix_initial=True, units=None)
+    phase.add_state('z_dot', rate_source='vz_dot', fix_initial=True, fix_final=True, units=None)
 
     p.model.add_subsystem('x_periodic_bc', om.ExecComp('bc_defect=final-initial'))
     p.model.connect('traj.phase.timeseries.states:x', 'x_periodic_bc.initial', src_indices=0)
@@ -95,7 +96,7 @@ class TestGeneratePeriodicOrbits(unittest.TestCase):
     def test_gen_L1_lyap_gl(self):
         initial_state = np.array([0.8089, 0.0, 0.0, 0.0, 0.2838, 0.0])
         T = 3.0224
-        p = make_problem(transcription=GaussLobatto, num_segments=10, order=3, compressed=True, optimizer='IPOPT',
+        p = make_problem(transcription=GaussLobatto, num_segments=50, order=3, compressed=True, optimizer='SNOPT',
                          orbit_options={'system': 'earth-moon', 'point': 'L1', 'init_state': initial_state,
                                         'period': T})
         dm.run_problem(p, refine=True)
