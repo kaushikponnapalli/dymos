@@ -88,6 +88,7 @@ class ODEIntegrationInterfaceSystem(om.Group):
 
             if targets:
                 self.connect(f'states:{name}', [f'ode.{tgt}' for tgt in targets])
+            ivc.add_design_var(f'states:{name}')
 
         # Configure controls
         if self.options['control_options']:
@@ -107,6 +108,7 @@ class ODEIntegrationInterfaceSystem(om.Group):
                 if rate2_targets:
                     self.connect(f'control_rates:{name}_rate2',
                                  [f'ode.{tgt}' for tgt in rate2_targets])
+                self.add_design_var(f'controls:{name}')
 
         # Polynomial controls
         if self.options['polynomial_control_options']:

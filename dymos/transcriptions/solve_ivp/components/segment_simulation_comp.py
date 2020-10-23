@@ -21,6 +21,11 @@ class SegmentSimulationComp(om.ExplicitComponent):
 
     The resulting states are captured at all nodes within the segment.
     """
+
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+        self.state_vec_size = 0
+
     def initialize(self):
         self.options.declare('index', desc='the index of this segment in the parent phase.')
 
@@ -122,7 +127,6 @@ class SegmentSimulationComp(om.ExplicitComponent):
                        desc='Total time duration of the phase.')
 
         # Setup the initial state vector for integration
-        self.state_vec_size = 0
         for name, options in self.options['state_options'].items():
             self.state_vec_size += np.prod(options['shape'])
             self.add_input(name='initial_states:{0}'.format(name), val=np.ones((1,) + options['shape']),
@@ -133,7 +137,8 @@ class SegmentSimulationComp(om.ExplicitComponent):
                             units=options['units'],
                             desc='Values of state {0} at all nodes in the segment.'.format(name))
 
-        self.initial_state_vec = np.zeros(self.state_vec_size)
+        num_controls = len(self.options['control_options']) + len(self.options['polynomial_control_options'])
+        self.initial_state_vec = np.zeros(self.state_vec_size + (1 + self.state_vec_size + num_controls)**2)
 
         self.options['ode_integration_interface'].prob.setup(check=False)
 
@@ -174,6 +179,10 @@ class SegmentSimulationComp(om.ExplicitComponent):
             self.initial_state_vec[pos:pos + size] = \
                 np.ravel(inputs['initial_states:{0}'.format(name)])
             pos += size
+
+        num_controls = len(self.options['control_options']) + len(self.options['polynomial_control_options'])
+        stm0 = np.eye(1 + self.state_vec_size + num_controls)
+        self.initial_state_vec[pos:] = stm0.ravel()
 
         # Setup the control interpolants
         if self.options['control_options']:

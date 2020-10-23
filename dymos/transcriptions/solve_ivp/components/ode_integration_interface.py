@@ -42,6 +42,7 @@ class ODEIntegrationInterface(object):
         self.parameter_options = parameter_options
         self.control_interpolants = {}
         self.polynomial_control_interpolants = {}
+        self.augmented_state_list = []
 
         pos = 0
 
@@ -160,5 +161,21 @@ class ODEIntegrationInterface(object):
         self.prob['time_phase'] = t - self.prob['t_initial']
         self._unpack_state_vec(x)
         self.prob.run_model()
-        xdot = self._pack_state_rate_vec()
+        num_states = len(self.state_options)
+        if not self.augmented_state_list:
+            for name, options in self.state_options.items():
+                self.augmented_state_list.append(f'states:{name}')
+            for name, options in self.control_options.items():
+                self.augmented_state_list.append(f'controls:{name}')
+
+        num_augmented_states = len(self.augmented_state_list)
+        xdot = np.zeros(num_states + (1 + num_augmented_states)**2)
+        jac = np.eye(1 + num_augmented_states)
+        jac[1:, 1:] = self.prob.compute_totals(of=self.augmented_state_list, return_format='array')
+        xdot[:num_states] = self._pack_state_rate_vec()
+        for i in range(num_augmented_states):
+            xdot[(num_states + i * (num_augmented_states + 1)):(num_states + (i + 1) * (num_augmented_states + 1))] = \
+                np.dot(jac, x[(num_states + i * (num_augmented_states + 1)):
+                              (num_states + (i + 1) * (num_augmented_states + 1))])
+        print(xdot)
         return xdot
