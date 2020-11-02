@@ -72,7 +72,11 @@ class SegmentSimulationComp(om.ExplicitComponent):
 
         self.recording_options['options_excludes'] = ['ode_integration_interface']
 
-    def setup(self):
+    def configure_io(self):
+        """
+        I/O creation is delayed until configure so that we can determine the shape and units for
+        the states.
+        """
         idx = self.options['index']
         gd = self.options['grid_data']
 
@@ -234,7 +238,7 @@ class SegmentSimulationComp(om.ExplicitComponent):
                         t_eval=t_eval)
 
         if not sol.success:
-            raise om.AnalysisError(f'simulation of {self.pathname} failed: {sol.message}')
+            raise om.AnalysisError(f'solve_ivp failed: {sol.message}')
 
         # Extract the solution
         pos = 0

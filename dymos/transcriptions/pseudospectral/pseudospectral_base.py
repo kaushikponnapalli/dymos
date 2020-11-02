@@ -1,7 +1,6 @@
 from collections.abc import Iterable
 
 import numpy as np
-from dymos.transcriptions.common import EndpointConditionsComp
 
 import openmdao.api as om
 from ..transcription_base import TranscriptionBase
@@ -30,6 +29,10 @@ class PseudospectralBase(TranscriptionBase):
                              node_dptau_dstau=grid_data.node_dptau_dstau, units=time_units)
 
         phase.add_subsystem('time', time_comp, promotes_inputs=['*'], promotes_outputs=['*'])
+
+    def configure_time(self, phase):
+        super(PseudospectralBase, self).configure_time(phase)
+        phase.time.configure_io()
 
     def setup_states(self, phase):
         """
@@ -77,13 +80,20 @@ class PseudospectralBase(TranscriptionBase):
             # This feels a little hackish
             if rate_src in phase.control_options:
                 targets = phase.control_options[rate_src]['targets']
+                shape = phase.control_options[rate_src]['shape']
+                units = phase.control_options[rate_src]['units']
                 if targets is not _unspecified:
                     rate_src = targets[0]
+                else:
+                    if units is not _unspecified and options['units'] in (_unspecified, None):
+                        options['units'] = f'{units}*{time_units}'
+                    if shape is not _unspecified and options['shape'] in (_unspecified, None):
+                        options['shape'] = shape
 
             # Handle states that point to another state. States must be declared in the right
             # order.
             # This feels a little hackish
-            if rate_src in phase.state_options and options['shape'] in (_unspecified, None):
+            elif rate_src in phase.state_options and options['shape'] in (_unspecified, None):
                 options['shape'] = phase.state_options[rate_src]['shape']
 
             full_shape, units = get_target_metadata(ode, name=name,
@@ -120,7 +130,6 @@ class PseudospectralBase(TranscriptionBase):
                     # If we have vectorized states of size n, then there are n design variables
                     # at each node.  For instance, with n=2, the desvar indices are [0, 1, 12, 13]
                     num_seg = grid_data.num_segments
-                    num_state_input_nodes_per_seg = grid_data.subset_num_nodes_per_segment['state_input']
                     # Get the desvar node indices
                     desvar_node_idxs = np.asarray(indep.state_idx_map[name]['indep'])
                     # In compressed transcription, the desvar indices are just the first
@@ -246,12 +255,12 @@ class PseudospectralBase(TranscriptionBase):
                                             state_options=phase.state_options,
                                             time_units=time_units))
 
-        phase.connect('dt_dstau', ('collocation_constraint.dt_dstau'),
-                      src_indices=grid_data.subset_node_indices['col'])
-
     def configure_defects(self, phase):
         grid_data = self.grid_data
         num_seg = grid_data.num_segments
+
+        phase.connect('dt_dstau', ('collocation_constraint.dt_dstau'),
+                      src_indices=grid_data.subset_node_indices['col'])
 
         phase.collocation_constraint.configure_io()
 
@@ -289,104 +298,6 @@ class PseudospectralBase(TranscriptionBase):
                 phase.connect('control_rates:{0}_rate2'.format(name),
                               'continuity_comp.control_rates:{}_rate2'.format(name),
                               src_indices=src_idxs, flat_src_indices=True)
-
-    def setup_endpoint_conditions(self, phase):
-        jump_comp = phase.add_subsystem('indep_jumps', subsys=om.IndepVarComp(),
-                                        promotes_outputs=['*'])
-
-        jump_comp.add_output('initial_jump:time', val=0.0, units=phase.time_options['units'],
-                             desc='discontinuity in time at the start of the phase')
-
-        jump_comp.add_output('final_jump:time', val=0.0, units=phase.time_options['units'],
-                             desc='discontinuity in time at the end of the phase')
-
-        ic_comp = EndpointConditionsComp(loc='initial',
-                                         time_options=phase.time_options,
-                                         state_options=phase.state_options,
-                                         control_options=phase.control_options)
-
-        phase.add_subsystem(name='initial_conditions', subsys=ic_comp, promotes_outputs=['*'])
-
-        fc_comp = EndpointConditionsComp(loc='final',
-                                         time_options=phase.time_options,
-                                         state_options=phase.state_options,
-                                         control_options=phase.control_options)
-
-        phase.add_subsystem(name='final_conditions', subsys=fc_comp, promotes_outputs=['*'])
-
-    def configure_endpoint_conditions(self, phase):
-        phase.initial_conditions.configure_io()
-        phase.final_conditions.configure_io()
-
-        for state_name, options in phase.state_options.items():
-            phase.indep_jumps.add_output('initial_jump:{0}'.format(state_name),
-                                         val=np.zeros(options['shape']),
-                                         units=options['units'],
-                                         desc='discontinuity in {0} at the '
-                                         'start of the phase'.format(state_name))
-
-            phase.indep_jumps.add_output('final_jump:{0}'.format(state_name),
-                                         val=np.zeros(options['shape']),
-                                         units=options['units'],
-                                         desc='discontinuity in {0} at the '
-                                         'end of the phase'.format(state_name))
-
-        for control_name, options in phase.control_options.items():
-            phase.indep_jumps.add_output('initial_jump:{0}'.format(control_name),
-                                         val=np.zeros(options['shape']),
-                                         units=options['units'],
-                                         desc='discontinuity in {0} at the '
-                                         'start of the phase'.format(control_name))
-
-            phase.indep_jumps.add_output('final_jump:{0}'.format(control_name),
-                                         val=np.zeros(options['shape']),
-                                         units=options['units'],
-                                         desc='discontinuity in {0} at the '
-                                         'end of the phase'.format(control_name))
-
-        phase.connect('time', 'initial_conditions.initial_value:time')
-        phase.connect('time', 'final_conditions.final_value:time')
-
-        phase.connect('initial_jump:time',
-                      'initial_conditions.initial_jump:time')
-
-        phase.connect('final_jump:time',
-                      'final_conditions.final_jump:time')
-
-        for state_name, options in phase.state_options.items():
-            size = np.prod(options['shape'])
-            ar = np.arange(size)
-
-            phase.connect('states:{0}'.format(state_name),
-                          'initial_conditions.initial_value:{0}'.format(state_name))
-            phase.connect('states:{0}'.format(state_name),
-                          'final_conditions.final_value:{0}'.format(state_name))
-
-            phase.connect('initial_jump:{0}'.format(state_name),
-                          'initial_conditions.initial_jump:{0}'.format(state_name),
-                          src_indices=ar, flat_src_indices=True)
-
-            phase.connect('final_jump:{0}'.format(state_name),
-                          'final_conditions.final_jump:{0}'.format(state_name),
-                          src_indices=ar, flat_src_indices=True)
-
-        for control_name, options in phase.control_options.items():
-            size = np.prod(options['shape'])
-            ar = np.arange(size)
-
-            phase.connect('control_values:{0}'.format(control_name),
-                          'initial_conditions.initial_value:{0}'.format(control_name))
-
-            phase.connect('control_values:{0}'.format(control_name),
-                          'final_conditions.final_value:{0}'.format(control_name))
-
-            phase.connect('initial_jump:{0}'.format(control_name),
-                          'initial_conditions.initial_jump:{0}'.format(control_name),
-                          src_indices=ar, flat_src_indices=True)
-
-            phase.connect('final_jump:{0}'.format(control_name),
-                          'final_conditions.final_jump:{0}'.format(control_name),
-                          src_indices=ar, flat_src_indices=True)
 
     def setup_solvers(self, phase):
         if self.any_solved_segs:

@@ -1,11 +1,12 @@
 import numpy as np
 
 import openmdao.api as om
+from openmdao.utils.general_utils import warn_deprecation
 
 from ..transcription_base import TranscriptionBase
 from .components import RungeKuttaStepsizeComp, RungeKuttaStateContinuityIterGroup, \
     RungeKuttaTimeseriesOutputComp, RungeKuttaControlContinuityComp
-from ..common import TimeComp, EndpointConditionsComp, PathConstraintComp
+from ..common import TimeComp, PathConstraintComp
 from ...utils.rk_methods import rk_methods
 from ...utils.misc import CoerceDesvar, get_rate_units, get_targets, get_target_metadata,\
     get_source_metadata, _unspecified
@@ -22,9 +23,15 @@ class RungeKutta(TranscriptionBase):
     RungeKutta transcription in Dymos uses the RungeKutta-based shooting method which propagates
     the states from the phase initial time to the phase final time.
     """
-    def __init__(self, grid_data=None, **kwargs):
+
+    def __init__(self, **kwargs):
         super(RungeKutta, self).__init__(**kwargs)
         self._rhs_source = 'ode'
+
+        msg = 'The RungeKutta transcription is deprecated and will be removed in Dymos v1.0.0.\n' \
+              'For equivalent behavior, users should switch to ' \
+              'GaussLobatto(order=3, solve_segments=True)'
+        warn_deprecation(msg)
 
     def initialize(self):
 
@@ -94,6 +101,11 @@ class RungeKutta(TranscriptionBase):
                             promotes_outputs=['h'])
 
     def configure_time(self, phase):
+        super(RungeKutta, self).configure_time(phase)
+
+        phase.time.configure_io()
+        phase.stepsize_comp.configure_io()
+
         options = phase.time_options
 
         # The tuples here are (name, user_specified_targets, dynamic)
@@ -229,13 +241,20 @@ class RungeKutta(TranscriptionBase):
             # This feels a little hackish
             if rate_src in phase.control_options:
                 targets = phase.control_options[rate_src]['targets']
+                shape = phase.control_options[rate_src]['shape']
+                units = phase.control_options[rate_src]['units']
                 if targets is not _unspecified:
                     rate_src = targets[0]
+                else:
+                    if units is not _unspecified and options['units'] in (_unspecified, None):
+                        options['units'] = f'{units}*{time_units}'
+                    if shape is not _unspecified and options['shape'] in (_unspecified, None):
+                        options['shape'] = shape
 
             # Handle states that point to another state. States must be declared in the right
             # order.
             # This feels a little hackish
-            if rate_src in phase.state_options and options['shape'] in (_unspecified, None):
+            elif rate_src in phase.state_options and options['shape'] in (_unspecified, None):
                 options['shape'] = phase.state_options[rate_src]['shape']
 
             full_shape, units = get_target_metadata(phase.ode, name=state_name,
@@ -392,6 +411,7 @@ class RungeKutta(TranscriptionBase):
         super(RungeKutta, self).setup_polynomial_controls(phase)
 
     def configure_polynomial_controls(self, phase):
+        super(RungeKutta, self).configure_polynomial_controls(phase)
         grid_data = self.grid_data
 
         for name, options in phase.polynomial_control_options.items():
@@ -481,106 +501,6 @@ class RungeKutta(TranscriptionBase):
                 phase.connect('control_rates:{0}_rate2'.format(name),
                               'continuity_comp.control_rates:{}_rate2'.format(name),
                               src_indices=src_idxs, flat_src_indices=True)
-
-    def setup_endpoint_conditions(self, phase):
-        jump_comp = phase.add_subsystem('indep_jumps', subsys=om.IndepVarComp(),
-                                        promotes_outputs=['*'])
-
-        jump_comp.add_output('initial_jump:time', val=0.0, units=phase.time_options['units'],
-                             desc='discontinuity in time at the start of the phase')
-
-        jump_comp.add_output('final_jump:time', val=0.0, units=phase.time_options['units'],
-                             desc='discontinuity in time at the end of the phase')
-
-        ic_comp = EndpointConditionsComp(loc='initial',
-                                         time_options=phase.time_options,
-                                         state_options=phase.state_options,
-                                         control_options=phase.control_options)
-
-        phase.add_subsystem(name='initial_conditions', subsys=ic_comp, promotes_outputs=['*'])
-
-        fc_comp = EndpointConditionsComp(loc='final',
-                                         time_options=phase.time_options,
-                                         state_options=phase.state_options,
-                                         control_options=phase.control_options)
-
-        phase.add_subsystem(name='final_conditions', subsys=fc_comp, promotes_outputs=['*'])
-
-    def configure_endpoint_conditions(self, phase):
-        phase.initial_conditions.configure_io()
-        phase.final_conditions.configure_io()
-
-        jump_comp = phase.indep_jumps
-        for state_name, options in phase.state_options.items():
-
-            jump_comp.add_output('initial_jump:{0}'.format(state_name),
-                                 val=np.zeros(options['shape']),
-                                 units=options['units'],
-                                 desc='discontinuity in {0} at the '
-                                      'start of the phase'.format(state_name))
-
-            jump_comp.add_output('final_jump:{0}'.format(state_name),
-                                 val=np.zeros(options['shape']),
-                                 units=options['units'],
-                                 desc='discontinuity in {0} at the '
-                                      'end of the phase'.format(state_name))
-
-        for control_name, options in phase.control_options.items():
-            size = np.prod(options['shape'])
-            ar = np.arange(size)
-
-            jump_comp.add_output('initial_jump:{0}'.format(control_name),
-                                 val=np.zeros(options['shape']),
-                                 units=options['units'],
-                                 desc='discontinuity in {0} at the '
-                                      'start of the phase'.format(control_name))
-
-            jump_comp.add_output('final_jump:{0}'.format(control_name),
-                                 val=np.zeros(options['shape']),
-                                 units=options['units'],
-                                 desc='discontinuity in {0} at the '
-                                      'end of the phase'.format(control_name))
-
-        phase.connect('time', 'initial_conditions.initial_value:time')
-        phase.connect('time', 'final_conditions.final_value:time')
-        phase.connect('initial_jump:time', 'initial_conditions.initial_jump:time')
-        phase.connect('final_jump:time', 'final_conditions.final_jump:time')
-
-        for state_name, options in phase.state_options.items():
-            size = np.prod(options['shape'])
-            ar = np.arange(size)
-
-            phase.connect('states:{0}'.format(state_name),
-                          'initial_conditions.initial_value:{0}'.format(state_name))
-
-            phase.connect('states:{0}'.format(state_name),
-                          'final_conditions.final_value:{0}'.format(state_name))
-
-            phase.connect('initial_jump:{0}'.format(state_name),
-                          'initial_conditions.initial_jump:{0}'.format(state_name),
-                          src_indices=ar, flat_src_indices=True)
-
-            phase.connect('final_jump:{0}'.format(state_name),
-                          'final_conditions.final_jump:{0}'.format(state_name),
-                          src_indices=ar, flat_src_indices=True)
-
-        for control_name, options in phase.control_options.items():
-            size = np.prod(options['shape'])
-            ar = np.arange(size)
-
-            phase.connect('control_values:{0}'.format(control_name),
-                          'initial_conditions.initial_value:{0}'.format(control_name))
-
-            phase.connect('control_values:{0}'.format(control_name),
-                          'final_conditions.final_value:{0}'.format(control_name))
-
-            phase.connect('initial_jump:{0}'.format(control_name),
-                          'initial_conditions.initial_jump:{0}'.format(control_name),
-                          src_indices=ar, flat_src_indices=True)
-
-            phase.connect('final_jump:{0}'.format(control_name),
-                          'final_conditions.final_jump:{0}'.format(control_name),
-                          src_indices=ar, flat_src_indices=True)
 
     def setup_path_constraints(self, phase):
         """

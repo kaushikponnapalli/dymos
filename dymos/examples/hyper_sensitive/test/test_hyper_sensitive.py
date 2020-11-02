@@ -2,6 +2,7 @@ from __future__ import print_function, division, absolute_import
 
 import os
 import unittest
+import warnings
 from openmdao.api import Problem, Group, pyOptSparseDriver
 from openmdao.utils.assert_utils import assert_near_equal
 from openmdao.utils.general_utils import printoptions
@@ -10,6 +11,9 @@ from dymos import Trajectory, GaussLobatto, Phase, Radau
 from dymos.examples.hyper_sensitive.hyper_sensitive_ode import HyperSensitiveODE
 import numpy as np
 import dymos as dm
+
+from openmdao.utils.general_utils import set_pyoptsparse_opt
+_, optimizer = set_pyoptsparse_opt('IPOPT', fallback=True)
 
 tf = np.float128(10)
 
@@ -85,9 +89,10 @@ class TestHyperSensitive(unittest.TestCase):
         with printoptions(linewidth=1024, edgeitems=100):
             cpd = p.check_partials(method='fd', compact_print=True, out_stream=None)
 
+    @unittest.skipIf(optimizer is not 'IPOPT', 'IPOPT not available')
     def test_hyper_sensitive_radau(self):
         p = self.make_problem(transcription=Radau, optimizer='IPOPT')
-        dm.run_problem(p, refine=True)
+        dm.run_problem(p, refine_iteration_limit=5)
         ui, uf, J = self.solution()
 
         assert_near_equal(p.get_val('traj.phase0.timeseries.controls:u')[0],
@@ -102,10 +107,10 @@ class TestHyperSensitive(unittest.TestCase):
                           J,
                           tolerance=1e-6)
 
+    @unittest.skipIf(optimizer is not 'IPOPT', 'IPOPT not available')
     def test_hyper_sensitive_gauss_lobatto(self):
         p = self.make_problem(transcription=GaussLobatto, optimizer='IPOPT')
-        # p.run_driver()
-        dm.run_problem(p, refine=True)
+        dm.run_problem(p, refine_iteration_limit=5)
 
         ui, uf, J = self.solution()
 
@@ -120,3 +125,15 @@ class TestHyperSensitive(unittest.TestCase):
         assert_near_equal(p.get_val('traj.phase0.timeseries.states:xL')[-1],
                           J,
                           tolerance=1e-4)
+
+    @unittest.skipIf(optimizer is not 'IPOPT', 'IPOPT not available')
+    def test_refinement_warning(self):
+        p = self.make_problem(transcription=Radau, optimizer='IPOPT')
+
+        msg = "Refinement not performed. Set run_driver to True to perform refinement."
+
+        with warnings.catch_warnings(record=True) as ctx:
+            warnings.simplefilter('always')
+            dm.run_problem(p, run_driver=False, refine_iteration_limit=10)
+
+        self.assertIn(msg, [str(w.message) for w in ctx])

@@ -2,7 +2,44 @@ import sys
 
 import numpy as np
 
-_unspecified = object()
+
+class _ReprClass(object):
+    """
+    Class for defining objects with a simple constant string __repr__.
+
+    This is useful for constants used in arg lists when you want them to appear in
+    automatically generated source documentation as a certain string instead of python's
+    default representation.
+    """
+
+    def __init__(self, repr_string):
+        """
+        Inititialize the __repr__ string.
+
+        Parameters
+        ----------
+        repr_string : str
+            The string to be returned by __repr__
+        """
+        self._repr_string = repr_string
+
+    def __repr__(self):
+        """
+        Return our _repr_string.
+
+        Returns
+        -------
+        str
+            Whatever string we were initialized with.
+        """
+        return self._repr_string
+
+    def __str__(self):
+        return self._repr_string
+
+
+# unique object to check if default is given (when None is an allowed value)
+_unspecified = _ReprClass("unspecified")
 
 
 def get_rate_units(units, time_units, deriv=1):
@@ -70,7 +107,8 @@ def get_targets(ode, name, user_targets):
     this method should be called from configure of some parent Group, and the ODE should
     be a system within that Group.
     """
-    ode_inputs = {opts['prom_name']: opts for (k, opts) in ode.get_io_metadata(iotypes=('input',)).items()}
+    ode_inputs = {opts['prom_name']: opts for (k, opts) in
+                  ode.get_io_metadata(iotypes=('input',), get_remote=True).items()}
 
     if user_targets is _unspecified:
         if name in ode_inputs:
@@ -89,7 +127,7 @@ def get_targets(ode, name, user_targets):
 
 
 def get_target_metadata(ode, name, user_targets=_unspecified, user_units=_unspecified,
-                        user_shape=_unspecified):
+                        user_shape=_unspecified, control_rate=False):
     """
     Return the targets of a state variable in a given ODE system.
     If the targets of the state is _unspecified, and the state name is a top level input name
@@ -111,6 +149,9 @@ def get_target_metadata(ode, name, user_targets=_unspecified, user_units=_unspec
         Units for the variable as given by the user.
     user_shape : str or None or Sequence or _unspecified
         Shape for the variable as given by the user.
+    control_rate : bool
+        When True, check for the control rate if the name is not in the ODE.
+
     Returns
     -------
     shape : tuple
@@ -123,12 +164,16 @@ def get_target_metadata(ode, name, user_targets=_unspecified, user_units=_unspec
     this method should be called from configure of some parent Group, and the ODE should
     be a system within that Group.
     """
+    rate_src = False
     ode_inputs = {opts['prom_name']: opts for (k, opts) in
-                  ode.get_io_metadata(iotypes=('input', 'output')).items()}
+                  ode.get_io_metadata(iotypes=('input', 'output'), get_remote=True).items()}
 
     if user_targets is _unspecified:
         if name in ode_inputs:
             targets = [name]
+        elif control_rate and f'{name}_rate' in ode_inputs:
+            targets = [f'{name}_rate']
+            rate_src = True
         else:
             targets = []
     elif user_targets:
@@ -143,6 +188,8 @@ def get_target_metadata(ode, name, user_targets=_unspecified, user_units=_unspec
         target_units_set = {ode_inputs[tgt]['units'] for tgt in targets}
         if len(target_units_set) == 1:
             units = next(iter(target_units_set))
+            if rate_src:
+                units = f"{units}*s"
         else:
             raise ValueError(f'Unable to automatically assign units to {name}. '
                              f'Targets have multiple units: {target_units_set}. '
@@ -155,6 +202,9 @@ def get_target_metadata(ode, name, user_targets=_unspecified, user_units=_unspec
         target_shape_set = {ode_inputs[tgt]['shape'] for tgt in targets}
         if len(target_shape_set) == 1:
             shape = next(iter(target_shape_set))
+        elif len(target_shape_set) == 0:
+            raise ValueError(f'Unable to automatically assign a shape to {name}. '
+                             'Independent controls need to declare a shape.')
         else:
             raise ValueError(f'Unable to automatically assign a shape to {name} based on targets. '
                              f'Targets have multiple shapes assigned: {target_shape_set}. '
@@ -197,7 +247,8 @@ def get_source_metadata(ode, src, user_units, user_shape):
     this method should be called from configure of some parent Group, and the ODE should
     be a system within that Group.
     """
-    ode_outputs = {opts['prom_name']: opts for (k, opts) in ode.get_io_metadata(iotypes=('output',)).items()}
+    ode_outputs = {opts['prom_name']: opts for (k, opts) in
+                   ode.get_io_metadata(iotypes=('output',), get_remote=True).items()}
 
     if src not in ode_outputs:
         raise ValueError(f'Unable to find the source {src} in the ODE at {ode.pathname}.')
@@ -273,6 +324,30 @@ def CompWrapperConfig(comp_class):
 
         def setup(self):
             super(WrappedClass, self).setup()
+            self.configure_io()
+
+    return WrappedClass
+
+
+# Modify class so we can run it standalone.
+def GroupWrapperConfig(comp_class):
+    """
+    Returns a wrapped group_class that calls its configure_io method at the end of setup.
+
+    This allows for standalone testing of Dymos components that normally require their parent group
+    to configure them.
+
+    Parameters
+    ----------
+    comp_class : Component class
+       Class that we would like to wrap.
+    """
+    class WrappedClass(comp_class):
+
+        def setup(self):
+            super(WrappedClass, self).setup()
+
+        def configure(self):
             self.configure_io()
 
     return WrappedClass
