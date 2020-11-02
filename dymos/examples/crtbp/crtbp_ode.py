@@ -84,9 +84,9 @@ class crtbp_ode(om.ExplicitComponent):
         ar = np.arange(nn)
         c = np.zeros(nn)
 
-        self.declare_partials(of='vx_dot', wrt='x_dot', rows=ar, cols=ar, val=1.0)
-        self.declare_partials(of='vy_dot', wrt='y_dot', rows=ar, cols=ar, val=1.0)
-        self.declare_partials(of='vz_dot', wrt='z_dot', rows=ar, cols=ar, val=1.0)
+        self.declare_partials(of='vx', wrt='x_dot', rows=ar, cols=ar, val=1.0)
+        self.declare_partials(of='vy', wrt='y_dot', rows=ar, cols=ar, val=1.0)
+        self.declare_partials(of='vz', wrt='z_dot', rows=ar, cols=ar, val=1.0)
 
         self.declare_partials(of='vx_dot', wrt='x', rows=ar, cols=ar)
         self.declare_partials(of='vx_dot', wrt='y', rows=ar, cols=ar)
@@ -134,7 +134,7 @@ class crtbp_ode(om.ExplicitComponent):
         r1 = np.sqrt((x+mu)**2 + y**2 + z**2)
         r2 = np.sqrt((x+mu-1)**2 + y**2 + z**2)
 
-        partials['vx_dot', 'mu'] = (1 + x - 2 * mu)/(r1 ** 3) + (1 - x + 2 * mu)/(r2 ** 3) + 3 * (1 - mu) * (x-mu) * \
+        partials['vx_dot', 'mu'] = (2 * mu + x - 1)/(r1 ** 3) + (1 - x - 2 * mu)/(r2 ** 3) + 3 * (1 - mu) * (x + mu) * \
                                    (x + mu) / (r1 ** 5) + 3 * mu * (mu + x - 1)**2/(r2 ** 5)
         partials['vx_dot', 'x'] = 1 - (1 - mu) * (1 / (r1 ** 3) - 3 * (x + mu) ** 2 / (r1 ** 5)) - mu * (1 / (r2 ** 3) - 3 * (x + mu - 1) ** 2 / (r2 ** 5))
         partials['vx_dot', 'y'] = 3 * (1 - mu) * y * (x + mu) / (r1 ** 5) + 3 * mu * y * (x + mu - 1)/(r2 ** 5)

@@ -1,5 +1,5 @@
 import openmdao.api as om
-from openmdao.utils.assert_utils import assert_near_equal
+from openmdao.utils.assert_utils import assert_near_equal, assert_check_partials
 from openmdao.utils.general_utils import set_pyoptsparse_opt, printoptions
 from dymos import Trajectory, GaussLobatto, Phase, Radau
 import numpy as np
@@ -26,7 +26,7 @@ def make_problem(transcription=GaussLobatto, num_segments=50, order=3, compresse
         p.driver.opt_settings['Major optimality tolerance'] = 1.0E-6
     elif optimizer == 'IPOPT':
         p.driver.opt_settings['hessian_approximation'] = 'limited-memory'
-        # p.driver.opt_settings['nlp_scaling_method'] = 'user-scaling'
+        p.driver.opt_settings['nlp_scaling_method'] = 'gradient-based'
         p.driver.opt_settings['print_level'] = 5
         p.driver.opt_settings['linear_solver'] = 'mumps'
         p.driver.opt_settings['max_iter'] = 500
@@ -91,12 +91,13 @@ class TestGeneratePeriodicOrbits(unittest.TestCase):
         p = make_problem(transcription=Radau, optimizer='SLSQP')
         p.run_model()
         with printoptions(linewidth=1024, edgeitems=100):
-            cpd = p.check_partials(method='fd', compact_print=True, out_stream=None)
+            cpd = p.check_partials(method='cs', compact_print=True, out_stream=None)
+            assert_check_partials(cpd)
 
     def test_gen_L1_lyap_gl(self):
         initial_state = np.array([0.8089, 0.0, 0.0, 0.0, 0.2838, 0.0])
         T = 3.0224
-        p = make_problem(transcription=GaussLobatto, num_segments=50, order=3, compressed=True, optimizer='SNOPT',
+        p = make_problem(transcription=GaussLobatto, num_segments=50, order=3, compressed=True, optimizer='IPOPT',
                          orbit_options={'system': 'earth-moon', 'point': 'L1', 'init_state': initial_state,
                                         'period': T})
-        dm.run_problem(p, refine=True)
+        dm.run_problem(p, refine_iteration_limit=5)
