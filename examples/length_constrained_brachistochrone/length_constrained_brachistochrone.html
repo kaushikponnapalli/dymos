@@ -10,7 +10,7 @@
       
       
       <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.1.2, mkdocs-material-7.1.6">
+      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
     
     
       
@@ -18,7 +18,7 @@
       
     
     
-      <link rel="stylesheet" href="../../assets/stylesheets/main.875de78c.min.css">
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
       
         
         <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
@@ -42,6 +42,8 @@
     
     
       
+
+
     
     
   </head>
@@ -74,7 +76,7 @@
     
       <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Dymos" class="md-header__button md-logo" aria-label="Dymos" data-md-component="logo">
+    <a href="../../index.html" title="Dymos" class="md-header__button md-logo" aria-label="Dymos" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -154,7 +156,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Dymos" class="md-nav__button md-logo" aria-label="Dymos" data-md-component="logo">
+    <a href="../../index.html" title="Dymos" class="md-nav__button md-logo" aria-label="Dymos" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
@@ -1284,15 +1286,659 @@ Rather than rewrite an analysis tool to accommodate the pseudospectral approach,
 </code></pre></div>
 </div>
 <input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">output</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>INFO: checking out_of_order
+<div class="highlight"><pre><span></span><code>--- Logging error ---
+--- Logging error ---
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/logging/__init__.py&quot;, line 1088, in emit
+    stream.write(msg + self.terminator)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/logging/__init__.py&quot;, line 1088, in emit
+    stream.write(msg + self.terminator)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 63, in write
+    f.write(text)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 63, in write
+    f.write(text)
+ValueError: I/O operation on closed file.
+ValueError: I/O operation on closed file.
+Call stack:
+Call stack:
+  File &quot;/usr/share/miniconda/envs/test/bin/testflo&quot;, line 8, in &lt;module&gt;
+    sys.exit(main())
+  File &quot;/usr/share/miniconda/envs/test/bin/testflo&quot;, line 8, in &lt;module&gt;
+    sys.exit(main())
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 228, in main
+    retval = run_pipeline(tests, pipeline, options.disallow_skipped)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 228, in main
+    retval = run_pipeline(tests, pipeline, options.disallow_skipped)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 78, in run_pipeline
+    for result in iters[-1]:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 78, in run_pipeline
+    for result in iters[-1]:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/runner.py&quot;, line 58, in get_iter
+    result = test.run(self._queue)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/runner.py&quot;, line 58, in get_iter
+    result = test.run(self._queue)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 320, in run
+    status, expected2 = _try_call(getattr(parent, funcname))
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 320, in run
+    status, expected2 = _try_call(getattr(parent, funcname))
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 417, in _try_call
+    func()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 417, in _try_call
+    func()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 119, in wrapped
+    method(self)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 119, in wrapped
+    method(self)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/examples/length_constrained_brachistochrone/doc/test_doc_length_constrained_brachistochrone.py&quot;, line 92, in test_length_constrained_brachistochrone
+    p.run_driver()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/examples/length_constrained_brachistochrone/doc/test_doc_length_constrained_brachistochrone.py&quot;, line 92, in test_length_constrained_brachistochrone
+    p.run_driver()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 661, in run_driver
+    self.final_setup()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 661, in run_driver
+    self.final_setup()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1000, in final_setup
+    self.check_config(logger, checks=checks)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1000, in final_setup
+    self.check_config(logger, checks=checks)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1903, in check_config
+    logger.info(&#39;checking %s&#39; % c)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1903, in check_config
+    logger.info(&#39;checking %s&#39; % c)
+Message: &#39;checking out_of_order&#39;
+Arguments: ()
+Message: &#39;checking out_of_order&#39;
+Arguments: ()
+INFO: checking out_of_order
+--- Logging error ---
+--- Logging error ---
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/logging/__init__.py&quot;, line 1088, in emit
+    stream.write(msg + self.terminator)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/logging/__init__.py&quot;, line 1088, in emit
+    stream.write(msg + self.terminator)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 63, in write
+    f.write(text)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 63, in write
+    f.write(text)
+ValueError: I/O operation on closed file.
+ValueError: I/O operation on closed file.
+Call stack:
+Call stack:
+  File &quot;/usr/share/miniconda/envs/test/bin/testflo&quot;, line 8, in &lt;module&gt;
+    sys.exit(main())
+  File &quot;/usr/share/miniconda/envs/test/bin/testflo&quot;, line 8, in &lt;module&gt;
+    sys.exit(main())
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 228, in main
+    retval = run_pipeline(tests, pipeline, options.disallow_skipped)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 228, in main
+    retval = run_pipeline(tests, pipeline, options.disallow_skipped)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 78, in run_pipeline
+    for result in iters[-1]:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 78, in run_pipeline
+    for result in iters[-1]:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/runner.py&quot;, line 58, in get_iter
+    result = test.run(self._queue)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/runner.py&quot;, line 58, in get_iter
+    result = test.run(self._queue)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 320, in run
+    status, expected2 = _try_call(getattr(parent, funcname))
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 320, in run
+    status, expected2 = _try_call(getattr(parent, funcname))
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 417, in _try_call
+    func()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 417, in _try_call
+    func()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 119, in wrapped
+    method(self)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 119, in wrapped
+    method(self)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/examples/length_constrained_brachistochrone/doc/test_doc_length_constrained_brachistochrone.py&quot;, line 92, in test_length_constrained_brachistochrone
+    p.run_driver()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/examples/length_constrained_brachistochrone/doc/test_doc_length_constrained_brachistochrone.py&quot;, line 92, in test_length_constrained_brachistochrone
+    p.run_driver()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 661, in run_driver
+    self.final_setup()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 661, in run_driver
+    self.final_setup()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1000, in final_setup
+    self.check_config(logger, checks=checks)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1000, in final_setup
+    self.check_config(logger, checks=checks)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1903, in check_config
+    logger.info(&#39;checking %s&#39; % c)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1903, in check_config
+    logger.info(&#39;checking %s&#39; % c)
+Message: &#39;checking system&#39;
+Arguments: ()
+Message: &#39;checking system&#39;
+Arguments: ()
 INFO: checking system
+--- Logging error ---
+--- Logging error ---
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/logging/__init__.py&quot;, line 1088, in emit
+    stream.write(msg + self.terminator)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/logging/__init__.py&quot;, line 1088, in emit
+    stream.write(msg + self.terminator)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 63, in write
+    f.write(text)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 63, in write
+    f.write(text)
+ValueError: I/O operation on closed file.
+ValueError: I/O operation on closed file.
+Call stack:
+Call stack:
+  File &quot;/usr/share/miniconda/envs/test/bin/testflo&quot;, line 8, in &lt;module&gt;
+    sys.exit(main())
+  File &quot;/usr/share/miniconda/envs/test/bin/testflo&quot;, line 8, in &lt;module&gt;
+    sys.exit(main())
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 228, in main
+    retval = run_pipeline(tests, pipeline, options.disallow_skipped)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 228, in main
+    retval = run_pipeline(tests, pipeline, options.disallow_skipped)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 78, in run_pipeline
+    for result in iters[-1]:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 78, in run_pipeline
+    for result in iters[-1]:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/runner.py&quot;, line 58, in get_iter
+    result = test.run(self._queue)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/runner.py&quot;, line 58, in get_iter
+    result = test.run(self._queue)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 320, in run
+    status, expected2 = _try_call(getattr(parent, funcname))
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 320, in run
+    status, expected2 = _try_call(getattr(parent, funcname))
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 417, in _try_call
+    func()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 417, in _try_call
+    func()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 119, in wrapped
+    method(self)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 119, in wrapped
+    method(self)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/examples/length_constrained_brachistochrone/doc/test_doc_length_constrained_brachistochrone.py&quot;, line 92, in test_length_constrained_brachistochrone
+    p.run_driver()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/examples/length_constrained_brachistochrone/doc/test_doc_length_constrained_brachistochrone.py&quot;, line 92, in test_length_constrained_brachistochrone
+    p.run_driver()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 661, in run_driver
+    self.final_setup()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 661, in run_driver
+    self.final_setup()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1000, in final_setup
+    self.check_config(logger, checks=checks)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1000, in final_setup
+    self.check_config(logger, checks=checks)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1903, in check_config
+    logger.info(&#39;checking %s&#39; % c)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1903, in check_config
+    logger.info(&#39;checking %s&#39; % c)
+Message: &#39;checking solvers&#39;
+Arguments: ()
+Message: &#39;checking solvers&#39;
+Arguments: ()
 INFO: checking solvers
+--- Logging error ---
+--- Logging error ---
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/logging/__init__.py&quot;, line 1088, in emit
+    stream.write(msg + self.terminator)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/logging/__init__.py&quot;, line 1088, in emit
+    stream.write(msg + self.terminator)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 63, in write
+    f.write(text)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 63, in write
+    f.write(text)
+ValueError: I/O operation on closed file.
+ValueError: I/O operation on closed file.
+Call stack:
+Call stack:
+  File &quot;/usr/share/miniconda/envs/test/bin/testflo&quot;, line 8, in &lt;module&gt;
+    sys.exit(main())
+  File &quot;/usr/share/miniconda/envs/test/bin/testflo&quot;, line 8, in &lt;module&gt;
+    sys.exit(main())
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 228, in main
+    retval = run_pipeline(tests, pipeline, options.disallow_skipped)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 228, in main
+    retval = run_pipeline(tests, pipeline, options.disallow_skipped)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 78, in run_pipeline
+    for result in iters[-1]:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 78, in run_pipeline
+    for result in iters[-1]:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/runner.py&quot;, line 58, in get_iter
+    result = test.run(self._queue)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/runner.py&quot;, line 58, in get_iter
+    result = test.run(self._queue)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 320, in run
+    status, expected2 = _try_call(getattr(parent, funcname))
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 320, in run
+    status, expected2 = _try_call(getattr(parent, funcname))
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 417, in _try_call
+    func()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 417, in _try_call
+    func()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 119, in wrapped
+    method(self)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 119, in wrapped
+    method(self)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/examples/length_constrained_brachistochrone/doc/test_doc_length_constrained_brachistochrone.py&quot;, line 92, in test_length_constrained_brachistochrone
+    p.run_driver()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/examples/length_constrained_brachistochrone/doc/test_doc_length_constrained_brachistochrone.py&quot;, line 92, in test_length_constrained_brachistochrone
+    p.run_driver()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 661, in run_driver
+    self.final_setup()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 661, in run_driver
+    self.final_setup()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1000, in final_setup
+    self.check_config(logger, checks=checks)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1000, in final_setup
+    self.check_config(logger, checks=checks)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1903, in check_config
+    logger.info(&#39;checking %s&#39; % c)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1903, in check_config
+    logger.info(&#39;checking %s&#39; % c)
+Message: &#39;checking dup_inputs&#39;
+Arguments: ()
+Message: &#39;checking dup_inputs&#39;
+Arguments: ()
 INFO: checking dup_inputs
+--- Logging error ---
+--- Logging error ---
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/logging/__init__.py&quot;, line 1088, in emit
+    stream.write(msg + self.terminator)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/logging/__init__.py&quot;, line 1088, in emit
+    stream.write(msg + self.terminator)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 63, in write
+    f.write(text)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 63, in write
+    f.write(text)
+ValueError: I/O operation on closed file.
+ValueError: I/O operation on closed file.
+Call stack:
+Call stack:
+  File &quot;/usr/share/miniconda/envs/test/bin/testflo&quot;, line 8, in &lt;module&gt;
+    sys.exit(main())
+  File &quot;/usr/share/miniconda/envs/test/bin/testflo&quot;, line 8, in &lt;module&gt;
+    sys.exit(main())
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 228, in main
+    retval = run_pipeline(tests, pipeline, options.disallow_skipped)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 228, in main
+    retval = run_pipeline(tests, pipeline, options.disallow_skipped)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 78, in run_pipeline
+    for result in iters[-1]:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 78, in run_pipeline
+    for result in iters[-1]:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/runner.py&quot;, line 58, in get_iter
+    result = test.run(self._queue)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/runner.py&quot;, line 58, in get_iter
+    result = test.run(self._queue)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 320, in run
+    status, expected2 = _try_call(getattr(parent, funcname))
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 320, in run
+    status, expected2 = _try_call(getattr(parent, funcname))
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 417, in _try_call
+    func()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 417, in _try_call
+    func()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 119, in wrapped
+    method(self)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 119, in wrapped
+    method(self)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/examples/length_constrained_brachistochrone/doc/test_doc_length_constrained_brachistochrone.py&quot;, line 92, in test_length_constrained_brachistochrone
+    p.run_driver()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/examples/length_constrained_brachistochrone/doc/test_doc_length_constrained_brachistochrone.py&quot;, line 92, in test_length_constrained_brachistochrone
+    p.run_driver()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 661, in run_driver
+    self.final_setup()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 661, in run_driver
+    self.final_setup()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1000, in final_setup
+    self.check_config(logger, checks=checks)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1000, in final_setup
+    self.check_config(logger, checks=checks)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1903, in check_config
+    logger.info(&#39;checking %s&#39; % c)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1903, in check_config
+    logger.info(&#39;checking %s&#39; % c)
+Message: &#39;checking missing_recorders&#39;
+Arguments: ()
+Message: &#39;checking missing_recorders&#39;
+Arguments: ()
 INFO: checking missing_recorders
+--- Logging error ---
+--- Logging error ---
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/logging/__init__.py&quot;, line 1088, in emit
+    stream.write(msg + self.terminator)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/logging/__init__.py&quot;, line 1088, in emit
+    stream.write(msg + self.terminator)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 63, in write
+    f.write(text)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 63, in write
+    f.write(text)
+ValueError: I/O operation on closed file.
+ValueError: I/O operation on closed file.
+Call stack:
+Call stack:
+  File &quot;/usr/share/miniconda/envs/test/bin/testflo&quot;, line 8, in &lt;module&gt;
+    sys.exit(main())
+  File &quot;/usr/share/miniconda/envs/test/bin/testflo&quot;, line 8, in &lt;module&gt;
+    sys.exit(main())
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 228, in main
+    retval = run_pipeline(tests, pipeline, options.disallow_skipped)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 228, in main
+    retval = run_pipeline(tests, pipeline, options.disallow_skipped)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 78, in run_pipeline
+    for result in iters[-1]:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 78, in run_pipeline
+    for result in iters[-1]:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/runner.py&quot;, line 58, in get_iter
+    result = test.run(self._queue)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/runner.py&quot;, line 58, in get_iter
+    result = test.run(self._queue)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 320, in run
+    status, expected2 = _try_call(getattr(parent, funcname))
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 320, in run
+    status, expected2 = _try_call(getattr(parent, funcname))
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 417, in _try_call
+    func()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 417, in _try_call
+    func()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 119, in wrapped
+    method(self)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 119, in wrapped
+    method(self)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/examples/length_constrained_brachistochrone/doc/test_doc_length_constrained_brachistochrone.py&quot;, line 92, in test_length_constrained_brachistochrone
+    p.run_driver()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/examples/length_constrained_brachistochrone/doc/test_doc_length_constrained_brachistochrone.py&quot;, line 92, in test_length_constrained_brachistochrone
+    p.run_driver()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 661, in run_driver
+    self.final_setup()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 661, in run_driver
+    self.final_setup()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1000, in final_setup
+    self.check_config(logger, checks=checks)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1000, in final_setup
+    self.check_config(logger, checks=checks)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1904, in check_config
+    _all_checks[c](self, logger)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1904, in check_config
+    _all_checks[c](self, logger)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/error_checking/check_config.py&quot;, line 506, in _check_missing_recorders
+    logger.warning(msg)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/error_checking/check_config.py&quot;, line 506, in _check_missing_recorders
+    logger.warning(msg)
+Message: &#39;The Problem has no recorder of any kind attached&#39;
+Arguments: ()
+Message: &#39;The Problem has no recorder of any kind attached&#39;
+Arguments: ()
 WARNING: The Problem has no recorder of any kind attached
+--- Logging error ---
+--- Logging error ---
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/logging/__init__.py&quot;, line 1088, in emit
+    stream.write(msg + self.terminator)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/logging/__init__.py&quot;, line 1088, in emit
+    stream.write(msg + self.terminator)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 63, in write
+    f.write(text)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 63, in write
+    f.write(text)
+ValueError: I/O operation on closed file.
+ValueError: I/O operation on closed file.
+Call stack:
+Call stack:
+  File &quot;/usr/share/miniconda/envs/test/bin/testflo&quot;, line 8, in &lt;module&gt;
+    sys.exit(main())
+  File &quot;/usr/share/miniconda/envs/test/bin/testflo&quot;, line 8, in &lt;module&gt;
+    sys.exit(main())
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 228, in main
+    retval = run_pipeline(tests, pipeline, options.disallow_skipped)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 228, in main
+    retval = run_pipeline(tests, pipeline, options.disallow_skipped)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 78, in run_pipeline
+    for result in iters[-1]:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 78, in run_pipeline
+    for result in iters[-1]:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/runner.py&quot;, line 58, in get_iter
+    result = test.run(self._queue)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/runner.py&quot;, line 58, in get_iter
+    result = test.run(self._queue)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 320, in run
+    status, expected2 = _try_call(getattr(parent, funcname))
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 320, in run
+    status, expected2 = _try_call(getattr(parent, funcname))
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 417, in _try_call
+    func()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 417, in _try_call
+    func()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 119, in wrapped
+    method(self)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 119, in wrapped
+    method(self)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/examples/length_constrained_brachistochrone/doc/test_doc_length_constrained_brachistochrone.py&quot;, line 92, in test_length_constrained_brachistochrone
+    p.run_driver()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/examples/length_constrained_brachistochrone/doc/test_doc_length_constrained_brachistochrone.py&quot;, line 92, in test_length_constrained_brachistochrone
+    p.run_driver()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 661, in run_driver
+    self.final_setup()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 661, in run_driver
+    self.final_setup()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1000, in final_setup
+    self.check_config(logger, checks=checks)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1000, in final_setup
+    self.check_config(logger, checks=checks)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1903, in check_config
+    logger.info(&#39;checking %s&#39; % c)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1903, in check_config
+    logger.info(&#39;checking %s&#39; % c)
+Message: &#39;checking comp_has_no_outputs&#39;
+Arguments: ()
+Message: &#39;checking comp_has_no_outputs&#39;
+Arguments: ()
 INFO: checking comp_has_no_outputs
+--- Logging error ---
+--- Logging error ---
+Traceback (most recent call last):
+Traceback (most recent call last):
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/logging/__init__.py&quot;, line 1088, in emit
+    stream.write(msg + self.terminator)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/logging/__init__.py&quot;, line 1088, in emit
+    stream.write(msg + self.terminator)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 63, in write
+    f.write(text)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 63, in write
+    f.write(text)
+ValueError: I/O operation on closed file.
+ValueError: I/O operation on closed file.
+Call stack:
+Call stack:
+  File &quot;/usr/share/miniconda/envs/test/bin/testflo&quot;, line 8, in &lt;module&gt;
+    sys.exit(main())
+  File &quot;/usr/share/miniconda/envs/test/bin/testflo&quot;, line 8, in &lt;module&gt;
+    sys.exit(main())
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 228, in main
+    retval = run_pipeline(tests, pipeline, options.disallow_skipped)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 228, in main
+    retval = run_pipeline(tests, pipeline, options.disallow_skipped)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 78, in run_pipeline
+    for result in iters[-1]:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/main.py&quot;, line 78, in run_pipeline
+    for result in iters[-1]:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/summary.py&quot;, line 30, in get_iter
+    for test in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/printer.py&quot;, line 28, in get_iter
+    for result in input_iter:
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/runner.py&quot;, line 58, in get_iter
+    result = test.run(self._queue)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/runner.py&quot;, line 58, in get_iter
+    result = test.run(self._queue)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 320, in run
+    status, expected2 = _try_call(getattr(parent, funcname))
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 320, in run
+    status, expected2 = _try_call(getattr(parent, funcname))
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 417, in _try_call
+    func()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/testflo/test.py&quot;, line 417, in _try_call
+    func()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 119, in wrapped
+    method(self)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/utils/doc_utils.py&quot;, line 119, in wrapped
+    method(self)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/examples/length_constrained_brachistochrone/doc/test_doc_length_constrained_brachistochrone.py&quot;, line 92, in test_length_constrained_brachistochrone
+    p.run_driver()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/dymos/examples/length_constrained_brachistochrone/doc/test_doc_length_constrained_brachistochrone.py&quot;, line 92, in test_length_constrained_brachistochrone
+    p.run_driver()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 661, in run_driver
+    self.final_setup()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 661, in run_driver
+    self.final_setup()
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1000, in final_setup
+    self.check_config(logger, checks=checks)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1000, in final_setup
+    self.check_config(logger, checks=checks)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1903, in check_config
+    logger.info(&#39;checking %s&#39; % c)
+  File &quot;/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py&quot;, line 1903, in check_config
+    logger.info(&#39;checking %s&#39; % c)
+Message: &#39;checking auto_ivc_warnings&#39;
+Arguments: ()
+Message: &#39;checking auto_ivc_warnings&#39;
+Arguments: ()
 INFO: checking auto_ivc_warnings
-Full total jacobian was computed 3 times, taking 1.054179 seconds.
+Full total jacobian was computed 3 times, taking 1.176316 seconds.
 Total jacobian shape: (220, 296) 
 
 
@@ -1301,8 +1947,8 @@ FWD solves: 1   REV solves: 11
 Total colors vs. total size: 12 vs 220  (94.5% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 1.054179 sec.
-Time to compute coloring: 0.293394 sec.
+Time to compute sparsity: 1.176316 sec.
+Time to compute coloring: 0.331638 sec.
 Optimization terminated successfully.    (Exit mode 0)
             Current function value: 1.808598520786357
             Iterations: 5
@@ -1337,7 +1983,8 @@ Done simulating trajectory traj
   
     <nav class="md-footer__inner md-grid" aria-label="Footer">
       
-        <a href="../finite_burn_orbit_raise/finite_burn_orbit_raise.html" class="md-footer__link md-footer__link--prev" rel="prev">
+        
+        <a href="../finite_burn_orbit_raise/finite_burn_orbit_raise.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: Two-Burn Orbit Raise" rel="prev">
           <div class="md-footer__button md-icon">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
           </div>
@@ -1352,7 +1999,8 @@ Done simulating trajectory traj
         </a>
       
       
-        <a href="../min_time_climb/min_time_climb.html" class="md-footer__link md-footer__link--next" rel="next">
+        
+        <a href="../min_time_climb/min_time_climb.html" class="md-footer__link md-footer__link--next" aria-label="Next: Supersonic Interceptor Minimum Time Climb" rel="next">
           <div class="md-footer__title">
             <div class="md-ellipsis">
               <span class="md-footer__direction">
@@ -1387,10 +2035,10 @@ Done simulating trajectory traj
     <div class="md-dialog" data-md-component="dialog">
       <div class="md-dialog__inner md-typeset"></div>
     </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing"}, "search": "../../assets/javascripts/workers/search.d351de03.min.js", "version": {"method": "mike"}}</script>
+    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": {"method": "mike"}}</script>
     
     
-      <script src="../../assets/javascripts/bundle.34eae1b6.min.js"></script>
+      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
       
