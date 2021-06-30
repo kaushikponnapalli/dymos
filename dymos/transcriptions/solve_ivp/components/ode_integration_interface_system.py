@@ -105,14 +105,8 @@ class ODEIntegrationInterfaceSystem(om.Group):
 
             targets = get_targets(ode=ode, name=name, user_targets=options['targets'])
             if targets:
-                for tgt in targets:
-                    tgt_shape, _, _ = get_target_metadata(ode=ode, name=name, user_targets=tgt)
-                    if len(tgt_shape) == 1 and tgt_shape[0] == 1:
-                        src_idxs = np.arange(size, dtype=int).reshape(tgt_shape)
-                    else:
-                        src_idxs = np.arange(size, dtype=int).reshape((1,) + tgt_shape)
-                    self.connect(f'states:{name}', f'ode.{tgt}',
-                                 src_indices=src_idxs, flat_src_indices=True)
+                self.connect(f'states:{name}', [f'ode.{tgt}' for tgt in targets])
+            ivc.add_design_var(f'states:{name}')
 
         # Configure controls
         if self.options['control_options']:
@@ -132,6 +126,7 @@ class ODEIntegrationInterfaceSystem(om.Group):
                 if rate2_targets:
                     self.connect(f'control_rates:{name}_rate2',
                                  [f'ode.{tgt}' for tgt in rate2_targets])
+                self.add_design_var(f'controls:{name}')
 
         # Polynomial controls
         if self.options['polynomial_control_options']:
@@ -178,7 +173,8 @@ class ODEIntegrationInterfaceSystem(om.Group):
             rate_path = 'states:{0}'.format(var)
         elif self.options['control_options'] is not None and var in self.options['control_options']:
             rate_path = 'controls:{0}'.format(var)
-        elif self.options['polynomial_control_options'] is not None and var in self.options['polynomial_control_options']:
+        elif self.options['polynomial_control_options'] is not None and \
+                var in self.options['polynomial_control_options']:
             rate_path = 'polynomial_controls:{0}'.format(var)
         elif self.options['parameter_options'] is not None and var in self.options['parameter_options']:
             rate_path = 'parameters:{0}'.format(var)
