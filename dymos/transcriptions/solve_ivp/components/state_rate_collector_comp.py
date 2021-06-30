@@ -51,6 +51,7 @@ class StateRateCollectorComp(om.ExplicitComponent):
 
             self.add_input(self._input_names[name], val=np.ones(shape), units=rate_units)
             self.add_output(self._output_names[name], shape=shape, units=rate_units)
+            self.declare_partials(of=self._output_names[name], wrt=self._input_names[name], val=1.0)
 
     def compute(self, inputs, outputs):
         """
