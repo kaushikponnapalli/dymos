@@ -1,1381 +1,634 @@
 
-<!doctype html>
-<html lang="en" class="no-js">
+<!DOCTYPE html>
+
+<html>
   <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aircraft Balanced Field Length Calculation &#8212; Dymos</title>
     
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-      
-      
-      
-      <link rel="icon" href="../../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.2.1, mkdocs-material-7.1.8">
+  <link href="../../_static/css/theme.css" rel="stylesheet" />
+  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+
     
-    
-      
-        <title>Aircraft Balanced Field Length Calculation - Dymos</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/main.ca7ac06f.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.f1a3b89f.min.css">
-        
-          
-          
-          <meta name="theme-color" content="#546d78">
-        
-      
-    
-    
-    
-      
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700%7CRoboto+Mono&display=fallback">
-        <style>:root{--md-text-font-family:"Roboto";--md-code-font-family:"Roboto Mono"}</style>
-      
-    
-    
-    
+  <link rel="stylesheet"
+    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
     
       
 
-
     
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/myfile.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+
+    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script src="../../_static/clipboard.min.js"></script>
+    <script src="../../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Commercial Aircraft Range Maximization by Differential Inclusion" href="../commercial_aircraft/commercial_aircraft.html" />
+    <link rel="prev" title="The Van der Pol Oscillator" href="../vanderpol/vanderpol.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
     
   </head>
-  
-  
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
     
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="blue">
-  
-    
-    <script>function __prefix(e){return new URL("../..",location).pathname+"."+e}function __get(e,t=localStorage){return JSON.parse(t.getItem(__prefix(e)))}</script>
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#aircraft-balanced-field-length-calculation" class="md-skip">
-          Skip to content
-        </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-      <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../index.html" title="Dymos" class="md-header__button md-logo" aria-label="Dymos" data-md-component="logo">
-      
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
+    <div class="container-fluid" id="banner"></div>
 
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
-            Dymos
-          </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
-            
-              Aircraft Balanced Field Length Calculation
-            
-          </span>
-        </div>
-      </div>
-    </div>
     
-    
-    
-      <label class="md-header__button md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-      </label>
-      
-<div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" data-md-state="active" required>
-      <label class="md-search__icon md-icon" for="__search">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5z"/></svg>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-      </label>
-      <button type="reset" class="md-search__icon md-icon" aria-label="Clear" tabindex="-1">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41z"/></svg>
-      </button>
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-    
-    
-  </nav>
-</header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
+
+    <div class="container-xl">
+      <div class="row">
           
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../../index.html" title="Dymos" class="md-nav__button md-logo" aria-label="Dymos" data-md-component="logo">
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../../index.html">
       
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54z"/></svg>
-
+      <img src="../../_static/dymos_logo.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Dymos</h1>
+      
     </a>
-    Dymos
+</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    <div class="bd-toc-item active">
+        <ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../index.html">
+   Multidisciplinary Optimal Control Library
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Installation
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../installation.html">
+   Installing Dymos
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Getting Started
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting_started/collocation.html">
+   What is collocation?
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting_started/defining_odes.html">
+   Defining ODEs
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting_started/optimal_control.html">
+   Optimal Control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting_started/intro_to_dymos/intro_ivp.html">
+   Modeling Dynamic Systems with Dymos
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting_started/intro_to_dymos/intro_segments.html">
+   Segments of Phases
+  </a>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Examples and Tutorials
+ </span>
+</p>
+<ul class="current nav bd-sidenav">
+ <li class="toctree-l1 current active has-children">
+  <a class="reference internal" href="../examples.html">
+   Dymos by Example
+  </a>
+  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
+  <label for="toctree-checkbox-1">
+   <i class="fas fa-chevron-down">
+   </i>
   </label>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../index.html" class="md-nav__link">
-        Home
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../installation.html" class="md-nav__link">
-        Installation
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_3" type="checkbox" id="__nav_3" >
-      
-      <label class="md-nav__link" for="__nav_3">
-        Getting Started
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Getting Started" data-md-level="1">
-        <label class="md-nav__title" for="__nav_3">
-          <span class="md-nav__icon md-icon"></span>
-          Getting Started
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../getting_started/collocation.html" class="md-nav__link">
-        What is collocation?
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../getting_started/optimal_control.html" class="md-nav__link">
-        Optimal Control
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../getting_started/defining_odes.html" class="md-nav__link">
-        Defining ODEs
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../getting_started/intro_to_dymos/intro_ivp.html" class="md-nav__link">
-        Modeling Dynamic Systems with Dymos
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../getting_started/intro_to_dymos/intro_segments.html" class="md-nav__link">
-        Segments of Phases
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4" type="checkbox" id="__nav_4" checked>
-      
-      <label class="md-nav__link" for="__nav_4">
-        Examples and Tutorials
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Examples and Tutorials" data-md-level="1">
-        <label class="md-nav__title" for="__nav_4">
-          <span class="md-nav__icon md-icon"></span>
-          Examples and Tutorials
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../examples.html" class="md-nav__link">
-        Dymos by Example
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-    
-  
-  
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_4_2" type="checkbox" id="__nav_4_2" checked>
-      
-      <label class="md-nav__link" for="__nav_4_2">
-        Example Problems
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Example Problems" data-md-level="2">
-        <label class="md-nav__title" for="__nav_4_2">
-          <span class="md-nav__icon md-icon"></span>
-          Example Problems
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../brachistochrone/brachistochrone.html" class="md-nav__link">
-        The Brachistochrone
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../vanderpol/vanderpol.html" class="md-nav__link">
-        The Van der Pol Oscillator
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-    
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          Aircraft Balanced Field Length Calculation
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="balanced_field.html" class="md-nav__link md-nav__link--active">
-        Aircraft Balanced Field Length Calculation
-      </a>
-      
-        
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-ode-system" class="md-nav__link">
-    The ODE System
-  </a>
-  
-    <nav class="md-nav" aria-label="The ODE System">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#the-aerodynamic-model" class="md-nav__link">
-    The Aerodynamic Model
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stall-speed" class="md-nav__link">
-    Stall Speed
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#runway-equations-of-motion" class="md-nav__link">
-    Runway Equations of Motion
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#flight-equations-of-motion" class="md-nav__link">
-    Flight Equations of Motion
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#treatment-of-the-angle-of-attack-alphaalpha" class="md-nav__link">
-    Treatment of the angle-of-attack (\alpha\alpha)
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    Parameters
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-optimal-control-problem" class="md-nav__link">
-    The Optimal Control Problem
-  </a>
-  
-    <nav class="md-nav" aria-label="The Optimal Control Problem">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#objective" class="md-nav__link">
-    Objective
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nonlinear-boundary-constraints" class="md-nav__link">
-    Nonlinear Boundary Constraints
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nonlinear-path-constraints" class="md-nav__link">
-    Nonlinear Path Constraints
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#phase-continuity-constraints" class="md-nav__link">
-    Phase Continuity Constraints
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code" class="md-nav__link">
-    Source Code
-  </a>
-  
-    <nav class="md-nav" aria-label="Source Code">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#balancedfieldodecomp" class="md-nav__link">
-    BalancedFieldODEComp
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-and-running-the-problem" class="md-nav__link">
-    Building and running the problem
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../commercial_aircraft/commercial_aircraft.html" class="md-nav__link">
-        Commercial Aircraft Range Maximization by Differential Inclusion
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../double_integrator/double_integrator.html" class="md-nav__link">
-        Double Integrator
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../hypersensitive/hypersensitive.html" class="md-nav__link">
-        Hyper-Sensitive Problem
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../finite_burn_orbit_raise/finite_burn_orbit_raise.html" class="md-nav__link">
-        Two-Burn Orbit Raise
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../length_constrained_brachistochrone/length_constrained_brachistochrone.html" class="md-nav__link">
-        The Length-Constrained Brachistochrone
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../min_time_climb/min_time_climb.html" class="md-nav__link">
-        Supersonic Interceptor Minimum Time Climb
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../multi_phase_cannonball/multi_phase_cannonball.html" class="md-nav__link">
-        Multi-Phase Cannonball
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../multibranch_trajectory/multibranch_trajectory.html" class="md-nav__link">
-        Multibranch Trajectory
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../racecar/racecar.html" class="md-nav__link">
-        Race car Lap Simulation
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../reentry/reentry.html" class="md-nav__link">
-        Single-Phase Space Shuttle Reentry
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ssto_earth/ssto_earth.html" class="md-nav__link">
-        SSTO Earth Launch
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ssto_moon_linear_tangent/ssto_moon_linear_tangent.html" class="md-nav__link">
-        SSTO Lunar Ascent with Linear Tangent Guidance
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../ssto_moon_polynomial_controls/ssto_moon_polynomial_controls.html" class="md-nav__link">
-        SSTO Lunar Ascent with Polynomial Controls
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../water_rocket/water_rocket.html" class="md-nav__link">
-        Water Rocket
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5" type="checkbox" id="__nav_5" >
-      
-      <label class="md-nav__link" for="__nav_5">
-        Feature Reference
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Feature Reference" data-md-level="1">
-        <label class="md-nav__title" for="__nav_5">
-          <span class="md-nav__icon md-icon"></span>
-          Feature Reference
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_1" type="checkbox" id="__nav_5_1" >
-      
-      <label class="md-nav__link" for="__nav_5_1">
-        Phases
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Phases" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_1">
-          <span class="md-nav__icon md-icon"></span>
-          Phases
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../features/phases/phases.html" class="md-nav__link">
-        Phases of a Trajectory
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../features/phases/segments.html" class="md-nav__link">
-        Segments
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../features/phases/variables.html" class="md-nav__link">
-        Variables
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../features/phases/constraints.html" class="md-nav__link">
-        Constraints
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../features/phases/objective.html" class="md-nav__link">
-        Objective
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../features/phases/timeseries.html" class="md-nav__link">
-        Timeseries Outputs
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_5_2" type="checkbox" id="__nav_5_2" >
-      
-      <label class="md-nav__link" for="__nav_5_2">
-        Trajectories
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Trajectories" data-md-level="2">
-        <label class="md-nav__title" for="__nav_5_2">
-          <span class="md-nav__icon md-icon"></span>
-          Trajectories
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../features/trajectories/trajectories.html" class="md-nav__link">
-        Organizing Phases into Trajectories
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../features/exploiting_sparsity.html" class="md-nav__link">
-        Exploiting Sparsity for Faster Derivative Calculation
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../features/plotting.html" class="md-nav__link">
-        Plotting Timeseries
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_6" type="checkbox" id="__nav_6" >
-      
-      <label class="md-nav__link" for="__nav_6">
-        Frequently Asked Questions
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Frequently Asked Questions" data-md-level="1">
-        <label class="md-nav__title" for="__nav_6">
-          <span class="md-nav__icon md-icon"></span>
-          Frequently Asked Questions
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../faq/add_ode_output_to_timeseries.html" class="md-nav__link">
-        How do I add an ODE output to the timeseries outputs?
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../faq/connect_scalar_parameters_to_ode.html" class="md-nav__link">
-        How do I connect a scalar input to the ODE?
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../faq/upstream_analysis.html" class="md-nav__link">
-        How do connect the outputs of an upstream analysis as inputs to Dymos?
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../faq/downstream_analysis.html" class="md-nav__link">
-        How do connect the outputs of Dymos to a downstream analysis?
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../faq/tandem_phases.html" class="md-nav__link">
-        How do I run two phases parallel-in-time?
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../faq/use_partial_coloring.html" class="md-nav__link">
-        How can I more efficiently use finite-differenced components in the ODE?
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../faq/debugging.html" class="md-nav__link">
-        How can I debug models when things go wrong?
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_7" type="checkbox" id="__nav_7" >
-      
-      <label class="md-nav__link" for="__nav_7">
-        Dymos API Reference
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Dymos API Reference" data-md-level="1">
-        <label class="md-nav__title" for="__nav_7">
-          <span class="md-nav__icon md-icon"></span>
-          Dymos API Reference
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api/run_problem.html" class="md-nav__link">
-        The Dymos run_problem function
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api/phase_api.html" class="md-nav__link">
-        The Phase API
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../api/trajectory_api.html" class="md-nav__link">
-        The Trajectory API
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_8" type="checkbox" id="__nav_8" >
-      
-      <label class="md-nav__link" for="__nav_8">
-        Whats New
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Whats New" data-md-level="1">
-        <label class="md-nav__title" for="__nav_8">
-          <span class="md-nav__icon md-icon"></span>
-          Whats New
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../release_notes/version_0.16.0.html" class="md-nav__link">
-        dymos 0.16.0
-      </a>
-    </li>
-  
-
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../release_notes/version_0.17.0.html" class="md-nav__link">
-        dymos 0.17.0
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
-  
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-      
-        <input class="md-nav__toggle md-toggle" data-md-toggle="__nav_9" type="checkbox" id="__nav_9" >
-      
-      <label class="md-nav__link" for="__nav_9">
-        Contributing
-        <span class="md-nav__icon md-icon"></span>
-      </label>
-      <nav class="md-nav" aria-label="Contributing" data-md-level="1">
-        <label class="md-nav__title" for="__nav_9">
-          <span class="md-nav__icon md-icon"></span>
-          Contributing
-        </label>
-        <ul class="md-nav__list" data-md-scrollfix>
-          
-            
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../contributing/contributing.html" class="md-nav__link">
-        Contributing to Dymos
-      </a>
-    </li>
-  
-
-          
-        </ul>
-      </nav>
-    </li>
-  
-
-    
+  <ul class="current">
+   <li class="toctree-l2">
+    <a class="reference internal" href="../brachistochrone/brachistochrone.html">
+     The Brachistochrone
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../vanderpol/vanderpol.html">
+     The Van der Pol Oscillator
+    </a>
+   </li>
+   <li class="toctree-l2 current active">
+    <a class="current reference internal" href="#">
+     Aircraft Balanced Field Length Calculation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../commercial_aircraft/commercial_aircraft.html">
+     Commercial Aircraft Range Maximization by Differential Inclusion
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../double_integrator/double_integrator.html">
+     Double Integrator
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../hypersensitive/hypersensitive.html">
+     Hyper-Sensitive Problem
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../finite_burn_orbit_raise/finite_burn_orbit_raise.html">
+     Two-Burn Orbit Raise
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../length_constrained_brachistochrone/length_constrained_brachistochrone.html">
+     The Length-Constrained Brachistochrone
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../min_time_climb/min_time_climb.html">
+     Supersonic Interceptor Minimum Time Climb
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../multi_phase_cannonball/multi_phase_cannonball.html">
+     Multi-Phase Cannonball
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../multibranch_trajectory/multibranch_trajectory.html">
+     Multibranch Trajectory
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../racecar/racecar.html">
+     Race car Lap Simulation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../reentry/reentry.html">
+     Single-Phase Space Shuttle Reentry
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ssto_earth/ssto_earth.html">
+     SSTO Earth Launch
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ssto_moon_linear_tangent/ssto_moon_linear_tangent.html">
+     SSTO Lunar Ascent with Linear Tangent Guidance
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../ssto_moon_polynomial_controls/ssto_moon_polynomial_controls.html">
+     SSTO Lunar Ascent with Polynomial Controls
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../water_rocket/water_rocket.html">
+     Water Rocket
+    </a>
+   </li>
   </ul>
-</nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-ode-system" class="md-nav__link">
-    The ODE System
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Feature Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../features/phases/phases_list.html">
+   Phases
   </a>
-  
-    <nav class="md-nav" aria-label="The ODE System">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#the-aerodynamic-model" class="md-nav__link">
-    The Aerodynamic Model
+  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
+  <label for="toctree-checkbox-2">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../features/phases/phases.html">
+     Phases of a Trajectory
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../features/phases/segments.html">
+     Segments
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../features/phases/variables.html">
+     Variables
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../features/phases/constraints.html">
+     Constraints
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../features/phases/objective.html">
+     Objective
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../features/phases/timeseries.html">
+     Timeseries Outputs
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../features/trajectories/trajectories.html">
+   Organizing Phases into Trajectories
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#stall-speed" class="md-nav__link">
-    Stall Speed
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../features/exploiting_sparsity.html">
+   Exploiting Sparsity for Faster Derivative Calculation
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#runway-equations-of-motion" class="md-nav__link">
-    Runway Equations of Motion
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../features/plotting.html">
+   Plotting Timeseries
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#flight-equations-of-motion" class="md-nav__link">
-    Flight Equations of Motion
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Frequentsly Asked Questions
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../faq/faq.html">
+   Frequently Asked Questions
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#treatment-of-the-angle-of-attack-alphaalpha" class="md-nav__link">
-    Treatment of the angle-of-attack (\alpha\alpha)
+  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
+  <label for="toctree-checkbox-3">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../faq/add_ode_output_to_timeseries.html">
+     How do I add an ODE output to the timeseries outputs?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../faq/connect_scalar_parameters_to_ode.html">
+     How do I connect a scalar input to the ODE?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../faq/upstream_analysis.html">
+     How do connect the outputs of an upstream analysis as inputs to Dymos?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../faq/downstream_analysis.html">
+     How do connect the outputs of Dymos to a downstream analysis?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../faq/tandem_phases.html">
+     How do I run two phases parallel-in-time?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../faq/use_partial_coloring.html">
+     How can I more efficiently use finite-differenced components in the ODE?
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../faq/debugging.html">
+     How can I debug models when things go wrong?
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Dymos API Reference
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1 has-children">
+  <a class="reference internal" href="../../api/api.html">
+   Dymos Reference API
   </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#parameters" class="md-nav__link">
-    Parameters
+  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
+  <label for="toctree-checkbox-4">
+   <i class="fas fa-chevron-down">
+   </i>
+  </label>
+  <ul>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../api/run_problem.html">
+     The Dymos run_problem function
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../api/phase_api.html">
+     The Phase API
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../api/trajectory_api.html">
+     The Trajectory API
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+<p class="caption">
+ <span class="caption-text">
+  Contributing
+ </span>
+</p>
+<ul class="nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../contributing/contributing.html">
+   Contributing to Dymos
   </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#the-optimal-control-problem" class="md-nav__link">
-    The Optimal Control Problem
-  </a>
-  
-    <nav class="md-nav" aria-label="The Optimal Control Problem">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#objective" class="md-nav__link">
-    Objective
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nonlinear-boundary-constraints" class="md-nav__link">
-    Nonlinear Boundary Constraints
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#nonlinear-path-constraints" class="md-nav__link">
-    Nonlinear Path Constraints
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#phase-continuity-constraints" class="md-nav__link">
-    Phase Continuity Constraints
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#source-code" class="md-nav__link">
-    Source Code
-  </a>
-  
-    <nav class="md-nav" aria-label="Source Code">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#balancedfieldodecomp" class="md-nav__link">
-    BalancedFieldODEComp
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#building-and-running-the-problem" class="md-nav__link">
-    Building and running the problem
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    References
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-                  </div>
-                </div>
-              </div>
-            
+ </li>
+</ul>
+
+    </div>
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
           
-          <div class="md-content" data-md-component="content">
-            <article class="md-content__inner md-typeset">
-              
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="topbar container-xl fixed-top">
+    <div class="topbar-contents row">
+        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
+        <div class="col pl-md-4 topbar-main">
+            
+            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+                <i class="fas fa-bars"></i>
+                <i class="fas fa-arrow-left"></i>
+                <i class="fas fa-arrow-up"></i>
+            </button>
+            
+            
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../../_sources/examples/balanced_field/balanced_field.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+            <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/OpenMDAO/dymos"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/OpenMDAO/dymos/issues/new?title=Issue%20on%20page%20%2Fexamples/balanced_field/balanced_field.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        
+    </div>
+</div>
+
+            <!-- Full screen (wrap in <a> to have style consistency -->
+
+<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+        title="Fullscreen mode"><i
+            class="fas fa-expand"></i></button></a>
+
+            <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/OpenMDAO/dymos/master?urlpath=tree/docs/examples/balanced_field/balanced_field.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/OpenMDAO/dymos/blob/master/docs/examples/balanced_field/balanced_field.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        
+    </div>
+</div>
+
+        </div>
+
+        <!-- Table of contents -->
+        <div class="d-none d-md-block col-md-2 bd-toc show">
+            
+            <div class="tocsection onthispage pt-5 pb-3">
+                <i class="fas fa-list"></i> Contents
+            </div>
+            <nav id="bd-toc-nav">
+                <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-ode-system">
+   The ODE System
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-aerodynamic-model">
+     The Aerodynamic Model
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#stall-speed">
+     Stall Speed
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#runway-equations-of-motion">
+     Runway Equations of Motion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#flight-equations-of-motion">
+     Flight Equations of Motion
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#treatment-of-the-angle-of-attack-alpha">
+     Treatment of the angle-of-attack (
+     <span class="math notranslate nohighlight">
+      \(\alpha\)
+     </span>
+     )
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#parameters">
+     Parameters
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#the-optimal-control-problem">
+   The Optimal Control Problem
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#objective">
+     Objective
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nonlinear-boundary-constraints">
+     Nonlinear Boundary Constraints
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#nonlinear-path-constraints">
+     Nonlinear Path Constraints
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#phase-continuity-constraints">
+     Phase Continuity Constraints
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#source-code">
+   Source Code
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#balancedfieldodecomp">
+     BalancedFieldODEComp
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#building-and-running-the-problem">
+   Building and running the problem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
                 
-                
-                <h1 id="aircraft-balanced-field-length-calculation">Aircraft Balanced Field Length Calculation<a class="headerlink" href="#aircraft-balanced-field-length-calculation" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Things you'll learn through this example</p>
-<ul>
-<li>How to perform branching trajectories</li>
-<li>How to constraint the difference between values at the end of two different phases</li>
-<li>Using complex-step differentiation on a monolithic ODE component</li>
+  <div class="cell tag_active-ipynb tag_remove-input tag_remove-output docutils container">
+</div>
+<div class="section" id="aircraft-balanced-field-length-calculation">
+<h1>Aircraft Balanced Field Length Calculation<a class="headerlink" href="#aircraft-balanced-field-length-calculation" title="Permalink to this headline">¶</a></h1>
+<div class="admonition-things-you-ll-learn-through-this-example admonition">
+<p class="admonition-title">Things you’ll learn through this example</p>
+<ul class="simple">
+<li><p>How to perform branching trajectories</p></li>
+<li><p>How to constraint the difference between values at the end of two different phases</p></li>
+<li><p>Using complex-step differentiation on a monolithic ODE component</p></li>
 </ul>
 </div>
 <p>The United States Federal Aviation Regulations Part 25 defines a
 balanced field length for the aircraft as the shortest field which can
-accommodate a "balanced takeoff".  In a balanced takeoff the aircraft
-accelerates down the runway to some critical speed "V1".</p>
+accommodate a “balanced takeoff”.  In a balanced takeoff the aircraft
+accelerates down the runway to some critical speed “V1”.</p>
 <p>Before achieving V1, the aircraft must be capable of rejecting the takeoff
 and coming to a stop before the end of the runway.</p>
 <p>After V1, the aircraft must be capable of achieving an altitude of 35 ft
@@ -1383,595 +636,425 @@ above the end of the runway with a speed of V2 (the minimum safe takeoff
 speed or 1.2 x the stall speed) while on a single engine (for two engine aircraft).</p>
 <p>At V1, both options must be available. The nominal phase sequence for this trajectory is:</p>
 <ol>
-<li>
-<p>Break Release to V1 (br_to_v1)</p>
+<li><p>Break Release to V1 (br_to_v1)</p>
 <p>Accelerate down the runway under the power of two engines.
 Where V1 is some as-yet-undetermined speed.</p>
 </li>
-<li>
-<p>V1 to Vr (v1_to_vr)</p>
+<li><p>V1 to Vr (v1_to_vr)</p>
 <p>Accelerate down the runway under the power of a single engine.
-End at "Vr" or the rotation speed.
+End at “Vr” or the rotation speed.
 The rotation speed here is defined as 1.2 times the stall speed.</p>
 </li>
-<li>
-<p>Rotate (rotate)</p>
+<li><p>Rotate (rotate)</p>
 <p>Operating under the power of a single engine, begin pitching the nose
 up (increasing alpha) while rolling down the runway.
 In this example, the rate of change of alpha is linear over some time.</p>
 </li>
-<li>
-<p>Climb (climb)</p>
+<li><p>Climb (climb)</p>
 <p>Still operating with one engine, begin climbing to a flight path angle
 of no more than 5 degrees.
 This phase ends when the aircraft is 35 feet above the ground with an airspeed
 of 1.25 x the stall speed.</p>
 </li>
-<li>
-<p>Rejected Takeoff (rto)</p>
+<li><p>Rejected Takeoff (rto)</p>
 <p>Shut down all engines (zero thrust) and apply brakes (increase of
-runway <span><span class="MathJax_Preview">\mu</span><script type="math/tex">\mu</script></span> coefficient to 0.3) until the aircraft airspeed is zero.</p>
+runway <span class="math notranslate nohighlight">\(\mu\)</span> coefficient to 0.3) until the aircraft airspeed is zero.</p>
 <p>This phase is continuous in time and state with the first phase, and so
 forms a branch off of the nominal trajectory.</p>
 </li>
 </ol>
 <p>Since the RTO phase and the climb phase both must end such that they
 do not exceed the end of the runway, the final value of range in each
-of these two phases must be the same.  We don't know what this value is
-until we've solved the problem, so we cannot simply constrain both to
+of these two phases must be the same.  We don’t know what this value is
+until we’ve solved the problem, so we cannot simply constrain both to
 the same fixed value.</p>
-<p>Instead, we'll use a trajectory linkage constraint to ensure that <code>range</code>
-at the end of the RTO phase is equal to <code>range</code> and the end of the climb phase.</p>
+<p>Instead, we’ll use a trajectory linkage constraint to ensure that <code class="docutils literal notranslate"><span class="pre">range</span></code>
+at the end of the RTO phase is equal to <code class="docutils literal notranslate"><span class="pre">range</span></code> and the end of the climb phase.</p>
 <p>More information on calculating the balanced field length is available
 in section 17.8 of <em>Aircraft Design: A Conceptual Approach</em> by
-Daniel Raymer<sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
-<h2 id="the-ode-system">The ODE System<a class="headerlink" href="#the-ode-system" title="Permanent link">&para;</a></h2>
+Daniel Raymer <span id="id1">[<a class="reference internal" href="#id48">Ray12</a>]</span>.</p>
+<div class="section" id="the-ode-system">
+<h2>The ODE System<a class="headerlink" href="#the-ode-system" title="Permalink to this headline">¶</a></h2>
 <p>In this problem two sets of ordinary differential equations are used:
 one for the aircraft motion on the runway, and one for the aircraft motion once airborne.</p>
-<p>For simplification, we're going to assume a constant atmospheric model since the aircraft will never exceed 35 feet of altitude.
-Also, since the duration of the trajectory is small, we're going to assume that the vehicle fuel burn is negligible</p>
-<h3 id="the-aerodynamic-model">The Aerodynamic Model<a class="headerlink" href="#the-aerodynamic-model" title="Permanent link">&para;</a></h3>
+<p>For simplification, we’re going to assume a constant atmospheric model since the aircraft will never exceed 35 feet of altitude.
+Also, since the duration of the trajectory is small, we’re going to assume that the vehicle fuel burn is negligible</p>
+<div class="section" id="the-aerodynamic-model">
+<h3>The Aerodynamic Model<a class="headerlink" href="#the-aerodynamic-model" title="Permalink to this headline">¶</a></h3>
 <p>Both sets of equations of motion have common aerodynamic models.</p>
 <p>First, the lift coefficient is computed using a model which assumes linearity in lift wrt the angle of attack.</p>
-<div>
-<div class="MathJax_Preview">\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-cb29daeb-c686-445d-89b3-70fe38d056a5">
+<span class="eqno">(21)<a class="headerlink" href="#equation-cb29daeb-c686-445d-89b3-70fe38d056a5" title="Permalink to this equation">¶</a></span>\[\begin{align}
     C_L &amp;= C_{L0} + \frac{\alpha}{\alpha_{max}} \left(C_{L-max} - C_{L0}\right)
-\end{align}</div>
-<script type="math/tex; mode=display">\begin{align}
-    C_L &= C_{L0} + \frac{\alpha}{\alpha_{max}} \left(C_{L-max} - C_{L0}\right)
-\end{align}</script>
-</div>
-<p>Next, the drag-due-to-lift factor is computed (Equations 12.48 and 12.61 in Raymer<sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup>).</p>
-<div>
-<div class="MathJax_Preview">\begin{align}
+\end{align}\]</div>
+<p>Next, the drag-due-to-lift factor is computed (Equations 12.48 and 12.61 in Raymer[&#64;raymer2012aircraft]).</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6641aa23-0009-4aec-bde5-e616077d0f64">
+<span class="eqno">(22)<a class="headerlink" href="#equation-6641aa23-0009-4aec-bde5-e616077d0f64" title="Permalink to this equation">¶</a></span>\[\begin{align}
     K_{nom} &amp;= \frac{1}{ \pi  AR  e} \\
     b &amp;= \frac{span}{2} \\
     K &amp;= 33 K_{nom} \frac{ \left(\frac{h + h_w}{b} \right) ^{\frac{3}{2}}}{1.0 + 33 \left( \frac{h + h_w}{b}\right) ^{\frac{3}{2}}}
-\end{align}</div>
-<script type="math/tex; mode=display">\begin{align}
-    K_{nom} &= \frac{1}{ \pi  AR  e} \\
-    b &= \frac{span}{2} \\
-    K &= 33 K_{nom} \frac{ \left(\frac{h + h_w}{b} \right) ^{\frac{3}{2}}}{1.0 + 33 \left( \frac{h + h_w}{b}\right) ^{\frac{3}{2}}}
-\end{align}</script>
-</div>
-<p>Note the singularity in the equation for <span><span class="MathJax_Preview">K</span><script type="math/tex">K</script></span> when <span><span class="MathJax_Preview">h + h_w</span><script type="math/tex">h + h_w</script></span> is negative.
+\end{align}\]</div>
+<p>Note the singularity in the equation for <span class="math notranslate nohighlight">\(K\)</span> when <span class="math notranslate nohighlight">\(h + h_w\)</span> is negative.
 This causes this problem to be difficult to solve using a shooting method.
 If the optimizer proposes a combination of initial states and a control history that results in altitude dropping significantly below zero, the propagation will fail.</p>
 <p>Finally, the lift and drag are computed after computing the dynamic pressure.</p>
-<div>
-<div class="MathJax_Preview">\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4df0aadc-9772-409b-bfaa-a0d49616a31d">
+<span class="eqno">(23)<a class="headerlink" href="#equation-4df0aadc-9772-409b-bfaa-a0d49616a31d" title="Permalink to this equation">¶</a></span>\[\begin{align}
     q &amp;= 0.5 \rho v^2 \\
     L &amp;= q  S  C_L \\
     D &amp;= q S \left( C_{D0} + K C_{L}^2 \right)
-\end{align}</div>
-<script type="math/tex; mode=display">\begin{align}
-    q &= 0.5 \rho v^2 \\
-    L &= q  S  C_L \\
-    D &= q S \left( C_{D0} + K C_{L}^2 \right)
-\end{align}</script>
+\end{align}\]</div>
 </div>
-<h3 id="stall-speed">Stall Speed<a class="headerlink" href="#stall-speed" title="Permanent link">&para;</a></h3>
-<p>This model relies on the ratio of the current true airspeed to stall speed (<span><span class="MathJax_Preview">\frac{v}{v_{stall}}</span><script type="math/tex">\frac{v}{v_{stall}}</script></span>).
+<div class="section" id="stall-speed">
+<h3>Stall Speed<a class="headerlink" href="#stall-speed" title="Permalink to this headline">¶</a></h3>
+<p>This model relies on the ratio of the current true airspeed to stall speed (<span class="math notranslate nohighlight">\(\frac{v}{v_{stall}}\)</span>).
 This constraint is used to trigger the beginning of rotation and is used as a boundary constraint at the end of the initial climb.
-Stall speed is given by Equation 5.6 in Raymer<sup id="fnref3:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
-<div>
-<div class="MathJax_Preview">\begin{align}
+Stall speed is given by Equation 5.6 in Raymer[&#64;raymer2012aircraft].</p>
+<div class="amsmath math notranslate nohighlight" id="equation-340af921-06da-41c9-841b-316629c28547">
+<span class="eqno">(24)<a class="headerlink" href="#equation-340af921-06da-41c9-841b-316629c28547" title="Permalink to this equation">¶</a></span>\[\begin{align}
     W &amp;= m g \\
     v_{stall} &amp;= \sqrt{\frac{2 * W}{\rho S C_{L-max}}}
-\end{align}</div>
-<script type="math/tex; mode=display">\begin{align}
-    W &= m g \\
-    v_{stall} &= \sqrt{\frac{2 * W}{\rho S C_{L-max}}}
-\end{align}</script>
+\end{align}\]</div>
 </div>
-<h3 id="runway-equations-of-motion">Runway Equations of Motion<a class="headerlink" href="#runway-equations-of-motion" title="Permanent link">&para;</a></h3>
+<div class="section" id="runway-equations-of-motion">
+<h3>Runway Equations of Motion<a class="headerlink" href="#runway-equations-of-motion" title="Permalink to this headline">¶</a></h3>
 <p>The runway equations of motion are used to integrate range and speed as the vehicle rolls along the runway.</p>
-<div>
-<div class="MathJax_Preview">\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ca2be7c6-5bb1-4b6c-a4bf-19436649329d">
+<span class="eqno">(25)<a class="headerlink" href="#equation-ca2be7c6-5bb1-4b6c-a4bf-19436649329d" title="Permalink to this equation">¶</a></span>\[\begin{align}
   F_r &amp;= mg - L \cos \alpha - T \sin \alpha \\
   \dot{v} &amp;= \frac{T \cos \alpha - D - F_r \mu_r}{m} \\
   \dot{r} &amp;= v
-\end{align}</div>
-<script type="math/tex; mode=display">\begin{align}
-  F_r &= mg - L \cos \alpha - T \sin \alpha \\
-  \dot{v} &= \frac{T \cos \alpha - D - F_r \mu_r}{m} \\
-  \dot{r} &= v
-\end{align}</script>
-</div>
-<table>
+\end{align}\]</div>
+<table class="colwidths-auto table">
 <thead>
-<tr>
-<th>State</th>
-<th>Description</th>
-<th>Units</th>
+<tr class="row-odd"><th class="head"><p>State</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Units</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>r</td>
-<td>range</td>
-<td><span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span></td>
+<tr class="row-even"><td><p>r</p></td>
+<td><p>range</p></td>
+<td><p><span class="math notranslate nohighlight">\(m\)</span></p></td>
 </tr>
-<tr>
-<td>v</td>
-<td>true airspeed</td>
-<td><span><span class="MathJax_Preview">m s^{-1}</span><script type="math/tex">m s^{-1}</script></span></td>
+<tr class="row-odd"><td><p>v</p></td>
+<td><p>true airspeed</p></td>
+<td><p><span class="math notranslate nohighlight">\(m s^{-1}\)</span></p></td>
 </tr>
 </tbody>
 </table>
-<h3 id="flight-equations-of-motion">Flight Equations of Motion<a class="headerlink" href="#flight-equations-of-motion" title="Permanent link">&para;</a></h3>
-<p>The flight equations of motion include two additional state variables: the flight-path angle (<span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span>) and altitude (<span><span class="MathJax_Preview">h</span><script type="math/tex">h</script></span>).</p>
-<div>
-<div class="MathJax_Preview">\begin{align}
+</div>
+<div class="section" id="flight-equations-of-motion">
+<h3>Flight Equations of Motion<a class="headerlink" href="#flight-equations-of-motion" title="Permalink to this headline">¶</a></h3>
+<p>The flight equations of motion include two additional state variables: the flight-path angle (<span class="math notranslate nohighlight">\(\gamma\)</span>) and altitude (<span class="math notranslate nohighlight">\(h\)</span>).</p>
+<div class="amsmath math notranslate nohighlight" id="equation-029ccefc-5e3d-4076-bec4-fc57f3de4d88">
+<span class="eqno">(26)<a class="headerlink" href="#equation-029ccefc-5e3d-4076-bec4-fc57f3de4d88" title="Permalink to this equation">¶</a></span>\[\begin{align}
   \dot{v} &amp;= \frac{T}{m} \cos \alpha - \frac{D}{m} - g \sin \gamma \\
   \dot{\gamma} &amp;= \frac{T}{m v} \sin \alpha + \frac{L}{m v} - \frac{g \cos \gamma}{v} \\
   \dot{h} &amp;= v \sin \gamma \\
   \dot{r} &amp;= v \cos \gamma
-\end{align}</div>
-<script type="math/tex; mode=display">\begin{align}
-  \dot{v} &= \frac{T}{m} \cos \alpha - \frac{D}{m} - g \sin \gamma \\
-  \dot{\gamma} &= \frac{T}{m v} \sin \alpha + \frac{L}{m v} - \frac{g \cos \gamma}{v} \\
-  \dot{h} &= v \sin \gamma \\
-  \dot{r} &= v \cos \gamma
-\end{align}</script>
+\end{align}\]</div>
+<table class="colwidths-auto table">
+<thead>
+<tr class="row-odd"><th class="head"><p>State</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Units</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>v</p></td>
+<td><p>true airspeed</p></td>
+<td><p><span class="math notranslate nohighlight">\(m s^{-1}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\gamma\)</span></p></td>
+<td><p>flight path angle</p></td>
+<td><p><span class="math notranslate nohighlight">\(rad\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>r</p></td>
+<td><p>range</p></td>
+<td><p><span class="math notranslate nohighlight">\(m\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>h</p></td>
+<td><p>altitude</p></td>
+<td><p><span class="math notranslate nohighlight">\(m\)</span></p></td>
+</tr>
+</tbody>
+</table>
 </div>
-<table>
-<thead>
-<tr>
-<th>State</th>
-<th>Description</th>
-<th>Units</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>v</td>
-<td>true airspeed</td>
-<td><span><span class="MathJax_Preview">m s^{-1}</span><script type="math/tex">m s^{-1}</script></span></td>
-</tr>
-<tr>
-<td><span><span class="MathJax_Preview">\gamma</span><script type="math/tex">\gamma</script></span></td>
-<td>flight path angle</td>
-<td><span><span class="MathJax_Preview">rad</span><script type="math/tex">rad</script></span></td>
-</tr>
-<tr>
-<td>r</td>
-<td>range</td>
-<td><span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span></td>
-</tr>
-<tr>
-<td>h</td>
-<td>altitude</td>
-<td><span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span></td>
-</tr>
-</tbody>
-</table>
-<h3 id="treatment-of-the-angle-of-attack-alphaalpha">Treatment of the angle-of-attack (<span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span>)<a class="headerlink" href="#treatment-of-the-angle-of-attack-alphaalpha" title="Permanent link">&para;</a></h3>
-<p>In three of the runway phases (break release to <span><span class="MathJax_Preview">V1</span><script type="math/tex">V1</script></span>, <span><span class="MathJax_Preview">V1</span><script type="math/tex">V1</script></span> to <span><span class="MathJax_Preview">V_r</span><script type="math/tex">V_r</script></span>, and rejected takeoff) <span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span> is treated as a fixed static parameter.</p>
-<p>In the rotation phase, <span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span> is treated as a polynomial control of order 1.
-<span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span> starts at an initial value of zero and increases at a linear rate until the upward forces on the aircraft due to lift and thrust cancel the downward force due to gravity.</p>
-<p>In the climb phase, <span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span> is treated as a dynamic control to be chosen by the optimizer.</p>
-<p>Phase linkage constraints are used to maintain continuity in <span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span> throughout the trajectory.</p>
-<h3 id="parameters">Parameters<a class="headerlink" href="#parameters" title="Permanent link">&para;</a></h3>
+<div class="section" id="treatment-of-the-angle-of-attack-alpha">
+<h3>Treatment of the angle-of-attack (<span class="math notranslate nohighlight">\(\alpha\)</span>)<a class="headerlink" href="#treatment-of-the-angle-of-attack-alpha" title="Permalink to this headline">¶</a></h3>
+<p>In three of the runway phases (break release to <span class="math notranslate nohighlight">\(V1\)</span>, <span class="math notranslate nohighlight">\(V1\)</span> to <span class="math notranslate nohighlight">\(V_r\)</span>, and rejected takeoff) <span class="math notranslate nohighlight">\(\alpha\)</span> is treated as a fixed static parameter.</p>
+<p>In the rotation phase, <span class="math notranslate nohighlight">\(\alpha\)</span> is treated as a polynomial control of order 1.
+<span class="math notranslate nohighlight">\(\alpha\)</span> starts at an initial value of zero and increases at a linear rate until the upward forces on the aircraft due to lift and thrust cancel the downward force due to gravity.</p>
+<p>In the climb phase, <span class="math notranslate nohighlight">\(\alpha\)</span> is treated as a dynamic control to be chosen by the optimizer.</p>
+<p>Phase linkage constraints are used to maintain continuity in <span class="math notranslate nohighlight">\(\alpha\)</span> throughout the trajectory.</p>
+</div>
+<div class="section" id="parameters">
+<h3>Parameters<a class="headerlink" href="#parameters" title="Permalink to this headline">¶</a></h3>
 <p>The following parameters define properties of the aircraft and environment for the problem.</p>
-<table>
+<table class="colwidths-auto table">
 <thead>
-<tr>
-<th>Parameters</th>
-<th>Description</th>
-<th>Units</th>
-<th>Value</th>
+<tr class="row-odd"><th class="head"><p>Parameters</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Units</p></th>
+<th class="head"><p>Value</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>m</td>
-<td>mass</td>
-<td><span><span class="MathJax_Preview">kg</span><script type="math/tex">kg</script></span></td>
-<td>79015.7909</td>
+<tr class="row-even"><td><p>m</p></td>
+<td><p>mass</p></td>
+<td><p><span class="math notranslate nohighlight">\(kg\)</span></p></td>
+<td><p>79015.7909</p></td>
 </tr>
-<tr>
-<td>g</td>
-<td>gravitational acceleration</td>
-<td><span><span class="MathJax_Preview">m s^{-2}</span><script type="math/tex">m s^{-2}</script></span></td>
-<td>9.80665</td>
+<tr class="row-odd"><td><p>g</p></td>
+<td><p>gravitational acceleration</p></td>
+<td><p><span class="math notranslate nohighlight">\(m s^{-2}\)</span></p></td>
+<td><p>9.80665</p></td>
 </tr>
-<tr>
-<td>T</td>
-<td>thrust</td>
-<td><span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span></td>
-<td>2 x 120101.98 (nominal)</td>
+<tr class="row-even"><td><p>T</p></td>
+<td><p>thrust</p></td>
+<td><p><span class="math notranslate nohighlight">\(N\)</span></p></td>
+<td><p>2 x 120101.98 (nominal)</p></td>
 </tr>
-<tr>
-<td><span><span class="MathJax_Preview">\mu</span><script type="math/tex">\mu</script></span></td>
-<td>runway friction coefficient</td>
-<td>-</td>
-<td>0.03 (nominal)</td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\mu\)</span></p></td>
+<td><p>runway friction coefficient</p></td>
+<td><p>-</p></td>
+<td><p>0.03 (nominal)</p></td>
 </tr>
-<tr>
-<td>h</td>
-<td>altitude</td>
-<td><span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span></td>
-<td>0</td>
+<tr class="row-even"><td><p>h</p></td>
+<td><p>altitude</p></td>
+<td><p><span class="math notranslate nohighlight">\(m\)</span></p></td>
+<td><p>0</p></td>
 </tr>
-<tr>
-<td><span><span class="MathJax_Preview">\rho</span><script type="math/tex">\rho</script></span></td>
-<td>atmospheric density</td>
-<td><span><span class="MathJax_Preview">kg\,m^{3}</span><script type="math/tex">kg\,m^{3}</script></span></td>
-<td>1.225</td>
+<tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(\rho\)</span></p></td>
+<td><p>atmospheric density</p></td>
+<td><p><span class="math notranslate nohighlight">\(kg\,m^{3}\)</span></p></td>
+<td><p>1.225</p></td>
 </tr>
-<tr>
-<td>S</td>
-<td>aerodynamic reference area</td>
-<td><span><span class="MathJax_Preview">m^2</span><script type="math/tex">m^2</script></span></td>
-<td>124.7</td>
+<tr class="row-even"><td><p>S</p></td>
+<td><p>aerodynamic reference area</p></td>
+<td><p><span class="math notranslate nohighlight">\(m^2\)</span></p></td>
+<td><p>124.7</p></td>
 </tr>
-<tr>
-<td>CD0</td>
-<td>zero-lift drag coefficient</td>
-<td>-</td>
-<td>0.03</td>
+<tr class="row-odd"><td><p>CD0</p></td>
+<td><p>zero-lift drag coefficient</p></td>
+<td><p>-</p></td>
+<td><p>0.03</p></td>
 </tr>
-<tr>
-<td>AR</td>
-<td>wing aspect ratio</td>
-<td>-</td>
-<td>9.45</td>
+<tr class="row-even"><td><p>AR</p></td>
+<td><p>wing aspect ratio</p></td>
+<td><p>-</p></td>
+<td><p>9.45</p></td>
 </tr>
-<tr>
-<td>e</td>
-<td>Oswald's wing efficiency</td>
-<td>-</td>
-<td>801</td>
+<tr class="row-odd"><td><p>e</p></td>
+<td><p>Oswald’s wing efficiency</p></td>
+<td><p>-</p></td>
+<td><p>801</p></td>
 </tr>
-<tr>
-<td>span</td>
-<td>wingspan</td>
-<td><span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span></td>
-<td>35.7</td>
+<tr class="row-even"><td><p>span</p></td>
+<td><p>wingspan</p></td>
+<td><p><span class="math notranslate nohighlight">\(m\)</span></p></td>
+<td><p>35.7</p></td>
 </tr>
-<tr>
-<td>h_w</td>
-<td>height of wing above CoG</td>
-<td><span><span class="MathJax_Preview">m</span><script type="math/tex">m</script></span></td>
-<td>1.0</td>
+<tr class="row-odd"><td><p>h_w</p></td>
+<td><p>height of wing above CoG</p></td>
+<td><p><span class="math notranslate nohighlight">\(m\)</span></p></td>
+<td><p>1.0</p></td>
 </tr>
-<tr>
-<td>CL0</td>
-<td>aerodynamic reference area</td>
-<td>-</td>
-<td>0.5</td>
+<tr class="row-even"><td><p>CL0</p></td>
+<td><p>aerodynamic reference area</p></td>
+<td><p>-</p></td>
+<td><p>0.5</p></td>
 </tr>
-<tr>
-<td>CL_max</td>
-<td>aerodynamic reference area</td>
-<td>-</td>
-<td>2.0</td>
+<tr class="row-odd"><td><p>CL_max</p></td>
+<td><p>aerodynamic reference area</p></td>
+<td><p>-</p></td>
+<td><p>2.0</p></td>
 </tr>
 </tbody>
 </table>
-<h2 id="the-optimal-control-problem">The Optimal Control Problem<a class="headerlink" href="#the-optimal-control-problem" title="Permanent link">&para;</a></h2>
+</div>
+</div>
+<div class="section" id="the-optimal-control-problem">
+<h2>The Optimal Control Problem<a class="headerlink" href="#the-optimal-control-problem" title="Permalink to this headline">¶</a></h2>
 <p>The following constraints and objective complete the definition of this optimal control problem.</p>
-<h3 id="objective">Objective<a class="headerlink" href="#objective" title="Permanent link">&para;</a></h3>
-<table>
+<div class="section" id="objective">
+<h3>Objective<a class="headerlink" href="#objective" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
 <thead>
-<tr>
-<th>Name</th>
-<th>Phase</th>
-<th>Location</th>
-<th>Description</th>
-<th>Minimized or Maximized</th>
-<th>Ref</th>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Phase</p></th>
+<th class="head"><p>Location</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Minimized or Maximized</p></th>
+<th class="head"><p>Ref</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>r</td>
-<td>rto</td>
-<td>final</td>
-<td>range</td>
-<td>Minimized</td>
-<td>1000</td>
+<tr class="row-even"><td><p>r</p></td>
+<td><p>rto</p></td>
+<td><p>final</p></td>
+<td><p>range</p></td>
+<td><p>Minimized</p></td>
+<td><p>1000</p></td>
 </tr>
 </tbody>
 </table>
-<h3 id="nonlinear-boundary-constraints">Nonlinear Boundary Constraints<a class="headerlink" href="#nonlinear-boundary-constraints" title="Permanent link">&para;</a></h3>
-<table>
+</div>
+<div class="section" id="nonlinear-boundary-constraints">
+<h3>Nonlinear Boundary Constraints<a class="headerlink" href="#nonlinear-boundary-constraints" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
 <thead>
-<tr>
-<th>Name</th>
-<th>Phase</th>
-<th>Description</th>
-<th>Loc</th>
-<th>Units</th>
-<th>Lower</th>
-<th>Upper</th>
-<th>Equals</th>
-<th>Ref</th>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Phase</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Loc</p></th>
+<th class="head"><p>Units</p></th>
+<th class="head"><p>Lower</p></th>
+<th class="head"><p>Upper</p></th>
+<th class="head"><p>Equals</p></th>
+<th class="head"><p>Ref</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>v_over_v_stall</td>
-<td>v1_to_vr</td>
-<td><span><span class="MathJax_Preview">\frac{v}{v_{stall}}</span><script type="math/tex">\frac{v}{v_{stall}}</script></span></td>
-<td>final</td>
-<td>-</td>
-<td>1.2</td>
-<td></td>
-<td></td>
-<td>1.2</td>
+<tr class="row-even"><td><p>v_over_v_stall</p></td>
+<td><p>v1_to_vr</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{v}{v_{stall}}\)</span></p></td>
+<td><p>final</p></td>
+<td><p>-</p></td>
+<td><p>1.2</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>1.2</p></td>
 </tr>
-<tr>
-<td>v</td>
-<td>rto</td>
-<td>airspeed</td>
-<td>final</td>
-<td><span><span class="MathJax_Preview">ms^{-1}</span><script type="math/tex">ms^{-1}</script></span></td>
-<td></td>
-<td></td>
-<td>0</td>
-<td>100</td>
+<tr class="row-odd"><td><p>v</p></td>
+<td><p>rto</p></td>
+<td><p>airspeed</p></td>
+<td><p>final</p></td>
+<td><p><span class="math notranslate nohighlight">\(ms^{-1}\)</span></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>0</p></td>
+<td><p>100</p></td>
 </tr>
-<tr>
-<td>F_r</td>
-<td>rotate</td>
-<td>downforce on gear</td>
-<td>final</td>
-<td><span><span class="MathJax_Preview">N</span><script type="math/tex">N</script></span></td>
-<td></td>
-<td></td>
-<td>0</td>
-<td>100000</td>
+<tr class="row-even"><td><p>F_r</p></td>
+<td><p>rotate</p></td>
+<td><p>downforce on gear</p></td>
+<td><p>final</p></td>
+<td><p><span class="math notranslate nohighlight">\(N\)</span></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>0</p></td>
+<td><p>100000</p></td>
 </tr>
-<tr>
-<td>h</td>
-<td>climb</td>
-<td>altitude</td>
-<td>final</td>
-<td><span><span class="MathJax_Preview">ft</span><script type="math/tex">ft</script></span></td>
-<td></td>
-<td></td>
-<td>35</td>
-<td>35</td>
+<tr class="row-odd"><td><p>h</p></td>
+<td><p>climb</p></td>
+<td><p>altitude</p></td>
+<td><p>final</p></td>
+<td><p><span class="math notranslate nohighlight">\(ft\)</span></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>35</p></td>
+<td><p>35</p></td>
 </tr>
-<tr>
-<td>gam</td>
-<td>climb</td>
-<td>flight path angle</td>
-<td>final</td>
-<td><span><span class="MathJax_Preview">rad</span><script type="math/tex">rad</script></span></td>
-<td></td>
-<td></td>
-<td>5</td>
-<td>5</td>
+<tr class="row-even"><td><p>gam</p></td>
+<td><p>climb</p></td>
+<td><p>flight path angle</p></td>
+<td><p>final</p></td>
+<td><p><span class="math notranslate nohighlight">\(rad\)</span></p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>5</p></td>
+<td><p>5</p></td>
 </tr>
-<tr>
-<td>v_over_v_stall</td>
-<td>climb</td>
-<td><span><span class="MathJax_Preview">\frac{v}{v_{stall}}</span><script type="math/tex">\frac{v}{v_{stall}}</script></span></td>
-<td>final</td>
-<td>-</td>
-<td>1.25</td>
-<td></td>
-<td></td>
-<td>1.25</td>
+<tr class="row-odd"><td><p>v_over_v_stall</p></td>
+<td><p>climb</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac{v}{v_{stall}}\)</span></p></td>
+<td><p>final</p></td>
+<td><p>-</p></td>
+<td><p>1.25</p></td>
+<td><p></p></td>
+<td><p></p></td>
+<td><p>1.25</p></td>
 </tr>
 </tbody>
 </table>
-<h3 id="nonlinear-path-constraints">Nonlinear Path Constraints<a class="headerlink" href="#nonlinear-path-constraints" title="Permanent link">&para;</a></h3>
-<table>
+</div>
+<div class="section" id="nonlinear-path-constraints">
+<h3>Nonlinear Path Constraints<a class="headerlink" href="#nonlinear-path-constraints" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
 <thead>
-<tr>
-<th>Name</th>
-<th>Phase</th>
-<th>Description</th>
-<th>Units</th>
-<th>Lower</th>
-<th>Upper</th>
-<th>Equals</th>
-<th>Ref</th>
+<tr class="row-odd"><th class="head"><p>Name</p></th>
+<th class="head"><p>Phase</p></th>
+<th class="head"><p>Description</p></th>
+<th class="head"><p>Units</p></th>
+<th class="head"><p>Lower</p></th>
+<th class="head"><p>Upper</p></th>
+<th class="head"><p>Equals</p></th>
+<th class="head"><p>Ref</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>gam</td>
-<td>climb</td>
-<td>flight path angle</td>
-<td><span><span class="MathJax_Preview">rad</span><script type="math/tex">rad</script></span></td>
-<td>0</td>
-<td>5</td>
-<td></td>
-<td>5</td>
+<tr class="row-even"><td><p>gam</p></td>
+<td><p>climb</p></td>
+<td><p>flight path angle</p></td>
+<td><p><span class="math notranslate nohighlight">\(rad\)</span></p></td>
+<td><p>0</p></td>
+<td><p>5</p></td>
+<td><p></p></td>
+<td><p>5</p></td>
 </tr>
 </tbody>
 </table>
-<h3 id="phase-continuity-constraints">Phase Continuity Constraints<a class="headerlink" href="#phase-continuity-constraints" title="Permanent link">&para;</a></h3>
-<table>
+</div>
+<div class="section" id="phase-continuity-constraints">
+<h3>Phase Continuity Constraints<a class="headerlink" href="#phase-continuity-constraints" title="Permalink to this headline">¶</a></h3>
+<table class="colwidths-auto table">
 <thead>
-<tr>
-<th>First Phase</th>
-<th>Second Phase</th>
-<th>Variables</th>
+<tr class="row-odd"><th class="head"><p>First Phase</p></th>
+<th class="head"><p>Second Phase</p></th>
+<th class="head"><p>Variables</p></th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td>br_to_v1[final]</td>
-<td>v1_to_vr[initial]</td>
-<td><span><span class="MathJax_Preview">time</span><script type="math/tex">time</script></span>, <span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span>, <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span></td>
+<tr class="row-even"><td><p>br_to_v1[final]</p></td>
+<td><p>v1_to_vr[initial]</p></td>
+<td><p><span class="math notranslate nohighlight">\(time\)</span>, <span class="math notranslate nohighlight">\(r\)</span>, <span class="math notranslate nohighlight">\(v\)</span></p></td>
 </tr>
-<tr>
-<td>vr_to_v1[final]</td>
-<td>rotate[initial]</td>
-<td><span><span class="MathJax_Preview">time</span><script type="math/tex">time</script></span>, <span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span>, <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>, <span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span></td>
+<tr class="row-odd"><td><p>vr_to_v1[final]</p></td>
+<td><p>rotate[initial]</p></td>
+<td><p><span class="math notranslate nohighlight">\(time\)</span>, <span class="math notranslate nohighlight">\(r\)</span>, <span class="math notranslate nohighlight">\(v\)</span>, <span class="math notranslate nohighlight">\(\alpha\)</span></p></td>
 </tr>
-<tr>
-<td>rotate[final]</td>
-<td>climb[initial]</td>
-<td><span><span class="MathJax_Preview">time</span><script type="math/tex">time</script></span>, <span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span>, <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span>, <span><span class="MathJax_Preview">\alpha</span><script type="math/tex">\alpha</script></span></td>
+<tr class="row-even"><td><p>rotate[final]</p></td>
+<td><p>climb[initial]</p></td>
+<td><p><span class="math notranslate nohighlight">\(time\)</span>, <span class="math notranslate nohighlight">\(r\)</span>, <span class="math notranslate nohighlight">\(v\)</span>, <span class="math notranslate nohighlight">\(\alpha\)</span></p></td>
 </tr>
-<tr>
-<td>br_to_v1[final]</td>
-<td>rto[initial]</td>
-<td><span><span class="MathJax_Preview">time</span><script type="math/tex">time</script></span>, <span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span>, <span><span class="MathJax_Preview">v</span><script type="math/tex">v</script></span></td>
+<tr class="row-odd"><td><p>br_to_v1[final]</p></td>
+<td><p>rto[initial]</p></td>
+<td><p><span class="math notranslate nohighlight">\(time\)</span>, <span class="math notranslate nohighlight">\(r\)</span>, <span class="math notranslate nohighlight">\(v\)</span></p></td>
 </tr>
-<tr>
-<td>climb[final]</td>
-<td>rto[final]</td>
-<td><span><span class="MathJax_Preview">r</span><script type="math/tex">r</script></span></td>
+<tr class="row-even"><td><p>climb[final]</p></td>
+<td><p>rto[final]</p></td>
+<td><p><span class="math notranslate nohighlight">\(r\)</span></p></td>
 </tr>
 </tbody>
 </table>
-<h2 id="source-code">Source Code<a class="headerlink" href="#source-code" title="Permanent link">&para;</a></h2>
+</div>
+</div>
+<div class="section" id="source-code">
+<h2>Source Code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <p>Unlike most other Dymos examples, which use analytic derivatives, the ODE in this case is a single component.
 All calculations within the ODE are complex-safe and thus we can use complex-step, in conjunction with
-<a href="http://openmdao.org/twodocs/versions/latest/features/experimental/simul_coloring_fd_cs.html">partial derivative coloring</a>,
+<a class="reference external" href="http://openmdao.org/newdocs/versions/latest/features/core_features/working_with_derivatives/simul_derivs.html">partial derivative coloring</a>,
 to automatically compute the derivatives using complex-step with reasonable speed.</p>
 <p>Since there is significant commonality between the ODEs for the runway roll and the climb, this implementation
-uses a single ODE class with an option <code>mode</code> that can be set to either <code>'runway'</code> or <code>'climb'</code>.
-Based on the value of <code>mode</code>, the component conditionally changes its inputs and outputs.</p>
-<h3 id="balancedfieldodecomp">BalancedFieldODEComp<a class="headerlink" href="#balancedfieldodecomp" title="Permanent link">&para;</a></h3>
-<div class="tabbed-set" data-tabs="1:1"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><label for="__tabbed_1_1">balanced_field_ode.py : BalancedFieldODEComp</label><div class="tabbed-content"></div>
-</div>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">  1</span>
-<span class="normal">  2</span>
-<span class="normal">  3</span>
-<span class="normal">  4</span>
-<span class="normal">  5</span>
-<span class="normal">  6</span>
-<span class="normal">  7</span>
-<span class="normal">  8</span>
-<span class="normal">  9</span>
-<span class="normal"> 10</span>
-<span class="normal"> 11</span>
-<span class="normal"> 12</span>
-<span class="normal"> 13</span>
-<span class="normal"> 14</span>
-<span class="normal"> 15</span>
-<span class="normal"> 16</span>
-<span class="normal"> 17</span>
-<span class="normal"> 18</span>
-<span class="normal"> 19</span>
-<span class="normal"> 20</span>
-<span class="normal"> 21</span>
-<span class="normal"> 22</span>
-<span class="normal"> 23</span>
-<span class="normal"> 24</span>
-<span class="normal"> 25</span>
-<span class="normal"> 26</span>
-<span class="normal"> 27</span>
-<span class="normal"> 28</span>
-<span class="normal"> 29</span>
-<span class="normal"> 30</span>
-<span class="normal"> 31</span>
-<span class="normal"> 32</span>
-<span class="normal"> 33</span>
-<span class="normal"> 34</span>
-<span class="normal"> 35</span>
-<span class="normal"> 36</span>
-<span class="normal"> 37</span>
-<span class="normal"> 38</span>
-<span class="normal"> 39</span>
-<span class="normal"> 40</span>
-<span class="normal"> 41</span>
-<span class="normal"> 42</span>
-<span class="normal"> 43</span>
-<span class="normal"> 44</span>
-<span class="normal"> 45</span>
-<span class="normal"> 46</span>
-<span class="normal"> 47</span>
-<span class="normal"> 48</span>
-<span class="normal"> 49</span>
-<span class="normal"> 50</span>
-<span class="normal"> 51</span>
-<span class="normal"> 52</span>
-<span class="normal"> 53</span>
-<span class="normal"> 54</span>
-<span class="normal"> 55</span>
-<span class="normal"> 56</span>
-<span class="normal"> 57</span>
-<span class="normal"> 58</span>
-<span class="normal"> 59</span>
-<span class="normal"> 60</span>
-<span class="normal"> 61</span>
-<span class="normal"> 62</span>
-<span class="normal"> 63</span>
-<span class="normal"> 64</span>
-<span class="normal"> 65</span>
-<span class="normal"> 66</span>
-<span class="normal"> 67</span>
-<span class="normal"> 68</span>
-<span class="normal"> 69</span>
-<span class="normal"> 70</span>
-<span class="normal"> 71</span>
-<span class="normal"> 72</span>
-<span class="normal"> 73</span>
-<span class="normal"> 74</span>
-<span class="normal"> 75</span>
-<span class="normal"> 76</span>
-<span class="normal"> 77</span>
-<span class="normal"> 78</span>
-<span class="normal"> 79</span>
-<span class="normal"> 80</span>
-<span class="normal"> 81</span>
-<span class="normal"> 82</span>
-<span class="normal"> 83</span>
-<span class="normal"> 84</span>
-<span class="normal"> 85</span>
-<span class="normal"> 86</span>
-<span class="normal"> 87</span>
-<span class="normal"> 88</span>
-<span class="normal"> 89</span>
-<span class="normal"> 90</span>
-<span class="normal"> 91</span>
-<span class="normal"> 92</span>
-<span class="normal"> 93</span>
-<span class="normal"> 94</span>
-<span class="normal"> 95</span>
-<span class="normal"> 96</span>
-<span class="normal"> 97</span>
-<span class="normal"> 98</span>
-<span class="normal"> 99</span>
-<span class="normal">100</span>
-<span class="normal">101</span>
-<span class="normal">102</span>
-<span class="normal">103</span>
-<span class="normal">104</span>
-<span class="normal">105</span>
-<span class="normal">106</span>
-<span class="normal">107</span>
-<span class="normal">108</span>
-<span class="normal">109</span>
-<span class="normal">110</span>
-<span class="normal">111</span>
-<span class="normal">112</span>
-<span class="normal">113</span>
-<span class="normal">114</span>
-<span class="normal">115</span>
-<span class="normal">116</span>
-<span class="normal">117</span>
-<span class="normal">118</span></pre></div></td><td class="code"><div class="highlight"><pre><span></span><code><span class="k">class</span> <span class="nc">BalancedFieldODEComp</span><span class="p">(</span><span class="n">om</span><span class="o">.</span><span class="n">ExplicitComponent</span><span class="p">):</span>
+uses a single ODE class with an option <code class="docutils literal notranslate"><span class="pre">mode</span></code> that can be set to either <code class="docutils literal notranslate"><span class="pre">'runway'</span></code> or <code class="docutils literal notranslate"><span class="pre">'climb'</span></code>.
+Based on the value of <code class="docutils literal notranslate"><span class="pre">mode</span></code>, the component conditionally changes its inputs and outputs.</p>
+<div class="section" id="balancedfieldodecomp">
+<h3>BalancedFieldODEComp<a class="headerlink" href="#balancedfieldodecomp" title="Permalink to this headline">¶</a></h3>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">BalancedFieldODEComp</span><span class="p">(</span><span class="n">om</span><span class="o">.</span><span class="n">ExplicitComponent</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    The ODE System for an aircraft takeoff climb.</span>
 
@@ -2089,19 +1172,24 @@ Based on the value of <code>mode</code>, the component conditionally changes its
         <span class="k">else</span><span class="p">:</span>
             <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;v_dot&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="n">T</span> <span class="o">*</span> <span class="n">calpha</span> <span class="o">-</span> <span class="n">D</span> <span class="o">-</span> <span class="n">F_r</span> <span class="o">*</span> <span class="n">inputs</span><span class="p">[</span><span class="s1">&#39;mu_r&#39;</span><span class="p">])</span> <span class="o">/</span> <span class="n">m</span>
             <span class="n">outputs</span><span class="p">[</span><span class="s1">&#39;r_dot&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span>
-</code></pre></div>
-</td></tr></table>
-<h2 id="building-and-running-the-problem">Building and running the problem<a class="headerlink" href="#building-and-running-the-problem" title="Permanent link">&para;</a></h2>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="building-and-running-the-problem">
+<h2>Building and running the problem<a class="headerlink" href="#building-and-running-the-problem" title="Permalink to this headline">¶</a></h2>
 <p>In the following code we define and solve the optimal control problem.
-Note the use of <code>add_linkage_constraint</code> to handle the less common phase
-linkage condition, where the range must be equal at the end of the <code>rto</code> and <code>climb</code> phases.</p>
-<div class="tabbed-set" data-tabs="2:3"><input checked="checked" id="__tabbed_2_1" name="__tabbed_2" type="radio" /><label for="__tabbed_2_1">script</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+Note the use of <code class="docutils literal notranslate"><span class="pre">add_linkage_constraint</span></code> to handle the less common phase
+linkage condition, where the range must be equal at the end of the <code class="docutils literal notranslate"><span class="pre">rto</span></code> and <code class="docutils literal notranslate"><span class="pre">climb</span></code> phases.</p>
+<div class="cell tag_output_scroll docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">import</span> <span class="nn">openmdao.api</span> <span class="k">as</span> <span class="nn">om</span>
 <span class="kn">from</span> <span class="nn">openmdao.utils.general_utils</span> <span class="kn">import</span> <span class="n">set_pyoptsparse_opt</span>
-<span class="kn">from</span> <span class="nn">openmdao.utils.assert_utils</span> <span class="kn">import</span> <span class="n">assert_near_equal</span>
 <span class="kn">import</span> <span class="nn">dymos</span> <span class="k">as</span> <span class="nn">dm</span>
-<span class="kn">from</span> <span class="nn">dymos.examples.balanced_field.balanced_field_ode</span> <span class="kn">import</span> <span class="n">BalancedFieldODEComp</span>
 
 <span class="n">p</span> <span class="o">=</span> <span class="n">om</span><span class="o">.</span><span class="n">Problem</span><span class="p">()</span>
 
@@ -2320,8 +1408,7 @@ linkage condition, where the range must be equal at the end of the <code>rto</co
 
 <span class="n">dm</span><span class="o">.</span><span class="n">run_problem</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">run_driver</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">simulate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="c1"># Test this example in Dymos&#39; continuous integration</span>
-
+<span class="nb">print</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.rto.states:r&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
 <span class="n">sim_case</span> <span class="o">=</span> <span class="n">om</span><span class="o">.</span><span class="n">CaseReader</span><span class="p">(</span><span class="s1">&#39;dymos_solution.db&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_case</span><span class="p">(</span><span class="s1">&#39;final&#39;</span><span class="p">)</span>
 
@@ -2361,10 +1448,11 @@ linkage condition, where the range must be equal at the end of the <code>rto</co
 
 <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-</code></pre></div>
+</pre></div>
 </div>
-<input id="__tabbed_2_2" name="__tabbed_2" type="radio" /><label for="__tabbed_2_2">output</label><div class="tabbed-content">
-<div class="highlight"><pre><span></span><code>--- Linkage Report [traj] ---
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Linkage Report [traj] ---
     --- br_to_v1 - v1_to_vr ---
         time [final]  ==  time [initial]
         r    [final]  ==  r    [initial]
@@ -2390,44 +1478,79 @@ linkage condition, where the range must be equal at the end of the <code>rto</co
     --- rto - climb ---
         r [final]  ==  r [final]
 ----------------------------
-INFO: checking out_of_order
-INFO: checking system
-INFO: checking solvers
-INFO: checking dup_inputs
-INFO: checking missing_recorders
-WARNING: The Problem has no recorder of any kind attached
-INFO: checking comp_has_no_outputs
-WARNING: The following Components do not have any outputs:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking out_of_order
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking system
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking solvers
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking dup_inputs
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking missing_recorders
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: The Problem has no recorder of any kind attached
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking comp_has_no_outputs
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: The following Components do not have any outputs:
    traj.phases.br_to_v1.continuity_comp
    traj.phases.rto.continuity_comp
    traj.phases.v1_to_vr.continuity_comp
    traj.phases.rotate.continuity_comp
-
-INFO: checking auto_ivc_warnings
-INFO: checking out_of_order
-INFO: checking system
-INFO: checking solvers
-INFO: checking dup_inputs
-INFO: checking missing_recorders
-WARNING: The Problem has no recorder of any kind attached
-INFO: checking comp_has_no_outputs
-WARNING: The following Components do not have any outputs:
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking out_of_order
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking system
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking solvers
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking dup_inputs
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking missing_recorders
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: The Problem has no recorder of any kind attached
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking comp_has_no_outputs
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: The following Components do not have any outputs:
    traj.phases.br_to_v1.continuity_comp
    traj.phases.rto.continuity_comp
    traj.phases.v1_to_vr.continuity_comp
    traj.phases.rotate.continuity_comp
-
-INFO: checking auto_ivc_warnings
-
-Approx coloring for &#39;traj.phases.br_to_v1.rhs_all&#39; (class BalancedFieldODEComp)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Approx coloring for &#39;traj.phases.br_to_v1.rhs_all&#39; (class BalancedFieldODEComp)
 
 Jacobian shape: (132, 60)  ( 9.79% nonzero)
 FWD solves: 16   REV solves: 0
 Total colors vs. total size: 16 vs 60  (73.3% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.034095 sec.
-Time to compute coloring: 0.022412 sec.
+Time to compute sparsity: 0.037703 sec.
+Time to compute coloring: 0.024017 sec.
 
 Approx coloring for &#39;traj.phases.rto.rhs_all&#39; (class BalancedFieldODEComp)
 
@@ -2436,8 +1559,8 @@ FWD solves: 16   REV solves: 0
 Total colors vs. total size: 16 vs 60  (73.3% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.033978 sec.
-Time to compute coloring: 0.022417 sec.
+Time to compute sparsity: 0.037992 sec.
+Time to compute coloring: 0.023333 sec.
 
 Approx coloring for &#39;traj.phases.v1_to_vr.rhs_all&#39; (class BalancedFieldODEComp)
 
@@ -2446,18 +1569,19 @@ FWD solves: 16   REV solves: 0
 Total colors vs. total size: 16 vs 60  (73.3% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.033104 sec.
-Time to compute coloring: 0.023011 sec.
-
-Approx coloring for &#39;traj.phases.rotate.rhs_all&#39; (class BalancedFieldODEComp)
+Time to compute sparsity: 0.038026 sec.
+Time to compute coloring: 0.026593 sec.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Approx coloring for &#39;traj.phases.rotate.rhs_all&#39; (class BalancedFieldODEComp)
 
 Jacobian shape: (132, 60)  (10.15% nonzero)
 FWD solves: 16   REV solves: 0
 Total colors vs. total size: 16 vs 60  (73.3% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.033688 sec.
-Time to compute coloring: 0.022632 sec.
+Time to compute sparsity: 0.046172 sec.
+Time to compute coloring: 0.024760 sec.
 
 Approx coloring for &#39;traj.phases.climb.rhs_all&#39; (class BalancedFieldODEComp)
 
@@ -2466,9 +1590,11 @@ FWD solves: 16   REV solves: 0
 Total colors vs. total size: 16 vs 111  (85.6% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.069780 sec.
-Time to compute coloring: 0.044026 sec.
-Full total jacobian was computed 3 times, taking 2.266979 seconds.
+Time to compute sparsity: 0.074742 sec.
+Time to compute coloring: 0.044364 sec.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 2.355342 seconds.
 Total jacobian shape: (179, 166) 
 
 
@@ -2477,105 +1603,240 @@ FWD solves: 12   REV solves: 0
 Total colors vs. total size: 12 vs 166  (92.8% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 2.266979 sec.
-Time to compute coloring: 0.146351 sec.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/total_jac.py:1756: DerivativesWarning:Constraints or objectives [(&#39;traj.phases.climb.path_constraints.path:gam&#39;, inds=[(0, 0)])] cannot be impacted by the design variables of the problem.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/total_jac.py:1756: DerivativesWarning:Constraints or objectives [(&#39;traj.phases.climb.path_constraints.path:gam&#39;, inds=[(0, 0)])] cannot be impacted by the design variables of the problem.
-
-Simulating trajectory traj
-Done simulating trajectory traj
-</code></pre></div>
+Time to compute sparsity: 2.355342 sec.
+Time to compute coloring: 0.147018 sec.
+</pre></div>
 </div>
-<input id="__tabbed_2_3" name="__tabbed_2" type="radio" /><label for="__tabbed_2_3">plot 1</label><div class="tabbed-content">
-<p><img alt="" width="640" height="480" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAoAAAAHgCAYAAAA10dzkAAAAOXRFWHRTb2Z0d2FyZQBNYXRwbG90bGliIHZlcnNpb24zLjQuMiwgaHR0cHM6Ly9tYXRwbG90bGliLm9yZy8rg+JYAAAACXBIWXMAAA9hAAAPYQGoP6dpAACuxklEQVR4nOzdd3hTZf/H8ffJ6N6LlhY6KGUvmYLIEtkoCKjgwi0OFBR9xIkojz8nLuRBEBXZMpQNMgRBZJcplF1oaenebZLz+yM0EtpC27R05Pu6rl6Qc05O7txdn95TUVVVRQghhBBC2A1NVRdACCGEEELcXBIAhRBCCCHsjARAIYQQQgg7IwFQCCGEEMLOSAAUQgghhLAzEgCFEEIIIeyMBEAhhBBCCDsjAVAIIYQQws5IABRCCCGEsDMSAIWwI2FhYTzyyCNVXQybzZ49G0VROHPmjE332bx5M4qisHnz5kotQ22p95IU1sXu3buruihCiFKSAChENVT4C/Xqj4CAAHr06MHq1aurung1xjvvvFOkHgs/vv3226ouXhGKovDcc89VdTFK9M033zB79uyqLoYQogLoqroAQoiSTZo0ifDwcFRV5dKlS8yePZv+/fvz22+/MXDgwKouXo0xbdo03NzcrI517NiRBg0akJOTg4ODQxWVrGb55ptv8PPzq9WtmULYCwmAQlRj/fr1o127dpbHjz32GHXq1GHevHkSAMtg2LBh+Pn5FXvOycnpJpdGCCGqnnQBC1GDeHl54ezsjE5n/bfbxx9/TOfOnfH19cXZ2Zm2bduyePHiG94vOTmZl19+mRYtWuDm5oaHhwf9+vXjwIEDVtcVjpVbuHAh77//PiEhITg5OdGrVy9iYmKK3Hfnzp30798fb29vXF1dadmyJVOnTrW65tixYwwbNgwfHx+cnJxo164dv/76a5F7HT58mJ49e+Ls7ExISAiTJ0/GZDKVprpuqKQxgDt37qRv3754enri4uJCt27d+PPPP294P1VVmTx5MiEhIbi4uNCjRw8OHz5cIWUtZDKZ+Pzzz2nWrBlOTk7UqVOHp556ipSUFKvrwsLCGDhwINu2baNDhw44OTkRERHBjz/+WOSe0dHRdOvWzaqOv//+e6sxjmFhYRw+fJgtW7ZYutG7d+9udZ+8vDzGjRuHv78/rq6uDBkyhMTExAp9/0KIiiEtgEJUY2lpaVy+fBlVVUlISODLL78kMzOTBx54wOq6qVOnMnjwYEaNGkV+fj7z589n+PDhrFixggEDBpR4/1OnTrFs2TKGDx9OeHg4ly5dYvr06XTr1o0jR45Qt25dq+v/+9//otFoePnll0lLS+P//u//GDVqFDt37rRcs379egYOHEhQUBBjx44lMDCQo0ePsmLFCsaOHQuYQ12XLl0IDg7mtddew9XVlYULF3L33Xfzyy+/MGTIEADi4+Pp0aMHBoPBct3//vc/nJ2dy1SPycnJVo+1Wi3e3t7FXrtx40b69etH27Ztefvtt9FoNHz//ff07NmTrVu30qFDhxJf56233mLy5Mn079+f/v37s3fvXu68807y8/PLVN7reeqpp5g9ezajR4/mhRde4PTp03z11Vfs27ePP//8E71eb7k2JiaGYcOG8dhjj/Hwww8za9YsHnnkEdq2bUuzZs0AuHDhAj169EBRFP7zn//g6urKd999h6Ojo9Xrfv755zz//PO4ubkxceJEAOrUqWN1zfPPP4+3tzdvv/02Z86c4fPPP+e5555jwYIFFfb+hRAVRBVCVDvff/+9ChT5cHR0VGfPnl3k+uzsbKvH+fn5avPmzdWePXtaHQ8NDVUffvhhy+Pc3FzVaDRaXXP69GnV0dFRnTRpkuXYpk2bVEBt0qSJmpeXZzk+depUFVAPHjyoqqqqGgwGNTw8XA0NDVVTUlKs7msymSz/79Wrl9qiRQs1NzfX6nznzp3Vhg0bWo69+OKLKqDu3LnTciwhIUH19PRUAfX06dNF6uJqb7/9drH1GBoaavW+Nm3aZClDw4YN1T59+liVNzs7Ww0PD1d79+5tOVb4OSosQ0JCgurg4KAOGDDA6rmvv/66CljVe0kA9dlnny3x/NatW1VA/fnnn62Or1mzpsjx0NBQFVD/+OMPy7GEhATV0dFRHT9+vOXY888/ryqKou7bt89yLCkpSfXx8SlSx82aNVO7detWpFyFdXHHHXdYvfeXXnpJ1Wq1ampq6g3fuxDi5pIuYCGqsa+//pr169ezfv165syZQ48ePXj88cdZsmSJ1XVXt4ilpKSQlpZG165d2bt373Xv7+joiEZj/jFgNBpJSkrCzc2NRo0aFfvc0aNHW02Y6Nq1K2BuSQTYt28fp0+f5sUXX8TLy8vquYqiAObWuI0bNzJixAgyMjK4fPkyly9fJikpiT59+nDixAkuXLgAwKpVq+jUqZNVq5u/vz+jRo267vu61i+//GKpx/Xr1/Pzzz8Xe93+/fs5ceIEI0eOJCkpyVK2rKwsevXqxR9//FFi9/OGDRvIz8/n+eeft7xXgBdffLFMZb2eRYsW4enpSe/evS1lu3z5Mm3btsXNzY1NmzZZXd+0aVPL5wjMddeoUSPL5wtgzZo13HrrrbRu3dpyzMfHp8x1DPDkk09avfeuXbtiNBo5e/Zsme8lhKhc0gUsRDXWoUMHq0kg999/P23atOG5555j4MCBljC2YsUKJk+ezP79+8nLy7Ncf/Uv4+KYTCamTp3KN998w+nTpzEajZZzvr6+Ra6vX7++1ePCbtTC8WcnT54EoHnz5iW+ZkxMDKqq8uabb/Lmm28We01CQgLBwcGcPXuWjh07FjnfqFGj676va91+++0lTgK52okTJwB4+OGHS7wmLS2t2O7jwpDTsGFDq+P+/v4ldjeX1YkTJ0hLSyMgIKDY8wkJCVaPr/18gflzdvV4wbNnz3LrrbcWuS4yMrLM5bvR14cQovqQAChEDaLRaOjRowdTp07lxIkTNGvWjK1btzJ48GBuv/12vvnmG4KCgtDr9Xz//ffMnTv3uvf74IMPePPNN3n00Ud577338PHxQaPR8OKLLxbb0qXVaou9j6qqpX4Phfd9+eWX6dOnT7HXlCd8VITCsn300UdWLWJXu3Y5mZvJZDIREBBQYgumv7+/1eOK+HyVxc1+PSFE+UkAFKKGMRgMAGRmZgLm7k0nJyfWrl1rNXD/+++/v+G9Fi9eTI8ePZg5c6bV8dTU1FK1mF2rQYMGABw6dIg77rij2GsiIiIA0Ov1JV5TKDQ01NIqd7V//vmnzGUrjcLye3h43LBs1woNDQXMrXSF7xEgMTGxwlrAGjRowIYNG+jSpUuZJ8KUJDQ0tNiZ3MUdu1GLshCi5pAxgELUIAUFBaxbtw4HBweaNGkCmFtdFEWx6r49c+YMy5Ytu+H9tFptkdaZRYsWWcbgldUtt9xCeHg4n3/+OampqVbnCl8nICCA7t27M336dOLi4orc4+plQ/r3789ff/3F33//bXW+pBYwW7Vt25YGDRrw8ccfWwJ2SWW71h133IFer+fLL7+0qtPPP/+8wso3YsQIjEYj7733XpFzBoOhSJ2XRp8+fdixYwf79++3HEtOTi62jl1dXcv1GkKI6kdaAIWoxlavXs2xY8cA8/iuuXPncuLECV577TU8PDwAGDBgAJ9++il9+/Zl5MiRJCQk8PXXXxMZGUl0dPR17z9w4EAmTZrE6NGj6dy5MwcPHuTnn3+2asEqC41Gw7Rp0xg0aBCtW7dm9OjRBAUFcezYMQ4fPszatWsB8+SW2267jRYtWvDEE08QERHBpUuX2LFjB7GxsZZ1CCdMmMBPP/1E3759GTt2rGUZmNDQ0Bu+t/KW/7vvvqNfv340a9aM0aNHExwczIULF9i0aRMeHh789ttvxT7X39+fl19+mSlTpjBw4ED69+/Pvn37WL16dZlaU3fv3s3kyZOLHO/evTvdunXjqaeeYsqUKezfv58777wTvV7PiRMnWLRoEVOnTmXYsGFles8TJkxgzpw59O7dm+eff96yDEz9+vVJTk62avVr27Yt06ZNY/LkyURGRhIQEEDPnj3L9HpCiGqiCmcgCyFKUNwyME5OTmrr1q3VadOmWS21oaqqOnPmTLVhw4aqo6Oj2rhxY/X777+3LIFyteKWgRk/frwaFBSkOjs7q126dFF37NihduvWzWq5j8LlUhYtWmR1v9OnT6uA+v3331sd37Ztm9q7d2/V3d1ddXV1VVu2bKl++eWXVtecPHlSfeihh9TAwEBVr9erwcHB6sCBA9XFixdbXRcdHa1269ZNdXJyUoODg9X33ntPnTlzZpmWgUlMTCz2/LXLwBTat2+fOnToUNXX11d1dHRUQ0ND1REjRqi///675Zprl4FRVVU1Go3qu+++a6nP7t27q4cOHSpS7yW59nN+9cd7771nue5///uf2rZtW9XZ2Vl1d3dXW7RooU6YMEG9ePGi5ZrQ0FB1wIABRV7j2s9t4fvt2rWr6ujoqIaEhKhTpkxRv/jiCxVQ4+PjLdfFx8erAwYMUN3d3VXAcp/Cuti1a1ep6lcIUfUUVZXRuUIIIay9+OKLTJ8+nczMzBIndwghai4ZAyiEEHYuJyfH6nFSUhI//fQTt912m4Q/IWopGQMohBB27tZbb6V79+40adKES5cuMXPmTNLT00tcp1EIUfNJABRCCDvXv39/Fi9ezP/+9z8UReGWW25h5syZ3H777VVdNCFEJZExgEIIIYQQdkbGAAohhBBC2BkJgEIIIYQQdkYCoBBCCCGEnZEAKIQQQghhZyQACiGEEELYGQmAQgghhBB2RgKgEEIIIYSdkQAohBBCCGFnJAAKIYQQQtgZCYBCCCGEEHZG9gKuACkpKRgMhgq/r7+/P4mJiRV+X3sh9WcbqT/bSP3ZTurQNlJ/JdPpdHh7e1d1MaqUBMAKYDAYKCgoqNB7Kopiubds11x2Un+2kfqzjdSf7aQObSP1J25EuoCFEEIIIeyMBEAhhBBCCDsjAVAIIYQQws5IABRCCFGzyRg3IcpMJoEIIYSouUz5eCT8Qr5zA3I9O1R1acQ1VFUlu8BEco6BlBwDyTkG8gwqBpOKUb3yr0nFaKLIMYMJjKpKhxA3Ooa4V/VbqXUkAAohhKiRNAUpeMb9hD4/Dseso+S5NUXVulV1sexGdoHx32CXbQ53hR+FYS8520Ce0bYWWn8XvQTASiABUAghRI2jzzmFZ/xcNMYsTFpX0gJHSfirILkGkyXUJV0T5pJz/w17uQZTqe/pqtfg7azDx1mHk16DVlHQaUCnUdBqlH//VbjmsULTAOdKfLf2SwKgEEKImkNVcU7/C7fEFSiYKHCsS1rgg5j0XlVdsmovrzDYXf2RbShyLLug9MHOWafBx8Uc7Ao/CoPe1ccddUWnHGi1WhRFsXzAv+sX5uXlVcybFiWSACiEEKJmUA24J/6Kc/ouAHLdWpEeMBSNzglMpQ8ttVmBUeVsah4xyblcjE7lTEI6yTkFJOcYyMovfR056ZSrQp0eb2ftlUCntwp6zvryzyVVVRWTyYSqqiiKgl6vR1XVCt9YQRRPAqAQQohqT2PIwCP+Zxxyz6KikOXbl2yvrmi0WhwcHMjNza3qIt50RpPKhfR8TiTlcCIpl5jkXE6n5GEwlTzmzkF7VbBzuabF7qpjzjqNpTWuspiuhHa9Xg+Ydy3RarWyc8lNIgFQCCFEtabLjcUz7ie0xnRMGifS69xHvmsj8zmdDpPJhE6nq5Q92asLVVWJzywwB72kHGKSczmZnFfsODw3Bw0NfZ1pHeqHpybfqnvWRV/5wa60NBqN5fNmMplwcHAgPz+/qotlNyQACiGEqLYc0/fhnvALimrAoPcnLehBjA7+gDn8GY1GNBoNGk3tWtY2Kdsc9q4OfJnFdOE66RQa+DgR6eNEpK8zDX2dCHTTo9FoCAoKIi4urlq2qBV29xYGvsLPpbh5JAAKIYSoflQTxlPz8bi0GoA8l0ak17kPVesEmCcLaDQaCgoKUBQFVVXRaDSWbsWaJD3XQExy7r+BLzmXlJyirZk6jUK4tyMNfc2Br6GvM8EeDmg11aNFrzS0Wi1arZaCggKrYKrRaKT17yaTACiEEKJaUYw5eF6aj5p9HIAs7+5k+fQG5d9WPp1OZwl/YB4/ptfrq30AzDWY/h2zdyXsXcosOulBo0B9T0cirwp7oV6O6LU1J+xdrXCSh8lkKjboSfi7+SQACiGEqDa0+Ql4xv2IriAJNA6kB9xDrlvLItddPXu0OnZxFjKaVGKSczkQl8X++Cz+uZxDccvn1XV3MLfs+TrR0MeJCB+nYpdOqYl0Op2ltbY6f67sjQRAIYQQ1YJD1jE8Ls1HY8rDqPPEoeV48jIcit3rt3C82NUBsDosH1I4WWN/XBYH4rOIvpRdZPkVPxcdDX2dzWHP14kGPk64OWirqMSVp7DVz2g0SgtfNSQBUAghRJVSTSZSDs+jkfMhFCDfKYz0oAcIdAuFjLjrPldRlCrv9k3PM3Iw3tzCtz8um4Qs6yDq6qChZR0XWgW60jrIlUA3fbWZiVtZCpd2keBXfUkAFEIIUWUKCgo4+/ccOtcxj/dLd2lDbtBQFI2+VM+vqi7g9Dwj28+ls/VsBocvZXN1CXQaaOznTKtAV1oFuRLp41SjJmrY4tqlXUT1JQFQCCFElcjIyGDFihUkX04nqIMDue4t8Y28p0z3uJktadkFRv6OzeSPM+nsj8vCeFXqq+/pQKsgV1oHutIswMWmHTJqqmuXdhHVmwRAIYQQN92FCxdYtWoVOTk5ODk5k1L3cULq1avqYhWRbzSx50IWf5xNZ/eFTPKvSn3h3o7cHurBbaEeBLiVrsWyNippaRdRvUkAFEIIcVMdPHiQLVu2YDKZ8PPzY+DAgXh4eFR1sSwMJpXo+Cz+OJPOX+czyblq2m5ddwduD3Ona6gHIZ6OVVjKqnejpV1E9SYBUAghxE1hNBrZsmULhw4dAqBhw4bccccdlgkDVcmkqhxNyOGPs+lsP5dBet6/u1L4uejoGurB7WEehHs71voJHKUhS7vUfBIAhRBCVLqsrCxWrVpFXJx5Vm/nzp1p27ZtlYYpVTWv0bf1TDrbzmaQdNXuG56OWrqEmlv6Gvs7o5HQB8jSLrWJBEAhhBCVKj4+npUrV5KVlYWDgwN9+/YlLCzM5vuWdwbwubQ8tp5JZ+vZdOIy/l2yxVWvoVM9d7qGedCyjovdzNwtLVnapXaRACiEEKLSHDlyhE2bNmE0GvH29mbQoEF4eXlV2P1LGwAvZeaz9WwGW8+kcyY1z3LcQavQPtiN28M8uKWuKw5a+5u9eyOytEvtJAFQCCFEhTMajWzdupXo6GgAIiIi6N27N46OFTdx4kYtgMk5Bv48a27p++dyruW4TgNtglzpGupBhxB3u1yypbRkaZfaSwKgEEKICpWdnc2qVau4ePEiAB07dqRDhw4VPt6vuACYmWdk+3lzS9+hhGxMV04rQIs6LnQN8+DWeu64O9a+rdcqkiztUvtVywCYnJzMnDlz2L9/P3l5eQQGBjJmzBgaNGgAmJv8Fy5cyO+//05WVhaNGzfm8ccfJygoyHKPzMxMZs2axZ49e1AUhY4dOzJ69GicnJws15w9e5aZM2dy8uRJPDw86Nu3L3fddddNf79CCFFbXDver0+fPoSHh1fKaxUGwJwCE3/HZrD1bDr74rK4atUWGvk50TXUgy6hHvg4V8tfedWKLO1iP6rdd0NmZiZvvvkmzZo14/XXX8fDw4O4uDhcXV0t1yxfvpzVq1fz7LPPEhAQwIIFC3j//ff59NNPcXBwAOCLL74gJSWFN954A6PRyDfffMP06dMZO3YsYP4LdfLkybRo0YInnniCc+fOMW3aNFxdXbnjjjuq5L0LIURNdvjwYTZt2oTJZMLb25uBAwfi7e1dKa9VYDSRmFPA8iOJrD2RYrVAc5iXI11DPega5k4dN4dKef3aSJZ2sS/VLgAuX74cX19fxowZYzkWEBBg+b+qqqxatYqhQ4fSvn17AJ577jmeeOIJdu3aRZcuXYiNjWX//v1MmTLF0mr46KOPMmXKFB588EF8fHzYtm0bBoOBMWPGoNPpqFevHmfOnGHFihUSAIUQogyMRiN//PEHBw8eBCpnvB+A0aRy8FL2lQWaM3i2cz02nkoj36gS6Kbn9jAPuoZ5UN/OF2guK1naxT5VuwC4e/duWrVqxaeffsqRI0fw8fHhzjvvtISyhIQEUlNTadmypeU5Li4uREZGcvz4cbp06cLx48dxdXW1hD+AFi1aoCgKMTExdOjQgePHj9OkSRN0un+roFWrVixfvpzMzEzc3Nxu3psWQoga6tr1/Tp16kT79u0rdLxfrsHE7yfT+O2fZKtlW7ydddwRYQ59kT5OskBzOcjSLvar2gXAhIQE1q9fz4ABAxgyZAgnT57k+++/R6fT0b17d1JTUwHw9PS0ep6np6flXGpqapFthbRaLW5ublbXXN2yCFiWJkhNTS02ABYUFFBQ8O8PH0VRcHZ2tvy/IhXeT36glY/Un22k/mxjL/V38eJFVq5cSXZ2No6OjhU63k9RFBIy8vhxXwJrTqSQmW8e2OfqoLHsytE6yJVmftLFW5wbfQ1qNBq0Wi1GoxGTyVTrv1ZFUdUuAJpMJho0aMDIkSMBCA8P59y5c6xfv57u3btXadmWLl3K4sWLLY/Dw8P58MMP8ff3r7TXDAwMrLR72wOpP9tI/dmmttafqqrs2LGDFStWYDKZqFOnDg8++CB+fn4Vcv9jlzKYu/sc644dxXhlGm+IlzP3t63HwOaBuDiYf3VlZmZW2GvWVtd+DZpMJnJyciwNGBL87Fe1C4De3t6EhIRYHQsJCWHnzp3Av610aWlpVoOL09LSLCvLe3l5kZ6ebnUPo9FIZmam5fleXl6W1sBChY9LWqR0yJAhDBw40PK48BsnMTERg8FQ7HPKS1EUAgMDiY+Pl8G45SD1ZxupP9vU5vorKChg48aNHDt2DPh3P9+CggJLN3B5mFSV3RcyWX40mYOXsi3HmwW4cFcTH9oHu6HVKKQlJZJ25ZxerycjI8OWt1NrFfc1qNVq0Wg0GAwGVFUlLS3tBnepvXQ6XaU23tQE1S4ANmrUyLJ2VKGLFy9aPlEBAQF4eXlx8OBBS+DLzs4mJiaGO++8E4CoqCiysrI4deoUERERABw6dAhVVYmMjLRcM2/ePAwGg2UcYHR0NHXr1i1x/J9ery9x0/LK+iGvqmqt+wVyM0n92Ubqzza1rf7S0tJYuXIlly9fRlEUunTpQps2bcq9JRuYx/dtOpXGr8eSuXhlfJ9Gga6hHjzaNQpvNcty72tfo7bVb2UorB9Z2kVcq9oFwAEDBvDmm2+yZMkSOnfuTExMDL///jtPPvkkYP6rpn///ixZsoSgoCACAgKYP38+3t7ellnBISEhtG7dmunTp/PEE09gMBiYNWsWnTt3xsfHB4DbbruNRYsW8e2333LXXXdx/vx5Vq9ezcMPP1xl710IIaqrs2fPsnbtWnJzc3F2dqZfv35FemvKIim7gFXHU1l7IoWMwvF9eg19GnrRP8qbADcHggI9iIvLKvb5toROe6GqqqXVT5Z2EddS1Gr4FbFnzx7mzp1LfHw8AQEBDBgwwGpplsKFoDds2EB2djaNGzfmscceo27dupZrMjMzmTlzptVC0I8++miJC0G7u7vTt29f7r777jKXNzEx0WpySEVQFIWgoCDi4uLkm7YcpP5sI/Vnm9pUfyaTiV27drNz518A1KlTh/79++Pu7l6u+51KzuXXY8lsPZtuWbA50E3PoMbe9IrwsmzLdqM61Gg0lu5MUZRGo8HV1ZXs7GyMRmNVF6fa0ev1dt8FXC0DYE0jAbD6kfqzjdSfbWpL/WVm5LDklzWkpp8HoHnz5tx+++1Wy2eVhklV2Xsxi+VHk4m+anxfU39nBjfxocOV8X1XK00AVBRFwk0xCocq+fr6cunSpRr9NVhZJABWwy5gIYQQVS8txcim9adJTT+PgoauXbvTuk3zMt0jz2Bi0+k0fj2WwoV089gzjQJd6rszuLEPUX7O5S6fdAEXpdFo0Ol0lkkeGo2mqoskqjEJgEIIIaycP51P9J5stGpd6vi0p13HUBo0rHvjJ16RkmNg1fEUVp9IJSPP3ELnotdwZ6QXAxt54+9a/GS6slAUBZPJdOML7YRer0dVVcskD1neRdyIBEAhhBAAGI0qh/flcPakOUT4B+q4pVNHHBxL15J0JiWX5cdS+ONMOoYr6/cFuOoZ3NibXg08cdFrK6ys0gJoptVq0Wq1MslDlJkEQCGEEGRnGdn9ZzZpKeYWu6hmjkQ1u/H2aqqqsi8ui2VHkzkQ/+/4vsZ+ztzVxJuOIe5FxvdVBHtv4ZL9e4WtJAAKIYSdu3SxgH07synIV9E7KNzSyYWAoOt306qqyp6LWcyLvkxMci5gHt93az137mriQyMbxveJ69PpdLK0i7CZBEAhhLBTqknln8O5nDiSB4CXj5a2nV1xcS25y1e9MqN33sHLnEgyBz9HrUKfhubxfXXcZG/eyiKtfqIiSQAUQgg7lJdrYu9f2Vy+ZF5HLyzSgaatndFqi+9aLezqnRd9meNXBb/+Ud4MaeqDp5P8OqlMhUu7SPATFUW+Y4UQws4kXzawZ3sWuTkqWi20bOdCSFjxLXeqqrI/Ppt50Yn8c9kc/ByuCn5eEvwq1dVLu8isZ1GR5DtXCCHshKqqnD6Rz5H9OagquLpraN/FFXfPorNzVVXlQHw286Ivc+xyDmAOfv0aejG0qS9ezlX368NeZgBfu7SLEBVJAqAQQtgBQ4HKgV3ZXDxv3rUoqJ6e1u1d0OmLdvlGx2cxN/oyRxP/DX59rwQ/7yoMflerzQFQlnYRN0OFfSfn5+dbBqgKIYSoPjLSjOz+M4vMDBOKAk1bOxPe0KHIUipxGfl8vzeBnbGZAOg1V4JfM198qknwg9rbAiiTPMTNVO7v6MOHD7Nr1y7++ecfYmNjLV+sjo6OBAcH06hRI9q3b0+zZs0qrLBCCCHK5vyZfA7uzsZoBCdnhbadXfHxs/7Rn5VvZNGhJH77JxmDybycS9+GXgxr5ouvS/X7o742BkBZ2kXcbGUKgAaDgQ0bNrBixQoSExNxc3MjPDycrl274ubmhqqqZGVlkZCQwNatW1m9ejV+fn4MGjSIO+64o8wbiAshhCgfo0Hl0L4czp0y/3HuV0fHLZ1ccHT6d4kXo0nl91NpzDmQSFqueQHoW4JcebRtAPU8Hauk3KVRmwKgtPqJqlKmRPbCCy9gMBjo1q0bt956KxEREde9/tSpU+zYsYOlS5fy22+/8fXXX9tUWCGEEDeWmWFkz/Ys0lPNs0YbNXeiYRNHlKt25Dh4KYuZexI4nWJeAzDYw4FHbwmgXbBblZS5LGpLAJSlXURVKlMAHDJkCN27dy/1OL+IiAgiIiK499572bRpU7kKKIQQovQuns/nwN/ZGAzg4Khwy60u+Nf592d2fEY+s/clsOO8eZyfq4OG+1v40S/KG10lbNlWWWpyAJSlXUR1UKYA2Lt37/K9iE5X7ucKIYS4MaNR5cj+HM7EmFuTfPy1tL3VFSdnc5dvdoGRxYeSWH4sBYNJRaNAn0gvRrb0w6OGreVXk/cBlqVdRHVh03f9N998Q+/evWnYsGGx52NiYli3bh1jxoyx5WWEEEJcR3aWkT3bs0lNNo/ji2ziSKPmTmg0CkaTyqbTafy0P5HUK+P8Wge68GjbOoR6Vd9xfrWNLO0iqhubAuCWLVto2bJliQEwISGBLVu2SAAUQohKEhebz4G/cygoUNE7KLTp6EKduuYu38MJ2Xy3+xKnrozzq+uuZ/QtAbQPdqvRrWg1iUzyENVVpbb7Jycn4+AgG4MLIURFMxlVjkbncuq4Odx5+Whp29kVF1cNlzLz+WFfIn+eywDAVa/h3hZ+9I/yRl/CXr+i4snSLqI6K3MA3LVrF7t27bI83rBhA9HR0UWuy87O5uDBg0RGRtpWQiGEEFayM43s2fFvl29EI0eatHAiz6Ty0/5Elh9NpuDKOL/eDbwY1coPzxo2zu96qnuYklY/UROU+SdCbGwsf/31l+XxiRMnOHXqlNU1iqLg6OhIkyZNeOihh2wvpRBCCODKLN9d2RgKQO+g0LqDCwF1dWw+nc6P+xNJyTEA0LKOC4+1DSDM26mKS1yxqvsSMLK0i6gpyhQAs7OzGTx4MEOGDAHg3nvv5ZlnnuG2226rlMIJIYQwu3aWr7evlltudeVsVi4frblATHIuAIFu5nF+HUNq5zi/6vqeZGkXUdOUKQCOHj2a559/3hL4unXrRp06dSqlYEIIIcyuXdg5sokjPuFavtkXx9az5nF+zjoNI1r4MqiRN3qt5nq3q9GqYwugLO0iaqIyBUCdTkdBQYHl8Y1mAQshhLBN7Jl8ovdkY7yysHOzds5sSUpj2cpk8o0qCtA70pNRLf3xcq494/yup7oEQFnaRdRkZfppERwczMaNG/H398fFxQUwL/Vy7RjAa91oyzghhBDWDAaVQ3tzOH/634Wd84KNvPX3OZKujPNrHuDMY23rEOFTu8b5XY+iKFXexSqTPERtUKYAOHLkSD777DPee+89y7EFCxawYMGC6z7vRueFEEL8KyPNyO7tWWSmm0AB3zAtS5OSOL7bPM4vwFXP6Fv8ubWee7UdE1dZqroLWJZ2EbVFmQJg69at+frrr4mJiSEtLY1vvvmGXr16ERUVVVnlE0IIu6GqKudO5XNoXw4mI+gdFU675/DdiVQAnHQahjf3ZXBjbxxq8Ti/66mqwCutfqK2KfOAETc3N1q3bg3A5s2bufXWW2nRokVFl0sIIexKQb5K9J5sLp4zj7M2uJpYmHmZ9CwTCtAzwpMHWvvjYyfj/KoTWdpF1EY2/SR5++23K6ocQghht1KSDOzdkU12lnls22FtFjvSzLN7m/qbx/lF+trPOL/qQpZ2EbVZmfoQtm3bVq4xD6qqsm3btjI/TwghajNVVYk5msufv2eSnWUiV2NiuSGJHXkZBLjqeOW2unzQu76Evyqg1+vRaDTk5+dL+BO1UplaAH/44QcWLlxIr169uPXWWwkICLju9fHx8Wzfvp1NmzaRm5srC0YLIcQVuTkm9u3M5vIl84zeU6YcthnS0ehgVDM/7mrsg6POPsf5XU9lT7yQpV2EvShTAPzyyy9ZtWoVK1asYO7cuQQEBBAeHk5AQACurq6oqkpWVpZlaZjLly/j7u5Ov379GDBgQGW9ByGEqFES4grYtzOb/DwVAyrbjekcV3PoEe7Bg6398XXRV3URq6XKnAAikzyEvSlTAHRycmLo0KHcdddd7Nmzh127dnH8+HF27txpdV1gYCBNmjShffv2tG3bFp1OBi0LIYTJqHL0YC6n/skDIEktYJMxFX9fPR+3D6Whr3MVl7D6q4xWOVnaRdijciUzrVZLhw4d6NChAwAmk4nMzEzAPEtYo5FuCyGEuFpmhpG9O7JJSzECcNiUxT4lk/tv8WNQIx+0Gvtaz688KnoNQGn1E/asQprmNBoNHh4eFXGrIpYtW8bcuXPp378/jzzyCGCeiv/jjz+yfft2CgoKaNWqFY8//jheXl6W512+fJkZM2Zw+PBhnJyc6NatGyNHjkSr1VquOXz4MD/++CPnz5/H19eXe+65h+7du1fK+xBC2CdVVa9s52Ze2y9XNfGHKQ03Pw2fdgon2MOhqotYY1RkAJSlXYS9q9Z9szExMaxfv57Q0FCr4z/88AN79+5l3LhxuLi4MHPmTD755BPLDiUmk4kpU6bg5eXF5MmTSUlJ4auvvkKr1TJy5EjAvIXdf//7X3r37s3zzz/PoUOH+Pbbb/Hy8rKscyiEELYoyDdxYFc2F8+b1/a7aMpju5LOsFt8GdDIG42d7eJhq4oIgLK0ixBm1bavNjc3ly+//JKnnnoKV1dXy/Hs7Gw2btzIww8/TPPmzYmIiGDMmDH8888/HD9+HIADBw4QGxvL888/T1hYGG3atOHee+9l7dq1GAzmGXfr1q0jICCAhx56iJCQEPr27UunTp1YuXJllbxfIUTtEhebxe+r0rl4vgCTqrLLmME531z+OyCUQY19JPyVg60BUJZ2EeJf1TYAfvfdd7Rp04aWLVtaHT916hRGo9Fq95Hg4GD8/PwsAfD48ePUr1/fqku4devW5OTkcP78eQBOnDhRZAeTVq1aWe4hhBDlYTKpHDmQza+LzpKfq5KmGlirJNOpnRvv9a5PkLt0+dqiPAFQq9Xi4OCAwWCwNAIIYe+qZRfwn3/+yenTp5kyZUqRc6mpqeh0OqtWQQBPT09SU1Mt11wd/grPF54r/Lfw2NXX5OTkkJ+fj4ND0R/SBQUFFBQUWB4rioKzs7Pl/xWp8H72ttF7RZH6s43UX/lkZRjZsS2T7DRz69JxUzYZfgbe6VyfOm4S/MqiuK9BRVHK9DWpKAo6nQ6TyWT52W0vX9PyPSxupNoFwMuXLzN79mzeeOONYkNYVVq6dCmLFy+2PA4PD+fDDz/E39+/0l4zMDCw0u5tD6T+bCP1VzqqqnLscCp//B4HJshTTezSZDLkjnoMaVlXfgnb4OqvwczMTPz8/G74HFVVyc3NxWg04uzsbDX5z97I97AoSYUEwIKCAk6fPk1aWhqNGjWyaUbwqVOnSEtL49VXX7UcM5lMHD16lDVr1jBx4kQMBgNZWVlWrYBpaWmWVj8vLy9iYmKs7puWlmY5V/hv4bGrr3F2di4xeA4ZMoSBAwdaHhf+UE9MTKzwbgVFUQgMDCQ+Pl7WpSoHqT/bSP2VXn6+ib+2Z5Iab17eJU7N57JfPh/d3RqyU4mPj6/aAtZQxX0N6vV6MjIybvg8nU6H0WjEZDLd8PraSr6Hr0+n01Vq401NYHMAXLVqFYsWLSI7OxuAN998k+bNm5Oens5LL73EqFGj6NmzZ6nv16JFCz7++GOrY9OmTaNu3brcdddd+Pn5odVqOXjwIJ06dQLg4sWLXL58maioKACioqJYsmQJaWlplm7e6OhonJ2dCQkJAaBhw4bs27fP6nWio6Mt9yiOXq+3LB1wrcr6BlNVVb55bSD1Zxupv+tLuFTAjj8z0RQomFSVg0oWHdu58WRkAIEeTsRlSf3Z6tqvwevVpyztUpR8D4uS2DQJZNOmTfzwww+0bt2aZ555xuqch4cHzZo1Y/v27WW6p7OzM/Xr17f6cHR0xN3dnfr16+Pi4kLPnj358ccfOXToEKdOneKbb74hKirKEt5atWpFSEgIX331FWfOnGH//v3Mnz+fPn36WH5A3HnnnSQkJDBnzhwuXLjA2rVr2bFjh2xZJ4S4IZNJ5a+/M/hrszn8pakGYnyzeWZQHXpHekmXbyUpqadFo9Hg4OCA0Wi0GqcthCiZTS2AK1asoF27dowdO7bYZvaIiAhWr15ty0sU6+GHH0ZRFD755BMMBoNlIehCGo2G1157je+++4433ngDR0dHunXrxr333mu5JiAggNdee40ffviBVatW4evry9NPPy1rAAohris11cDmLRlocxUUFE6RQ8t2zoxq4CvBr5IVt3SLXq9HVVVp9ROijGwKgPHx8fTr16/E825ubpYt4mzxzjvvWD12cHDg8ccftwp91/L39+c///nPde/brFkz/u///s/m8gkhaj9VVdkdncWFYwVoUchVTVzyzuOh2/3xdq528+lqPa1Wi1arlf17hSgnm35qubi4kJ6eXuL52NjYIsuxCCFETZOZZWDdpnT0WRq0KMSTT8NbHBnWMFBa/W4y2b9XiIph0xjANm3a8Pvvv5OVlVXk3Pnz5/n9999p27atLS8hhBBVau+xTNauMIc/g6oS75HHsMHedI/ylPBXBTQaDQUFBRiNxqouihA1mk0tgPfddx8TJ05k/PjxlqC3efNmNm7cyM6dO/H29mbYsGEVUlAhhLiZsvOMrNyUilOaFgc0pGKgfms9QxrXqeqi2TUJfkJUDJtaAH18fPjvf/9L69atLbN9t27dyp49e+jSpQvvv/++TWsCCiFEVdi34yS/LknCKU2LqqokuxUwaKAn3Rp73vjJJVBVlQkTJtCsWTOCg4M5dOgQw4YN46233ir1PRYsWECTJk2ue80nn3xC7969Szy/fft2goODi6yDWlXKWgeieDk5OTzxxBM0atSoWn1+RfVl88hlT09Pnn76aZ5++mnS09MxmUx4eHig0VTbbYaFEKJYakEBhuVzOZp/J+5aB7JVA3WbOzC4ubfN9960aRMLFy5k0aJFhIaG4uPjw4wZM0pcW7S22b59O8OHD+fIkSNFtuG82YYNG8aOHTuKHO/Zsyc//fQTYF7j9qeffiI6OprU1FTWrl1L8+bNLdeeP3/eshbttb799lsGDRoEmBtFPvroI44dO4aLiwvDhw/n1VdfRacr/tdvSkoKn3zyCVu2bOHixYv4+PjQt29fXnnlles2qCxcuJCdO3eyfPlyfHx8SEtLQ1EU1q1bR7NmzUpdN8J+VOjUNWntE0LUVOrZk5i+/xzNhbM0q3OOw03vp+8d/vgEVMzPtbNnzxIQEED79u0tx7y9bQ+WouxmzJhhtV5gSkoKvXv3ttrpKTs7mw4dOjBo0CBeeeWVIveoW7dukc0Efv75Z6ZNm2bZ/ODw4cM89NBDvPDCC0ydOpX4+Hhee+01jEZjia2ely5d4tKlS7z55ptERUURGxvLa6+9Rnx8PDNmzCjxPZ09e5aGDRvSuHFjwDwJU4jrsSkAXr0vbkkcHBzw8fGhadOm+Pj42PJyQghR4VSDAXX1YtSVC8BoBHdPWg69g1a3RFbYa7z44ossWrQIgODgYEJCQti5cyfDhg2jadOmTJo0CYC8vDw+/PBDli9fTlpaGo0bN+b111+nc+fOJd77q6++YsaMGeTk5DBo0CB8fX3LXL6///6bKVOmEB0djbe3N/369eM///kPLi4uAHTs2JFRo0Zx5swZVqxYgaenJ2PHjuWBBx6w3GPXrl28/vrrnDx5kkaNGjF27Fgee+wx1q5di6enJ8OHDwegadOmAAwfPpzPP/8cMHePT548mXnz5qHX63nwwQd5+eWXy/w+Suva4L18+XKcnZ0trXaAZfz6+fPni72HVqslICDA6tjq1asZNGiQZZvSX3/9lSZNmvDSSy8B5v3jJ06cyDPPPMO4ceNwc3Mrct/GjRtbBb2wsDBeffVVXnjhBQwGQ7Eth1e3aAYHB3PrrbdaHt95550A3HrrraX6nS3sh00BsPAHWmloNBp69erFo48+Kt3DQohqQb1wDtP3n8PZK3uH39IZzQPPoLhXbBflpEmTCA0N5eeff2bVqlVotdpir3vjjTc4fvw433zzDXXq1GHNmjU88MADbNiwgYiIiCLX//rrr3z66ae8//77tG/fnl9++YVZs2ZRv379UpftzJkzjBo1igkTJvDJJ5+QlJTEG2+8wcSJE/nss88s102fPp1XXnmF559/npUrV/Kf//yHTp06ERkZSUZGBo888gg9e/bk66+/JjY2lrffftvy3Lp16zJjxgyeeOIJ/vjjD9zd3XFycrKcX7RoEU8++SS//fYbe/bs4aWXXqJ9+/bcd999xZZ5yZIlVvvFF2fOnDl07NixVHUwf/587rrrLkvgLY/o6GgOHz7M+++/bzmWn5+Po6Oj1XVOTk7k5uYSHR193WB/tYyMDNzc3ErsNp4xYwZTpkzh2LFjfPfdd+j1es6dO0f//v1ZsGABUVFRdjPUQJSeTQFw2rRp/Pe//yUsLIx+/foRGBgIQFxcHGvWrOHs2bO89NJL5ObmsnLlStavX4+3tzf33HNPhRReCCHKQzUZUdcvR102BwwGcHFDGfkUSofbK2VpFw8PD9zc3IptNSp04cIFFixYwN9//235Wfr000+zadMmFixYUOzC9t999x333Xcf999/PwCvvvoqW7duJS8vr9Rl++qrrxgyZAhPPPEEYN7B6b333uOee+5hypQplqDWs2dPHnnkEQCeffZZZsyYwfbt24mMjGTp0qUoisJHH32Ek5MTUVFRxMfHW7pOtVqtZU1YPz+/ImMAmzRpwrhx4yyvP3v2bLZt21ZiALzzzjtp06bNdd9XYR3eyL59+zh27FiRPejLat68eTRs2NCqi7979+589913LFu2jEGDBpGQkGBp9UxISCjVfZOTk/n8888ZNWpUidd4e3vj5OSEg4OD5eurcHk2b2/vEr/mhH2zKQB+99131K1blzFjxlgdj4iIYMyYMXz++ef8/PPPjB8/nmeffZb09HT++OMPCYBCiCqjXrpobvU7ecx8oEU7NA89i+JV9q7TinT06FGMRiNdu3a1Op6fn1/iWMGYmBgefPBBq2Nt27Yt0x7sR44c4ejRoyxdutRyTFVVTCYT58+fp2HDhsC/XbdgXozZ39+fpKQkAE6ePEmTJk2sWvXKsq3mtTObAwICuHz5conXu7m5Fdt9Wh7z5s2jSZMmNwyU15OTk8OyZcsYO3as1fFu3brxxhtv8Nprr/HCCy/g4ODAiy++yM6dO0v1h0ZGRgYPPfQQUVFRjB8/vtzlE6I4NgXAw4cPX/evkqZNm/Lzzz9bHrdp08Yyw0oIIW4m1WRC3bQKdclsyM8HJ2eU+55A6dyrWizonJWVhVarZfXq1UW6iAvHlFXW6z7wwAM8+uijRc4FBwdb/n9t96OiKMXuzVsexd37etu7VVQXcHZ2Nr/++qvN4w1XrlxJTk6OZZzj1Z566imefPJJLl26hKenJ7GxsUyZMoXQ0NDr3jMzM5NRo0bh6upq6dYVoiLZFAB1Oh0xMTGWQabXOn78uNU3ttFotPoLUQghbgb10kVMP30N/xw0H2jcEs0jL6D4Vp+usebNm2M0GklKSir12LXIyEj27dtnFTz27t1bptdt0aIFx48fJzw8vEzPu1qDBg1YsmQJeXl5ljFvBw4csLqmMMBUxELOFdUF/Ntvv5Gfn8/QoUNtKs/8+fPp3bt3iRNwFEWxlGfZsmXUrVuXFi1alHi/jIwMRo4ciaOjI7Nnzy7X783C+q6okC5qH5sCYJcuXVi7di1ubm7ceeedlnEGCQkJrFu3jq1bt9KnTx/L9YcPHyYkJMS2EgshRCmpeXmoqxahrltiHuvn4Igy7BGUbv1QqtlktAYNGjB06FDGjh3LW2+9RfPmzUlKSmLbtm00adKEO+64o8hzHnvsMcaNG0erVq1o164dS5cu5fjx42WaBDJmzBgGDRrExIkTuf/++3FxceHEiRP88ccfVhMarmfIkCF8+OGHTJgwgeeee44LFy7w7bffAlhaV0NCQlAUhQ0bNtCrVy+cnJzK3bJZUV3A8+fPp0+fPsWuUJGSksKFCxe4dOkSYO7mBnP39NVj6k6fPs1ff/1VYu/WtGnT6N69OxqNhlWrVvH111/z7bffWlp54+LiuPfee5k6dSpt2rQhIyOD+++/n9zcXL788ksyMjLIyMgAwNfXt8QJRNfy8/PD2dmZTZs2ERgYiKOjoyzVJqzYFAAfeOAB0tLSWLlyJStXrrTM7i38i6Njx46WZQLy8/OJiIggKirKxiILIcSNqft3Ypo/A5KuDLZvfgua+59CCQiq2oJdx6effsrUqVOZNGkS8fHx+Pj4cMsttxQb/gDuuusuzp49y+TJk8nLy6N///489NBDbN68udSv2bRpU3755Rc+/PBDhg4diqqqhIaGMnjw4FLfw93dndmzZ/Of//yHO++8k8aNG/PSSy/x7LPPWloEg4KCGD9+PFOmTGHcuHEMGzbMMiGiKsTExPD3338zb968Ys+vW7fOMjEFsIx1HzdunNV4vPnz5xMUFES3bt2Kvc/GjRv54osvyM/Pp0mTJsyaNcuyTiCAwWDg5MmT5OTkAHDw4EHL+oJdunSxutdff/1FvXr1SvX+dDodX3zxBW+//TYfffQRHTt2lGVghBVFvd5Ai1I6ffo0+/fvJzExEQB/f39atWpV7LIFtVFiYqLVoqIVQVEUgoKCiIuLu+5YGFE8qT/b1OT6UxPjzcEvepf5gI8fmnufgDadbtpYv5pcfxVlyZIljBs3jqNHj+Ls7Fzm50sd2kbq7/r0ej3+/v5VXYwqVSE7gYSHh9s0fkQIIWylFuSjrlmCunoxFOSDVody510oA+5FcZSxx5WtcIu7wMBAjhw5wvvvv8+gQYPKFf6EEJWvwraCy83NJTMzs9hzfn5+FfUyQghRhHpoD6a50yEx3nygcUs0I59GCZIxxzdLYmIiH3/8MYmJiQQEBDBw4EBee+21qi6WEKIENgXA/Px8Fi9ezMaNGy2DVIuzYMECW15GCCGKpSYlYlr4Hew1b3uFlw/KiMdQ2t1WLZZ2sSdjxowpsiasEKL6snkh6C1bttC+fXuaNGlSqWtVCSFEIdVQYN7JY8UCyM8DjQal1yCUwfejOJV/Oy8hhLAXNgXAv//+m169evHkk09WVHmEEOK61KMHMM39FuIvmA80bGru7g0Jq9JyCSFETWJTAFQURSZ/CCFuCjUlCXXRLNRdW80H3D1Rhj+K0qm7dPcKIUQZ2RQA27Vrx8GDB+ndu3dFlUcIIayoBgPqxhWov86DvBxQNCjd+6HcPQrFpWL2gxVCCHtjUwC85557+Oyzz5g+fTq9e/fGz8/Pshj01Spq024hhH1Rjx8yz+69cNZ8IKKRubs3tEHVFkwIIWo4mwLg2LFjAThz5gwbN24s8TqZBSyEKAs1PQV10WzUvzaZD7i5owx9GKXLHdVuCzchhKiJbG4BlLE3QoiKohqNqFtWoy77GXKyQFFQut6JMuRBFDfZx1QIISqKTQFwxIgRFVUOIYSdU08ew/TzNDh/2nwgNBLNqKdRwmX/cCGEqGgVthOIEEKUh5qRjrrkB9Rt680HXFzNLX6390HRaKu2cEIIUUtVSAA8duwYp0+fJjs7u9hNp4cNG1YRLyOEqEVUkwl16zrUJT9CtnkbSaVzL5R7Hkbx8KrawgkhRC1nUwDMzMxkypQpxMTEXPc6CYBCiKupZ2MwzZkGZ06YD4SEmbt7I5tWbcGEEMJO2BQAf/rpJ86dO8fYsWOJjIzk+eefZ+LEiQQEBLBixQpOnDjBf/7zn4oqqxCihlOzMlGX/YS6ZQ2oKjg5o9w1CqXHABStdPcKIcTNYtN6Cvv27eOOO+6gc+fOODs7A+bdQQIDA3n88cfx9/dn9uzZFVFOIUQNpppMmP7cgOmNp1E3rwZVRenQDc1709DcMVjCnxBC3GQ2tQBmZWVRr149AJycnADIzc21nG/ZsiXz5s2z5SWEEDWcev60ee/emKPmA0H10Ix8CqVxy6otmBBC2DGbAqCPjw+pqakA6PV6PDw8OHv2LO3btwcgOTlZ1gkUwk6p2Vmov85F3bgSVBM4OqEMug+l1yAUnb6qiyeEEHbNpgDYpEkToqOjGTp0KACdO3dm+fLlaDQaTCYTq1atolWrVhVSUCFEzaCajKh/bUFd8gOkpZgPtu2MZsTjKD5+VVs4IYQQgI0BcODAgURHR1NQUIBer2f48OHExsZatn5r0qQJjz76aJnuuXTpUv7++28uXLiAg4MDUVFRPPDAA9StW9dyTX5+Pj/++CPbt2+noKCAVq1a8fjjj+Pl5WW55vLly8yYMYPDhw/j5OREt27dGDlyJNqrxhodPnyYH3/8kfPnz+Pr68s999xD9+7dbakSIeyWajKh7vkT9dd5EB9rPhhQ19zd26xN1RZOCCGEFZsCYP369alfv77lsZubG2+++SZZWVloNBrLxJCyOHLkCH369KFBgwYYjUbmzZvH5MmT+fTTTy3jDH/44Qf27t3LuHHjcHFxYebMmXzyySe89957AJhMJqZMmYKXlxeTJ08mJSWFr776Cq1Wy8iRIwFISEjgv//9L7179+b555/n0KFDfPvtt3h5edG6dWtbqkUIu6KaTLDvL0y/zoWL58wHXdxQ+g5FueMuFL109wohRHVT7lnAeXl5vPrqq6xbt67IOVdX13KFP4CJEyfSvXt36tWrR1hYGM8++yyXL1/m1KlTAGRnZ7Nx40YefvhhmjdvTkREBGPGjOGff/7h+PHjABw4cIDY2Fief/55wsLCaNOmDffeey9r167FYDAAsG7dOgICAnjooYcICQmhb9++dOrUiZUrV5azRoSwL6qqou77C9N7L2H69r/m8OfsinLXSDRTZqDpN0zCnxBCVFPlbgF0dHQkISGh0id5ZGdnA+bWRYBTp05hNBpp0aKF5Zrg4GD8/Pw4fvw4UVFRHD9+nPr161t1Cbdu3ZrvvvuO8+fPEx4ezokTJ6zuAdCqVavrLltTUFBAQUGB5bGiKFbL31SkwvvJJJrykfqzzfXqT1VV1OhdmJbPhXMnzQednFF634Wm910oLm43s6jVknz92U7q0DZSf+JGbOoCbt26NQcOHKB3794VVR4rJpOJ2bNn06hRI0tXc2pqKjqdDldXV6trPT09LTOSU1NTrcJf4fnCc4X/Fh67+pqcnBzy8/NxcHAoUp6lS5eyePFiy+Pw8HA+/PBD/P39bXmb1xUYGFhp97YHUn+2ubr+VFUld88O0n/+lvzjRwBQnJxxG3wf7kMfQOvuWdJt7JZ8/dlO6tA2Un+iJDYFwHvuuYfPPvuML7/8kt69exMQEFBscCpsvSurmTNncv78eSZNmmRLMSvMkCFDGDhwoOVx4V9WiYmJlq7lilK4oHZ8fHyx+yuL65P6s83V9WcymVCPHsC0/Gc4ecx8gYMjSs+BaPoMIcfdk5zMbMjMrtpCVyPy9Wc7qUPbSP1dn06nq9TGm5rApgA4fvx4AGJjY9m2bVuJ1xXOCi6LmTNnsnfvXt599118fX0tx728vDAYDGRlZVm1AqalpVla/by8vIrsT5yWlmY5V/hv4bGrr3F2di42xIJ5rUN9CWOaKusbTFVV+ea1gdSfbYxHozEtnwMnzC1+6B1QuvczT/Dw8AYq72u/NpCvP9tJHdpG6k+UxOYWwIoeX6CqKrNmzeLvv//mnXfeISAgwOp8REQEWq2WgwcP0qlTJwAuXrzI5cuXiYqKAiAqKoolS5aQlpZm6eaNjo7G2dmZkJAQABo2bMi+ffus7h0dHW25hxD2TD1+mIQv3sUUvdt8QKdH6dYXpe89KF4+VVs4IYQQNrMpAI4YMaKiymExc+ZMtm3bxoQJE3B2draM2XNxccHBwQEXFxd69uzJjz/+iJubGy4uLsyaNYuoqChLeGvVqhUhISF89dVXjBo1itTUVObPn0+fPn0sLXh33nkna9euZc6cOfTo0YNDhw6xY8cOXnvttQp/T0LUFOrJY+blXI7sxwig06F0vROl33AUb98bPV0IIUQNoajVrG24pFA5ZswYyyLNhQtB//nnnxgMhmIXgk5MTOS7777j8OHDODo60q1bN0aNGlVkIegffviB2NhYmxaCTkxMtJodXBEURSEoKIi4uDhpvi8Hqb+yUU+fMAe/Q3vMB7RaXO+8i9zuA8DHvsfJlId8/dlO6tA2Un/Xp9fr7X4MYLULgDWRBMDqR+qvdNSzJ83BL3qX+YBGg9K5F5qB91K3RWupv3KSrz/bSR3aRurv+iQA2tgFLISomdTzpzH9Og/2/2U+oGhQOnVHGXgvSkCQrB0mhBC1nARAIeyIeuEcpt/mwp7t5gOKgtLhdpSB96EEBldt4YQQQtw0EgCFqOVUVYWYo5jWL4P9O0FVzcGv3W0og+5DCapX1UUUQghxk0kAFKKWUo1G1L07UNcvg9PH/z3RtjOaQfejBIdWWdmEEEJULQmAQtQyam426rb1qBt+g6QE80GdHuXWHih3DEapW79qCyiEEKLKSQAUopZQky+jbvwN9Y91kJNlPujmgdKjP0r3/igeXlVZPCGEENWIBEAhajj13EnUdctQd28Do9F8MDAYpfddKJ16oDg4Vm0BhRBCVDsSAIWogdS8XPP4vm3r4fihf080aoGm993Qoi2KRlNl5RNCCFG9SQAUooZQVRVOHEbd/jvq7u2Ql2M+odWaZ/T2vhsltEHVFlIIIUSNIAFQiGpOTYxH3bEJ9a9NkBj/7wn/QJTOvcwfPn5VV0AhhBA1jgRAIaohNTcHdc921B0b4Z+D/55wckZp3xWlc09o0ER27BBCCFEuEgCFqCZUkwmOH0LdvhF173bIyzWfUBRo3NLc0tfmVhRHmdQhhBDCNhIAhahiakKcuYt3x8Z/1+0DCKiL0rmnef0+H/vetFwIIUTFkgAoRBVQc7NRd/+Juv13OHHk3xPOLle6eHtBRCPp4hVCCFEpJAAKcZOoJhP8c9A8i3fvDsjPM59QFGja2tzF27qjrNsnhBCi0kkAFKKSqQkXzeP6dmyC5MR/TwSGmLt4O3aXWbxCCCFuKgmAQlQCNTsLdc+VLt6Yo/+ecHH9t4s3PEq6eIUQQlQJCYBCVBDVZIRj0ah/bkTdtwMK8s0nFA00a3Oli7cDit6hagsqhBDC7kkAFMJGanzsv128qUn/ngiqh9KlF0rHbihevlVXQCGEEOIaEgCFKAc1OxN11zZzF++pf/494eKG0vF2lFt7QVikdPEKIYSoliQAClFKqskIR/abW/v2/QWGAvMJjQaat0XTuSe07ICi11dtQYUQQogbkAAoxHWoyZdRj+yDw/tQjx6ArIx/TwaH/juL19O76gophBBClJEEQCGuoublwYlDqIf3oR7eB3HnrS9wc0fp0M08i7d+hHTxCiGEqJEkAAq7pqoqXDjzb+A7ceTfrl0wz+ANi0RpdgtKszbmpVu02qorsBBCCFEBJAAKu6Omp5q7cw/vRT2yH9JSrC/w8TMHvqatoUkrFFf3qiimEEIIUWkkAIpaTzUUwMljqIf3oh7eD+dOWl/g4AiNWqA0bY3S7BYIDJauXSGEELWaBEBR66iqCpcukrFrC8YdW1D/OQh5udYX1QtHadrG3K0b2VRm7gohhLArEgBFraBmZ5p34Sgcy5eUQOrVF7h7msNeszYoTVrLrF0hhBB2TQKgqJHUlCQ49Q/q6X9QY47C6eNgMv17gU6HY7M2FEQ2haZtICQMRaOpugILIYQQ1YgEQFHtqXm5cDYG9fRx1FP/wKnj1luuFQoMQWlm7tZVGrUgICycuLg4c5ewEEIIISwkAIpqRc3Lg8SLqGdPwqkrge/iWevWPTAvzxIcihLRCCKiUBq3RPEN+Pe0TOIQQgghSiQBUNx0ak42JMZBQhxqwpV/rzwmNbn4J3n5moNeRCOU8CgIjURxdLq5BRdCCCFqCQmAolKoWZlXAt7FImGPjLTrP9nVHYLro4SbAx/hjVC8fW9OwYUQQgg7IAFQlIuqqpCZbh3srm7Ju3rP3OK4e0JAEEpAEAQEgX8QSkBdCAiUhZeFEEKISmb3AXDNmjX89ttvpKamEhoayqOPPkpkZGRVF6taUFXVvEvG1cGuMPAlxkFO9vVv4OVjDnn+QUXDnrPLzXkTQgghhCjCrgPg9u3b+fHHH3niiSdo2LAhK1eu5P333+fzzz/H09OzqotX6VRVNe97m54GicWMx0uIg/y8km+gKODtZxXuCsMe/oEyRk8IIYSopuw6AK5YsYJevXrRo0cPAJ544gn27t3Lpk2buPvuu6u2cJgDmlqQj5qbA3l55jCWn3vl/+Z/1fw88y4X+bnm83mFj83Xq4X/v+oYebn/3k81Xb8Qigb8Aq500V7TkudXB0XvcHMqQwghhBAVxm4DoMFg4NSpU1ZBT6PR0KJFC44fP17scwoKCigoKLA8VhQFZ2dny/8rimnFAoyrfyG2IK/o8ieVQasFv8AiAU8JqAu+/ii6mrdNWuHnQ5aDKR+pP9tI/dlO6tA2Un/iRuw2AKanp2MymfDy8rI67uXlxcWLF4t9ztKlS1m8eLHlcXh4OB9++CH+/v4VWrY0dzfS83KsD+r0aJycURydUJycUK7833zM+rjG8cr5wust11kf1zg5m5/j6Iyi1Vboe6guAgMDq7oINZrUn22k/mwndWgbqT9RErsNgOUxZMgQBg4caHlc+JdVYmIiBoOhwl5HveU2dE1uIaBefRLS0lH1DkUCmnrlw6b2wbwC8wc3mLFbAymKQmBgIPHx8bITSDlI/dlG6s92Uoe2kfq7Pp1OV+GNNzWN3QZADw8PNBoNqampVsdTU1OLtAoW0uv16PXFd4dW6DeYmwe4e6L18TMHNFWVb+ByUqXubCL1ZxupP9tJHdpG6k+URFPVBagqOp2OiIgIDh06ZDlmMpk4dOgQUVFRVVgyIYQQQojKZbctgAADBw7k66+/JiIigsjISFatWkVeXh7du3ev6qIJIYQQQlQauw6AnTt3Jj09nYULF5KamkpYWBivv/56iV3AQgghhBC1gV0HQIC+ffvSt2/fqi6GEEIIIcRNY/cBsCLodJVXjZV5b3sg9WcbqT/bSP3ZTurQNlJ/xZN6AUWV6UFCCCGEEHbFbmcBV3c5OTm8+uqr5OTk3PhiUYTUn22k/mwj9Wc7qUPbSP2JG5EAWE2pqsrp06dl/aZykvqzjdSfbaT+bCd1aBupP3EjEgCFEEIIIeyMBEAhhBBCCDsjAbCa0uv1DBs2rMSt58T1Sf3ZRurPNlJ/tpM6tI3Un7gRmQUshBBCCGFnpAVQCCGEEMLOSAAUQgghhLAzEgCFEEIIIeyMBEAhhBBCCDsjAVAIIYQQws5IABRCCCGEsDMSAIUQQggh7IwEQCGEEEIIOyMBUAghhBDCzkgAFEIIIYSwMxIAhRBCCCHsjARAIYQQQgg7IwFQCCGEEMLOSAAUQgghhLAzEgCFEEIIIeyMBEAhhBBCCDsjAVAIIYQQws5IABRCCCGEsDMSAIUQQggh7IwEQCGEEEIIOyMBUAghhBDCzkgAFEIIIYSwMxIAhRBCCCHsjARAIYQQQgg7IwFQCCGEEMLOSAAUQgghhLAzEgCFEEIIIeyMBEAhhBBCCDsjAVAIIYQQws7oqroAtUFKSgoGg6HC7+vv709iYmKF39deSP3ZRurPNlJ/tpM6tI3UX8l0Oh3e3t5VXYwqJQGwAhgMBgoKCir0noqiWO6tqmqF3tseSP3ZRurPNlJ/tpM6tI3Un7gR6QIWQgghhLAzEgCFEEIIIeyMBEAhhBBCCDsjAVAIIYQQws7IJJBKZjAYyM7OLtdzc3JyyM/Pr+AS2Y/y1J+Liws6nXxbCHEzqSYjWZdPosk5j5+7BsWUBxo9JmMAjlkGTBonVI0TquKAquhA0aIqGkCBK/+qihZV61rVb0WIGkN+01Uig8FAVlYW7u7uaDRlb2zV6/UVPrvYnpS1/kwmExkZGbi6ukoIFKISqapKamoqsbGxxMbG4px7nBEt4s0nk/+9zpQMHqW8p0HvQ3LoKxVeViFqK/ktV4mys7PLHf7EzafRaHB3dyczMxMPj9L+2hFC3IiqqqSlpREbG8uFCxeIjY0lKyvLct7N0USeQSE5zxXPOlGgdUZRDbg4Ql5WMooxG8WUh2LKR1ENgAlFNQIqqCpgArRV9O6EqJkkAFYyCX81i3y+hKgY6enplha+2NhYMjMzrc5rNBqCgoIICQkhJCSEpAB/dHoHCq9SFAX3oCDS4uJKt46drHUnRJlIABRCCGGzjIwMqxa+9PR0q/MajYbAwEBCQkIIDg4mKCioYodaXFn4WAhROhIAhRBClFlpAl9AQIClhS8oKAi9Xl9FpRVCXEsCoChi2LBhNG3alEmTJlV1UYQQ1UR6ejoXLlwoMfApilIk8Dk4OFRRaYUQNyIBUFS68+fP06lTJ9auXUvz5s1v2uuuWLGC2bNnEx0dTWpq6k1/fSFqsuwsE2dOXebgwT2kpseRl289hq8w8AUHB1sCn6OjYxWVVghRVhIAhc3y8/Or5V/62dnZdOjQgUGDBvHKK7I8hBDXk5Nt4vIlA0mJBpISDGRnmcg3ZHMp6QQggU+I2kYCoCiW0Whk4sSJ/PLLL+h0Oh566CFeeeUVFEWhY8eO3HfffZw+fZq1a9fSr18/Pv/88xLv1alTJwD69OkDwK233srixYsxmUxMnTqVOXPmkJycTGRkJK+//jo9evS4YfkGDx5Mx44dmThxouVYUlISt9xyCwsWLKBTp06MGDGCgoICzp8/b1tlCFEL5WSbSEowh73LVwLf1RQFAgJ8cHRvS736gTRqHIKTkwQ+IWoLCYA3kaqqkJ9X+utNRtSKWAjawRGljDPkFi1axH333ceKFSuIjo5mwoQJBAcHM2rUKACmT5/Oiy++yLhx4254r5UrVzJgwADmz59Po0aNLAPBv/vuO6ZPn86HH35Is2bNWLBgAaNHj2bjxo1ERERc955Dhw7lm2++4fXXX7e8t19//ZU6derQsWPHMr1XIexBbo6Jy1cCX1KCgazMooHP01uLX4AO3wAdPn46dHoF6FI1BRZCVCoJgDdTfh6m50aU+vLSR8Xr03y1EBydyvScunXr8u6776IoCpGRkRw7dowZM2ZYAmCXLl14+umnS3UvX19fALy9vQkICLAcnz59OmPGjOGuu+4CYOLEiWzfvp3vvvuODz744Lr3HDRoEG+//TZ///23JfAtXbqUu+++u8xhV4jaKDfHRFKiwdKtm5VhHfhQwMtbi+9VgU+vl+8dIeyFBEBRrFtuucUqSLVt25bp06djNBoBaNmypU33z8jIID4+nvbt21sdb9euHUeOHLnh8319fbn99ttZsmQJHTt25Ny5c+zZs4cPP/zQpnIJUVPl5Zos3blJCQYyrw18mFv4fAN0+BUGPgcJfELYKwmAN5ODo7k1rpQqbC9gh4oft+Pi4lLh9yyroUOH8uabbzJ58mSWLl1KkyZNaNKkSVUXS4ibIi/PegxfZnrRwOfh9W+Xrq+/Fr2D7HQjhDCTAHgTKYpSpq5YRa9H0VTN/pb79u2zerx3717Cw8PRastensIxfybTv7+g3N3dCQwMZNeuXdx6662W47t376Z169alum+fPn2YMGECmzZtYtmyZQwbNqzMZROipsjP/zfwJSUYSE8rLvBp8PXX4VdHj4+fFgdHCXxCiOJJABTFunDhAu+88w4PPPAAhw4dYtasWbz11lvlupefnx9OTk5s2rTJsnSEh4cHTz/9NJ988gmhoaE0a9aMhQsXcvjwYb788stS3dfFxYW+ffvy0UcfceLECe6++26r8ykpKZw5c4ZLly4BcPLkSQACAgKsxiIKUR0V5KuWJVkuJxhITzUWucbdQ2Pu0q2jw9dfJ4FPCFFqEgBFsYYNG0Zubi4DBw5Eq9Xy2GOP8cADD5TrXjqdjvfee4/PPvuMjz/+mI4dO7J48WIee+wxMjIymDRpEklJSTRs2JDvv//+hjOArzZkyBAefPBBOnXqRHBwsNW5tWvX8sILL1gejxkzBoBx48Yxfvz4cr0XISqLoUAl6fKVwHfJQFqqEVTra9zcrQOfo5MEPiFE+Siqqqo3vkxcT2JiYrFj9dLT0/Hw8Cj3fStsDKCdKm/92fp5qw0URSEoKIi4uDjkR0TZlab+DAaVlMv/TtpITTZy7aWubhrLpA3fAB1OzvYT+ORr0DZSf9en1+vx9/ev6mJUKWkBFEKIm8BotA58KclG1GuG8bm4Wgc+Zxf7CXxCiJurRgbAI0eO8Ouvv3L69GlSUlJ4+eWX6dChg+X8119/zZYtW6ye06pVK6tdIzIzM5k1axZ79uyx7G4xevRonJzKtl6egC+++KLEcXsdO3Zkzpw51eKeQtxMRqN6ZR2+Ai4nGEi5bMB0TeBzclHwswQ+PS6uEviEEDdHjQyAeXl5hIWF0bNnTz7++ONir2ndurVlzBeYx6Fd7YsvviAlJYU33ngDo9HIN998w/Tp0xk7dmyllr02evDBBxk0aFCx58obqCvjnkJUJpNJJS3F+G8L3+VUDAbrrjdHJ8XSuudXR4eLq0YWLhdCVIkaGQDbtGlDmzZtrnuNTqfDy8ur2HOxsbHs37+fKVOm0KBBAwAeffRRpkyZwoMPPoiPj09FF7lW8/b2xtvbu9rfU4iKpKoq6alGLl8yd+smJxowGKyvcXBUrLp03dwl8AkhqocaGQBL48iRIzz++OO4urrSvHlz7rvvPtzd3QE4fvw4rq6ulvAH0KJFCxRFISYmxqo7+WoFBQVWkwoURcHZ2dnyf1F72Pvns/D923s9XE1VVTLSTFxOKLBsr1aQb93Cp9dfCXx19DRuFkh+QUoVlbbmk69B20j9iRuplQGwdevWdOzYkYCAAOLj45k3bx4ffPAB77//PhqNhtTU1CKzPLVaLW5ubqSmppZ436VLl7J48WLL4/DwcD788MMSZxLl5ORYFkEuL1ufb+/KU38ODg4EBQVVQmlqnsDAwKouQpUoMJowZmWSa3Tk4rksLsRmc/F8Frk51mvx6R00BAW7ULeeK3VDXPD1d0KjufoXrnwd2cpevwYritSfKEmtDIBdunSx/L9+/fqEhoby/PPPc/jwYVq0aFHu+w4ZMoSBAwdaHhf+ZZWYmIjh2r4fID8/36ZlXGQZGNuUt/7y8/OJi4urhBLVHIqiEBgYSHx8vN0tIaEWFPDb0pPkGHxw1lj/AaHVgo+fuYXPr44OT2/tlcCXj8GUz5U1x+26/iqK1KFtpP6uT6fTyTIwVV2Am6FOnTq4u7sTHx9PixYt8PLyIj093eoao9FIZmZmieMGwRwoSmpRkm+w2kU+n2aqqtpVXaiH9mCcN4O4Rq8Q5KjHqKqkaQ0E13WgdUMXvH11aLXWXWrXqx97q7/KIHVoG6k/UZJKDYBZWVn8888/xMbGkpGRgaIouLu7ExwcTFRUFG5ubpX58hZJSUlkZmZaJhVERUWRlZXFqVOnLLtOHDp0CFVViYyMvCllEkJUH+rlS5gWzIT9f6EAg3U/sL3dcJbnOJKab4Iz0CDdiQda+dEmyFXGVQkharwKD4AGg4Ft27axefNmjh07VuJfHoqi0KhRI3r06EGXLl3KNFYrNzeX+Ph4y+OEhATOnDmDm5sbbm5uLFq0iI4dO+Ll5cWlS5eYM2cOgYGBtGrVCoCQkBBat27N9OnTeeKJJzAYDMyaNYvOnTvLDGAh7IhakI+6dgnqqsVQkA8aDUqvQdQZdD9DnV3ok29k+bFklh9N4WRyLu9uiqVZgDMPtvKnSYBLVRdfCCHKrUK3glu3bh1LliwhIyODli1b0rJlSyIiIqhTpw6urq6oqkpWVhYJCQmcPHmSgwcPEh0djbu7O/fccw+9e/cu1escPnyYd999t8jxbt268cQTT/DRRx9x+vRpsrKy8PHxoWXLltx7771W3buZmZnMnDnTaiHoRx99tFxrzNnDVnDBwcHMnDmTvn37VnVRSk22gis/e9hGSo3ehWn+DEi88sdkoxZo7n8KJbg+YB4jVDi2Ny3XwC+Hk1h1PJUCk7k+2tZ15YFW/kT4FP2ZYQ/1V9mkDm0j9Xd9shVcBQfAZ555hoEDB9KjRw9cXEr313F2djabNm1i1apVfP311xVVlJuqtgfA/Px8wsPDJQDakdr8y0NNjDcHv+hd5gNePijDH0Vp39XStavVatHr9eTl5Vm9/8vZBSw8mMT6k6lcyYF0qe/OyFZ+hHg4Wq6rzfV3s0gd2kbq7/okAFZwADQajWi12pv+3KpW2wLgsGHDaNSoEVqtliVLlpCSYr2WWUhICDt37gTghx9+YPr06Vy8eJF69eoxduxYhg0bdtPLXBwJgOVXG395qPl5qKt/QV3zCxgKQKtFuWMwysB7UZys/2B1cHAwP0dVi/0aisvIZ270ZbaeSUcFNAr0jPDkvhZ++Lvqa2X93WxSh7aR+rs+CYAVPAbQlgBXU8NfWaiqSp6x9N+IRkwUGEw3vvAGHLVKmQetL1q0iIceeohly5aRnp7OoEGD+PTTT+nRo4flc7V69Wrefvtt3nnnHbp27cqGDRsYN24cQUFBVkvxCFHV1AN/Y5r3P0hKMB9o0grN/U+iBNUrcq1Go8FkMqHRmPflVRSlyC/QIHcHxnepyz1Nffg5+jJ/x2ay4WQam0+n06+hF8Nb+MkKgEKIaq1SZwHn5OSQlZWFn5+f5VhycjLr16+noKCATp062dWs2zyjyr0Ljt/0111wbxROurIFwPDwcN544w2rY56engQEBFgef/vtt4wYMYJHHnkEgAYNGrB3716+/fZbCYCiWlAT4szdvQd3mw94+6EZ8Si07VLiH0U6nY78/HwcHBwoKCjAwcGB/Pz8Yq8N83ZiYrcQjiXm8NOBRA5dyua3f1JYfzKVke3yuaO+I656TWW9PSGEKLdKDYDTp08nMTGR999/HzCP95s4cSLJyckoisLq1at5/fXXadasWWUWQ5RDy5Ytb3hNTEwMo0aNsjrWvn17Zs6cWVnFEqJU1Pw81DW/oK4u7O7VofS+C2XACBQn5xKfV9j6Z3UvVS32+NUa+zszuVc9DsRnM+dAIieScpn111kW7NUwtKkvAxt546STICiEqD4qNQD+888/3HHHHZbHW7duJSUlhffee4969eoxadIklixZYjcB0FGrsODeqFJfr9fpKTDYPgbQUVv2NcsK9zgWoqZRD+zCNP9/cPnKthxNWpln9waF3PC5iqIU2dWnoKDA0h18o+e2DnKlVaALf1/IYv7hFE5dzuKn/Yn8diyZEc39uDPSE71WgqAQoupVagBMT0+3Wldv9+7dNG7cmKgocwjq1q0bixYtqswiVCuKopSpK1av16Clevyy0Ov1GI3W+6BGRkaye/duRowYYTm2a9cuGjZseLOLJ4R5du+C7+DA3+YDXr5o7n3sut2917r2a7zQ9Vr/rqUoCp3quTO4XUMW7PiHedGJxGcW8L/dl1h2NIn7WvjRPdwTrUYWkxZCVJ1KDYCurq6kpqYC5qVEjh07xpAhQyznNRpNiWNrRPUSEhLCtm3baN++PQ4ODnh5efHMM8/w9NNP06xZM7p27cr69etZvXo18+fPr+riCjuiFuSjrlmCuvrKYs5aLcodd12Z3Vt1LdlajUKPCE+61Hdnw8lUFhxKIiHLwBd/xbPkSDIjW/lxaz13NLKriBCiClRqAIyKimLdunUEBwezf/9+8vPzad++veV8XFyc7LxRQ7z11lu8++67zJ07l8DAQHbu3Enfvn159913mT59Om+//Tb16tXj008/pXPnzlVdXGEniizm3LglmpFPFTu7t6rotQr9orzpGeHJquMp/HI4idj0fP5v60Ua+DjyQCt/2V5OCHHTVeg6gNeKj49n8uTJJCYmAjBw4EAefPBBwNyl8uyzz9KqVSuefvrpyirCTVHb1gGsLWQdwPKr7muImffu/Q72m9ejxMsHZcTjKO1K3917I9eb/Xsj16u/rHwjvx5LZtnRFHKvLPPULMCZ0bcE0NBXxt4Wqu5fg9Wd1N/1yTqAlRwAwbw3cGxsLC4uLlZLiOTk5HDo0CHCwsJq/CdBAmD1JAGw/KrrLw/z3r1LUVctuqq7t/jFnG1VWQGwUFqugSVHkln5T4ple7nbwzx4sJU/AW6l3xu9tqquX4M1hdTf9UkArOQu4C1bttCkSRPCwsKKnHN2diY0NJQjR47QrVu3yiyGEKIWUA/uwTRvuvXevSOfQqlbv2oLVk6eTjpG3xLAoMbe/HwgkU2n0vnjTDo7zmUwqLE3w5r54upQ+xfIF0JUjUqdYvrNN99w/HjJCx/HxMTwzTffVGYRhBA1nHr5EsavP8D0xbvm8Ofpg/LEy2jGT66x4e9qfi56xt5al0/7hdGijgsFJpUlR5J5+tdTrPwnBYNJWm+EEBWvUlsAbyQ3N9cutoATQpSdWlCAum4p6qqFkH+lu7fXIJRB91V4d291EOHjxHu96rH7Qhaz9yUQm57P/3ZfYuXxFB5u40+HYDeZKCKEqDAVHgDPnj3LmTNnLI+PHj1a7NpaWVlZrF+/nqAg2TFTCGFNPbTX3N2bEGc+0KiFeTHn4Jrf4nc9iqLQPsSNNnVdWR+Tyrzoy1xIz+eDLRdoXseF0W0CiPR1qupiCiFqgQoPgH///TeLFy+2PN6wYQMbNmwo9loXFxeee+65ii6CEKKGUpMSMS38DvbuMB/w9EEZPhqlw+121fql05iXjrk9zIMlR5JZfjSZQ5eyGb/mDN3DPXiglT/+rjJRRAhRfhUeAO+44w7atm2Lqqq8/vrrjBgxgjZt2hS5zsnJiTp16kgXsBDC3N27fhnqygXm7l6N5kp37/0ozrWvu7e0XB20PNjan74NvfhpfyJbzqSz+XQ6289lMLixD/c088FFLz9DhRBlV+EB0NvbG29vbwDefvttgoOD8fT0rOiXEULUEurhfZjmToeEi+YDUc3QjHwaJTi0agtWjfi76hnXpS6DGnvz/d4EDifksPhwEutPpnJ/Cz/ujPSSreWEEGVSqbOAz507d93wZzQamTp1amUWQQhRTanJiRin/RfT52+bw5+nN8pj49C8/IGEvxI09HXm/Tvq8/rtwdR1dyAt18i3uy7xwsrT7L6QKeu9CSFKrVJnAX///fc4ODjQs2fPIucKCgr45JNPiI6OrswiCCGqGdVQgLp+OeqKBZCfZ+7u7TnQ3N3r4lrVxav2FEWhYz132ga7seZECvMPmreWe29zLC0DzRNFInxkoogQ4voqtQVwxIgR/O9//+OPP/6wOp6bm8sHH3zAwYMHGTduXGUWQVSwS5cu8eyzz3LbbbcREhLCW2+9Vabnv/jiizz66KOVVDpR3alH9mN69wXUJT+aw1/Dpmje/BzNvY9L+CsjnUZhYCMfvh0cwZAmPug0CtHx2YxbfYapO+JIypZdhIQQJavUFsB77rmHgoICpk2bhk6no3PnzmRmZjJlyhRiY2P5z3/+Q/PmzSuzCKKC5efn4+vry9ixY5kxY0ZVF6dcjEYjiqKg0VTq3z/iKmryZdSFM1H3/Gk+4OFlnt3bsbtdze6tDG4OWh65JYB+UeaJIlvPZrDxVBrbzqZzdxMfhjb1xVkvX+tCCGuV/lPhvvvuo1+/fnz11Vds2LCBd955h7i4ON544w0Jf9XQnDlzuOWWWzCZTFbHR48ezbhx46hXrx6TJk1i+PDhZd4v95NPPmHRokWsXbuW4OBggoOD2b59O2BeL3L48OE0aNCAZs2aMWHCBLKysm54zy1bthAREUFaWprV8bfeeouhQ4cCsGDBApo0acK6devo3r074eHhXLhwoUxlF+WjGgowrfkF01tjzOFPMc/u1bw3DU2nHhL+KlAdNwdevi2Y/+sTShN/Z/KNKgsPJfH0rydZF5OKUXYUEUJc5ab8WfjQQw/Rq1cvZsyYQUZGBu+88w4NGza8GS9draiqisFw8z/KMjB84MCBpKSk8Oeff1qOpaSksHnzZoYMGWLT+3/66acZNGgQPXr0YN++fezbt4927dqRnZ3NqFGj8PLyYuXKlUyfPp2tW7cyceLEG97ztttuw8PDg1WrVlmOGY1Gfv31V+655x7LsZycHL7++ms++ugjNm7ciJ+fn03vRdyYevQApnfHov7yA+TlQmRTNG99hua+J6S7txI18nNmSu/6vNq1LoFuelJzjXy9M56XVp1h78XMqi6eEKKaqNAu4FmzZpV4TlEUnJycCAsLs1oYWlEURo8eXZHFqLaMRlj9S9qNL6xg/e7xRFfKz7SXlxc9evRg2bJldO3aFYCVK1fi4+NDly5dbCqHq6srTk5O5OfnExAQYDm+aNEi8vLymDp1Ki4u5jXfJk+ezCOPPMLEiRPx9/cv8Z5arZbBgwezdOlS7r//fgC2bdtGeno6AwcOtFxXUFDABx98QLNmzWx6D+LG1JQk1EWzUHdtNR9w90QZNhrlVmnxu1kURaFzfQ/aB7uz+kQKCw5e5mxaHu9uiqV1kCuj2/gT5i0TRYSwZxUaANeuXXvDa/bv31/kmL0EwJpiyJAhTJgwgQ8++ABHR0eWLl3K4MGDK23M3IkTJ2jSpIkl/AG0b98ek8nEyZMnrxsAAYYOHcqgQYOIj48nMDCQJUuW0KtXLzw9PSkoMA+Ed3BwoGnTppVSfmGmGgyoG39D/XU+5OWYu3t79Ee5aySKi1tVF88u6bUKgxv70CPck4WHLrPqeAr747J4KT6LnhGejGrlj49zlW4JL4SoIhX6nb9gwYKKvF2to9WaW+NKS6/XWwKMra9bFr1790ZVVX7//XdatWrFzp07eeedd2wuR2Vp3bo1oaGhLF++nIceeog1a9bw2WefWV3j5OQkrU+VSD1+yLyY84Wz5gMNGpsXc64fUbUFEwC4O2p5rG0d+kd58+P+RLafy2DDSfNEkSFNfLm7qQ9OOpkoIoQ9kT/9biJFUUrdFQug0ymo6s0PLU5OTvTr14+lS5dy5swZGjRoQIsWLSrk3g4ODhiNRqtjDRs2ZNGiRWRnZ1taAXft2oVGo6FBgwaluu/QoUNZunQpQUFBaDQaevXqVSHlFdenpqegLpqN+tcm8wE3D5R7Hkbp3AtFZllXO0HuDrzaNZijidl8vzeBfy7nMu/gZdbGpDKqlR89wj1lRxEh7ESF/oTOy8urkueKijdkyBB+//135s+fX2Tyx6FDhzh06BBZWVkkJydz6NAhjh8/Xqr7hoSEcPToUWJiYkhOTqagoIChQ4fi6OjI2LFjOXbsGH/++Sdvvvkm99xzzw27f68u78GDB/niiy8YMGAAjo6OZX7PovRUkxHTxhWY3hhjDn+KgnJ7XzSTp6G5rXetCH+1eVeNJv4ufHhnKK/cVpc6bnqScwx8+Vc849ecYX/cjWffCyFqvgptAXzmmWfo378/vXr1suwHfCPJycmsX7+edevWMXPmzIosjrDBbbfdhpeXFydPniwSAPv06WP5f3R0NEuXLiUkJISdO3fe8L6jRo1ix44d9O/fn6ysLBYtWkTnzp35+eefeeuttxgwYABOTk4MGDCAt99+u9TlDQ8Pp02bNuzbt49333239G9UlJl68himud/CuVPmA6GRaEY9gxJufzP7azJFUbgt1IOOIW6sPJ7CwoNJnE7J4+2N52lb15VH2gRQ30v+kBKitlLUCvwzd/v27SxatIi4uDgaNWpEixYtiIiIICAgAFdXV1RVJSsri4SEBE6ePMnBgwc5ceIEQUFBDB8+nM6dO1dUUW6qxMTEYsfqpaenl3mtvKtV1BhAe1Xe+rP181YbKIpCUFAQcXFxlpYwNTMddcmPqFvXmS9ycUUZ8iDK7X1QNGUcaFoD2PL9V1z9VXfpeUYWHLzM6uMpGFXQKNCvoRf3t/TH3fHmf35rYh1WJ1J/16fX60vdw1RbVWgABDCZTOzevZvNmzdz4MABDAZDsdfpdDpatmxJjx49aNeuXY3elUECYPUkAbD8rv7lYTIaUbetN2/flpVhPt+5l3msn4dX1Ra0EtlbACx0MT2f2fsS2BlrXjPQ3VHLqJZ+3BnpdVPHB9bkOqwOpP6uTwJgJUwC0Wg0dOjQgQ4dOlBQUMCpU6e4cOECmZnmHyZubm4EBwcTERGBXq+v6JcXVex6C3zPmTOHjh07Vot7itJRz8ZgmjMNTl8Z4xkSZp7d21CW1Kmt6no48Hq3EA7EZ/Hd7kucS8vn212XWHMilcfbBdCijiziLURtUOEtgPZIWgD/dfr06RLPBQYG4uzsfNPuKS2ANsjJwnndEjJX/gKqCZyczev59RiIUtZ1hWooe20BvJrRpLLmRCpzoxPJzDdvD9m5vjuPtPGnjptDpb52banDqiL1d33SAijLwIgKFh4eXiPuKYqnqirqjk2oi2eTmZEKgNLhdpTho1G8fKu2cOKm02oUBjTypmuYB3MPJLI2JpXt5zLYfSGTu5v4cE8zX1k/UIgaSgKgEAIA9cJZTD9PgxNHANCFhGG693GUxi2ruGSiqnk4anm6QyB9G3oxY08Chy5ls/BQEr+fSuORNgF0DXWXhdaFqGFqZAA8cuQIv/76K6dPnyYlJYWXX36ZDh06WM6rqsrChQv5/fffycrKonHjxjz++OMEBQVZrsnMzGTWrFns2bMHRVHo2LEjo0ePxslJ9scU9kXNzUb9dR7q77+ByQQOjmgG3Ufgg08Tf/myXXcfKYpi1+//WmHeTkzuVY8d5zP4fm8CCVkGPvnzIquOO/NEuzo08JGfn0LUFDWy7T4vL4+wsDAee+yxYs8vX76c1atX88QTT1j2s33//ffJz8+3XPPFF19w/vx53njjDV577TWOHj3K9OnTb9ZbEKLKqaqKaddWTG+OQV2/3Bz+brkVzaRv0PQbhiKTtEQxFEWhc30PvhoYwaiWfjhqFY4m5jB+9Rm+/TuejDzjjW8ihKhyNTIAtmnThvvuu8+q1a+QqqqsWrWKoUOH0r59e0JDQ3nuuedISUlh165dAMTGxrJ//36efvppGjZsSOPGjXn00UfZvn07ycnJN/vtCHHTqfGxmD57C/V/H0FqMvgHohn7Ntpn/oPia98Do0XpOOo0jGjhx9eDIuga6o4KrD6RypjfTrEuJhWTtJwKUa3VyAB4PQkJCaSmptKy5b/jllxcXIiMjLRsV3b8+HFcXV2t9plt0aIFiqIQExNz08ssxM2i5uViWvIjpndegKMHQO+AMngkmne/QmnetqqLV61I12/p+Lvqefm2YN7rVY96ng6k5xn5emc8E9ae5URSTlUXTwhRggodA7hly5ZyPa9bt24VVobU1FQAPD09rY57enpazqWmphZZ5kOr1eLm5ma5pjgFBQVWy0IoimJZgkQGQNcute3zqaoq6v6/MM2bAcmJACgt26G5/ykU/8Ai1xe+/9pWD2WhKEq537891l+rIDemDnBlxbFk5h28zImkXF5Zc5Y7I714sI0/Ho5l+3Vjj3VYkaT+xI1UaAD85ptvyvW8igyAlWnp0qUsXrzY8jg8PJwPP/ywxLWEcnJybF7suqYsln333XfTvHlzJk+eXKbnPf/886SlpfHjjz9WSrnKU38ODg5WE4ZqOkNcLCn/+5jcXdsA0AYE4f3keJw6dbvhL4fAwKLh0F5kZ2fj6OiI1oZ1D+2x/p4JrsvwjnlM3RzDmqOXWBuTyl+xmYzp2oC7WtYt824i9liHFUnqT5SkQgPgV199ZfU4KyuLr7/+GhcXF/r160fdunUBuHDhAmvWrCEnJ4dnn322IouAl5cXAGlpaXh7e1uOp6WlERYWZrkmPT3d6nlGo5HMzEzL84szZMgQBg4caHlc+MszMTGx2C3v8vPzbVrIubosBJ2fn4+Dw/UXfVVVFaPRWObymkwmVFWtlPdZ3vrLz88nLi6uwstzs6kF+ahrlmBatQgK8kGrQ+kzBAaMINXRCeLjS3yuoigEBgYSHx9vt12hOp2O9PT0cr1/qT8Y09aH20OcmL4rnrOpeUxZ/w+L9pzlqQ6BNPK78YLwUoe2kfq7Pp1OJwtBV+TNrq3MRYsW4eHhwRtvvGHV0lC/fn06duzI+++/z8qVKxkzZkyFlSEgIAAvLy8OHjxoCXzZ2dnExMRw5513AhAVFUVWVhanTp0iIiICgEOHDqGqKpGRkSXeW6/Xl9iiVJu+wYYNG0ajRo3QarUsWbKExo0bM378eCZPnsyRI0fw8vJi+PDhTJgwAZ1Ox4svvsiOHTvYsWMHM2fOBOCvv/6ibt26TJgwgT///JPExETq1q3Lww8/zOOPPw7AJ598wqJFiwAIDg4GzF8znTt35sKFC0yaNIk//vjDsr3gpEmTqFev3k2pg5r++VQP78M091tIuBJkm7Qyd/cGhZjPl/L9qapa4+uivArfuy3v357rD6BZgDOf9Qtj1fEU5kZfJiY5l1fWnOGOBp481NofT6cb/wqy9zq0ldSfKEmlrgO4a9cu7rvvvmK7mQp/qc+fP7/M983NzSX+qtaLhIQEzpw5g5ubG35+fvTv358lS5YQFBREQEAA8+fPx9vbm/bt2wMQEhJC69atmT59Ok888QQGg4FZs2bRuXNnfHx8yv+Gb0BV1WJbCq+nIlrGdDpdmceBLFq0iIceeohly5aRmJjIgw8+yIgRI5g6dSoxMTG88sorODo6Mn78eCZNmsSpU6do3LgxL7/8MgC+vr6YTCaCgoKYPn063t7e7N69mwkTJhAQEMDgwYN5+umnOXHiBJmZmXz66aeAuXW2oKCAUaNG0bZtW5YsWYJOp2Pq1KmMGjWKDRs23LA10p6pyZdRF85E3fOn+YCnD8qIR1Had5WxQKJKaDUKgxr7cFuoBz/sS2DT6XQ2nEzjr/MZjGrlT59IrzJ3CwshbFepAVBVVS5cuFDi+djY2HLd9+TJk7z77ruWx4Xjx7p168azzz7LXXfdRV5eHtOnTyc7O5vGjRvz+uuvWwWHF154gZkzZzJp0iTLQtCPPvpoucpTWgaDgWnTplXqaxTnmWeeKfNYuPDwcN544w0AFi9eTN26dXn//fdRFIXIyEji4+P54IMPeOmll/Dw8MDBwQEnJycCAgIs99BqtZZACOaW3z179vDbb78xePBgXF1dcXJyIj8/3+p5v/zyCyaTiY8//tgSWj799FOaNGnCjh07asyY0ZtJNRhQf/8N9bd5kJcLGg1Kz4Eog0eiOLtUdfGEwNtZx4ud69In0ovpuy9xOiWP6bsusT4mlafaB9LYv+z7hAshyq9SA2D79u1Zv349AQEB9O7dG0dHR8C8kPO6devYsGEDt912W5nv26xZMxYuXFjieUVRuPfee7n33ntLvMbNzY2xY8eW+bXtxdXL6MTExNC2bVurFqT27duTlZVFXFycpfu2OLNnz2b+/PlcuHCB3NxcCgoKaNas2XVf+8iRI5w5c4aoqCir43l5eZw5c0YC4DXU44fNW7hdPGc+0KAxmlHPoNSTPZRF9dMkwIVP+oax5kQqPx9I5FRKHq+uO0vPCE8ebuOPVym6hYUQtqvU77TRo0eTkJDATz/9xNy5cy2TMlJSUjAajTRq1IhHHnmkMotQreh0Op555plSX19Rk0B0urJ/mguXt7HF8uXLee+993jzzTdp164drq6uTJs2jX379l33eVlZWbRs2ZIvv/yyyDlfX1+by1VbqOmpqIu/R92xyXzAzQPlnodROvdC0dS6JT5vusIJSqLiaTUKAxp50yXUnR/3JfL7qTQ2nkpj5/kMRrbyo19Db3Ra6RYWojJVagB0cXHh3XffZdeuXezbt4/Lly8D0KpVK2655ZYirUq1naIoZeqKrS5LwERGRrJq1SpUVbV8vnbt2oWbm5tluRS9Xo/JZLJ63q5du2jbtq1VyD979qzVNQ4ODhiN1ltHtWjRgt9++w0/Pz/c3d0r4R3VbKrJiPrHWtSlP0F2FigKStc+KEMfRHGV+qoo1349i4rn5aTjhVuDuDPSi//tjudkch4zdiew4WQaT7UPpBatxiREtXNT2trbt29vmYAhap6HH36Y7777jjfeeIPRo0dz8uRJPvnkE5588kk0V1qa6tWrx759+zh//jyurq54eXkRHh7O4sWL2bx5M/Xq1eOXX37hwIEDVjN5Q0JC2Lx5MzExMfj4+ODu7s7QoUOZNm0ao0eP5pVXXiEoKIjY2FhWr17NM888Y1lOyB6pZ2MwzZkGZ06YD9SPMHf3RjSq2oIJYYPG/s581CeMdTGpzDmQyOmUPF5bd5YBF/IY0dgdL6fyr8UohCjeTeknSk5OZtu2baxatYqkpCTA/Nd1Zmam/JVdAwQFBfHTTz+xf/9+evfuzWuvvcb9999vNYbyqaeeQqPR0L17d1q0aMGFCxd44IEH6NevH8888wyDBg0iJSWFhx9+2Oreo0aNokGDBvTv358WLVqwa9cunJ2dWbJkCcHBwTz++ON0796dl19+mby8PLttEVSzMzHN/RbT++PN4c/ZBeX+J9FM/ETCn6gVtBqFflHeTBsUwZ2RnijAysPxPPPrSX49lozRJN3xQlQkRa3EQS6qqvLjjz+yZs0aS9B78803ad68OdnZ2TzzzDOMGDGCAQMGVFYRborExMRix+qlp6cX2XKuLKrLQtA1VXnrz9bPW0VSVRV152bUhbMgIw0ApWM3lOGPonh63+DZ5acoCkFBQcTFxck4uHKQ+rPdiaRcZu5P4mh8BgChXo481a4OzerIrPbSkK/B69Pr9Xa/EHSltgD++uuvrFq1ikGDBlmWFCnk4uJChw4d2LlzZ2UWQYgaS714DtPHE1FnfmYOf4EhaMZPRvP4+EoNf0JUB1F+znw/qh1jOgbi7qDhbGoer284x6d/XiQlp2zrqQohiqrUMYC///473bp1Y+TIkWRkZBQ5Hxoayv79+yuzCELUOGpeLurKBajrloHRCA4OKAPuRbnzbhRd9ZgYJMTNoNUo9G3oza313Pn5QCJrT6Sy5Uw6uy9k8mBrf/o09EJjRxMJhahIlRoAk5KSiqzldjVHR0eys7MrswhC1BiqqsKBnZjmzYDkRPPBVh3Q3PcEil+dqi2cuOmGDRtG06ZNmTRpUlUXpcp5OGp5pkMgvRt4Me3veGKSc/l21yU2nkpjTMdAwr2dqrqIQtQ4ldoF7OHhYZn0UZxTp07h5+dXmUUQokZQE+MxfTUZ09cfmMOfbwCaZyeife6NWhn+/vrrLx5++GFuueUWgoODWbNmTbV7za+++org4GDeeustq+MdO3YkODi4yMfrr79e4r0yMzN566236NChAw0aNGDw4ME2934MGzasSNlqu0hfJ/6vTyhPtquDs07D8aRcxq0+w/d7E8gpkAmFQpRFpQbAjh07sn79ei5dulTk3IEDB9i8eTO33nprZRZBiGpNLSjAtHIhpneeg+hdoNWh9BuG5t2vUFp3rOriVZrs7GyaNm3K+++/Xy1fc//+/cyZM4cmTZoUObdq1Sr27dtn+Zg3bx4AAwcOLPF+L7/8Mlu3buWLL75gw4YNdOvWjfvuu4+4uLjyvyE7VbiI9NeDwulS3x2TCsuOJvPcilP8HVt0qJEQoniVGgBHjBiBt7c3EyZM4KuvvgLMu0O8+eabfPDBB4SGhjJkyJDKLIIQ1ZZ69ACmSS+gLpsD+fnQqAWat6eiGfoQimPN7tJq2bIlc+fOtTq2f/9+IiIiOHfuHD179uTVV1+lX79+N61MpX3NrKwsnnvuOf7v//4PLy+vIud9fX0JCAiwfGzYsIGwsLAS/5jNyclh1apVTJw4kU6dOhEeHs748eMJCwuz7GNeGhs2bKBx48YsWbKEF198kR07djBz5kxLC+T58+cBWLFiBb169aJBgwY0a9aMe++9t1YOtfF10TOhazBvdg8hwFXP5WwD72+5wJQ/YrmcLasnCHEjlb4TyPvvv89vv/3GX3/9hYODA0eOHCEwMJDhw4czePBgHBwcKrMIQlQ7amoy6qJZqH//YT7g4YUy4jGUDrfXmp1xGjduzPHjx62Ovf/++zzwwAPUr1+/XPf84osvit0e8GqbN2++7t7UpfH666/Tq1cvbr/9dr744ovrXpufn8+SJUt48sknS/zcGY1GjEajZS/0Qk5OTuzatatUZVq6dCmvvfYaX331Fb179+aOO+7g1KlTNG7cmJdffhkwB9NLly7x7LPPMnHiRPr160dmZiY7d+6s1cuAtAt2o0UdF+YfvMzyo8n8dT6T/XHZjGrlx4Aob7Sa2vE9JURFq/SdQBwcHLjnnnu45557KvulhKjWVKMRdfMq1OU/Q042KBqUHv1R7hqF4uJa1cWrUI0bN+bEiROWx5s3byY6Oprp06eX+54PPvgggwYNuu41derYNl5y+fLlHDp0iJUrV5bq+jVr1pCens6IESNKvMbNzY22bdsydepUGjZsiL+/P8uWLWPPnj2EhYXd8DVmz57Nhx9+yOzZsy2tjB4eHjg4OODk5ERAQIDl2oSEBAwGA/379yckJASg2G7s2sZRp+HhNgF0C/Ng2t+XOHY5h5l7Eth0ZZJIQ1/b9zYXora5KVvBAaSkpJCWlkZgYCBOTjW7e0uIslJPHsP08zQ4f9p8IDzKvIVbaIOqLVglady4MatXrwbMs5unTJnC008/jY+PT7nv6e3tjbd35a1/eOHCBd566y3mzZtX6p9R8+fPp0ePHgQGBl73ui+++ILx48fTtm1btFotLVq04O677yY6Ovq6z1u5ciVJSUksW7aM1q1b37A8TZs25bbbbqNXr15069aNbt26MWDAgGK7smujMG8nptxZnw0n05i9L4FTKXm8suYs/aO8eKC1Py562VJOiEKVvhXcrl27ePHFF3n66ad59dVXiYmJAcy7LUyYMIG///67sosgKsj58+cJDg7m0KFDAGzfvp3g4GDS0tJsum/Hjh2ZMWNGRRSx2lEz0zH9+BWm/04whz8XN5QHxqB57f9qbfgDaNSoEXFxcWRlZbF8+XISEhJ46qmnbLrnF198QcOGDa/7ceHChXLf/+DBg1y+fJm+fftSv3596tevz44dO5g1axb169fHaDRaXR8bG8vWrVsZOXLkDe8dFhbGL7/8wokTJ9i1axcrV66koKDght3hzZs3x9fXl/nz55eqG1er1TJ//nzmzJlDVFQU33//Pbfffjvnzp274XNrC42icGekF98MjKBbmAcqsPJ4Ks/+dpo/z6XX6u5wIcqiUlsAd+/ezccff0xUVBS33XYbixYtspzz8PDAx8eHzZs306FDh8oshqgk7dq1Y9++fdVm27TqRDWZUHdsRF08GzLTAVA690K552EUD68qLdvN0LhxYwCOHDnCRx99xIsvvoiLi21beFV2F/Btt93G77//bnVs3LhxNGjQgGeffRat1rr1aMGCBfj5+dGrV69Sv4aLiwsuLi6kpqayZcsWJk6ceN3rQ0NDeeuttxg+fDhardZqBrNery92L3VFUWjfvj3t27fnpZdeokOHDqxevdrmAF7TeDnrGNelLj0jPPl2VzxxGQX839aLtK3rylPt61DHTcafC/tWqQHwl19+oWnTprz99ttkZGRYBUCAqKgo1q9fX5lFEJXIwcHBavyRMFNjT2P6+VuIOWo+EByKZuTTKFHNqrZgN5GrqyshISFMmjQJRVEYNWqU1fmsrCxOnz5teXzu3DkOHTqEt7d3iZM4bO0CvtFrurm5WYJrIRcXF7y9vYscN5lMLFiwgOHDh6PTWf8Y/f7771mzZg1bt261HNu8eTOqqtKgQQPOnDnDe++9R4MGDbj33ntvWO4GDRqwcOFCSwgsXBi6Xr167Nu3j/Pnz+Pq6oqXlxf79+9n27ZtdOvWDT8/P/bu3UtycjINGzYsc33VFq2DXPliQDiLDyfxy+Fk9lzM4rkVp7mvhR93NfFBJ5NEhJ2q1C7gc+fOXXedP09PT9LT0yuzCKIcTCYT33zzDV26dCE8PJz27dszderUItdd2wW8YMECmjRpwvr16+natSsNGjTgiSeeICcnh4ULF9KxY0eaNm3Km2++WaQ7LTMzkzFjxhAZGUnbtm2ZPXv2zXirFUrNzca0cCam914yhz9HJ5Tho9G88Zldhb9CjRs3Zu/evbz66qtFQtKBAwfo06cPffr0AeDdd9+lT58+fPTRR5VWnop8za1bt3LhwoViA1xycjJnzpyxOpaens7EiRPp1q0bY8eOpUOHDsydOxe9vnRb+0VGRrJw4UKWL1/Ou+++C8BTTz2FRqOhe/futGjRggsXLuDu7s7OnTt58MEH6dq1K//3f//HW2+9Rc+ePcv8HmsTB62GkS39mdo/jOZ1XMg3qvy4P5Fxq85wNLH2LZEjRGlUagugo6Mjubm5JZ6/dOkSbm5ulVmE6kVVQS3D+lQmE5gqYNNzRQ9lWF5kypQpzJ07l7fffpsOHTqQkJBgGbt5Izk5OcyaNYtp06aRmZnJ448/zmOPPYaHhwc//fQTZ8+e5cknn6Rdu3bcddddlud9++23PP/884wfP54tW7bw1ltvERERwe23317mt3uzqaoKe7djmv8dpF7Z+eaWzmjufQzFx79qC1eFrhfiO3fubNN4vfIoz2suXry42OPdunUr8V7jx4+3LM1SaPDgwQwePNim127YsCEHDhywPG7QoAG//fZbkef9/PPPZXodexLi6cjkXvXYdDqdWXsTOJuWx2vrztEn0ouHWvvj5iiTRIT9qNQA2KxZM7Zs2cKAAQOKnEtNTeX333+nbdu2lVmE6kUtIODU2zf9ZRMi3gWldONdMjMzmTlzJpMnT7YsbREWFkaHDh0sC81eT0FBAVOmTLEsbzFgwAB++eUXDhw4gKurK1FRUXTu3Jnt27dbBcD27dvz3HPPAeZfbLt27WLGjBnVPgCqCRcxzZ0Oh/eZD/gHorn/KZQWdvR1LUQNoigKPSM8aRfsxg/7EthwMo21Man89f/t3Xd4lGXW+PHvMyVlUgnpJCQZQkCEKCU0g1QFsqyCi1LsCLIQcNXLn74rFkDRtbAvKmVfVoqxoBEV6VJVOiiiBBSICRAgkwLpA2nz/P4YmTVLpGQyzCRzPteV62LuyTNzcpgkJ/fc97lPlTGui7WVTHPpxynE5Ti0ABwzZgzTpk3j73//Oz179gSspwFkZGTY1v6NHDnSkSGIa3Ts2DEqKytJTk5u0PXe3t51epuFhIQQHR2Nj89/+twFBwdfckb0f/8h0LVrV959990GxXA9qNVVqOuWo677DGqqQWc9wk0Z8hcUD88rP4AQwqn8PbVM7RnBgLgA5u81caq0iv/dmcuWrBL+mhROpL9sEhHNm0MLwMjISGbOnMnSpUv55JNPAGxvWXTo0IFHHnnEvTYRKHrrbNxV0ut1VFc30lvAV8neHo3/vaZJUZRL1n8pilLv7sWmQs343jrrV2CyDnTojGbsRJSwSOcGJoS4ZjeGGZiTEseKn8+SnnGWH01mHluTzd0dW3JXhyD0Wod3SxPCKRzeCDo6Oprnn3+e8vJyTCYTqqoSFhbmnq1DFOWq34oFQKMHzfX94RMXF4eXlxfbt2+/qv5mjWX//v2X3Ha1nYvquUIsn7wL+3daBwKD0IwaD11vkbeMhGjC9FqFuzsGkxzjz7/25XEgt4KPfirkm+OlTOoeRqew5nVSjxBwHU8C8fX1JT4+/no9nWggLy8vUlNTmTVrFnq9nqSkJM6ePcvRo0cb/Lbw1di3bx/z589n8ODBbNu2jdWrV5OWluaw57sWak0N6pZVqCuXQeUF0GhQBv4Z5Y4xKF729bYTQriOCD8PpvePYtuJMhZ9n8fp0iqe25TDAKM/D3cOxd/ruv3KFMLhHP5qLi0tZcWKFfzwww8UFBQA1nVhnTt35o477nCbI4qakscffxytVsubb75JXl4eoaGh3H///Q59zokTJ/Ljjz/yz3/+Ez8/P1588UX69evn0Oe8GmrmYSwfLIDTJ6wDbdqjuW8SSlSccwMTQjiEoijcGutPl0gfPjhQwPpjxWzJKmXfqXIe6hLKQGOAzPiLZkFRHXguTk5ODjNnzqS0tJT4+HgiIiIAyM3NJTMzE39/f55//vkrHofk6goKCqiuvrS9S2lpqV1vdev1+nofV1ydhuavtLQUPwXUz99D3f5bo3JfP5S/PGQ9zeM6vy3vDIqiEBERQW5urhyd1QCSP/u5Sg6PFJ5n/h4Tx4srAbgx1JtJ3cOJDnDtzV6ukj9XpdfrCQlx3zZd4OAZwEWLFmGxWJg1a9Ylb/9mZmby6quvsmTJEl588fq3RhGiPqqqohadxTLnOSgvA0BJvg3lrgdR/Nxw3aoQbq5dsDezh8ay6pdzLPupkEP553l8bTYjbmjJ3R1b4qlr/n8QiubJoa/czMxMUlJS6l37Fx8fz9ChQzl27JgjQxDiqqlVlWA6Dbk51uKvVQyaZ/6B5sGpUvwJ4cZ0GoURHVoyd5iRpFa+1Fjg00NneWxNNj/kVjg7PCEaxKEzgAEBAZc96sjDw4OAgABHhiDEFamWWig+B2Ul1tNaNBqUu8ehDBiGopNF30IIq1BfPdP6tmL3qXL+vS8PU3k107fk0CfGj/Fdwwj0lp8Xoulw6AxgSkoKGzdupLi4+JL7zp07x4YNG0hJSXFkCEL8IVVVUSvK4fRJKC22Fn8GX+tGj9uHS/EnhLiEoij0ivZj7p/j+HO7FmgU2HaijNTVWWz6tVjW24kmw6G/4VRVxcvLi6lTp9K9e3fCw8MB6yaQffv2ER4ejqqqrF69us51w4YNc2RYQqBWV8O5Ajj/29s3Oj0EhaAYfFBKS50bnBDC5Rn0WsZ3C6O/MYB5e3L59Vwl7+w28XV2KZO7y0kiwvU5dBfwqFGjGnTdxVNDmgrZBeya6sufarFYZ/tKikC1WJtzB7QA/xa23b32/r81B7KD0D6SP/s1pRzWWlRWHTnHhz8WUlWrotcojO4UzPAOQeg0zmkZ05Ty5wyyC9jBM4Bz58515MM3CRaLBY0btA1pCtTzZuusX3WVdcDLAC1DUPT/+Uu9KR9RJ4RwDq1GYfgNLekZ5ceCvSYOmMy8/2MB206UktojnIRgb2eHKMQlHFoAunt1bTAYKCsrw8/PT4pAJ1JraqCoECqsbV3Q6qBFMPj41mnoarFYKCsrw8dHjn0SQly7cD8Ppg+I5uvsUhbtz+d4cSVPf3WCYe1acO9NIXjr5feAcB3XfZV7ZWUlO3bsoKamhs6dOzfrIlGn0+Hj40N5eXmDrvfw8KCqqqqRo3IfHno9lXlnoMAEtbWAAi1aQkhLFIsKZWWXXOPj44NONn8IIRpIURT6GwPoEunD4u/z+fp4KauOFLE7p4y/dg+nWytfZ4coBODgAnDBggVkZmYye/ZsAGpqapg2bRo5OTmAdYbshRdeIC6u8Y/VSk9PZ/ny5XXGIiMjmTNnDgBVVVWkpaWxc+dOqquruemmmxg/fnyjH02n0+katJ5M1m/Y6fgxNB//G/2vv1hvx8SjuX8ySoycRy2EcLwALx1P3BJJ3zh/FuzNI7+impe+PiUtY4TLcOgr8NChQ/Tp08d2e/v27eTk5DB16lRiY2OZPXs2n376KU8//bRDnj86Oprnn3/edvv3b8O+99577N+/nyeffBKDwcCiRYuYPXs2L730kkNiEdeHWlGOuuJ91G/WU6uq4O2Dctf9KLcORtFonR2eEMLNdIn05Z1hBpb9VMjKX86x7UQZP+RW8EjXMPrH+cu5wsJpHFoAFhcX13mLd+/evRiNRpKTkwEYOHAgK1eudNjzazSaemf0zGYzW7Zs4W9/+xsdO3YEYPLkyTzxxBMcPXqUhIQEh8UkHENVVdTdX6N+utja0Bkw9B9K5bAx4B/o3OCEEG7NS6fh4S6h9InxZ+6eXLKLKnlrVy7fHC9lcvcwwnylZYy4/hxaAHp6emI2mwGora3l8OHDDBkyxHa/l5eX7X5HMJlMTJw4Eb1eT0JCAmPHjiU4OJisrCxqa2vp1KmT7XNbtWpFcHCwFIBNkJqbg+XDf8GRg9aB8Cg0902iZf/B8ha6EMJlxLf04s0hsXz5s/Vc4QO5FTy2Jpv7bgohJaEFWie1jBHuyaEFoNFoZPPmzdx444189913nD9/nm7dutnuz8vLc9hRcG3btmXy5MlERkZSVFTE8uXLeeGFF5g9ezbFxcW2DRq/FxAQUO+pJRdVV1fX6SunKAre3t62fzemi48nbw/8MbXyApY16ahffQG1NeDhgWbYaJTbh6P5rbWL5K9h5PVnH8mf/ZprDvVahZEdg+nV2o+5u00cyjfz7vf5bDtRxtSeEbQO9GyU52mu+RONx6EF4OjRo3n55Zf5n//5HwB69OhBfPx/FuHv3buXdu3aOeS5O3fubPt3TEyMrSDctWsXHh4Nm27/4osv6mwsiYuL47XXXnPoTuaLp6eIus7v3UbRv95AzTsDgFf3PrSY+BS68FZ1Pk/yZx/Jn30kf/ZrrjmMiIDFCTGs+PEMb3+TyZHC8zy+NptxPWN5qGcMem3jtIxprvkT9nNoAdimTRveeustjhw5go+PDx06dLDdV1FRweDBg+uMOZKPjw+RkZGYTCYSExOpqamhoqKizixgSUnJZXcBjxgxos4xdRf/siooKKCmpqZR41UUhfDwcEwmk7yF+Tvq2XwsH/8b9Yfd1oGgYDRjHqX65p4UqArk5gKSP3tJ/uwj+bOfu+SwV5iGtn+KY8FeE/tOl7NwZzZfHT7DlJ4RtLOjgbS75K+hdDpds25DdzUcVgBWVVWxbNkybrzxRpKSki6538fHh5SUFEc9/SUuXLiAyWSiT58+GI1GtFotBw8epGfPngCcOXOGwsLCy67/0+v16PX6eu9z1DeYqqryzYu1mbO6eRXqqmVQeQG0WpRBd6AMG43iZf0hWV+eJH/2kfzZR/JnP3fIYUuDjml9W7HtRBnvfpfHieJKnl5/nGHtW3DfTSF46Ro+G+gO+RMN47AC0MPDg02bNhEVFeWop7istLQ0unXrRnBwMEVFRaSnp6PRaEhOTsZgMDBgwADS0tLw9fXFYDCwePFiEhISZAOIC1IzD2P5YAGcPmEdiO+A5r5JKK1inBuYEEI0EkVRuDXWn5sjfFj0fR5fZ5ey6pci9uSUk9ojnJsj5IQi0bgcvgnkYtPn6+3cuXO89dZblJWV4e/vT/v27Zk1a5atKfODDz6IoijMnj2bmpoaWyNo4TrUslLUz5ai7thkHfD1Qxn5MEqvAShytJ4Qohny99TyRO9I+sb6M3+PifyKal7cksNAYwDjuoTi6yn9TEXjUFQHzg1nZWXx6quvMnr0aPr164dW2zxfuAUFBXV2BzcGdz4JRLVYUHdsQv3sPdv5vUqf21HuegDF9+pOVXHn/DUGyZ99JH/2kxyCubqWD34sZO2RIlQg0EvLo0lh9I72u+LuXsnf5en1elkD6MgHnz9/PhqNhoULF7JkyRKCgoIu2YGrKApvvPGGI8MQTYh66jiWDxdA5s/WgahYNPdOQom/wbmBCSHEdWbQa3m0Wxh9YqwtY06VVvH6tjP0iPJlYlIYLQ31r0kX4mo4tAD09fXFz8+PyMhIRz6NaAbUC+dRV32MuulLsFjA0wvljrEoA/+M0kxnjoUQ4mrcEGJgTkos6Rln+ezQWfacKicjz8xDXUK5rU2A9PoTDeLQAnD69OmOfHjRDKiqCgf2YPl4IZwrtA526YVm1HiUIPeenhdCiIv0Wg333hTCLa39mLvHxLGzF5i3x8S3x0tJ7RFOhJ8cJyeujUMLQCEuRy3Mw7JsIfy0zzoQHIZm7ESUTt0uf6EQQrip2BZevHZ7DKuPFPHBjwUczDPz2JpsxiYGc0f7IDlOTly1Ri0ADx8+DGBr7nzx9pVcr2bQwjWoNdWoG79EXf0xVFWBVocyeARKyj0ono1zDJIQQjRXWo3CnTcE0T3Kl/l7TPyUZ2bpDwVsP1HG1J7hxLbwcnaIoglo1AJwxowZAHz44YfodDrb7Sv55JNPGjMM4cLUIxnWTR65v7UHatcJzb1/RYmIdm5gQgjRxET4eTBzYDSbfi1hyf58Ms9d4Ml1x7mrQ0tGJQY7Ozzh4hq1AHzxxRetD6rT1bkthFpWgvrpEtRdW6wDfgEod49D6dlPFjALIUQDKYrCbfGBdG3ly8J9JnbllPPpobPsyilj+p98CJU9dOIPNGoB+N9v5cpbu0K1WFC3b0D9LA3M5aAoKLcORhnxAIqPr7PDE0KIZiHIW8f/3BrFzpOl/N++PE6VVjFh2X5S2rXg/ptC8NZL83xRl2wCEQ6j5mRb3+799RfrQHQcmvsmoxjbOTcwIYRopnq39icxzIclP+Sz6dcS1hwpYt8pOU5OXMrhBWBVVRV79uwhOzsbs9mMxWKpc7+iKEyaNMnRYYjrSL1gRv1yGeqWVb/19PNGGX4vSv8/SU8/IYRwMF9PLY/1imR4lzhmrj1kO07utjYBPNwlFB8P+TksHFwAFhQUMGPGDAoKCjAYDJjNZnx9fW2FoJ+fH15eslupuVBVFfbvwvLxv6H4LABK11tQRo1HadHSydEJIYR76REbxDvDjKT9kMeao8Vs/LWE/WcqmNQ9nKQoWYLj7hxaAL7//vuYzWZmzZpFaGgoEyZM4IknnqBdu3asW7eO9evXM23aNEeGIK4TtcBk7el38DvrQEi4tadfx67ODUwIIdyYt17Do0nh3BLjzzu7c8ktq+blb07RN9af8d3C8PeU2UB35dBVoYcOHeL2228nPj4ejcb6VKqqotfrueOOO+jYsSNLly51ZAjCwdTqaixr0rG8OMVa/Ol0KMNGoZn+jhR/QgjhIm4MNfBWShwjbghCo8A3x0uZsjqLHSdLnR2acBKHzgBWVlYSGhoKgLe3NwBms9l2f0JCAu+//74jQxAOpP7yk3WTh+m0daB9orWnX3iUcwMTQghxCU+dhoe6hNK7tR/v7M7lZEkVr287Q6/oMv6aFEagt+wLdScO/d8ODg7m7FnrWjCtVktQUBDHjh2jR48eAJw6dQoPDzm/sKlRS4usPf12f20d8A9EuecRlO63Sk8/IYRwcQnB3vxzaCzpGWf57LeegRl5FYzvFkbfWH/5Oe4mHFoAduzYke+++467774bgH79+rFixQrKy8tRVZVvv/2Wvn37OjIE0YhUiwX1269Qv0gDc4W1p1/foSgj7kMxyIJiIYRoKvRaDffeFEKvaOtsYFZRJf+7M5dtx0uZ1COcYIPe2SEKB3NoATh8+HAyMzOprq5Gr9czYsQIioqK2LNnDxqNhuTkZB544AFHhiAaiXryVywfLIDso9aB1m2sPf3i2jo3MCGEEA1mDPLijSGxfHH4LB8fPMt3ZyqYujqbh7uEclubAJkNbMYUVVVVZwfR1BUUFFBdXd2oj6koChEREeTm5uLM/yL1vBn1yw9Rt6wB1QJe3ijD70fpPxRF47q7x1wlf02V5M8+kj/7SQ7t05D8nSyp5J1duRw9ewGAxHADU3qEE+bb/JZq6fV6QkJCnB2GU8mKT1EvVVVRv9uBmv4uFJ8DQEnqg3LPOJRA6eknhBDNTesAT/5xewyrjxTxwY8F/GQy89iabB64OZShCYFoZDawWZECUFxCzc/F8tG/4NAP1oHQCOvu3g6dnRuYEEIIh9JqFO68IYjuUb7M3Z1LRv55Fn6Xx/YTpUzpGUEr/+Y3G+iupAAUNmp1Ner6z1DXfgo11daefkNHWj/08k0vhBDuIsLPg5cGtearY8Us/aGAwwXneXxtNmMSg7mzfRBajcwGNnVSAAoA1J9/xPLhvyDvt55+HW5GM/avKGGRzg1MCCGEU2gUhaEJLega6cu8vSYO5Fbw3g8F7DxZxtSeEcQEejo7RGEHKQDdnFpShJq+GHXvN9aBgBbWnn5JfWT3lxBCCEJ99UzvH8XmrBIWf5/PsbMXeHJdNvd0DOYvN7ZEJ7OBTZIUgG5KtdSifrMe9YsP4HwFKBqU/ikod96LYvBxdnhCCCFciKIoDGoTSOcIHxbszWPf6XI++qmQXTnW2cA2QV7ODlFcIykA3ZB6IhPL+/PhRKZ1ICYezf2TUWLinRuYEEIIl9bSoGda31ZsO1HGwu/yyC6q5Kn1x7mrQ0tGdWqJh1bj7BDFVZIC0I2o5gprT7+ta609/bwNKCMeQOk72KV7+gkhhHAdiqJwa6w/ieEGFu7LY8fJMpYfOsvunDIe6xVBu2BvZ4coroIUgG7A2tNvO+oni6Dkt55+3ftae/oFtHBydEIIIZqiQC8dT/dpxa6cMv6118Sp0iqe+eoEd7Rvwb03heCpk9lAVyYFYDOn5p/B8uH/weGLPf0if+vpd7NT4xJCCNE89Ir2o2OogcX789iSVcqXvxSx51Q5U3qG0ylM1pS7KikAm6lLe/rpUVLuRhlyl/T0E0II0aj8PLX8rVckya39mbfXhKm8muc25TC0bSAPdA7BoJdlRq5GCsBmSD18wNrTL/+MdaBDZzT3TkQJlZ5+QgghHKdrK1/mDotj6f4CvsosZt2xYr47XU5qzwg6R8hsoCuRArAZsfb0W4S691vrQEAQyqhHULolS08/IYQQ14VBr2Vyj3CSY/yYu8dEXnk107fkMNAYwLguofh6ymygK5ACsBmQnn5CCCFcTWK4D2//KY4PDhSw+kgRm7NK2J9bwaTuYfSI8nN2eG5PCsAmTnr6CSGEcFVeOg3ju4VxS4wf7+w2cbq0ile+Oc2tsf5M6BqKv5eUIc4imW+ipKefEEKIpuKGEANzUmJZ9lMhK34+x7fHS/nRVMHEpDBuae3v7PDckhSATUz9Pf1uRbl7HEpgkJOjE0IIIernodXwYOdQerf24+1duZwsqeL1bWfo3bqMiUlhBMps4HUl2W5CpKefEEKIpq5tS2/+OTSW9IyzLD90lp0nyziYZ+bRbmH0ifGTTYvXidsXgOvXr2fVqlUUFxcTExPDuHHjiI93rfVz9fb0GzoSZehfpKefEEKIJkev1XDvTSH0ivbj7d25ZBdVMnvHGbaf8OWv3cMJ8nb78sTh3Pqclp07d5KWlsbIkSN57bXXiImJYdasWZSUlDg7NBvL4QNYpk9FXfmRtfjrcDOa6e+guWOMFH9CCCGaNGOQF28OiWVsYjA6DdYTRFZnsSWrBFVVnR1es+bWBeDq1asZOHAg/fv3JyoqigkTJuDh4cHWrVudHRpqSRFnX5+G5Z/PWxs6B7RAefT/oXl8BkqYNHQWQgjRPOg0CqM6BTN7SCzxQV5UVFl4a1cuL319ikJztbPDa7bcdo61pqaGrKwshg8fbhvTaDR06tSJo0eP1ntNdXU11dX/eTEqioK3t7ft343F8u1XWD5djPm82dbTTzP8Punpdw0u/n/IWpKGkfzZR/JnP8mhfZpi/uKCvHljSCwrfj7LRz8W8v2ZCqauzmZ8tzAGtQl0dnjNjtsWgKWlpVgsFgIDA+uMBwYGcubMmXqv+eKLL1i+fLntdlxcHK+99hohISGNGxsWSs6b0bftQFDq3/Foe0OjPr47CQ8Pd3YITZrkzz6SP/tJDu3TFPM3pVUkf+pcwUvrfuZgbilVWi8iIiKcHVaz47YFYEOMGDGCYcOG2W5f/MuqoKCAmpqaRnsetfcgtFoPwkaMIa+gADU3t9Ee210oikJ4eDgmk0nWkTSA5M8+kj/7SQ7t09Tz5wXM7B/J1mwf+rX2JLeRfw/qdLpGn7xpaty2APT390ej0VBcXFxnvLi4+JJZwYv0ej16vb7e+xr1G0yrQ7llIIpWa+371wS/eV2F5M8+kj/7SP7sJzm0T1POn0aBgcYAoJF/xwrAjTeB6HQ6jEYjGRkZtjGLxUJGRgYJCQlOjEwIIYQQwrHcdgYQYNiwYcybNw+j0Uh8fDxr166lsrKSfv36OTs0IYQQQgiHcesCsHfv3pSWlpKenk5xcTGxsbE8++yzf/gWsBBCCCFEc+DWBSDAkCFDGDJkiLPDEEIIIYS4bty+AGwMOp3j0ujIx3YHkj/7SP7sI/mzn+TQPpK/+kleQFFla40QQgghhFtx213Aru78+fM888wznD9/3tmhNEmSP/tI/uwj+bOf5NA+kj9xJVIAuihVVcnOzpbeRw0k+bOP5M8+kj/7SQ7tI/kTVyIFoBBCCCGEm5ECUAghhBDCzUgB6KL0ej0jR478w6PnxOVJ/uwj+bOP5M9+kkP7SP7ElcguYCGEEEIINyMzgEIIIYQQbkYKQCGEEEIINyMFoBBCCCGEm5ECUAghhBDCzchheC5o/fr1rFq1iuLiYmJiYhg3bhzx8fHODsslHT58mJUrV5KdnU1RURFPPfUU3bt3t92vqirp6els3ryZiooK2rdvz/jx44mIiHBi1K7hiy++YO/evZw+fRoPDw8SEhK47777iIyMtH1OVVUVaWlp7Ny5k+rqam666SbGjx9PYGCg8wJ3IRs2bGDDhg0UFBQAEBUVxciRI+ncuTMg+btWK1as4KOPPiIlJYWHHnoIkBxeTnp6OsuXL68zFhkZyZw5cwDJnbg8mQF0MTt37iQtLY2RI0fy2muvERMTw6xZsygpKXF2aC6psrKS2NhYHnnkkXrv//LLL1m3bh0TJkzglVdewdPTk1mzZlFVVXWdI3U9hw8fZvDgwcyaNYvnnnuO2tpaXn75ZS5cuGD7nPfee4/vv/+eJ598khkzZlBUVMTs2bOdGLVrCQoKYuzYsfzjH//g1VdfpWPHjrz++uvk5OQAkr9rkZmZycaNG4mJiakzLjm8vOjoaBYuXGj7mDlzpu0+yZ24HCkAXczq1asZOHAg/fv3JyoqigkTJuDh4cHWrVudHZpL6ty5M6NHj64z63eRqqqsXbuWu+66i6SkJGJiYpgyZQpFRUXs27fPCdG6lmnTptGvXz+io6OJjY0lNTWVwsJCsrKyADCbzWzZsoUHH3yQjh07YjQamTx5MkeOHOHo0aNOjt41dOvWjS5duhAREUFkZCRjxozBy8uLY8eOSf6uwYULF3jnnXeYOHEiPj4+tnHJ4ZVpNBoCAwNtH/7+/oDkTlyZFIAupKamhqysLDp16mQb02g0dOrUSb5hGyA/P5/i4mISExNtYwaDgfj4eMlnPcxmMwC+vr4AZGVlUVtbW+f12KpVK4KDgyV/9bBYLOzYsYPKykoSEhIkf9fg3XffpXPnznW+V0Feg1fDZDIxceJEpkyZwttvv01hYSEguRNXJmsAXUhpaSkWi+WS9RmBgYGcOXPGOUE1YcXFxQAEBATUGQ8ICLDdJ6wsFgtLly6lXbt2tG7dGrDmT6fT1ZmRAcnffzt58iTTpk2juroaLy8vnnrqKaKiojh+/Ljk7yrs2LGD7OxsXn311Uvuk9fg5bVt25bJkycTGRlJUVERy5cv54UXXmD27NmSO3FFUgAKIVi0aBE5OTl11g+JqxMZGckbb7yB2Wxm9+7dzJs3jxkzZjg7rCahsLCQpUuX8txzz+Hh4eHscJqci5uNAGJiYmwF4a5duySf4oqkAHQh/v7+aDSaS/46Ky4ull1bDXAxZyUlJbRo0cI2XlJSQmxsrHOCckGLFi1i//79zJgxg5YtW9rGAwMDqampoaKios4sQklJibwef0en0xEeHg6A0Wjk119/Ze3atfTu3VvydwVZWVmUlJTwzDPP2MYsFgs///wz69evZ9q0aZLDa+Dj40NkZCQmk4nExETJnbgsWQPoQnQ6HUajkYyMDNuYxWIhIyODhIQEJ0bWNIWGhhIYGMjBgwdtY2azmczMTMkn1k0yixYtYu/evbzwwguEhobWud9oNKLVauvk78yZMxQWFkr+LsNisVBdXS35uwqdOnXizTff5PXXX7d9tGnThuTkZNu/JYdX78KFC5hMJgIDA+X1J65IZgBdzLBhw5g3bx5Go5H4+HjWrl1LZWUl/fr1c3ZoLuniD7yL8vPzOX78OL6+vgQHB5OSksLnn39OREQEoaGhfPzxx7Ro0YKkpCQnRu0aFi1axPbt23n66afx9va2zTwbDAY8PDwwGAwMGDCAtLQ0fH19MRgMLF68mISEBPkF8puPPvqIm2++meDgYC5cuMD27ds5fPgw06ZNk/xdBW9vb9ua04s8PT3x8/OzjUsO/1haWhrdunUjODiYoqIi0tPT0Wg0JCcny+tPXJGiqqrq7CBEXevXr2flypUUFxcTGxvLww8/TNu2bZ0dlks6dOhQveut+vbtS2pqqq0R9KZNmzCbzbRv355HHnmkTrNjd3XPPffUOz558mTbHxwXG8nu2LGDmpoaaST7XxYsWEBGRgZFRUUYDAZiYmK48847bbtZJX/Xbvr06cTGxl7SCFpyeKk5c+bw888/U1ZWhr+/P+3bt2f06NG2JQmSO3E5UgAKIYQQQrgZWQMohBBCCOFmpAAUQgghhHAzUgAKIYQQQrgZKQCFEEIIIdyMFIBCCCGEEG5GCkAhhBBCCDcjBaAQQgghhJuRAlAI0WSlpqYyb948Z4dxiXfffZeXXnrpmq7ZsGEDkyZNorq62kFRCSHEf0gBKIRwaUeOHCE9PZ2Kigpnh3JV8vPz2bx5MyNGjLim6/r160dNTQ0bN250UGRCCPEfUgAKIVzakSNHWL58eb0F4Jw5c5g4caITovpja9euJTQ0lI4dO17TdR4eHvTt25c1a9YgBzQJIRxNCkAhRJOl1+vR6XTODsOmpqaGbdu20atXrwZd37t3bwoKCjh06FAjRyaEEHW5zk9OIYT4L+np6SxfvhyAKVOm2Mbnzp1LaGgoqampdOjQgdTUVAC+/vpr5s+fz8yZM9m5cyc7duygtraW3r17M27cOCorK1myZAnff/89AAMHDuTee+9FURTbY1ssFtatW8fmzZvJy8vDYDCQlJTE2LFj8fX1vWy8v/zyC2VlZSQmJl5y37p169i4cSP5+fno9XrCwsIYNmwYycnJts8xGo34+vqyb9++a55BFEKIayEFoBDCZfXo0YPc3Fx27NjBgw8+iJ+fHwD+/v6XvW7x4sUEBgZyzz33cOzYMTZt2oTBYODo0aMEBwczZswY9u/fz8qVK4mOjqZv3762axcuXMg333xDv379GDp0KPn5+axfv57s7Gxeeumly844Hj16FEVRiI2NrTO+adMmlixZQs+ePUlJSaGqqoqTJ09y7NixOgUgQFxcHEeOHLnGTAkhxLWRAlAI4bJiYmKIi4tjx44dJCUlERoaelXXBQQE8Pe//x1FURg8eDAmk4lVq1YxaNAgJkyYAMCgQYNITU1l69attgLwl19+YcuWLTz22GN1CrMbb7yRV155hd27d19SsP3e6dOn8fX1xWAw1Bnfv38/0dHRPPnkk1eMPSwsjG+//faqvk4hhGgoWQMohGh2BgwYUOdt3fj4eFRVZcCAAbYxjUaD0WgkLy/PNrZr1y4MBgOJiYmUlpbaPoxGI15eXmRkZFz2ecvLy/Hx8blk3MfHh7Nnz5KZmXnF2H18fKiqqqKysvJqvlQhhGgQmQEUQjQ7wcHBdW5fnJFr2bLlJeO/311sMpkwm82MHz++3sctLS294nPXt4P3zjvv5ODBgzz77LOEh4eTmJhIcnIy7du3/8Prf1/ACiFEY5MCUAjR7Gg09b+5Ud/47ws2i8VCQEAAU6dOrff6K6099PX1rbddTVRUFHPmzGH//v0cOHCAPXv2sGHDBkaOHMk999xT53MrKirw9PTEw8Pjss8lhBD2kAJQCOHSrudMWFhYGAcPHqR9+/YNKsBatWrF9u3bMZvNl6wD9PLyonfv3vTu3ZuamhrefPNNPv/8c4YPH17nufLz82nVqpXdX4sQQlyOrAEUQrg0T09PAMxms8Ofq3fv3lgsFlvrmd+rra294mkkCQkJqKpKVlZWnfGysrI6t3U6HVFRUaiqSm1tbZ37srOzSUhIaOBXIIQQV0dmAIUQLs1oNAKwbNkybrnlFrRaLV27dsXLy6vRn6tDhw4MGjSIFStWcOLECRITE9FqtZhMJnbt2sXDDz9Mz549//D69u3b4+fnx08//VSnj9/LL79MYGAg7dq1IzAwkFOnTvHVV1/RpUsXvL29bZ+XlZVFeXk5SUlJjf61CSHE70kBKIRwafHx8YwaNYqNGzdy4MABVFVl7ty5DikAAR599FGMRiObNm1i2bJlaLVaQkJC6NOnD+3atbvstTqdjuTkZHbv3s3YsWNt47fddhvbtm1jzZo1XLhwgaCgIIYOHcpdd91V5/pdu3YRHBwsTaCFEA6nqHLopBBCNJq8vDwef/xxnn32WTp16nTV11VXV5Oamsrw4cNJSUlxYIRCCCFrAIUQolGFhYUxYMAAVqxYcU3Xbd26Fa1Wy2233eaYwIQQ4ndkBlAIIYQQws3IDKAQQgghhJuRAlAIIYQQws1IASiEEEII4WakABRCCCGEcDNSAAohhBBCuBkpAIUQQggh3IwUgEIIIYQQbub/A6Hn7s2qhsIOAAAAAElFTkSuQmCC"/></p>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/total_jac.py:1756: DerivativesWarning:Constraints or objectives [(&#39;traj.phases.climb.path_constraints.path:gam&#39;, inds=[(0, 0)])] cannot be impacted by the design variables of the problem.
+</pre></div>
 </div>
-</div>
-<h2 id="references">References<a class="headerlink" href="#references" title="Permanent link">&para;</a></h2>
-<div class="footnote">
-<hr />
-<ol>
-<li id="fn:1">
-<p>Daniel Raymer. <em>Aircraft design: a conceptual approach</em>. American Institute of Aeronautics and Astronautics, Inc., 2012.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
-</li>
-</ol>
-</div>
-                
-              
-              
-                
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using option file &quot;IPOPT_options.opt&quot;.
 
 
+******************************************************************************
+This program contains Ipopt, a library for large-scale nonlinear optimization.
+ Ipopt is released as open source code under the Eclipse Public License (EPL).
+         For more information visit https://github.com/coin-or/Ipopt
+******************************************************************************
+
+This is Ipopt version 3.13.5, running with linear solver mumps.
+NOTE: Other linear solvers might be more efficient (see Ipopt documentation).
+
+Starting derivative checker for first derivatives.
+
+
+No errors detected by derivative checker.
+
+Number of nonzeros in equality constraint Jacobian...:     1011
+Number of nonzeros in inequality constraint Jacobian.:       21
+Number of nonzeros in Lagrangian Hessian.............:        0
+
+Total number of variables............................:      166
+                     variables with only lower bounds:       85
+                variables with lower and upper bounds:       77
+                     variables with only upper bounds:        0
+Total number of equality constraints.................:      159
+Total number of inequality constraints...............:       22
+        inequality constraints with only lower bounds:        2
+   inequality constraints with lower and upper bounds:       20
+        inequality constraints with only upper bounds:        0
+
+iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+   0  5.0000000e+00 1.45e+03 1.23e+00  -1.0 0.00e+00    -  0.00e+00 0.00e+00   0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   1  4.7153502e+00 1.07e+03 1.75e+01  -1.0 2.27e+01    -  4.62e-02 2.64e-01h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   2  4.5270610e+00 5.92e+02 1.90e+01  -1.0 1.38e+01    -  5.02e-02 4.45e-01h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   3  4.4468399e+00 3.10e+02 1.61e+01  -1.0 6.73e+00    -  4.39e-01 4.77e-01h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   4  4.4410128e+00 3.52e+00 1.66e+01  -1.0 3.66e+00    -  6.39e-01 9.89e-01h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   5  4.4782725e+00 1.90e+00 1.62e+03  -1.0 8.52e-01    -  6.92e-02 4.61e-01h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   6  4.4978888e+00 6.32e-02 2.10e+03  -1.0 5.98e-01    -  7.18e-01 9.91e-01h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   7  4.5300571e+00 1.05e-02 2.78e+04  -1.0 1.87e-01    -  9.64e-01 1.00e+00h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   8  4.5486051e+00 2.41e-03 9.26e+04  -1.0 1.59e-01    -  9.90e-01 1.00e+00h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   9  4.8035111e+00 1.34e-02 9.26e+02  -1.0 1.68e+00    -  9.90e-01 1.00e+00f  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  10  4.5845038e+00 1.02e-02 2.52e+05  -1.7 1.54e+00    -  9.68e-01 1.00e+00h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  11  1.5961681e+00 1.58e+00 8.21e+03  -1.7 2.78e+01    -  9.93e-01 7.72e-01f  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  12  2.6841574e+00 1.30e-01 2.64e-02  -1.7 6.37e+00    -  1.00e+00 1.00e+00h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  13  2.1504964e+00 1.62e-01 1.09e+05  -2.5 7.67e+00    -  7.25e-01 6.62e-01h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  14  2.2087333e+00 3.45e-04 1.80e-02  -2.5 2.07e-01    -  1.00e+00 1.00e+00h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  15  2.1979165e+00 1.55e-02 3.31e+04  -5.7 3.59e-01    -  7.25e-01 8.42e-01h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  16  2.1902359e+00 2.86e-02 1.10e+04  -5.7 8.98e-01    -  6.29e-01 6.00e-01h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  17  2.1876552e+00 1.87e-02 9.91e+03  -5.7 3.40e-01    -  6.56e-01 1.00e+00h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  18  2.1886308e+00 1.68e-03 6.94e+02  -5.7 1.84e-01    -  9.30e-01 1.00e+00h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  19  2.1886302e+00 1.20e-03 7.04e-04  -5.7 8.17e-02    -  1.00e+00 1.00e+00h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  20  2.1886005e+00 3.85e-04 1.06e-03  -5.7 1.01e-01    -  1.00e+00 7.62e-01h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  21  2.1884903e+00 3.31e-05 5.31e-03  -5.7 4.22e-01    -  1.00e+00 1.00e+00f  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  22  2.1882476e+00 1.41e-04 1.43e-02  -5.7 2.84e+01    -  5.23e-02 2.69e-02h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  23  2.1882671e+00 1.07e-04 1.48e+00  -5.7 3.00e-01    -  1.00e+00 2.50e-01f  3
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  24  2.1882309e+00 7.17e-05 3.99e-03  -5.7 6.78e-02    -  1.00e+00 1.00e+00h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  25  2.1882448e+00 8.39e-08 6.82e-05  -5.7 8.94e-04    -  1.00e+00 1.00e+00h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  26  2.1882448e+00 7.92e-11 6.00e-07  -5.7 2.28e-05    -  1.00e+00 1.00e+00h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  27  2.1882351e+00 4.37e-06 4.75e+01  -7.0 8.46e-03    -  1.00e+00 7.29e-01h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  28  2.1882331e+00 2.33e-06 7.93e-05  -7.0 3.64e-03    -  9.66e-01 1.00e+00f  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  29  2.1882330e+00 2.10e-08 1.75e-05  -7.0 1.44e-03    -  1.00e+00 1.00e+00h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>iter    objective    inf_pr   inf_du lg(mu)  ||d||  lg(rg) alpha_du alpha_pr  ls
+  30  2.1882331e+00 6.88e-09 1.87e-06  -7.0 4.01e-04    -  1.00e+00 1.00e+00h  1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  31  2.1882331e+00 4.59e-11 6.12e-07  -7.0 7.66e-05    -  1.00e+00 1.00e+00h  1
+
+Number of Iterations....: 31
+
+                                   (scaled)                 (unscaled)
+Objective...............:   2.1882330777710819e+00    2.1882330777710819e+00
+Dual infeasibility......:   6.1187350469904141e-07    6.1187350469904141e-07
+Constraint violation....:   4.5932564101633650e-11    4.5932564101633650e-11
+Complementarity.........:   9.0911463689450433e-08    9.0911463689450433e-08
+Overall NLP error.......:   6.1187350469904141e-07    6.1187350469904141e-07
+
+
+Number of objective function evaluations             = 34
+Number of objective gradient evaluations             = 32
+Number of equality constraint evaluations            = 34
+Number of inequality constraint evaluations          = 34
+Number of equality constraint Jacobian evaluations   = 32
+Number of inequality constraint Jacobian evaluations = 32
+Number of Lagrangian Hessian evaluations             = 0
+Total CPU secs in IPOPT (w/o function evaluations)   =      2.473
+Total CPU secs in NLP function evaluations           =      6.837
+
+EXIT: Optimal Solution Found.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulating trajectory traj
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
+[2188.23307777]
+</pre></div>
+</div>
+<img alt="../../_images/balanced_field_4_57.png" src="../../_images/balanced_field_4_57.png" />
+</div>
+</div>
+<div class="cell tag_remove-input tag_remove-output docutils container">
+</div>
+</div>
+<div class="section" id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
+<p id="id2"><dl class="citation">
+<dt class="label" id="id48"><span class="brackets">Ray12</span></dt>
+<dd><p>Daniel Raymer. <em>Aircraft design: a conceptual approach</em>. American Institute of Aeronautics and Astronautics, Inc., 2012.</p>
+</dd>
+</dl>
+</p>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./examples/balanced_field"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
               
-            </article>
-          </div>
+        
+        <div class='prev-next-bottom'>
+            
+    <a class='left-prev' id="prev-link" href="../vanderpol/vanderpol.html" title="previous page">The Van der Pol Oscillator</a>
+    <a class='right-next' id="next-link" href="../commercial_aircraft/commercial_aircraft.html" title="next page">Commercial Aircraft Range Maximization by Differential Inclusion</a>
+
         </div>
         
-      </main>
-      
+        </div>
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
         
-<footer class="md-footer">
-  
-    <nav class="md-footer__inner md-grid" aria-label="Footer">
-      
+          By The Dymos Development Team<br/>
         
-        <a href="../vanderpol/vanderpol.html" class="md-footer__link md-footer__link--prev" aria-label="Previous: The Van der Pol Oscillator" rel="prev">
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12z"/></svg>
-          </div>
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Previous
-              </span>
-              The Van der Pol Oscillator
-            </div>
-          </div>
-        </a>
-      
-      
-        
-        <a href="../commercial_aircraft/commercial_aircraft.html" class="md-footer__link md-footer__link--next" aria-label="Next: Commercial Aircraft Range Maximization by Differential Inclusion" rel="next">
-          <div class="md-footer__title">
-            <div class="md-ellipsis">
-              <span class="md-footer__direction">
-                Next
-              </span>
-              Commercial Aircraft Range Maximization by Differential Inclusion
-            </div>
-          </div>
-          <div class="md-footer__button md-icon">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4z"/></svg>
-          </div>
-        </a>
-      
-    </nav>
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-footer-copyright">
-        
-        Made with
-        <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
-          Material for MkDocs
-        </a>
-        
+            &copy; Copyright 2021.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
       </div>
-      
     </div>
-  </div>
-</footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    <script id="__config" type="application/json">{"base": "../..", "features": [], "translations": {"clipboard.copy": "Copy to clipboard", "clipboard.copied": "Copied to clipboard", "search.config.lang": "en", "search.config.pipeline": "trimmer, stopWordFilter", "search.config.separator": "[\\s\\-]+", "search.placeholder": "Search", "search.result.placeholder": "Type to start searching", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.term.missing": "Missing", "select.version.title": "Select version"}, "search": "../../assets/javascripts/workers/search.b0710199.min.js", "version": {"method": "mike"}}</script>
-    
-    
-      <script src="../../assets/javascripts/bundle.76f349be.min.js"></script>
-      
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML"></script>
-      
-    
+  
+  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+
+  
   </body>
 </html>
