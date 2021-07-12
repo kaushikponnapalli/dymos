@@ -144,7 +144,8 @@ class SegmentSimulationComp(om.ExplicitComponent):
 
         num_controls = len(self.options['control_options']) + len(self.options['polynomial_control_options'])
         # self.initial_state_vec = np.zeros(self.state_vec_size + (self.state_vec_size + num_controls) ** 2)
-        self.initial_state_vec = np.zeros(self.state_vec_size + self.state_vec_size ** 2)
+        self.initial_state_vec = np.zeros(self.state_vec_size +
+                                          self.state_vec_size * (num_controls + self.state_vec_size))
 
         self.options['ode_integration_interface'].prob.setup(check=False)
 
@@ -197,7 +198,7 @@ class SegmentSimulationComp(om.ExplicitComponent):
             pos += size
 
         num_controls = len(self.options['control_options']) + len(self.options['polynomial_control_options'])
-        stm0 = np.eye(self.state_vec_size)
+        stm0 = np.eye(self.state_vec_size, self.state_vec_size + num_controls)
         self.initial_state_vec[pos:] = stm0.ravel()
 
         # Setup the control interpolants

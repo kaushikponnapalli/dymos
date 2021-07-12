@@ -421,10 +421,10 @@ class TestBrachistochroneForDocs(unittest.TestCase):
         #
         # Set the variables
         #
-        phase.set_time_options(initial_bounds=(0, 0), duration_bounds=(.5, 10))
-        phase.add_state('x', fix_initial=True, fix_final=False, solve_segments=True)
-        phase.add_state('y', fix_initial=True, fix_final=False, solve_segments=True)
-        phase.add_state('v', fix_initial=True, fix_final=False, solve_segments=True)
+        phase.set_time_options(initial_bounds=(0, 0), duration_bounds=(.5, 10), input_duration=False, fix_duration=False)
+        phase.add_state('x', fix_initial=True, fix_final=False)
+        phase.add_state('y', fix_initial=True, fix_final=False)
+        phase.add_state('v', fix_initial=True, fix_final=False)
         phase.add_control('theta', continuity=True, rate_continuity=True,
                           units='deg', lower=0.01, upper=179.9)
         phase.add_parameter('g', units='m/s**2', val=9.80665)
