@@ -165,11 +165,20 @@ class ODEIntegrationInterface(object):
         self._unpack_state_vec(x)
         self.prob.run_model()
         num_states = len(self.state_options)
-        des_vars = list(self.prob.driver._designvars)
-        num_des_vars = len(des_vars)
         if not self.state_list:
             for name, options in self.state_options.items():
                 self.state_list.append(f'state_rate_collector.state_rates:{name}_rate')
+
+        des_vars = list(self.prob.driver._designvars)
+        num_des_vars = len(des_vars)
+        
+        # need to sort the design variables so that states come first
+        # initial conditions have been defiend that way
+        j = 0
+        for i in range(num_des_vars):
+            if 'states' in des_vars[i] and 'states' not in des_vars[j]:
+                des_vars[j], des_vars[i] = des_vars[i], des_vars[j]
+                j += 1
 
         xdot = np.zeros(num_states + num_des_vars * num_states)
         xdot[:num_states] = self._pack_state_rate_vec()
