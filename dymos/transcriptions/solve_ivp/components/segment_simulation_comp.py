@@ -132,8 +132,17 @@ class SegmentSimulationComp(om.ExplicitComponent):
 
         # Setup the initial state vector for integration
         self.state_vec_size = 0
+        self.num_des_vars = 0
+
+        if not self.options['time_options']['fix_initial'] and not self.options['time_options']['input_initial']:
+            self.num_des_vars += 1
+
+        if not self.options['time_options']['fix_duration'] and not self.options['time_options']['input_duration']:
+            self.num_des_vars += 1
+
         for name, options in self.options['state_options'].items():
             self.state_vec_size += np.prod(options['shape'])
+            self.num_des_vars += np.prod(options['shape'])
             self.add_input(name='initial_states:{0}'.format(name), val=np.ones((1,) + options['shape']),
                            units=options['units'], desc='initial values of state {0} '
                                                         'in the segment'.format(name))
@@ -143,9 +152,6 @@ class SegmentSimulationComp(om.ExplicitComponent):
                             desc='Values of state {0} at all nodes in the segment.'.format(name))
 
         num_controls = len(self.options['control_options']) + len(self.options['polynomial_control_options'])
-        # self.initial_state_vec = np.zeros(self.state_vec_size + (self.state_vec_size + num_controls) ** 2)
-        self.initial_state_vec = np.zeros(self.state_vec_size +
-                                          self.state_vec_size * (num_controls + self.state_vec_size))
 
         self.options['ode_integration_interface'].prob.setup(check=False)
 
@@ -159,6 +165,7 @@ class SegmentSimulationComp(om.ExplicitComponent):
                                     'nodes within the segment.'.format(name))
                 interp = LagrangeBarycentricInterpolant(control_disc_seg_stau, options['shape'])
                 self.options['ode_integration_interface'].set_interpolant(name, interp)
+                self.num_des_vars += np.prod(options['shape'])
 
         if self.options['polynomial_control_options']:
             for name, options in self.options['polynomial_control_options'].items():
@@ -170,6 +177,12 @@ class SegmentSimulationComp(om.ExplicitComponent):
                                     'nodes within the phase.'.format(name))
                 interp = LagrangeBarycentricInterpolant(poly_control_disc_ptau, options['shape'])
                 self.options['ode_integration_interface'].set_interpolant(name, interp)
+                self.num_des_vars += np.prod(options['shape'])
+
+        if self.options['parameter_options']:
+            for name, options in self.options['parameter_options'].items():
+                if options['opt']:
+                    self.num_des_vars += np.prod(options['shape'])
 
         self.declare_partials(of='*', wrt='*', method='fd')
 
@@ -189,17 +202,16 @@ class SegmentSimulationComp(om.ExplicitComponent):
         iface_prob = self.options['ode_integration_interface'].prob
 
         # Create the vector of initial state values
-        self.initial_state_vec[:] = 0.0
+        initial_state_vec = np.zeros(self.state_vec_size * (1 + self.num_des_vars))
         pos = 0
         for name, options in self.options['state_options'].items():
             size = np.prod(options['shape'])
-            self.initial_state_vec[pos:pos + size] = \
+            initial_state_vec[pos:pos + size] = \
                 np.ravel(inputs['initial_states:{0}'.format(name)])
             pos += size
 
-        num_controls = len(self.options['control_options']) + len(self.options['polynomial_control_options'])
-        stm0 = np.eye(self.state_vec_size, self.state_vec_size + num_controls)
-        self.initial_state_vec[pos:] = stm0.ravel()
+        stm0 = np.eye(self.state_vec_size, self.num_des_vars)
+        initial_state_vec[pos:] = stm0.ravel()
 
         # Setup the control interpolants
         if self.options['control_options']:
@@ -257,7 +269,7 @@ class SegmentSimulationComp(om.ExplicitComponent):
         # Perform the integration using solve_ivp
         sol = solve_ivp(fun=self.options['ode_integration_interface'],
                         t_span=(inputs['time'][0], inputs['time'][-1]),
-                        y0=self.initial_state_vec,
+                        y0=initial_state_vec,
                         method=self.options['method'],
                         atol=self.options['atol'],
                         rtol=self.options['rtol'],

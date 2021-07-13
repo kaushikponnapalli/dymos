@@ -2,8 +2,10 @@ import os
 import unittest
 
 import matplotlib
+
 matplotlib.use('Agg')
 import matplotlib.pyplot as plt
+
 plt.style.use('ggplot')
 
 from openmdao.utils.testing_utils import use_tempdirs
@@ -42,8 +44,8 @@ class TestBrachistochroneForDocs(unittest.TestCase):
 
         p.setup(force_alloc_complex=True)
 
-        p.set_val('vars.v', 10*np.random.random(num_nodes))
-        p.set_val('vars.theta', 10*np.random.uniform(1, 179, num_nodes))
+        p.set_val('vars.v', 10 * np.random.random(num_nodes))
+        p.set_val('vars.theta', 10 * np.random.uniform(1, 179, num_nodes))
 
         p.run_model()
         cpd = p.check_partials(method='cs', compact_print=True)
@@ -421,7 +423,7 @@ class TestBrachistochroneForDocs(unittest.TestCase):
         #
         # Set the variables
         #
-        phase.set_time_options(initial_bounds=(0, 0), duration_bounds=(.5, 10), input_duration=False, fix_duration=False)
+        phase.set_time_options(duration_bounds=(.5, 10), fix_initial=True)
         phase.add_state('x', fix_initial=True, fix_final=False)
         phase.add_state('y', fix_initial=True, fix_final=False)
         phase.add_state('v', fix_initial=True, fix_final=False)
@@ -448,10 +450,11 @@ class TestBrachistochroneForDocs(unittest.TestCase):
         #
         p['traj.phase0.t_initial'] = 0.0
         p['traj.phase0.t_duration'] = 2.0
-        p['traj.phase0.states:x'] = phase.interpolate(ys=[0, 10], nodes='state_input')
-        p['traj.phase0.states:y'] = phase.interpolate(ys=[10, 5], nodes='state_input')
-        p['traj.phase0.states:v'] = phase.interpolate(ys=[0, 9.9], nodes='state_input')
-        p['traj.phase0.controls:theta'] = phase.interpolate(ys=[5, 100.5], nodes='control_input')
+        p.set_val('traj.phase0.states:x', phase.interp('x', ys=[0, 10]))
+        p.set_val('traj.phase0.states:y', phase.interp('y', ys=[10, 5]))
+        p.set_val('traj.phase0.states:v', phase.interp('v', ys=[0, 9.9]))
+        p.set_val('traj.phase0.controls:theta', phase.interp('theta', ys=[5, 100.5]))
+
         #
         # Solve for the optimal trajectory
         #
@@ -470,6 +473,7 @@ class TestBrachistochroneForDocs(unittest.TestCase):
                      title='Brachistochrone Solution\nRK4 Shooting Method',
                      p_sol=p, p_sim=exp_out)
         plt.show()
+
 
 if __name__ == '__main__':  # pragma: no cover
     unittest.main()

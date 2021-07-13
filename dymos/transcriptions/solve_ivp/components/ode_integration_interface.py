@@ -44,7 +44,7 @@ class ODEIntegrationInterface(object):
         self.parameter_options = parameter_options
         self.control_interpolants = {}
         self.polynomial_control_interpolants = {}
-        self.augmented_state_list = []
+        self.state_list = []
 
         pos = 0
 
@@ -166,23 +166,14 @@ class ODEIntegrationInterface(object):
         self.prob.run_model()
         num_states = len(self.state_options)
         des_vars = list(self.prob.driver._designvars)
-        # print(des_vars)
         num_des_vars = len(des_vars)
-        if not self.augmented_state_list:
+        if not self.state_list:
             for name, options in self.state_options.items():
-                self.augmented_state_list.append(f'state_rate_collector.state_rates:{name}_rate')
+                self.state_list.append(f'state_rate_collector.state_rates:{name}_rate')
 
-        num_augmented_states = len(self.augmented_state_list)
         xdot = np.zeros(num_states + num_des_vars * num_states)
         xdot[:num_states] = self._pack_state_rate_vec()
-        jac = self.prob.compute_totals(of=self.augmented_state_list, wrt=des_vars, return_format='array')
-
-        # xdot[num_states:] = np.dot(jac, x[num_states:].reshape(jac.shape)).ravel()
+        jac = self.prob.compute_totals(of=self.state_list, wrt=des_vars, return_format='array')
 
         xdot[num_states:] = (jac * x[num_states:].reshape(jac.shape)).ravel()
-        # om.n2(self.prob)
-        # for i in range(num_augmented_states):
-        #     xdot[(num_states + i * num_augmented_states):(num_states + (i + 1) * num_augmented_states)] = \
-        #         np.dot(jac, x[(num_states + i * num_augmented_states):
-        #                       (num_states + (i + 1) * num_augmented_states)])
         return xdot

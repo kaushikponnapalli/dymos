@@ -91,6 +91,13 @@ class ODEIntegrationInterfaceSystem(om.Group):
         ivc = self._get_subsystem('ivc')
         ode = self._get_subsystem('ode')
 
+        # Configure time
+        if not self.options['time_options']['fix_initial'] and not self.options['time_options']['input_initial']:
+            ivc.add_design_var('t_initial')
+
+        if not self.options['time_options']['fix_duration'] and not self.options['time_options']['input_duration']:
+            ivc.add_design_var('t_duration')
+
         # Configure states
         for name, options in self.options['state_options'].items():
             ndim = len(options['shape'])
@@ -146,6 +153,7 @@ class ODEIntegrationInterfaceSystem(om.Group):
                 if rate2_targets:
                     self.connect(f'polynomial_control_rates:{name}_rate2',
                                  [f'ode.{tgt}' for tgt in rate2_targets])
+                self.add_design_var(f'polynomial_controls:{name}')
 
         # Parameters
         if self.options['parameter_options']:
@@ -159,6 +167,8 @@ class ODEIntegrationInterfaceSystem(om.Group):
                 if targets:
                     self.connect(f'parameters:{name}',
                                  [f'ode.{tgt}' for tgt in targets])
+                if options['opt']:
+                    self.add_design_var(f'parameters:{name}')
 
     def _get_rate_source_path(self, state_var):
         var = self.options['state_options'][state_var]['rate_source']
