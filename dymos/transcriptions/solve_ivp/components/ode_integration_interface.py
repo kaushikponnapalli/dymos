@@ -171,7 +171,7 @@ class ODEIntegrationInterface(object):
 
         des_vars = list(self.prob.driver._designvars)
         num_des_vars = len(des_vars)
-        
+
         # need to sort the design variables so that states come first
         # initial conditions have been defiend that way
         j = 0
@@ -183,6 +183,8 @@ class ODEIntegrationInterface(object):
         xdot = np.zeros(num_states + num_des_vars * num_states)
         xdot[:num_states] = self._pack_state_rate_vec()
         jac = self.prob.compute_totals(of=self.state_list, wrt=des_vars, return_format='array')
+        ode_wrt_state = jac[:, :num_states]
+        ode_wrt_param = np.concatenate((np.zeros((num_states, num_states)), jac[:, num_states:]), axis=1)
 
-        xdot[num_states:] = (jac * x[num_states:].reshape(jac.shape)).ravel()
+        xdot[num_states:] = (np.dot(ode_wrt_state, x[num_states:].reshape(jac.shape)) + ode_wrt_param).ravel()
         return xdot
