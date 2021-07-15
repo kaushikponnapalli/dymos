@@ -406,7 +406,6 @@ class TestBrachistochroneForDocs(unittest.TestCase):
         import dymos as dm
         from dymos.examples.plotting import plot_results
         from dymos.examples.brachistochrone import BrachistochroneODE
-        import matplotlib.pyplot as plt
         #
         # Initialize the Problem and the optimization driver
         #
@@ -465,7 +464,7 @@ class TestBrachistochroneForDocs(unittest.TestCase):
         # Generate the explicitly simulated trajectory
         exp_out = traj.simulate(times_per_seg=50)
         totals = p.compute_totals()
-        # print(totals)
+
         plot_results([('traj.phase0.timeseries.states:x', 'traj.phase0.timeseries.states:y',
                        'x (m)', 'y (m)'),
                       ('traj.phase0.timeseries.time', 'traj.phase0.timeseries.controls:theta',

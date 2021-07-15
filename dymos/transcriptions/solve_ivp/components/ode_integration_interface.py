@@ -165,10 +165,13 @@ class ODEIntegrationInterface(object):
         self._unpack_state_vec(x)
         self.prob.run_model()
         num_states = len(self.state_options)
+
+        # Create list of state rates that will be differentiated
         if not self.state_list:
             for name, options in self.state_options.items():
                 self.state_list.append(f'state_rate_collector.state_rates:{name}_rate')
 
+        # State rates are differentiated with respect to the design variables
         des_vars = list(self.prob.driver._designvars)
         num_des_vars = len(des_vars)
 
@@ -180,9 +183,19 @@ class ODEIntegrationInterface(object):
                 des_vars[j], des_vars[i] = des_vars[i], des_vars[j]
                 j += 1
 
+        # For an ODE with N states and M additional design variables, the augmented state vector has size N+N*M
         xdot = np.zeros(num_states + num_des_vars * num_states)
+
+        # First N rates are just state rates
         xdot[:num_states] = self._pack_state_rate_vec()
+
+        # Compute derivatives of state rates wrt design variables
         jac = self.prob.compute_totals(of=self.state_list, wrt=des_vars, return_format='array')
+
+        # Split computed Jacobian into two parts
+        # One for derivatives wrt to state and one for derivatives wrt other design variables
+        # Derivatives wrt states are multiplied by the augmented state elements to get sensitivity wrt init conditions
+        # For sensitivities wrt other design variables the derivative wrt those variables is added on
         ode_wrt_state = jac[:, :num_states]
         ode_wrt_param = np.concatenate((np.zeros((num_states, num_states)), jac[:, num_states:]), axis=1)
 

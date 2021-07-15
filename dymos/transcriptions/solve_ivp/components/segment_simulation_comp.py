@@ -151,8 +151,6 @@ class SegmentSimulationComp(om.ExplicitComponent):
                             units=options['units'],
                             desc='Values of state {0} at all nodes in the segment.'.format(name))
 
-        num_controls = len(self.options['control_options']) + len(self.options['polynomial_control_options'])
-
         self.options['ode_integration_interface'].prob.setup(check=False)
 
         # Setup the control interpolants
