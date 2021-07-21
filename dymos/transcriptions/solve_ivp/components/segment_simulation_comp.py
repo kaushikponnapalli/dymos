@@ -133,16 +133,22 @@ class SegmentSimulationComp(om.ExplicitComponent):
         # Setup the initial state vector for integration
         self.state_vec_size = 0
         self.num_des_vars = 0
+        self.des_vars = []
+        states = []
 
-        if not self.options['time_options']['fix_initial'] and not self.options['time_options']['input_initial']:
+        if not self.options['time_options']['fix_initial']:
             self.num_des_vars += 1
+            self.des_vars.append('t_initial')
 
-        if not self.options['time_options']['fix_duration'] and not self.options['time_options']['input_duration']:
+        if not self.options['time_options']['fix_duration']:
             self.num_des_vars += 1
+            self.des_vars.append('t_duration')
 
         for name, options in self.options['state_options'].items():
             self.state_vec_size += np.prod(options['shape'])
             self.num_des_vars += np.prod(options['shape'])
+            self.des_vars.append(name)
+            states.append(name)
             self.add_input(name='initial_states:{0}'.format(name), val=np.ones((1,) + options['shape']),
                            units=options['units'], desc='initial values of state {0} '
                                                         'in the segment'.format(name))
@@ -164,6 +170,7 @@ class SegmentSimulationComp(om.ExplicitComponent):
                 interp = LagrangeBarycentricInterpolant(control_disc_seg_stau, options['shape'])
                 self.options['ode_integration_interface'].set_interpolant(name, interp)
                 self.num_des_vars += np.prod(options['shape'])
+                self.des_vars.append(name)
 
         if self.options['polynomial_control_options']:
             for name, options in self.options['polynomial_control_options'].items():
@@ -176,11 +183,24 @@ class SegmentSimulationComp(om.ExplicitComponent):
                 interp = LagrangeBarycentricInterpolant(poly_control_disc_ptau, options['shape'])
                 self.options['ode_integration_interface'].set_interpolant(name, interp)
                 self.num_des_vars += np.prod(options['shape'])
+                self.des_vars.append(name)
 
         if self.options['parameter_options']:
             for name, options in self.options['parameter_options'].items():
                 if options['opt']:
                     self.num_des_vars += np.prod(options['shape'])
+                    self.des_vars.append(name)
+
+        for name, options in self.options['state_options'].items():
+            for des_var in self.des_vars:
+                if des_var in states:
+                    self.add_output(f'derivatives:{name}_wrt_{des_var}_initial',
+                                    val=np.ones((nnps_i,) + options['shape']),
+                                    units=options['units'])
+                else:
+                    self.add_output(f'derivatives:{name}_wrt_{des_var}',
+                                    val=np.ones((nnps_i,) + options['shape']),
+                                    units=options['units'])
 
         self.declare_partials(of='*', wrt='*', method='fd')
 
@@ -278,7 +298,19 @@ class SegmentSimulationComp(om.ExplicitComponent):
 
         # Extract the solution
         pos = 0
+        states = []
         for name, options in self.options['state_options'].items():
             size = np.prod(options['shape'])
-            outputs['states:{0}'.format(name)] = sol.y[pos:pos+size, :].T
+            outputs[f'states:{name}'] = sol.y[pos:pos+size, :].T
             pos += size
+            states.append(name)
+
+        for name, options in self.options['state_options'].items():
+            size = np.prod(options['shape'])
+            for des_var in self.des_vars:
+                if des_var in states:
+                    outputs[f'derivatives:{name}_wrt_{des_var}_initial'] = sol.y[pos:pos+size, :].T
+                else:
+                    outputs[f'derivatives:{name}_wrt_{des_var}'] = sol.y[pos:pos+size, :].T
+
+                pos += size

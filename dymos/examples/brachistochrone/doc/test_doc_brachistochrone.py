@@ -418,7 +418,7 @@ class TestBrachistochroneForDocs(unittest.TestCase):
         traj = p.model.add_subsystem('traj', dm.Trajectory())
         phase = traj.add_phase('phase0',
                                dm.Phase(ode_class=BrachistochroneODE,
-                                        transcription=dm.Radau(num_segments=1, order=7, compressed=False)))
+                                        transcription=dm.SolveIVP(num_segments=1, order=7, compressed=False)))
         #
         # Set the variables
         #
