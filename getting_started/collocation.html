@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -306,7 +306,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Frequentsly Asked Questions
+  Frequently Asked Questions
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -581,13 +581,13 @@ This makes scaling the problem easier, and gives the implicit variables more int
 <h2>Example:  Simulating the fall of an object<a class="headerlink" href="#example-simulating-the-fall-of-an-object" title="Permalink to this headline">¶</a></h2>
 <p>As a “hello, world” problem for Dymos, consider the vertical fall of an object acting under gravity - like Galileo dropping cannonballs from the Tower of Pisa.
 Ignoring aerodynamics and treating the ball as a point mass in a rectilinear gravity field, the motion is governed by:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-278b32c7-ced0-4283-b95f-f7909637ca14">
-<span class="eqno">(1)<a class="headerlink" href="#equation-278b32c7-ced0-4283-b95f-f7909637ca14" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-e01a2737-64b7-4f61-9305-800d6e128d41">
+<span class="eqno">(1)<a class="headerlink" href="#equation-e01a2737-64b7-4f61-9305-800d6e128d41" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \ddot{y} = -g
 \end{align}\]</div>
 <p>The techniques in Dymos are generally centered around first-order dynamics, so we convert the above equation into the following system of ODEs.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-6aa46250-b856-4d85-9f7e-ac33ce62c4c9">
-<span class="eqno">(2)<a class="headerlink" href="#equation-6aa46250-b856-4d85-9f7e-ac33ce62c4c9" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ec0e8aa0-86d7-43f0-a7a1-63d5525a07ef">
+<span class="eqno">(2)<a class="headerlink" href="#equation-ec0e8aa0-86d7-43f0-a7a1-63d5525a07ef" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \dot{y} &amp;= v_y \\
     \dot{v_y} &amp;= -g
 \end{align}\]</div>
@@ -608,7 +608,7 @@ We know the initial velocity but not the terminal velocity.</p>
 <div class="section" id="finding-the-trajectory-using-high-order-legendre-gauss-lobatto-collocation">
 <h2>Finding the trajectory using high-order Legendre-Gauss-Lobatto collocation<a class="headerlink" href="#finding-the-trajectory-using-high-order-legendre-gauss-lobatto-collocation" title="Permalink to this headline">¶</a></h2>
 <p>Using a 3rd-order polynomial segment to mimic the trajectory, we have two states and thus two polynomials.
-Legendre-Gauss-Lobatto (LGL) collocation uses knowledge of the states and state-rates to form an interpolating polynomials.
+Legendre-Gauss-Lobatto (LGL) collocation uses knowledge of the states and state-rates to form an interpolating polynomial.
 A third-order polynomial requires four pieces of information to define it.
 We’ll take two points along the trajectory, and use those to guess the state values.
 In Dymos, these points where state values are provided are called the <em>state discretization nodes</em>.
@@ -663,8 +663,8 @@ In LGL collocation, these points are chosen to be the LGL <em>nodes</em> in the 
 <p>To form 3rd-order polynomials for the states we need four pieces of information, but so far we only have the two endpoint values.
 We’ll use the state rates at the state discretization nodes to provide the other two values needed for interpolation.
 To obtain these, we evaluate our ODE at the state discretization nodes.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5cb88055-4724-4250-ab60-ca8dc0796044">
-<span class="eqno">(3)<a class="headerlink" href="#equation-5cb88055-4724-4250-ab60-ca8dc0796044" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a8708f96-461d-48e2-bc37-ea7865434943">
+<span class="eqno">(3)<a class="headerlink" href="#equation-a8708f96-461d-48e2-bc37-ea7865434943" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \dot{y}_0 &amp;= 0 \\
     \dot{y}_f &amp;= -50 \\
     \dot{v}_{y0} &amp;= -9.80665 \\
@@ -678,21 +678,21 @@ We call this difference in slope the collocation <em>defect</em>.</p>
 <p>Having computed the ODE at the state discretization nodes, we can form interpolants for the values and the slope of the states at the collocation nodes.
 Dymos uses Lagrange interpolants, such that the inputs to the system are the values of the states and controls, rather than less intuitive coefficients.
 In this case, the state values at our single collocation node are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-eb610da9-d6aa-4e0d-ae9c-35ab9e1bce0b">
-<span class="eqno">(4)<a class="headerlink" href="#equation-eb610da9-d6aa-4e0d-ae9c-35ab9e1bce0b" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5f4e0c29-9319-452f-9279-61aeff46f049">
+<span class="eqno">(4)<a class="headerlink" href="#equation-5f4e0c29-9319-452f-9279-61aeff46f049" title="Permalink to this equation">¶</a></span>\[\begin{align}
     y_m &amp;= 50 \\
     v_{ym} &amp;= -25
 \end{align}\]</div>
 <p><img alt="Screenshot" src="../_images/lgl_animation_2.png" /></p>
 <p>The polynomial slopes at the collocation node are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cf6543b7-1e12-4693-875f-14f153bb8a4c">
-<span class="eqno">(5)<a class="headerlink" href="#equation-cf6543b7-1e12-4693-875f-14f153bb8a4c" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-23d9efac-3c07-4843-ae93-104e6cb548b5">
+<span class="eqno">(5)<a class="headerlink" href="#equation-23d9efac-3c07-4843-ae93-104e6cb548b5" title="Permalink to this equation">¶</a></span>\[\begin{align}
     y'_m &amp;= 50 \\
     v'_{ym} &amp;= -25
 \end{align}\]</div>
 <p>Now, having the state and time values at the collocation nodes, we can again evaluate the ODE.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-591c9dc9-0e79-4893-91b5-46ff83b6b8eb">
-<span class="eqno">(6)<a class="headerlink" href="#equation-591c9dc9-0e79-4893-91b5-46ff83b6b8eb" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1e770906-7b21-4b66-ae8e-8487424d1ad4">
+<span class="eqno">(6)<a class="headerlink" href="#equation-1e770906-7b21-4b66-ae8e-8487424d1ad4" title="Permalink to this equation">¶</a></span>\[\begin{align}
     \dot{y}_m &amp;= -17 \\
     \dot{v}_{ym} &amp;= -9.80665
 \end{align}\]</div>
@@ -724,7 +724,7 @@ Since these are a subset of the state discretization nodes, no interpolation of 
 <h2>Multiple Segments<a class="headerlink" href="#multiple-segments" title="Permalink to this headline">¶</a></h2>
 <p>The simple examples above use one single 3rd-order polynomial to represent the time history of the states.
 With more complex states, a single 3rd-order polynomial would not be capable of replicating the time history.
-In practice, we can more polynomial segments <em>and</em> higher-order polynomials to better match the dynamics.</p>
+In practice, we can use more polynomial segments <em>and</em> higher-order polynomials to better match the dynamics.</p>
 <p>In the case of adding more segments, one can choose whether the segment boundaries are shared by the segments, or independent.
 If they are shared, fewer design variables are necessary, but it may be more difficult for the optimizer to search for a solution.
 This is called “compressed” transcription.

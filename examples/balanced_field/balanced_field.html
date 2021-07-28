@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.acff12b8f9c144ce68a297486a2fa670.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
@@ -306,7 +306,7 @@
 </ul>
 <p class="caption">
  <span class="caption-text">
-  Frequentsly Asked Questions
+  Frequently Asked Questions
  </span>
 </p>
 <ul class="nav bd-sidenav">
@@ -669,7 +669,7 @@ of these two phases must be the same.  We don’t know what this value is
 until we’ve solved the problem, so we cannot simply constrain both to
 the same fixed value.</p>
 <p>Instead, we’ll use a trajectory linkage constraint to ensure that <code class="docutils literal notranslate"><span class="pre">range</span></code>
-at the end of the RTO phase is equal to <code class="docutils literal notranslate"><span class="pre">range</span></code> and the end of the climb phase.</p>
+at the end of the RTO phase is equal to <code class="docutils literal notranslate"><span class="pre">range</span></code> at the end of the climb phase.</p>
 <p>More information on calculating the balanced field length is available
 in section 17.8 of <em>Aircraft Design: A Conceptual Approach</em> by
 Daniel Raymer <span id="id1">[<a class="reference internal" href="#id48">Ray12</a>]</span>.</p>
@@ -683,13 +683,13 @@ Also, since the duration of the trajectory is small, we’re going to assume tha
 <h3>The Aerodynamic Model<a class="headerlink" href="#the-aerodynamic-model" title="Permalink to this headline">¶</a></h3>
 <p>Both sets of equations of motion have common aerodynamic models.</p>
 <p>First, the lift coefficient is computed using a model which assumes linearity in lift wrt the angle of attack.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4bb3a842-121f-4cb7-b6ea-9e255ea17bb6">
-<span class="eqno">(21)<a class="headerlink" href="#equation-4bb3a842-121f-4cb7-b6ea-9e255ea17bb6" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-715ee52a-72a3-4089-91e3-b7ff402b03c0">
+<span class="eqno">(21)<a class="headerlink" href="#equation-715ee52a-72a3-4089-91e3-b7ff402b03c0" title="Permalink to this equation">¶</a></span>\[\begin{align}
     C_L &amp;= C_{L0} + \frac{\alpha}{\alpha_{max}} \left(C_{L-max} - C_{L0}\right)
 \end{align}\]</div>
 <p>Next, the drag-due-to-lift factor is computed (Equations 12.48 and 12.61 in Raymer[&#64;raymer2012aircraft]).</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8daa0093-50f8-46be-892b-aa488451d1ad">
-<span class="eqno">(22)<a class="headerlink" href="#equation-8daa0093-50f8-46be-892b-aa488451d1ad" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-bc77df6b-43f7-4072-8f35-6001d58e06b5">
+<span class="eqno">(22)<a class="headerlink" href="#equation-bc77df6b-43f7-4072-8f35-6001d58e06b5" title="Permalink to this equation">¶</a></span>\[\begin{align}
     K_{nom} &amp;= \frac{1}{ \pi  AR  e} \\
     b &amp;= \frac{span}{2} \\
     K &amp;= 33 K_{nom} \frac{ \left(\frac{h + h_w}{b} \right) ^{\frac{3}{2}}}{1.0 + 33 \left( \frac{h + h_w}{b}\right) ^{\frac{3}{2}}}
@@ -698,8 +698,8 @@ Also, since the duration of the trajectory is small, we’re going to assume tha
 This causes this problem to be difficult to solve using a shooting method.
 If the optimizer proposes a combination of initial states and a control history that results in altitude dropping significantly below zero, the propagation will fail.</p>
 <p>Finally, the lift and drag are computed after computing the dynamic pressure.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c094a1ba-f966-49fe-8c4f-43aafcfbb1df">
-<span class="eqno">(23)<a class="headerlink" href="#equation-c094a1ba-f966-49fe-8c4f-43aafcfbb1df" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-09ddaa0e-a1ee-41d3-884f-0bd1115598c4">
+<span class="eqno">(23)<a class="headerlink" href="#equation-09ddaa0e-a1ee-41d3-884f-0bd1115598c4" title="Permalink to this equation">¶</a></span>\[\begin{align}
     q &amp;= 0.5 \rho v^2 \\
     L &amp;= q  S  C_L \\
     D &amp;= q S \left( C_{D0} + K C_{L}^2 \right)
@@ -710,8 +710,8 @@ If the optimizer proposes a combination of initial states and a control history 
 <p>This model relies on the ratio of the current true airspeed to stall speed (<span class="math notranslate nohighlight">\(\frac{v}{v_{stall}}\)</span>).
 This constraint is used to trigger the beginning of rotation and is used as a boundary constraint at the end of the initial climb.
 Stall speed is given by Equation 5.6 in Raymer[&#64;raymer2012aircraft].</p>
-<div class="amsmath math notranslate nohighlight" id="equation-338aafdb-e7b1-4ec0-8d20-417523b9d0bc">
-<span class="eqno">(24)<a class="headerlink" href="#equation-338aafdb-e7b1-4ec0-8d20-417523b9d0bc" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ff923d61-d718-457e-b680-4866bf6539fa">
+<span class="eqno">(24)<a class="headerlink" href="#equation-ff923d61-d718-457e-b680-4866bf6539fa" title="Permalink to this equation">¶</a></span>\[\begin{align}
     W &amp;= m g \\
     v_{stall} &amp;= \sqrt{\frac{2 * W}{\rho S C_{L-max}}}
 \end{align}\]</div>
@@ -719,8 +719,8 @@ Stall speed is given by Equation 5.6 in Raymer[&#64;raymer2012aircraft].</p>
 <div class="section" id="runway-equations-of-motion">
 <h3>Runway Equations of Motion<a class="headerlink" href="#runway-equations-of-motion" title="Permalink to this headline">¶</a></h3>
 <p>The runway equations of motion are used to integrate range and speed as the vehicle rolls along the runway.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f72de79e-17f6-466b-801d-220a445c9525">
-<span class="eqno">(25)<a class="headerlink" href="#equation-f72de79e-17f6-466b-801d-220a445c9525" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5fc7ba61-88d9-42f4-87b7-20575fdca9af">
+<span class="eqno">(25)<a class="headerlink" href="#equation-5fc7ba61-88d9-42f4-87b7-20575fdca9af" title="Permalink to this equation">¶</a></span>\[\begin{align}
   F_r &amp;= mg - L \cos \alpha - T \sin \alpha \\
   \dot{v} &amp;= \frac{T \cos \alpha - D - F_r \mu_r}{m} \\
   \dot{r} &amp;= v
@@ -747,8 +747,8 @@ Stall speed is given by Equation 5.6 in Raymer[&#64;raymer2012aircraft].</p>
 <div class="section" id="flight-equations-of-motion">
 <h3>Flight Equations of Motion<a class="headerlink" href="#flight-equations-of-motion" title="Permalink to this headline">¶</a></h3>
 <p>The flight equations of motion include two additional state variables: the flight-path angle (<span class="math notranslate nohighlight">\(\gamma\)</span>) and altitude (<span class="math notranslate nohighlight">\(h\)</span>).</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fc194654-44ce-4e39-bba3-a4934160c648">
-<span class="eqno">(26)<a class="headerlink" href="#equation-fc194654-44ce-4e39-bba3-a4934160c648" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1322df83-867e-48f2-91f8-39c14cf5a9ab">
+<span class="eqno">(26)<a class="headerlink" href="#equation-1322df83-867e-48f2-91f8-39c14cf5a9ab" title="Permalink to this equation">¶</a></span>\[\begin{align}
   \dot{v} &amp;= \frac{T}{m} \cos \alpha - \frac{D}{m} - g \sin \gamma \\
   \dot{\gamma} &amp;= \frac{T}{m v} \sin \alpha + \frac{L}{m v} - \frac{g \cos \gamma}{v} \\
   \dot{h} &amp;= v \sin \gamma \\
@@ -1350,7 +1350,7 @@ linkage condition, where the range must be equal at the end of the <code class="
 <span class="n">traj</span><span class="o">.</span><span class="n">link_phases</span><span class="p">([</span><span class="s1">&#39;rotate&#39;</span><span class="p">,</span> <span class="s1">&#39;climb&#39;</span><span class="p">],</span> <span class="nb">vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="s1">&#39;alpha&#39;</span><span class="p">])</span>
 <span class="n">traj</span><span class="o">.</span><span class="n">link_phases</span><span class="p">([</span><span class="s1">&#39;br_to_v1&#39;</span><span class="p">,</span> <span class="s1">&#39;rto&#39;</span><span class="p">],</span> <span class="nb">vars</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="s1">&#39;v&#39;</span><span class="p">])</span>
 
-<span class="c1"># Less common &quot;final value of r must be the match at ends of two phases&quot;.</span>
+<span class="c1"># Less common &quot;final value of r must match at ends of two phases&quot;.</span>
 <span class="n">traj</span><span class="o">.</span><span class="n">add_linkage_constraint</span><span class="p">(</span><span class="n">phase_a</span><span class="o">=</span><span class="s1">&#39;rto&#39;</span><span class="p">,</span> <span class="n">var_a</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">loc_a</span><span class="o">=</span><span class="s1">&#39;final&#39;</span><span class="p">,</span>
                             <span class="n">phase_b</span><span class="o">=</span><span class="s1">&#39;climb&#39;</span><span class="p">,</span> <span class="n">var_b</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">loc_b</span><span class="o">=</span><span class="s1">&#39;final&#39;</span><span class="p">,</span>
                             <span class="n">ref</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
@@ -1509,7 +1509,8 @@ INFO: checking out_of_order
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking out_of_order
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model viewer data has already has already been recorded for Driver.
+INFO: checking out_of_order
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking system
@@ -1547,8 +1548,8 @@ FWD solves: 16   REV solves: 0
 Total colors vs. total size: 16 vs 60  (73.3% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.023352 sec.
-Time to compute coloring: 0.015617 sec.
+Time to compute sparsity: 0.021338 sec.
+Time to compute coloring: 0.013978 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Approx coloring for &#39;traj.phases.rto.rhs_all&#39; (class BalancedFieldODEComp)
@@ -1558,8 +1559,8 @@ FWD solves: 16   REV solves: 0
 Total colors vs. total size: 16 vs 60  (73.3% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.025528 sec.
-Time to compute coloring: 0.016355 sec.
+Time to compute sparsity: 0.024138 sec.
+Time to compute coloring: 0.013867 sec.
 
 Approx coloring for &#39;traj.phases.v1_to_vr.rhs_all&#39; (class BalancedFieldODEComp)
 
@@ -1568,8 +1569,8 @@ FWD solves: 16   REV solves: 0
 Total colors vs. total size: 16 vs 60  (73.3% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.023128 sec.
-Time to compute coloring: 0.015704 sec.
+Time to compute sparsity: 0.020436 sec.
+Time to compute coloring: 0.014129 sec.
 
 Approx coloring for &#39;traj.phases.rotate.rhs_all&#39; (class BalancedFieldODEComp)
 
@@ -1578,8 +1579,8 @@ FWD solves: 16   REV solves: 0
 Total colors vs. total size: 16 vs 60  (73.3% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.023025 sec.
-Time to compute coloring: 0.015611 sec.
+Time to compute sparsity: 0.020644 sec.
+Time to compute coloring: 0.013991 sec.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Approx coloring for &#39;traj.phases.climb.rhs_all&#39; (class BalancedFieldODEComp)
@@ -1589,11 +1590,11 @@ FWD solves: 16   REV solves: 0
 Total colors vs. total size: 16 vs 111  (85.6% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.048487 sec.
-Time to compute coloring: 0.031322 sec.
+Time to compute sparsity: 0.042668 sec.
+Time to compute coloring: 0.027782 sec.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 1.470102 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 1.398504 seconds.
 Total jacobian shape: (179, 166) 
 
 
@@ -1602,11 +1603,11 @@ FWD solves: 12   REV solves: 0
 Total colors vs. total size: 12 vs 166  (92.8% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 1.470102 sec.
-Time to compute coloring: 0.104276 sec.
+Time to compute sparsity: 1.398504 sec.
+Time to compute coloring: 0.093080 sec.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/total_jac.py:1756: DerivativesWarning:Constraints or objectives [(&#39;traj.phases.climb.path_constraints.path:gam&#39;, inds=[(0, 0)])] cannot be impacted by the design variables of the problem.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/total_jac.py:1534: DerivativesWarning:Constraints or objectives [(&#39;traj.phases.climb.path_constraints.path:gam&#39;, inds=[(0, 0)])] cannot be impacted by the design variables of the problem.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Using option file &quot;IPOPT_options.opt&quot;.
@@ -1756,20 +1757,26 @@ Number of inequality constraint evaluations          = 34
 Number of equality constraint Jacobian evaluations   = 32
 Number of inequality constraint Jacobian evaluations = 32
 Number of Lagrangian Hessian evaluations             = 0
-Total CPU secs in IPOPT (w/o function evaluations)   =      1.567
-Total CPU secs in NLP function evaluations           =      4.458
+Total CPU secs in IPOPT (w/o function evaluations)   =      1.652
+Total CPU secs in NLP function evaluations           =      4.421
 
 EXIT: Optimal Solution Found.
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/system.py:132: OMDeprecationWarning:The metadata key &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39;
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulating trajectory traj
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:440: OMDeprecationWarning:Problem &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39; in the future.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
 [2188.23307777]
 </pre></div>
 </div>
-<img alt="../../_images/balanced_field_4_57.png" src="../../_images/balanced_field_4_57.png" />
+<img alt="../../_images/balanced_field_4_59.png" src="../../_images/balanced_field_4_59.png" />
 </div>
 </div>
 <div class="cell tag_remove-input tag_remove-output docutils container">
