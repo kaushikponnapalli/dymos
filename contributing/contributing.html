@@ -23,7 +23,7 @@
 
     
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../_static/sphinx-book-theme.e8e5499552300ddf5d7adccae7cc3b70.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
@@ -43,7 +43,7 @@
     <script src="../_static/copybutton.js"></script>
     <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
     <script src="../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
     <script >
         const thebe_selector = ".thebe"
         const thebe_selector_input = "pre"
@@ -71,6 +71,10 @@
         <div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../index.html">
       
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
       <img src="../_static/dymos_logo.png" class="logo" alt="logo">
       
       
@@ -80,7 +84,7 @@
 </div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
   <i class="icon fas fa-search"></i>
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
         <ul class="nav bd-sidenav">
  <li class="toctree-l1">
@@ -507,7 +511,7 @@
             <div class="tocsection onthispage pt-5 pb-3">
                 <i class="fas fa-list"></i> Contents
             </div>
-            <nav id="bd-toc-nav">
+            <nav id="bd-toc-nav" aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#found-a-bug-in-dymos">
@@ -789,21 +793,21 @@ Component: BrachistochroneODE &#39;ode&#39;
 &#39;&lt;output&gt;&#39; wrt &#39;&lt;variable&gt;&#39; | calc mag.  | check mag. | a(cal-chk) | r(cal-chk)
 -------------------------------------------------------------------------------
 
-&#39;check&#39;    wrt &#39;theta&#39;      | 1.0218e+02 | 1.0218e+02 | 2.5696e-14 | 2.5149e-16
-&#39;check&#39;    wrt &#39;v&#39;          | 5.9192e+00 | 5.9192e+00 | 6.6613e-16 | 1.1254e-16
-&#39;vdot&#39;     wrt &#39;theta&#39;      | 1.1195e+01 | 1.1195e+01 | 6.2804e-16 | 5.6099e-17
+&#39;check&#39;    wrt &#39;theta&#39;      | 3.0313e+01 | 3.0313e+01 | 2.6645e-15 | 8.7900e-17
+&#39;check&#39;    wrt &#39;v&#39;          | 3.9143e+00 | 3.9143e+00 | 0.0000e+00 | 0.0000e+00
+&#39;vdot&#39;     wrt &#39;theta&#39;      | 1.4588e+01 | 1.4588e+01 | 1.5384e-15 | 1.0545e-16
 &#39;vdot&#39;     wrt &#39;v&#39;          | 0.0000e+00 | 0.0000e+00 | 0.0000e+00 | nan
-&#39;xdot&#39;     wrt &#39;theta&#39;      | 1.2730e+01 | 1.2730e+01 | 1.7764e-15 | 1.3954e-16
-&#39;xdot&#39;     wrt &#39;v&#39;          | 1.1416e+00 | 1.1416e+00 | 5.5511e-17 | 4.8626e-17
-&#39;ydot&#39;     wrt &#39;theta&#39;      | 9.3254e+00 | 9.3254e+00 | 9.6787e-16 | 1.0379e-16
-&#39;ydot&#39;     wrt &#39;v&#39;          | 1.9227e+00 | 1.9227e+00 | 1.9230e-16 | 1.0001e-16
+&#39;xdot&#39;     wrt &#39;theta&#39;      | 1.1584e+01 | 1.1584e+01 | 1.2561e-15 | 1.0843e-16
+&#39;xdot&#39;     wrt &#39;v&#39;          | 1.4876e+00 | 1.4876e+00 | 1.1102e-16 | 7.4632e-17
+&#39;ydot&#39;     wrt &#39;theta&#39;      | 1.1805e+01 | 1.1805e+01 | 1.2561e-15 | 1.0640e-16
+&#39;ydot&#39;     wrt &#39;v&#39;          | 1.6695e+00 | 1.6695e+00 | 1.5701e-16 | 9.4048e-17
 
 ##################################################################
 Sub Jacobian with Largest Relative Error: BrachistochroneODE &#39;ode&#39;
 ##################################################################
 &#39;&lt;output&gt;&#39; wrt &#39;&lt;variable&gt;&#39; | calc mag.  | check mag. | a(cal-chk) | r(cal-chk)
 -------------------------------------------------------------------------------
-&#39;check&#39;    wrt &#39;theta&#39;      | 1.0218e+02 | 1.0218e+02 | 2.5696e-14 | 2.5149e-16
+&#39;xdot&#39;     wrt &#39;theta&#39;      | 1.1584e+01 | 1.1584e+01 | 1.2561e-15 | 1.0843e-16
 </pre></div>
 </div>
 </div>
@@ -1077,15 +1081,27 @@ The lack of MPI capability or pyoptsparse will cause additional tests to be skip
               </div>
               
         
-        <div class='prev-next-bottom'>
             
-    <a class='left-prev' id="prev-link" href="../api/trajectory_api.html" title="previous page">The Trajectory API</a>
 
-        </div>
+
+
+<div class='prev-next-bottom'>
+    
+    <div id="prev">
+        <a class="left-prev" href="../api/trajectory_api.html" title="previous page">
+            <i class="prevnext-label fas fa-angle-left"></i>
+            <div class="prevnext-info">
+                <p class="prevnext-label">previous</p>
+                <p class="prevnext-title">The Trajectory API</p>
+            </div>
+        </a>
+    </div>
+
+</div>
         
         </div>
     </div>
-    <footer class="footer mt-5 mt-md-0">
+    <footer class="footer">
     <div class="container">
       <p>
         
