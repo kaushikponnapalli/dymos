@@ -4,11 +4,13 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
     <title>SSTO Earth Launch &#8212; Dymos</title>
     
-  <link href="../../_static/css/theme.css" rel="stylesheet" />
-  <link href="../../_static/css/index.c5995385ac14fb8791e8eb36b4908be2.css" rel="stylesheet" />
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
 
     
   <link rel="stylesheet"
@@ -18,49 +20,65 @@
   <link rel="preload" as="font" type="font/woff2" crossorigin
     href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
 
-    
-      
-
-    
-    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="../../_static/sphinx-book-theme.e2363ea40746bee74734a24ffefccd78.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/myfile.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
     
-  <link rel="preload" as="script" href="../../_static/js/index.1c5a1a01449ed65a7b51.js">
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
 
-    <script id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/doctools.js"></script>
-    <script src="../../_static/togglebutton.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
-    <script src="../../_static/sphinx-book-theme.12a9622fbb08dcb3a2a40b2c02b83a57.js"></script>
-    <script async="async" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <script type="text/x-mathjax-config">MathJax.Hub.Config({"tex2jax": {"inlineMath": [["\\(", "\\)"]], "displayMath": [["\\[", "\\]"]], "processRefs": false, "processEnvironments": false}})</script>
-    <script async="async" src="https://unpkg.com/thebe@0.5.1/lib/index.js"></script>
-    <script >
-        const thebe_selector = ".thebe"
-        const thebe_selector_input = "pre"
-        const thebe_selector_output = ".output"
-    </script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="SSTO Lunar Ascent with Linear Tangent Guidance" href="../ssto_moon_linear_tangent/ssto_moon_linear_tangent.html" />
     <link rel="prev" title="Single-Phase Space Shuttle Reentry" href="../reentry/reentry.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="en" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
     
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
     
     <div class="container-fluid" id="banner"></div>
 
@@ -69,9 +87,10 @@
     <div class="container-xl">
       <div class="row">
           
-<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
-    
-        <div class="navbar-brand-box">
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
     <a class="navbar-brand text-wrap" href="../../index.html">
       
         <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
@@ -89,14 +108,15 @@
   <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
 </form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
     <div class="bd-toc-item active">
-        <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../index.html">
-   Multidisciplinary Optimal Control Library
-  </a>
- </li>
-</ul>
-<p class="caption">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../../index.html">
+                    Multidisciplinary Optimal Control Library
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Installation
  </span>
@@ -108,15 +128,20 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Getting Started
  </span>
 </p>
 <ul class="nav bd-sidenav">
  <li class="toctree-l1">
-  <a class="reference internal" href="../../getting_started/collocation.html">
-   What is collocation?
+  <a class="reference internal" href="../../getting_started/optimal_control.html">
+   Optimal Control
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="../../getting_started/transcriptions.html">
+   Optimal Control Transcriptions
   </a>
  </li>
  <li class="toctree-l1">
@@ -125,8 +150,8 @@
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="../../getting_started/optimal_control.html">
-   Optimal Control
+  <a class="reference internal" href="../../getting_started/collocation.html">
+   What is collocation?
   </a>
  </li>
  <li class="toctree-l1">
@@ -140,7 +165,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Examples and Tutorials
  </span>
@@ -162,6 +187,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../brachistochrone/brachistochrone_upstream_init_duration_states.html">
+     The Brachistochrone with externally-sourced initial state values
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../vanderpol/vanderpol.html">
      The Van der Pol Oscillator
     </a>
@@ -169,6 +199,16 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../balanced_field/balanced_field.html">
      Aircraft Balanced Field Length Calculation
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../balanced_field/balanced_field_funccomp.html">
+     Balanced Field Length using OpenMDAO’s Function Wrapping Components.
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../bryson_denham/bryson_denham.html">
+     The Bryson-Denham Problem
     </a>
    </li>
    <li class="toctree-l2">
@@ -199,6 +239,11 @@
    <li class="toctree-l2">
     <a class="reference internal" href="../min_time_climb/min_time_climb.html">
      Supersonic Interceptor Minimum Time Climb
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../mountain_car/mountain_car.html">
+     The Mountain Car Problem
     </a>
    </li>
    <li class="toctree-l2">
@@ -237,6 +282,11 @@
     </a>
    </li>
    <li class="toctree-l2">
+    <a class="reference internal" href="../robertson_problem/robertson_problem.html">
+     The Robertson Problem
+    </a>
+   </li>
+   <li class="toctree-l2">
     <a class="reference internal" href="../water_rocket/water_rocket.html">
      Water Rocket
     </a>
@@ -244,7 +294,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Feature Reference
  </span>
@@ -308,7 +358,7 @@
   </a>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Frequently Asked Questions
  </span>
@@ -336,12 +386,12 @@
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../faq/upstream_analysis.html">
-     How do connect the outputs of an upstream analysis as inputs to Dymos?
+     How do I connect the outputs of an upstream analysis as inputs to Dymos?
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../faq/downstream_analysis.html">
-     How do connect the outputs of Dymos to a downstream analysis?
+     How do I connect the outputs of Dymos to a downstream analysis?
     </a>
    </li>
    <li class="toctree-l2">
@@ -362,7 +412,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Dymos API Reference
  </span>
@@ -379,13 +429,18 @@
   </label>
   <ul>
    <li class="toctree-l2">
-    <a class="reference internal" href="../../api/run_problem.html">
-     The Dymos run_problem function
+    <a class="reference internal" href="../../api/run_problem_function.html">
+     The run_problem function
     </a>
    </li>
    <li class="toctree-l2">
     <a class="reference internal" href="../../api/phase_api.html">
      The Phase API
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../../api/transcriptions_api.html">
+     The Transcriptions API
     </a>
    </li>
    <li class="toctree-l2">
@@ -396,7 +451,7 @@
   </ul>
  </li>
 </ul>
-<p class="caption">
+<p aria-level="2" class="caption" role="heading">
  <span class="caption-text">
   Contributing
  </span>
@@ -410,112 +465,227 @@
 </ul>
 
     </div>
-</nav> <!-- To handle the deprecated key -->
-
-<div class="navbar_extra_footer">
-  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-</div>
-
-</div>
-
-
-          
-
-
-          
-<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
-    
-    <div class="topbar container-xl fixed-top">
-    <div class="topbar-contents row">
-        <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show"></div>
-        <div class="col pl-md-4 topbar-main">
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
             
-            <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
-                data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
-                aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
-                title="Toggle navigation" data-toggle="tooltip" data-placement="left">
-                <i class="fas fa-bars"></i>
-                <i class="fas fa-arrow-left"></i>
-                <i class="fas fa-arrow-up"></i>
-            </button>
-            
-            
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
-            class="fas fa-download"></i></button>
-
-    <div class="dropdown-buttons">
-        <!-- ipynb file if we had a myst markdown file -->
-        
-        <!-- Download raw file -->
-        <a class="dropdown-buttons" href="../../_sources/examples/ssto_earth/ssto_earth.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
-                data-placement="left">.ipynb</button></a>
-        <!-- Download PDF via print -->
-        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
-            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
-    </div>
-</div>
-
-            <!-- Source interaction buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
-    <div class="dropdown-buttons sourcebuttons">
-        <a class="repository-button"
-            href="https://github.com/OpenMDAO/dymos"><button type="button" class="btn btn-secondary topbarbtn"
-                data-toggle="tooltip" data-placement="left" title="Source repository"><i
-                    class="fab fa-github"></i>repository</button></a>
-        <a class="issues-button"
-            href="https://github.com/OpenMDAO/dymos/issues/new?title=Issue%20on%20page%20%2Fexamples/ssto_earth/ssto_earth.html&body=Your%20issue%20content%20here."><button
-                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
-                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
-        
-    </div>
-</div>
-
-            <!-- Full screen (wrap in <a> to have style consistency -->
-
-<a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
-        data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
-        title="Fullscreen mode"><i
-            class="fas fa-expand"></i></button></a>
-
-            <!-- Launch buttons -->
-
-<div class="dropdown-buttons-trigger">
-    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
-        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
-    <div class="dropdown-buttons">
-        
-        <a class="binder-button" href="https://mybinder.org/v2/gh/OpenMDAO/dymos/master?urlpath=tree/docs/examples/ssto_earth/ssto_earth.ipynb"><button type="button"
-                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
-                data-placement="left"><img class="binder-button-logo"
-                    src="../../_static/images/logo_binder.svg"
-                    alt="Interact on binder">Binder</button></a>
-        
-        
-        
-        <a class="colab-button" href="https://colab.research.google.com/github/OpenMDAO/dymos/blob/master/docs/examples/ssto_earth/ssto_earth.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
-                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
-                    src="../../_static/images/logo_colab.png"
-                    alt="Interact on Colab">Colab</button></a>
-        
-        
-    </div>
-</div>
-
-        </div>
-
-        <!-- Table of contents -->
-        <div class="d-none d-md-block col-md-2 bd-toc show">
-            
-            <div class="tocsection onthispage pt-5 pb-3">
-                <i class="fas fa-list"></i> Contents
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
             </div>
-            <nav id="bd-toc-nav" aria-label="Page">
-                <ul class="visible nav section-nav flex-column">
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/OpenMDAO/dymos/master?urlpath=tree/docs/examples/ssto_earth/ssto_earth.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://colab.research.google.com/github/OpenMDAO/dymos/blob/master/docs/examples/ssto_earth/ssto_earth.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Colab"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../../_static/images/logo_colab.png">
+  </span>
+<span class="headerbtn__text-container">Colab</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/OpenMDAO/dymos"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/OpenMDAO/dymos/issues/new?title=Issue%20on%20page%20%2Fexamples/ssto_earth/ssto_earth.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../../_sources/examples/ssto_earth/ssto_earth.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+<label for="__page-toc"
+  class="headerbtn headerbtn-page-toc"
+  
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-list"></i>
+  </span>
+
+</label>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+    <div class="tocsection onthispage pt-5 pb-3">
+        <i class="fas fa-list"></i> Contents
+    </div>
+    <nav id="bd-toc-nav" aria-label="Page">
+        <ul class="visible nav section-nav flex-column">
  <li class="toc-h2 nav-item toc-entry">
   <a class="reference internal nav-link" href="#defining-the-ode">
    Defining the ODE
@@ -533,27 +703,60 @@
  </li>
 </ul>
 
-            </nav>
-        </div>
-    </div>
+    </nav>
 </div>
-    <div id="main-content" class="row">
-        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
-        
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>SSTO Earth Launch</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                        <div>
+                            <h2> Contents </h2>
+                        </div>
+                        <nav aria-label="Page">
+                            <ul class="visible nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#defining-the-ode">
+   Defining the ODE
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#solving-the-problem">
+   Solving the problem
+  </a>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#references">
+   References
+  </a>
+ </li>
+</ul>
+
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
               <div>
                 
   <div class="cell tag_active-ipynb tag_remove-input tag_remove-output docutils container">
 </div>
-<div class="section" id="ssto-earth-launch">
-<h1>SSTO Earth Launch<a class="headerlink" href="#ssto-earth-launch" title="Permalink to this headline">¶</a></h1>
+<section class="tex2jax_ignore mathjax_ignore" id="ssto-earth-launch">
+<h1>SSTO Earth Launch<a class="headerlink" href="#ssto-earth-launch" title="Permalink to this headline">#</a></h1>
 <p>This example is based on the <em>Time-Optimal Launch of a Titan II</em>
-example given in Appendix B of Longuski <span id="id1">[<a class="reference internal" href="../ssto_moon_linear_tangent/ssto_moon_linear_tangent.html#id25">LGuzmanP14</a>]</span>.
+example given in Appendix B of Longuski <span id="id1">[<a class="reference internal" href="#id26" title="James M Longuski, José J Guzmán, and John E Prussing. Optimal control with aerospace applications. Springer, 1 edition, 2014. ISBN 978-1-4939-4917-5. doi:https://doi.org/10.1007/978-1-4614-8945-0.">LGuzmanP14</a>]</span>.
 It finds the pitch profile for a single-stage-to-orbit launch vehicle that minimizes the time
 required to reach orbit insertion under constant thrust.</p>
 <p><img alt="The free-body-diagram of the single-stage-to-orbit problem." src="../../_images/ssto_fbd.png" /></p>
 <p>The vehicle dynamics are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-9411a497-17b4-4ab0-b49b-1376d3a889f4">
-<span class="eqno">(63)<a class="headerlink" href="#equation-9411a497-17b4-4ab0-b49b-1376d3a889f4" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-85250e93-defe-4d3e-806b-cf9f25578abf">
+<span class="eqno">(74)<a class="headerlink" href="#equation-85250e93-defe-4d3e-806b-cf9f25578abf" title="Permalink to this equation">#</a></span>\[\begin{align}
   \frac{dx}{dt} &amp;= v_x \\
   \frac{dy}{dt} &amp;= v_y \\
   \frac{dv_x}{dt} &amp;= \frac{1}{m} (T \cos \theta - D \cos \gamma) \\
@@ -561,8 +764,8 @@ required to reach orbit insertion under constant thrust.</p>
   \frac{dm}{dt} &amp;= \frac{T}{g I_{sp}}
 \end{align}\]</div>
 <p>The initial conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c5bd8e83-31d2-4c71-9a17-9f29961d8980">
-<span class="eqno">(64)<a class="headerlink" href="#equation-c5bd8e83-31d2-4c71-9a17-9f29961d8980" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6df421ed-d44b-4b62-8db1-48f6a77218f7">
+<span class="eqno">(75)<a class="headerlink" href="#equation-6df421ed-d44b-4b62-8db1-48f6a77218f7" title="Permalink to this equation">#</a></span>\[\begin{align}
   x_0 &amp;= 0 \\
   y_0 &amp;= 0 \\
   v_{x0} &amp;= 0 \\
@@ -570,16 +773,16 @@ required to reach orbit insertion under constant thrust.</p>
   m_0 &amp;= 117000 \rm{\,kg}
 \end{align}\]</div>
 <p>and the final conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e4d49c6a-3d0a-48fe-8561-ab9cb2a857e2">
-<span class="eqno">(65)<a class="headerlink" href="#equation-e4d49c6a-3d0a-48fe-8561-ab9cb2a857e2" title="Permalink to this equation">¶</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-2bdb0969-e720-4575-a215-394b73d4fe17">
+<span class="eqno">(76)<a class="headerlink" href="#equation-2bdb0969-e720-4575-a215-394b73d4fe17" title="Permalink to this equation">#</a></span>\[\begin{align}
   x_f &amp;= \rm{free} \\
   y_f &amp;= 185 \rm{\,km} \\
   v_{xf} &amp;= V_{circ} \\
   v_{yf} &amp;= 0 \\
   m_f &amp;= \rm{free}
 \end{align}\]</div>
-<div class="section" id="defining-the-ode">
-<h2>Defining the ODE<a class="headerlink" href="#defining-the-ode" title="Permalink to this headline">¶</a></h2>
+<section id="defining-the-ode">
+<h2>Defining the ODE<a class="headerlink" href="#defining-the-ode" title="Permalink to this headline">#</a></h2>
 <p>Generally, one could define the ODE system as a composite group of multile components.
 The atmosphere component computes density (<span class="math notranslate nohighlight">\(\rho\)</span>).
 The eom component computes the state rates.
@@ -717,9 +920,9 @@ The Dymos phases use state rate values to ensure that the integration technique 
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="solving-the-problem">
-<h2>Solving the problem<a class="headerlink" href="#solving-the-problem" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="solving-the-problem">
+<h2>Solving the problem<a class="headerlink" href="#solving-the-problem" title="Permalink to this headline">#</a></h2>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -785,156 +988,141 @@ The Dymos phases use state rate values to ensure that the integration technique 
 <span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.t_duration&#39;</span><span class="p">,</span> <span class="mf">150.0</span><span class="p">)</span>
 <span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.states:x&#39;</span><span class="p">,</span> <span class="n">phase</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.15E5</span><span class="p">]))</span>
 <span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.states:y&#39;</span><span class="p">,</span> <span class="n">phase</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mf">1.85E5</span><span class="p">]))</span>
-<span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.states:vy&#39;</span><span class="p">,</span> <span class="n">phase</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="s1">&#39;vx&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0E-6</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
-<span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.states:m&#39;</span><span class="p">,</span> <span class="n">phase</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="s1">&#39;vy&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">117000</span><span class="p">,</span> <span class="mi">1163</span><span class="p">]))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.states:vy&#39;</span><span class="p">,</span> <span class="n">phase</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="s1">&#39;vy&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0E-6</span><span class="p">,</span> <span class="mi">0</span><span class="p">]))</span>
+<span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.states:m&#39;</span><span class="p">,</span> <span class="n">phase</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="s1">&#39;m&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mi">117000</span><span class="p">,</span> <span class="mi">1163</span><span class="p">]))</span>
 <span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.controls:theta&#39;</span><span class="p">,</span> <span class="n">phase</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="s1">&#39;theta&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.76</span><span class="p">]))</span>
 <span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.parameters:thrust&#39;</span><span class="p">,</span> <span class="mf">2.1</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;MN&#39;</span><span class="p">)</span>
 
 <span class="c1">#</span>
 <span class="c1"># Solve the Problem</span>
 <span class="c1">#</span>
-<span class="n">dm</span><span class="o">.</span><span class="n">run_problem</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
-
-<span class="c1">#</span>
-<span class="c1"># Get the explicitly simulated results</span>
-<span class="c1">#</span>
-<span class="n">exp_out</span> <span class="o">=</span> <span class="n">traj</span><span class="o">.</span><span class="n">simulate</span><span class="p">()</span>
-
-<span class="c1">#</span>
-<span class="c1"># Plot the results</span>
-<span class="c1">#</span>
-<span class="n">fig</span><span class="p">,</span> <span class="n">axes</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
-
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.timeseries.states:x&#39;</span><span class="p">),</span>
-             <span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.timeseries.states:y&#39;</span><span class="p">),</span>
-             <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span>
-             <span class="n">ms</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-             <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span>
-             <span class="n">label</span><span class="o">=</span><span class="s1">&#39;solution&#39;</span><span class="p">)</span>
-
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">exp_out</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.timeseries.states:x&#39;</span><span class="p">),</span>
-             <span class="n">exp_out</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.timeseries.states:y&#39;</span><span class="p">),</span>
-             <span class="n">marker</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
-             <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span>
-             <span class="n">label</span><span class="o">=</span><span class="s1">&#39;simulation&#39;</span><span class="p">)</span>
-
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;range (m)&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;altitude (m)&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
-
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.timeseries.time&#39;</span><span class="p">),</span>
-             <span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.timeseries.controls:theta&#39;</span><span class="p">),</span>
-             <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span>
-             <span class="n">ms</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
-             <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
-
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">exp_out</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.timeseries.time&#39;</span><span class="p">),</span>
-             <span class="n">exp_out</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.timeseries.controls:theta&#39;</span><span class="p">),</span>
-             <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span>
-             <span class="n">marker</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
-
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
-<span class="n">axes</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;theta (deg)&#39;</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Single Stage to Orbit Solution Using Linear Tangent Guidance&#39;</span><span class="p">)</span>
-<span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
-
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">dm</span><span class="o">.</span><span class="n">run_problem</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">simulate</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking out_of_order
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking system
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking solvers
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking dup_inputs
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking missing_recorders
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: The Problem has no recorder of any kind attached
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking unserializable_options
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking comp_has_no_outputs
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model viewer data has already has already been recorded for Driver.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Constraint Report [traj] ---
+    --- phase0 ---
+        [final]   1.8500e+05 == y [m]
+        [final]   7.7967e+03 == vx [m/s]
+        [final]   0.0000e+00 == vy [m/s]
+
 INFO: checking out_of_order
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:check_config:checking out_of_order
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking system
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:check_config:checking system
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking solvers
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:check_config:checking solvers
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking dup_inputs
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:check_config:checking dup_inputs
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking missing_recorders
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:check_config:checking missing_recorders
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: The Problem has no recorder of any kind attached
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:check_config:The Problem has no recorder of any kind attached
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking unserializable_options
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:check_config:checking unserializable_options
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking comp_has_no_outputs
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:check_config:checking comp_has_no_outputs
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Approx coloring for &#39;traj.phases.phase0.rhs_disc&#39; (class LaunchVehicleODE)
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:check_config:checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>........................f............................................
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model viewer data has already been recorded for Driver.
+INFO: checking out_of_order
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>................................................................................................... 0  xdot
-................
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:check_config:checking out_of_order
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.........f...........................................................................................
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking system
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>................................................... 1  xdot
-..........................f..............................
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:check_config:checking system
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.........................................................................................................
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking solvers
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...... 2  xdot
-...........................f...........................................................................
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:check_config:checking solvers
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>................................................................. 3  xdot
-............................f.....
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking dup_inputs
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.........................................................................................................
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:check_config:checking dup_inputs
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>............................. 4  xdot
-.............................f...................................
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking missing_recorders
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>....................................................................................................... 5  xdot
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:check_config:checking missing_recorders
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: The Problem has no recorder of any kind attached
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING:check_config:The Problem has no recorder of any kind attached
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking unserializable_options
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:check_config:checking unserializable_options
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking comp_has_no_outputs
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:check_config:checking comp_has_no_outputs
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:check_config:checking auto_ivc_warnings
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coloring for &#39;traj.phases.phase0.rhs_disc&#39; (class LaunchVehicleODE)
+........................f............................................................................................................................................... 0  xdot
+.........................f.............................................................................................................................................. 1  xdot
+..........................f............................................................................................................................................. 2  xdot
+...........................f............................................................................................................................................ 3  xdot
+............................f........................................................................................................................................... 4  xdot
+.............................f.......................................................................................................................................... 5  xdot
 ..............................f......................................................................................................................................... 6  xdot
 ...............................f........................................................................................................................................ 7  xdot
 ................................f....................................................................................................................................... 8  xdot
@@ -942,38 +1130,9 @@ INFO: checking out_of_order
 ..................................f..................................................................................................................................... 10  xdot
 ...................................f.................................................................................................................................... 11  xdot
 ....................................f................................................................................................................................... 12  xdot
-.....................................f.............................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>..................................................................................... 13  xdot
-......................................f....................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.....
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>........................................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.........................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>....... 14  xdot
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>..........................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.............f................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>....
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>................................................................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>............ 15  xdot
+.....................................f.................................................................................................................................. 13  xdot
+......................................f................................................................................................................................. 14  xdot
+.......................................f................................................................................................................................ 15  xdot
 ........................................f............................................................................................................................... 16  xdot
 .........................................f.............................................................................................................................. 17  xdot
 ..........................................f............................................................................................................................. 18  xdot
@@ -983,37 +1142,10 @@ INFO: checking out_of_order
 ..............................................f......................................................................................................................... 22  xdot
 ...............................................f........................................................................................................................ 23  xdot
 ................................................f....................................................................................................................... 24  ydot
-.................................................f............................................................................................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.......... 25  ydot
-..................................................f.................................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>............
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>........................................................ 26  ydot
-..
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.......
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>....
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.....f.................................................................................................................... 27  ydot
-.............................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.......................f........................................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>........................................................... 28  ydot
+.................................................f...................................................................................................................... 25  ydot
+..................................................f..................................................................................................................... 26  ydot
+...................................................f.................................................................................................................... 27  ydot
+....................................................f................................................................................................................... 28  ydot
 .....................................................f.................................................................................................................. 29  ydot
 ......................................................f................................................................................................................. 30  ydot
 .......................................................f................................................................................................................ 31  ydot
@@ -1022,43 +1154,13 @@ INFO: checking out_of_order
 ..........................................................f............................................................................................................. 34  ydot
 ...........................................................f............................................................................................................ 35  ydot
 ............................................................f........................................................................................................... 36  ydot
-.............................................................f........................................................................................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.. 37  ydot
-..............................................................f..................................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>....................................................... 38  ydot
-.......................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>........................................f...................................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>..................................................... 39  ydot
-...................................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.............f.............................................................................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.......... 40  ydot
-.................................................................f.................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>........................................................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>............. 41  ydot
-..................................................................f...............................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...................................................................... 42  ydot
-...................................................................f....
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>................................................................................................ 43  ydot
+.............................................................f.......................................................................................................... 37  ydot
+..............................................................f......................................................................................................... 38  ydot
+...............................................................f........................................................................................................ 39  ydot
+................................................................f....................................................................................................... 40  ydot
+.................................................................f...................................................................................................... 41  ydot
+..................................................................f..................................................................................................... 42  ydot
+...................................................................f.................................................................................................... 43  ydot
 ....................................................................f................................................................................................... 44  ydot
 .....................................................................f.................................................................................................. 45  ydot
 ......................................................................f................................................................................................. 46  ydot
@@ -1066,41 +1168,11 @@ INFO: checking out_of_order
 f.......................f...............................................f.......................f.......................f............................................... 48  vxdot
 .f.......................f...............................................f.......................f.......................f.............................................. 49  vxdot
 ..f.......................f...............................................f.......................f.......................f............................................. 50  vxdot
-...f.......................f...............................................f.......................f......................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.f............................................ 51  vxdot
-....f..................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.....f.........................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>..........
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>............f.......................f.......................f........................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>... 52  vxdot
-.....f.......................f.........................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>......f.......................f.......................f.......................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>... 53  vxdot
-......f.......................f...............................................f.................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>......f.......................f......................................... 54  vxdot
-.......f..........
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.............f...............................................f.......................f.....
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>..................f........................................ 55  vxdot
+...f.......................f...............................................f.......................f.......................f............................................ 51  vxdot
+....f.......................f...............................................f.......................f.......................f........................................... 52  vxdot
+.....f.......................f...............................................f.......................f.......................f.......................................... 53  vxdot
+......f.......................f...............................................f.......................f.......................f......................................... 54  vxdot
+.......f.......................f...............................................f.......................f.......................f........................................ 55  vxdot
 ........f.......................f...............................................f.......................f.......................f....................................... 56  vxdot
 .........f.......................f...............................................f.......................f.......................f...................................... 57  vxdot
 ..........f.......................f...............................................f.......................f.......................f..................................... 58  vxdot
@@ -1109,42 +1181,13 @@ f.......................f...............................................f.......
 .............f.......................f...............................................f.......................f.......................f.................................. 61  vxdot
 ..............f.......................f...............................................f.......................f.......................f................................. 62  vxdot
 ...............f.......................f...............................................f.......................f.......................f................................ 63  vxdot
-................f.......................f.............
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>..................................f.......................f.......................f............................... 64  vxdot
-.................f.......................f.........
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>......................................f.......................f.............
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>..........f.............................. 65  vxdot
-..................f.......................f.........................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>......................f.......................f.......................f............................. 66  vxdot
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...................f.......................f...............................................f.......................f.......................f............................ 67  vxdot
-....................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>f.......................f...............................................f.......................f...........
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>............f........................... 68  vxdot
-.....................f.......................f..
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.............................................f.......................f.......................f.......................... 69  vxdot
-......
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>................f.......................f............................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...................f.......................f.......................f......................... 70  vxdot
+................f.......................f...............................................f.......................f.......................f............................... 64  vxdot
+.................f.......................f...............................................f.......................f.......................f.............................. 65  vxdot
+..................f.......................f...............................................f.......................f.......................f............................. 66  vxdot
+...................f.......................f...............................................f.......................f.......................f............................ 67  vxdot
+....................f.......................f...............................................f.......................f.......................f........................... 68  vxdot
+.....................f.......................f...............................................f.......................f.......................f.......................... 69  vxdot
+......................f.......................f...............................................f.......................f.......................f......................... 70  vxdot
 .......................f.......................f...............................................f.......................f.......................f........................ 71  vxdot
 f...............................................f.......................f.......................f.......................f............................................... 72  vydot
 .f...............................................f.......................f.......................f.......................f.............................................. 73  vydot
@@ -1152,26 +1195,11 @@ f...............................................f.......................f.......
 ...................................................f.......................f.......................f.......................f............................................ 75  vydot
 ....................................................f.......................f.......................f.......................f........................................... 76  vydot
 .....................................................f.......................f.......................f.......................f.......................................... 77  vydot
-...................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...................f.......................f.......................f....................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...f......................................... 78  vydot
+......................................................f.......................f.......................f.......................f......................................... 78  vydot
 .......................................................f.......................f.......................f.......................f........................................ 79  vydot
 ........................................................f.......................f.......................f.......................f....................................... 80  vydot
-.........................................................f.......................f.......................f..............
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.........f...................................... 81  vydot
-............................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>..............f.......................f.......................f.......................f.................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.... 82  vydot
+.........................................................f.......................f.......................f.......................f...................................... 81  vydot
+..........................................................f.......................f.......................f.......................f..................................... 82  vydot
 ...........................................................f.......................f.......................f.......................f.................................... 83  vydot
 ............................................................f.......................f.......................f.......................f................................... 84  vydot
 .............................................................f.......................f.......................f.......................f.................................. 85  vydot
@@ -1180,28 +1208,10 @@ f...............................................f.......................f.......
 ................................................................f.......................f.......................f.......................f............................... 88  vydot
 .................................................................f.......................f.......................f.......................f.............................. 89  vydot
 ..................................................................f.......................f.......................f.......................f............................. 90  vydot
-...........................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>........................................f.......................f.......................f.......................f..........
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>......
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>............ 91  vydot
-....................................................................f....
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...................f.......................f.......................f........................... 92  vydot
+...................................................................f.......................f.......................f.......................f............................ 91  vydot
+....................................................................f.......................f.......................f.......................f........................... 92  vydot
 .....................................................................f.......................f.......................f.......................f.......................... 93  vydot
-...........................................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...........f.......................f.......................f.................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>......f......................... 94  vydot
+......................................................................f.......................f.......................f.......................f......................... 94  vydot
 .......................................................................f.......................f.......................f.......................f........................ 95  vydot
 ........................................................................................................................f.......................f....................... 96  mdot
 .........................................................................................................................f.......................f...................... 97  mdot
@@ -1215,13 +1225,7 @@ f...............................................f.......................f.......
 .................................................................................................................................f.......................f.............. 105  mdot
 ..................................................................................................................................f.......................f............. 106  mdot
 ...................................................................................................................................f.......................f............ 107  mdot
-...............................................................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.....................................................f............
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...........f........... 108  mdot
+....................................................................................................................................f.......................f........... 108  mdot
 .....................................................................................................................................f.......................f.......... 109  mdot
 ......................................................................................................................................f.......................f......... 110  mdot
 .......................................................................................................................................f.......................f........ 111  mdot
@@ -1231,17 +1235,9 @@ f...............................................f.......................f.......
 ...........................................................................................................................................f.......................f.... 115  mdot
 ............................................................................................................................................f.......................f... 116  mdot
 .............................................................................................................................................f.......................f.. 117  mdot
-...............................................................................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...............................................f.......................f. 118  mdot
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...............................................................................................................................................f.......................f 119  mdot
-f.................................................................................................................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...................................... 120  rho
+..............................................................................................................................................f.......................f. 118  mdot
+...............................................................................................................................................f.......................f 119  mdot
+f....................................................................................................................................................................... 120  rho
 .f...................................................................................................................................................................... 121  rho
 ..f..................................................................................................................................................................... 122  rho
 ...f.................................................................................................................................................................... 123  rho
@@ -1251,34 +1247,22 @@ f...............................................................................
 .......f................................................................................................................................................................ 127  rho
 ........f............................................................................................................................................................... 128  rho
 .........f.............................................................................................................................................................. 129  rho
-..........f..................................................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...............................................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>............................ 130  rho
+..........f............................................................................................................................................................. 130  rho
 ...........f............................................................................................................................................................ 131  rho
 ............f........................................................................................................................................................... 132  rho
-.............f..................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>........................................................................................................................................ 133  rho
+.............f.......................................................................................................................................................... 133  rho
 ..............f......................................................................................................................................................... 134  rho
 ...............f........................................................................................................................................................ 135  rho
 ................f....................................................................................................................................................... 136  rho
 .................f...................................................................................................................................................... 137  rho
 ..................f..................................................................................................................................................... 138  rho
-...................f.................................................................................................................................................... 139  rho
+...................f...............................................
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>..................................................................................................... 139  rho
 ....................f................................................................................................................................................... 140  rho
 .....................f.................................................................................................................................................. 141  rho
-......................f..............
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...............................................................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.................................................... 142  rho
+......................f................................................................................................................................................. 142  rho
 .......................f................................................................................................................................................ 143  rho
 |y
                         |vx
@@ -1293,11 +1277,12 @@ FWD solves: 5   REV solves: 0
 Total colors vs. total size: 5 vs 168  (97.0% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.079736 sec.
-Time to compute coloring: 0.031951 sec.
+Time to compute sparsity: 0.042454 sec.
+Time to compute coloring: 0.020414 sec.
+Memory to compute coloring: 0.000000 MB.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Approx coloring for &#39;traj.phases.phase0.rhs_col&#39; (class LaunchVehicleODE)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Coloring for &#39;traj.phases.phase0.rhs_col&#39; (class LaunchVehicleODE)
 ............f....................................................................... 0  xdot
 .............f...................................................................... 1  xdot
 ..............f..................................................................... 2  xdot
@@ -1312,13 +1297,7 @@ Time to compute coloring: 0.031951 sec.
 .......................f............................................................ 11  xdot
 ........................f........................................................... 12  ydot
 .........................f.......................................................... 13  ydot
-..........................f.......................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>....
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>.............. 14  ydot
+..........................f......................................................... 14  ydot
 ...........................f........................................................ 15  ydot
 ............................f....................................................... 16  ydot
 .............................f...................................................... 17  ydot
@@ -1328,10 +1307,7 @@ Time to compute coloring: 0.031951 sec.
 .................................f.................................................. 21  ydot
 ..................................f................................................. 22  ydot
 ...................................f................................................ 23  ydot
-f...........f.....................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>..f...........f...........f....................... 24  vxdot
+f...........f.......................f...........f...........f....................... 24  vxdot
 .f...........f.......................f...........f...........f...................... 25  vxdot
 ..f...........f.......................f...........f...........f..................... 26  vxdot
 ...f...........f.......................f...........f...........f.................... 27  vxdot
@@ -1346,14 +1322,8 @@ f...........f.....................
 f.......................f...........f...........f...........f....................... 36  vydot
 .f.......................f...........f...........f...........f...................... 37  vydot
 ..f.......................f...........f...........f...........f..................... 38  vydot
-...f.......................f...........f........
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>...f...........f.................... 39  vydot
-....f.......................f...........f...........f...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>........f................... 40  vydot
+...f.......................f...........f...........f...........f.................... 39  vydot
+....f.......................f...........f...........f...........f................... 40  vydot
 .....f.......................f...........f...........f...........f.................. 41  vydot
 ......f.......................f...........f...........f...........f................. 42  vydot
 .......f.......................f...........f...........f...........f................ 43  vydot
@@ -1362,10 +1332,7 @@ f.......................f...........f...........f...........f...................
 ..........f.......................f...........f...........f...........f............. 46  vydot
 ...........f.......................f...........f...........f...........f............ 47  vydot
 ............................................................f...........f........... 48  mdot
-.............................................................f...........f.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>......... 49  mdot
+.............................................................f...........f.......... 49  mdot
 ..............................................................f...........f......... 50  mdot
 ...............................................................f...........f........ 51  mdot
 ................................................................f...........f....... 52  mdot
@@ -1381,15 +1348,9 @@ f...............................................................................
 ..f................................................................................. 62  rho
 ...f................................................................................ 63  rho
 ....f............................................................................... 64  rho
-.....f...........................................................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>................... 65  rho
+.....f.............................................................................. 65  rho
 ......f............................................................................. 66  rho
-.......f............................
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>................................................ 67  rho
+.......f............................................................................ 67  rho
 ........f........................................................................... 68  rho
 .........f.......................................................................... 69  rho
 ..........f......................................................................... 70  rho
@@ -1407,21 +1368,27 @@ FWD solves: 5   REV solves: 0
 Total colors vs. total size: 5 vs 84  (94.0% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.039252 sec.
-Time to compute coloring: 0.013371 sec.
+Time to compute sparsity: 0.020715 sec.
+Time to compute coloring: 0.010182 sec.
+Memory to compute coloring: 0.000000 MB.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 3.153912 seconds.
-Total jacobian shape: (72, 152) 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.331622 seconds.
+Total jacobian shape: (74, 152) 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jacobian shape: (72, 152)  ( 5.51% nonzero)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jacobian shape: (74, 152)  ( 5.38% nonzero)
 FWD solves: 12   REV solves: 0
 Total colors vs. total size: 12 vs 152  (92.1% improvement)
 
 Sparsity computed using tolerance: 1e-12
-Time to compute sparsity: 3.153912 sec.
-Time to compute coloring: 0.097800 sec.
+Time to compute sparsity: 0.331622 sec.
+Time to compute coloring: 0.081873 sec.
+Memory to compute coloring: 0.000000 MB.
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/pyoptsparse/pyOpt_optimization.py:234: UserWarning: The argument `type=` is deprecated. Use `varType` in the future.
+  warnings.warn(&quot;The argument `type=` is deprecated. Use `varType` in the future.&quot;)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization Problem -- Optimization using pyOpt_sparse
@@ -1430,18 +1397,18 @@ Time to compute coloring: 0.097800 sec.
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    2.4097
-       User Objective Time :       0.1853
-       User Sensitivity Time :     1.1615
-       Interface Time :            0.4517
-       Opt Solver Time:            0.6112
+    Total Time:                    1.9802
+       User Objective Time :       0.1074
+       User Sensitivity Time :     0.8496
+       Interface Time :            0.3621
+       Opt Solver Time:            0.6611
     Calls to Objective Function :      51
     Calls to Sens Function :           48
 
 
    Objectives
-      Index  Name                                    Value          Optimum
-          0  traj.phases.phase0.time.time     1.431612E+00     0.000000E+00
+      Index  Name                                    Value
+          0  traj.phases.phase0.time.time     1.431612E+00
 
    Variables (c - continuous, i - integer, d - discrete)
       Index  Name                                                                Type      Lower Bound            Value      Upper Bound     Status
@@ -1537,7 +1504,7 @@ Time to compute coloring: 0.097800 sec.
          89  traj.phases.phase0.indep_states.states:vy_19                           c    -1.000000E+18     2.923999E+00     1.000000E+18           
          90  traj.phases.phase0.indep_states.states:vy_20                           c    -1.000000E+18     3.379547E+00     1.000000E+18           
          91  traj.phases.phase0.indep_states.states:vy_21                           c    -1.000000E+18     3.379547E+00     1.000000E+18           
-         92  traj.phases.phase0.indep_states.states:vy_22                           c    -1.000000E+18     7.162490E-20     1.000000E+18           
+         92  traj.phases.phase0.indep_states.states:vy_22                           c    -1.000000E+18     0.000000E+00     1.000000E+18           
          93  traj.phases.phase0.indep_states.states:m_0                             c    -1.000000E+18     1.073668E+02     1.000000E+18           
          94  traj.phases.phase0.indep_states.states:m_1                             c    -1.000000E+18     1.073668E+02     1.000000E+18           
          95  traj.phases.phase0.indep_states.states:m_2                             c    -1.000000E+18     9.773367E+01     1.000000E+18           
@@ -1600,69 +1567,69 @@ Time to compute coloring: 0.097800 sec.
 
    Constraints (i - inequality, e - equality)
       Index  Name                                                               Type          Lower           Value           Upper    Status  Lagrange Multiplier (N/A)
-          0  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00   -1.188094E-10    0.000000E+00              9.00000E+100
-          1  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00    1.371170E-10    0.000000E+00              9.00000E+100
-          2  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00   -2.557595E-10    0.000000E+00              9.00000E+100
-          3  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00    2.888822E-10    0.000000E+00              9.00000E+100
-          4  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00   -1.643804E-10    0.000000E+00              9.00000E+100
-          5  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00   -7.405641E-10    0.000000E+00              9.00000E+100
-          6  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00    3.453421E-10    0.000000E+00              9.00000E+100
-          7  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00    4.648820E-10    0.000000E+00              9.00000E+100
-          8  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00   -8.441018E-10    0.000000E+00              9.00000E+100
-          9  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00    5.812102E-10    0.000000E+00              9.00000E+100
-         10  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00    2.671537E-10    0.000000E+00              9.00000E+100
-         11  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00   -6.157081E-09    0.000000E+00              9.00000E+100
-         12  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00    4.185466E-10    0.000000E+00              9.00000E+100
-         13  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00    9.614961E-09    0.000000E+00              9.00000E+100
-         14  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00    2.809379E-08    0.000000E+00              9.00000E+100
-         15  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00    3.174746E-08    0.000000E+00              9.00000E+100
-         16  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00    1.376446E-08    0.000000E+00              9.00000E+100
-         17  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00   -3.754024E-08    0.000000E+00              9.00000E+100
-         18  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00   -5.322523E-08    0.000000E+00              9.00000E+100
-         19  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00    2.998142E-09    0.000000E+00              9.00000E+100
-         20  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00    2.476580E-09    0.000000E+00              9.00000E+100
-         21  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00    1.813845E-09    0.000000E+00              9.00000E+100
-         22  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00    2.495065E-10    0.000000E+00              9.00000E+100
-         23  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00    8.522371E-09    0.000000E+00              9.00000E+100
-         24  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    3.499577E-09    0.000000E+00              9.00000E+100
-         25  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    3.213875E-09    0.000000E+00              9.00000E+100
-         26  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    8.760738E-09    0.000000E+00              9.00000E+100
-         27  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    1.050294E-08    0.000000E+00              9.00000E+100
-         28  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    1.502428E-08    0.000000E+00              9.00000E+100
-         29  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    3.872966E-08    0.000000E+00              9.00000E+100
-         30  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    1.357671E-08    0.000000E+00              9.00000E+100
-         31  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    3.378725E-09    0.000000E+00              9.00000E+100
-         32  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    2.245357E-08    0.000000E+00              9.00000E+100
-         33  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    6.435004E-09    0.000000E+00              9.00000E+100
-         34  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    2.368123E-09    0.000000E+00              9.00000E+100
-         35  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    2.374244E-08    0.000000E+00              9.00000E+100
-         36  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00    2.920377E-08    0.000000E+00              9.00000E+100
-         37  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00    1.258180E-08    0.000000E+00              9.00000E+100
-         38  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00   -2.350687E-08    0.000000E+00              9.00000E+100
-         39  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00   -1.084222E-07    0.000000E+00              9.00000E+100
-         40  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00   -1.702733E-07    0.000000E+00              9.00000E+100
-         41  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00   -2.750436E-08    0.000000E+00              9.00000E+100
-         42  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00   -1.483104E-08    0.000000E+00              9.00000E+100
-         43  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00    2.808630E-08    0.000000E+00              9.00000E+100
-         44  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00    6.222977E-08    0.000000E+00              9.00000E+100
-         45  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00    9.789008E-09    0.000000E+00              9.00000E+100
-         46  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00    1.080769E-09    0.000000E+00              9.00000E+100
-         47  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00   -2.001000E-08    0.000000E+00              9.00000E+100
-         48  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00    6.781475E-15    0.000000E+00              9.00000E+100
-         49  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00    6.781475E-15    0.000000E+00              9.00000E+100
-         50  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00   -8.815917E-14    0.000000E+00              9.00000E+100
-         51  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00    7.459622E-14    0.000000E+00              9.00000E+100
-         52  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00   -7.459622E-14    0.000000E+00              9.00000E+100
-         53  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00    4.747032E-14    0.000000E+00              9.00000E+100
-         54  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00   -4.747032E-14    0.000000E+00              9.00000E+100
-         55  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00   -2.034442E-14    0.000000E+00              9.00000E+100
+          0  traj.phases.phase0-&gt;final_boundary_constraint-&gt;y                      e   1.850000E+05    1.850000E+05    1.850000E+05              9.00000E+100
+          1  traj.phases.phase0-&gt;final_boundary_constraint-&gt;vx                     e   7.796696E+03    7.796696E+03    7.796696E+03              9.00000E+100
+          2  traj.phases.phase0-&gt;final_boundary_constraint-&gt;vy                     e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+          3  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00   -1.188095E-10    0.000000E+00              9.00000E+100
+          4  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00    1.371170E-10    0.000000E+00              9.00000E+100
+          5  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00   -2.557595E-10    0.000000E+00              9.00000E+100
+          6  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00    2.888822E-10    0.000000E+00              9.00000E+100
+          7  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00   -1.643805E-10    0.000000E+00              9.00000E+100
+          8  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00   -7.405641E-10    0.000000E+00              9.00000E+100
+          9  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00    3.453421E-10    0.000000E+00              9.00000E+100
+         10  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00    4.648822E-10    0.000000E+00              9.00000E+100
+         11  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00   -8.441018E-10    0.000000E+00              9.00000E+100
+         12  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00    5.812096E-10    0.000000E+00              9.00000E+100
+         13  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00    2.671551E-10    0.000000E+00              9.00000E+100
+         14  traj.phases.phase0.collocation_constraint.defects:x                   e   0.000000E+00   -6.157079E-09    0.000000E+00              9.00000E+100
+         15  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00    4.185466E-10    0.000000E+00              9.00000E+100
+         16  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00    9.614961E-09    0.000000E+00              9.00000E+100
+         17  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00    2.809379E-08    0.000000E+00              9.00000E+100
+         18  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00    3.174746E-08    0.000000E+00              9.00000E+100
+         19  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00    1.376446E-08    0.000000E+00              9.00000E+100
+         20  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00   -3.754024E-08    0.000000E+00              9.00000E+100
+         21  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00   -5.322523E-08    0.000000E+00              9.00000E+100
+         22  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00    2.998143E-09    0.000000E+00              9.00000E+100
+         23  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00    2.476580E-09    0.000000E+00              9.00000E+100
+         24  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00    1.813846E-09    0.000000E+00              9.00000E+100
+         25  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00    2.495062E-10    0.000000E+00              9.00000E+100
+         26  traj.phases.phase0.collocation_constraint.defects:y                   e   0.000000E+00    8.522369E-09    0.000000E+00              9.00000E+100
+         27  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    3.499577E-09    0.000000E+00              9.00000E+100
+         28  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    3.213875E-09    0.000000E+00              9.00000E+100
+         29  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    8.760738E-09    0.000000E+00              9.00000E+100
+         30  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    1.050294E-08    0.000000E+00              9.00000E+100
+         31  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    1.502428E-08    0.000000E+00              9.00000E+100
+         32  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    3.872966E-08    0.000000E+00              9.00000E+100
+         33  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    1.357671E-08    0.000000E+00              9.00000E+100
+         34  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    3.378725E-09    0.000000E+00              9.00000E+100
+         35  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    2.245357E-08    0.000000E+00              9.00000E+100
+         36  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    6.435004E-09    0.000000E+00              9.00000E+100
+         37  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    2.368122E-09    0.000000E+00              9.00000E+100
+         38  traj.phases.phase0.collocation_constraint.defects:vx                  e   0.000000E+00    2.374244E-08    0.000000E+00              9.00000E+100
+         39  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00    2.920377E-08    0.000000E+00              9.00000E+100
+         40  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00    1.258180E-08    0.000000E+00              9.00000E+100
+         41  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00   -2.350687E-08    0.000000E+00              9.00000E+100
+         42  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00   -1.084222E-07    0.000000E+00              9.00000E+100
+         43  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00   -1.702733E-07    0.000000E+00              9.00000E+100
+         44  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00   -2.750436E-08    0.000000E+00              9.00000E+100
+         45  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00   -1.483104E-08    0.000000E+00              9.00000E+100
+         46  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00    2.808630E-08    0.000000E+00              9.00000E+100
+         47  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00    6.222977E-08    0.000000E+00              9.00000E+100
+         48  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00    9.789007E-09    0.000000E+00              9.00000E+100
+         49  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00    1.080769E-09    0.000000E+00              9.00000E+100
+         50  traj.phases.phase0.collocation_constraint.defects:vy                  e   0.000000E+00   -2.001000E-08    0.000000E+00              9.00000E+100
+         51  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00    6.781475E-15    0.000000E+00              9.00000E+100
+         52  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00    6.781475E-15    0.000000E+00              9.00000E+100
+         53  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00   -8.815917E-14    0.000000E+00              9.00000E+100
+         54  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00    7.459622E-14    0.000000E+00              9.00000E+100
+         55  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00   -7.459622E-14    0.000000E+00              9.00000E+100
          56  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00    4.747032E-14    0.000000E+00              9.00000E+100
-         57  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00   -6.781475E-15    0.000000E+00              9.00000E+100
-         58  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00   -2.034442E-14    0.000000E+00              9.00000E+100
-         59  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00    6.781475E-15    0.000000E+00              9.00000E+100
-         60  traj.phases.phase0.continuity_comp.defect_states:x                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-         61  traj.phases.phase0.continuity_comp.defect_states:x                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-         62  traj.phases.phase0.continuity_comp.defect_states:x                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         57  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00   -4.747032E-14    0.000000E+00              9.00000E+100
+         58  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00    4.747032E-14    0.000000E+00              9.00000E+100
+         59  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00   -2.034442E-14    0.000000E+00              9.00000E+100
+         60  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00   -6.781475E-15    0.000000E+00              9.00000E+100
+         61  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00   -6.781475E-15    0.000000E+00              9.00000E+100
+         62  traj.phases.phase0.collocation_constraint.defects:m                   e   0.000000E+00   -6.781475E-15    0.000000E+00              9.00000E+100
          63  traj.phases.phase0.continuity_comp.defect_states:x                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
          64  traj.phases.phase0.continuity_comp.defect_states:x                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
          65  traj.phases.phase0.continuity_comp.defect_states:x                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
@@ -1671,20 +1638,20 @@ Time to compute coloring: 0.097800 sec.
          68  traj.phases.phase0.continuity_comp.defect_states:x                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
          69  traj.phases.phase0.continuity_comp.defect_states:x                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
          70  traj.phases.phase0.continuity_comp.defect_states:x                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-         71  traj.phases.phase0.continuity_comp.defect_states:y                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-         72  traj.phases.phase0.continuity_comp.defect_states:y                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-         73  traj.phases.phase0.continuity_comp.defect_states:y                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-         74  traj.phases.phase0.continuity_comp.defect_states:y                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-         75  traj.phases.phase0.continuity_comp.defect_states:y                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         71  traj.phases.phase0.continuity_comp.defect_states:x                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         72  traj.phases.phase0.continuity_comp.defect_states:x                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         73  traj.phases.phase0.continuity_comp.defect_states:x                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         74  traj.phases.phase0.continuity_comp.defect_states:y                    e   0.000000E+00    1.136868E-13    0.000000E+00              9.00000E+100
+         75  traj.phases.phase0.continuity_comp.defect_states:y                    e   0.000000E+00    4.547474E-13    0.000000E+00              9.00000E+100
          76  traj.phases.phase0.continuity_comp.defect_states:y                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
          77  traj.phases.phase0.continuity_comp.defect_states:y                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
          78  traj.phases.phase0.continuity_comp.defect_states:y                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
          79  traj.phases.phase0.continuity_comp.defect_states:y                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
          80  traj.phases.phase0.continuity_comp.defect_states:y                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
          81  traj.phases.phase0.continuity_comp.defect_states:y                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-         82  traj.phases.phase0.continuity_comp.defect_states:vx                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-         83  traj.phases.phase0.continuity_comp.defect_states:vx                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-         84  traj.phases.phase0.continuity_comp.defect_states:vx                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         82  traj.phases.phase0.continuity_comp.defect_states:y                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         83  traj.phases.phase0.continuity_comp.defect_states:y                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         84  traj.phases.phase0.continuity_comp.defect_states:y                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
          85  traj.phases.phase0.continuity_comp.defect_states:vx                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
          86  traj.phases.phase0.continuity_comp.defect_states:vx                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
          87  traj.phases.phase0.continuity_comp.defect_states:vx                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
@@ -1693,9 +1660,9 @@ Time to compute coloring: 0.097800 sec.
          90  traj.phases.phase0.continuity_comp.defect_states:vx                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
          91  traj.phases.phase0.continuity_comp.defect_states:vx                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
          92  traj.phases.phase0.continuity_comp.defect_states:vx                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-         93  traj.phases.phase0.continuity_comp.defect_states:vy                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-         94  traj.phases.phase0.continuity_comp.defect_states:vy                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-         95  traj.phases.phase0.continuity_comp.defect_states:vy                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         93  traj.phases.phase0.continuity_comp.defect_states:vx                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         94  traj.phases.phase0.continuity_comp.defect_states:vx                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+         95  traj.phases.phase0.continuity_comp.defect_states:vx                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
          96  traj.phases.phase0.continuity_comp.defect_states:vy                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
          97  traj.phases.phase0.continuity_comp.defect_states:vy                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
          98  traj.phases.phase0.continuity_comp.defect_states:vy                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
@@ -1704,9 +1671,9 @@ Time to compute coloring: 0.097800 sec.
         101  traj.phases.phase0.continuity_comp.defect_states:vy                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
         102  traj.phases.phase0.continuity_comp.defect_states:vy                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
         103  traj.phases.phase0.continuity_comp.defect_states:vy                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-        104  traj.phases.phase0.continuity_comp.defect_states:m                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-        105  traj.phases.phase0.continuity_comp.defect_states:m                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-        106  traj.phases.phase0.continuity_comp.defect_states:m                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        104  traj.phases.phase0.continuity_comp.defect_states:vy                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        105  traj.phases.phase0.continuity_comp.defect_states:vy                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        106  traj.phases.phase0.continuity_comp.defect_states:vy                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
         107  traj.phases.phase0.continuity_comp.defect_states:m                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
         108  traj.phases.phase0.continuity_comp.defect_states:m                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
         109  traj.phases.phase0.continuity_comp.defect_states:m                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
@@ -1715,37 +1682,33 @@ Time to compute coloring: 0.097800 sec.
         112  traj.phases.phase0.continuity_comp.defect_states:m                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
         113  traj.phases.phase0.continuity_comp.defect_states:m                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
         114  traj.phases.phase0.continuity_comp.defect_states:m                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-        115  traj.phases.phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    1.452964E-16    0.000000E+00              9.00000E+100
-        116  traj.phases.phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-        117  traj.phases.phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-        118  traj.phases.phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    1.074491E-16    0.000000E+00              9.00000E+100
-        119  traj.phases.phase0.continuity_comp.defect_controls:theta              e   0.000000E+00   -4.612403E-17    0.000000E+00              9.00000E+100
+        115  traj.phases.phase0.continuity_comp.defect_states:m                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        116  traj.phases.phase0.continuity_comp.defect_states:m                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        117  traj.phases.phase0.continuity_comp.defect_states:m                    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        118  traj.phases.phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        119  traj.phases.phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
         120  traj.phases.phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-        121  traj.phases.phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-        122  traj.phases.phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        121  traj.phases.phase0.continuity_comp.defect_controls:theta              e   0.000000E+00   -1.145955E-16    0.000000E+00              9.00000E+100
+        122  traj.phases.phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    4.612403E-17    0.000000E+00              9.00000E+100
         123  traj.phases.phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-        124  traj.phases.phase0.continuity_comp.defect_controls:theta              e   0.000000E+00   -9.847259E-18    0.000000E+00              9.00000E+100
-        125  traj.phases.phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-        126  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00   -9.343981E-15    0.000000E+00              9.00000E+100
-        127  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00    8.257472E-15    0.000000E+00              9.00000E+100
-        128  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00   -1.195160E-14    0.000000E+00              9.00000E+100
-        129  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00   -8.009127E-15    0.000000E+00              9.00000E+100
-        130  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00    1.459027E-15    0.000000E+00              9.00000E+100
-        131  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00   -1.474549E-15    0.000000E+00              9.00000E+100
-        132  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00    6.208625E-16    0.000000E+00              9.00000E+100
-        133  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00   -2.669709E-15    0.000000E+00              9.00000E+100
-        134  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00    3.476830E-15    0.000000E+00              9.00000E+100
-        135  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00    3.476830E-15    0.000000E+00              9.00000E+100
-        136  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
-        137  traj.phases.phase0.final_boundary_constraints.final_value:y           e   1.850000E+05    1.850000E+05    1.850000E+05              9.00000E+100
-        138  traj.phases.phase0.final_boundary_constraints.final_value:vx          e   7.796696E+03    7.796696E+03    7.796696E+03              9.00000E+100
-        139  traj.phases.phase0.final_boundary_constraints.final_value:vy          e   0.000000E+00    7.162490E-17    0.000000E+00              9.00000E+100
+        124  traj.phases.phase0.continuity_comp.defect_controls:theta              e   0.000000E+00   -7.799589E-17    0.000000E+00              9.00000E+100
+        125  traj.phases.phase0.continuity_comp.defect_controls:theta              e   0.000000E+00   -4.023448E-17    0.000000E+00              9.00000E+100
+        126  traj.phases.phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        127  traj.phases.phase0.continuity_comp.defect_controls:theta              e   0.000000E+00   -9.847259E-18    0.000000E+00              9.00000E+100
+        128  traj.phases.phase0.continuity_comp.defect_controls:theta              e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
+        129  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00   -4.004563E-15    0.000000E+00              9.00000E+100
+        130  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00   -1.043049E-14    0.000000E+00              9.00000E+100
+        131  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00    5.370461E-15    0.000000E+00              9.00000E+100
+        132  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00    2.669709E-15    0.000000E+00              9.00000E+100
+        133  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00    2.793881E-15    0.000000E+00              9.00000E+100
+        134  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00   -1.474549E-15    0.000000E+00              9.00000E+100
+        135  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00   -8.754162E-15    0.000000E+00              9.00000E+100
+        136  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00    3.973520E-15    0.000000E+00              9.00000E+100
+        137  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00    4.718555E-15    0.000000E+00              9.00000E+100
+        138  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00    2.483450E-15    0.000000E+00              9.00000E+100
+        139  traj.phases.phase0.continuity_comp.defect_control_rates:theta_rate    e   0.000000E+00   -2.980140E-15    0.000000E+00              9.00000E+100
 
 --------------------------------------------------------------------------------
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/system.py:132: OMDeprecationWarning:The metadata key &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39;.
-/usr/share/miniconda/envs/test/lib/python3.8/site-packages/openmdao/core/problem.py:438: OMDeprecationWarning:Problem &#39;value&#39; will be deprecated in 4.0. Please use &#39;val&#39; in the future.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulating trajectory traj
@@ -1754,22 +1717,77 @@ Time to compute coloring: 0.097800 sec.
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
 </pre></div>
 </div>
-<img alt="../../_images/ssto_earth_4_114.png" src="../../_images/ssto_earth_4_114.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+<img alt="../../_images/ssto_earth_4_46.png" src="../../_images/ssto_earth_4_46.png" />
+</div>
+</div>
+<div class="cell tag_hide-input docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sol</span> <span class="o">=</span> <span class="n">om</span><span class="o">.</span><span class="n">CaseReader</span><span class="p">(</span><span class="s1">&#39;dymos_solution.db&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_case</span><span class="p">(</span><span class="s1">&#39;final&#39;</span><span class="p">)</span>
+<span class="n">sim</span> <span class="o">=</span> <span class="n">om</span><span class="o">.</span><span class="n">CaseReader</span><span class="p">(</span><span class="s1">&#39;dymos_simulation.db&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">get_case</span><span class="p">(</span><span class="s1">&#39;final&#39;</span><span class="p">)</span>
+
+<span class="n">fig</span><span class="p">,</span> <span class="p">[</span><span class="n">traj_ax</span><span class="p">,</span> <span class="n">control_ax</span><span class="p">]</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="n">nrows</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">ncols</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">traj_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.timeseries.states:x&#39;</span><span class="p">),</span>
+             <span class="n">sol</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.timeseries.states:y&#39;</span><span class="p">),</span>
+             <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span>
+             <span class="n">ms</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+             <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">,</span>
+             <span class="n">label</span><span class="o">=</span><span class="s1">&#39;solution&#39;</span><span class="p">)</span>
+
+<span class="n">traj_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.timeseries.states:x&#39;</span><span class="p">),</span>
+             <span class="n">sim</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.timeseries.states:y&#39;</span><span class="p">),</span>
+             <span class="n">marker</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+             <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span>
+             <span class="n">label</span><span class="o">=</span><span class="s1">&#39;simulation&#39;</span><span class="p">)</span>
+
+<span class="n">traj_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;range (m)&#39;</span><span class="p">)</span>
+<span class="n">traj_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;altitude (m)&#39;</span><span class="p">)</span>
+<span class="n">traj_ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+<span class="n">traj_ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">control_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sol</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.timeseries.time&#39;</span><span class="p">),</span>
+             <span class="n">sol</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.timeseries.controls:theta&#39;</span><span class="p">),</span>
+             <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;o&#39;</span><span class="p">,</span>
+             <span class="n">ms</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span>
+             <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;None&#39;</span><span class="p">)</span>
+
+<span class="n">control_ax</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">sim</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.timeseries.time&#39;</span><span class="p">),</span>
+             <span class="n">sim</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.timeseries.controls:theta&#39;</span><span class="p">),</span>
+             <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;-&#39;</span><span class="p">,</span>
+             <span class="n">marker</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+
+<span class="n">control_ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;time (s)&#39;</span><span class="p">)</span>
+<span class="n">control_ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;theta (deg)&#39;</span><span class="p">)</span>
+<span class="n">control_ax</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span><span class="s1">&#39;Single Stage to Orbit Solution Using A Dynamic Control&#39;</span><span class="p">)</span>
+<span class="n">fig</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../../_images/ssto_earth_5_0.png" src="../../_images/ssto_earth_5_0.png" />
 </div>
 </div>
 <div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
-</div>
-<div class="section" id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">¶</a></h2>
-<p id="id2"><dl class="citation">
-<dt class="label" id="id25"><span class="brackets">LGuzmanP14</span></dt>
-<dd><p>James M Longuski, José J Guzmán, and John E Prussing. <em>Optimal control with aerospace applications</em>. Springer, 2014.</p>
+</section>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
+<div class="docutils container" id="id2">
+<dl class="citation">
+<dt class="label" id="id26"><span class="brackets">LGuzmanP14</span></dt>
+<dd><p>James M Longuski, José J Guzmán, and John E Prussing. <em>Optimal control with aerospace applications</em>. Springer, 1 edition, 2014. ISBN 978-1-4939-4917-5. <a class="reference external" href="https://doi.org/https://doi.org/10.1007/978-1-4614-8945-0">doi:https://doi.org/10.1007/978-1-4614-8945-0</a>.</p>
 </dd>
 </dl>
-</p>
 </div>
-</div>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -1793,54 +1811,48 @@ Time to compute coloring: 0.097800 sec.
 
               </div>
               
-        
-            
-
-
-
-<div class='prev-next-bottom'>
-    
-    <div id="prev">
-        <a class="left-prev" href="../reentry/reentry.html" title="previous page">
-            <i class="prevnext-label fas fa-angle-left"></i>
-            <div class="prevnext-info">
-                <p class="prevnext-label">previous</p>
-                <p class="prevnext-title">Single-Phase Space Shuttle Reentry</p>
-            </div>
-        </a>
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="../reentry/reentry.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Single-Phase Space Shuttle Reentry</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="../ssto_moon_linear_tangent/ssto_moon_linear_tangent.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">SSTO Lunar Ascent with Linear Tangent Guidance</p>
     </div>
-     <div id="next">
-        <a class="right-next" href="../ssto_moon_linear_tangent/ssto_moon_linear_tangent.html" title="next page">
-            <div class="prevnext-info">
-                <p class="prevnext-label">next</p>
-                <p class="prevnext-title">SSTO Lunar Ascent with Linear Tangent Guidance</p>
-            </div>
-            <i class="prevnext-label fas fa-angle-right"></i>
-        </a>
-     </div>
-
+    <i class="fas fa-angle-right"></i>
+    </a>
 </div>
-        
+            </footer>
         </div>
     </div>
-    <footer class="footer">
-    <div class="container">
-      <p>
-        
-          By The Dymos Development Team<br/>
-        
-            &copy; Copyright 2021.<br/>
-      </p>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By The Dymos Development Team<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
     </div>
-  </footer>
-</main>
+    
+</div>
 
 
       </div>
     </div>
   
-  <script src="../../_static/js/index.1c5a1a01449ed65a7b51.js"></script>
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
 
-  
+
   </body>
 </html>
