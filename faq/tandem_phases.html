@@ -742,8 +742,8 @@ This is one application of the interpolating timeseries component.</p>
 This is a trivial solution which should find a straight line from the starting point to the ending point.</p>
 <p>There are two phases involved, the first utilizes the standard ODE for the brachistochrone problem.
 The second integrates the arclength (𝑆) of the wire using the equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-73621b07-1856-4d28-822b-8e46ac3546fa">
-<span class="eqno">(85)<a class="headerlink" href="#equation-73621b07-1856-4d28-822b-8e46ac3546fa" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-1d293f74-6410-4e4a-b26d-d3c4030543b6">
+<span class="eqno">(85)<a class="headerlink" href="#equation-1d293f74-6410-4e4a-b26d-d3c4030543b6" title="Permalink to this equation">#</a></span>\[\begin{align}
     S = \int v \sin \theta  \sqrt{1 + \frac{1}{\tan^2 \theta}} dt
 \end{align}\]</div>
 <section id="the-ode-for-the-wire-arclength">
@@ -1255,7 +1255,7 @@ INFO: checking out_of_order
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:check_config:checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.279631 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.292411 seconds.
 Total jacobian shape: (222, 287) 
 </pre></div>
 </div>
@@ -1264,9 +1264,9 @@ FWD solves: 33   REV solves: 0
 Total colors vs. total size: 33 vs 287  (88.5% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.279631 sec.
-Time to compute coloring: 0.359770 sec.
-Memory to compute coloring: 2.949219 MB.
+Time to compute sparsity: 0.292411 sec.
+Time to compute coloring: 0.336966 sec.
+Memory to compute coloring: 2.875000 MB.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/pyoptsparse/pyOpt_optimization.py:234: UserWarning: The argument `type=` is deprecated. Use `varType` in the future.
@@ -1279,11 +1279,11 @@ Memory to compute coloring: 2.949219 MB.
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                   13.6562
-       User Objective Time :       0.3591
-       User Sensitivity Time :     2.8158
-       Interface Time :            1.0058
-       Opt Solver Time:            9.4755
+    Total Time:                   12.2248
+       User Objective Time :       0.4652
+       User Sensitivity Time :     2.9148
+       Interface Time :            0.9820
+       Opt Solver Time:            7.8627
     Calls to Objective Function :     134
     Calls to Sens Function :          103
 
@@ -1864,7 +1864,10 @@ Memory to compute coloring: 2.949219 MB.
 --------------------------------------------------------------------------------
 </pre></div>
 </div>
-<img alt="../_images/tandem_phases_6_41.png" src="../_images/tandem_phases_6_41.png" />
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/visualization/opt_report/opt_report.py:666: UserWarning: Attempting to set identical bottom == top == 0.0 results in singular transformations; automatically expanding.
+  ax.set_ylim([ymin_plot, ymax_plot])
+</pre></div>
+</div>
 <img alt="../_images/tandem_phases_6_42.png" src="../_images/tandem_phases_6_42.png" />
 </div>
 </div>

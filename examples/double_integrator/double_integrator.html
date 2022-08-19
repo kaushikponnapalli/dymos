@@ -744,20 +744,20 @@ traveled by a block (that starts and ends at rest) sliding without
 friction along a horizontal surface, with acceleration as the control.</p>
 <p>We minimize the final time, <span class="math notranslate nohighlight">\(t_f\)</span>, by varying the dynamic control,
 <span class="math notranslate nohighlight">\(u\)</span>, subject to the dynamics:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-0f5486b9-c07a-4a9f-96dd-0490c1aa2a7d">
-<span class="eqno">(45)<a class="headerlink" href="#equation-0f5486b9-c07a-4a9f-96dd-0490c1aa2a7d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3f5950f7-5c77-4592-be28-f0b1cbb3cf8f">
+<span class="eqno">(45)<a class="headerlink" href="#equation-3f5950f7-5c77-4592-be28-f0b1cbb3cf8f" title="Permalink to this equation">#</a></span>\[\begin{align}
   \frac{dx}{dt} &amp;= v \\
   \frac{dv}{dt} &amp;= u
 \end{align}\]</div>
 <p>The initial conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-220b2f16-901d-4028-a8b3-7381fe91a889">
-<span class="eqno">(46)<a class="headerlink" href="#equation-220b2f16-901d-4028-a8b3-7381fe91a889" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-27c2f006-5762-40ec-904b-5a43816ce907">
+<span class="eqno">(46)<a class="headerlink" href="#equation-27c2f006-5762-40ec-904b-5a43816ce907" title="Permalink to this equation">#</a></span>\[\begin{align}
   x_0 &amp;= 0 \\
   v_0 &amp;= 0
 \end{align}\]</div>
 <p>and the final conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-ade8cdf2-2586-4437-aff4-d180d2cfd877">
-<span class="eqno">(47)<a class="headerlink" href="#equation-ade8cdf2-2586-4437-aff4-d180d2cfd877" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-604fe209-ba5e-409f-bb38-2b3792c44531">
+<span class="eqno">(47)<a class="headerlink" href="#equation-604fe209-ba5e-409f-bb38-2b3792c44531" title="Permalink to this equation">#</a></span>\[\begin{align}
   x_f &amp;= \rm{free} \\
   v_f &amp;= 0
 \end{align}\]</div>
@@ -1083,7 +1083,7 @@ INFO: checking out_of_order
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:check_config:checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.100168 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.098405 seconds.
 Total jacobian shape: (181, 327) 
 </pre></div>
 </div>
@@ -1092,8 +1092,8 @@ FWD solves: 0   REV solves: 6
 Total colors vs. total size: 6 vs 181  (96.7% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.100168 sec.
-Time to compute coloring: 0.131121 sec.
+Time to compute sparsity: 0.098405 sec.
+Time to compute coloring: 0.115949 sec.
 Memory to compute coloring: 0.000000 MB.
 </pre></div>
 </div>
@@ -1107,11 +1107,11 @@ Memory to compute coloring: 0.000000 MB.
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    2.8645
-       User Objective Time :       0.0254
-       User Sensitivity Time :     0.0856
-       Interface Time :            0.1472
-       Opt Solver Time:            2.6064
+    Total Time:                    2.4026
+       User Objective Time :       0.0318
+       User Sensitivity Time :     0.0890
+       Interface Time :            0.1407
+       Opt Solver Time:            2.1411
     Calls to Objective Function :      19
     Calls to Sens Function :           19
 
@@ -1694,6 +1694,10 @@ Memory to compute coloring: 0.000000 MB.
 --------------------------------------------------------------------------------
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/visualization/opt_report/opt_report.py:666: UserWarning: Attempting to set identical bottom == top == 0.0 results in singular transformations; automatically expanding.
+  ax.set_ylim([ymin_plot, ymax_plot])
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulating trajectory traj
 </pre></div>
 </div>
@@ -1703,7 +1707,6 @@ Memory to compute coloring: 0.000000 MB.
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
 </pre></div>
 </div>
-<img alt="../../_images/double_integrator_5_47.png" src="../../_images/double_integrator_5_47.png" />
 </div>
 </div>
 <div class="cell docutils container">
