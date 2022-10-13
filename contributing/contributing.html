@@ -288,6 +288,16 @@ const thebe_selector_output = ".output, .cell_output"
      Water Rocket
     </a>
    </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../examples/cart_pole/cart_pole.html">
+     Cart-Pole Optimal Control
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../examples/brachistochrone/brachistochrone_tandem_phases.html">
+     Brachistochrone with tandem phases
+    </a>
+   </li>
   </ul>
  </li>
 </ul>
@@ -310,6 +320,11 @@ const thebe_selector_output = ".output, .cell_output"
    <li class="toctree-l2">
     <a class="reference internal" href="../features/phases/phases.html">
      Phases of a Trajectory
+    </a>
+   </li>
+   <li class="toctree-l2">
+    <a class="reference internal" href="../features/phases/analytic_phases.html">
+     Analytic Phases in Dymos
     </a>
    </li>
    <li class="toctree-l2">
@@ -1019,14 +1034,14 @@ Component: BrachistochroneODE &#39;ode&#39;
 &#39;&lt;output&gt;&#39; wrt &#39;&lt;variable&gt;&#39; | calc mag.  | check mag. | a(cal-chk) | r(cal-chk)
 -------------------------------------------------------------------------------
 
-&#39;check&#39;    wrt &#39;theta&#39;      | 7.4802e+02 | 7.4802e+02 | 2.2747e-13 | 3.0409e-16
-&#39;check&#39;    wrt &#39;v&#39;          | 1.0018e+01 | 1.0018e+01 | 1.8971e-15 | 1.8938e-16
-&#39;vdot&#39;     wrt &#39;theta&#39;      | 1.3951e+01 | 1.3951e+01 | 2.3604e-15 | 1.6919e-16
+&#39;check&#39;    wrt &#39;theta&#39;      | 1.0728e+01 | 1.0728e+01 | 5.3305e-15 | 4.9690e-16
+&#39;check&#39;    wrt &#39;v&#39;          | 2.7081e+00 | 2.7081e+00 | 3.1402e-16 | 1.1595e-16
+&#39;vdot&#39;     wrt &#39;theta&#39;      | 1.8974e+01 | 1.8974e+01 | 1.2561e-15 | 6.6199e-17
 &#39;vdot&#39;     wrt &#39;v&#39;          | 0.0000e+00 | 0.0000e+00 | 0.0000e+00 | nan
-&#39;xdot&#39;     wrt &#39;theta&#39;      | 9.9025e+00 | 9.9025e+00 | 1.0878e-15 | 1.0985e-16
-&#39;xdot&#39;     wrt &#39;v&#39;          | 1.4226e+00 | 1.4226e+00 | 1.9280e-16 | 1.3552e-16
-&#39;ydot&#39;     wrt &#39;theta&#39;      | 4.5125e+00 | 4.5125e+00 | 8.0107e-16 | 1.7752e-16
-&#39;ydot&#39;     wrt &#39;v&#39;          | 1.7251e+00 | 1.7251e+00 | 2.7756e-16 | 1.6089e-16
+&#39;xdot&#39;     wrt &#39;theta&#39;      | 5.9558e+00 | 5.9558e+00 | 1.6165e-15 | 2.7142e-16
+&#39;xdot&#39;     wrt &#39;v&#39;          | 1.9348e+00 | 1.9348e+00 | 2.7195e-16 | 1.4055e-16
+&#39;ydot&#39;     wrt &#39;theta&#39;      | 1.0170e+01 | 1.0170e+01 | 9.9301e-16 | 9.7637e-17
+&#39;ydot&#39;     wrt &#39;v&#39;          | 1.1209e+00 | 1.1209e+00 | 3.5218e-16 | 3.1419e-16
 
 ##################################################################
 Sub Jacobian with Largest Relative Error: BrachistochroneODE &#39;ode&#39;
@@ -1034,7 +1049,10 @@ Sub Jacobian with Largest Relative Error: BrachistochroneODE &#39;ode&#39;
 
 &#39;&lt;output&gt;&#39; wrt &#39;&lt;variable&gt;&#39; | calc mag.  | check mag. | a(cal-chk) | r(cal-chk)
 -------------------------------------------------------------------------------
-&#39;check&#39;    wrt &#39;theta&#39;      | 7.4802e+02 | 7.4802e+02 | 2.2747e-13 | 3.0409e-16
+&#39;check&#39;    wrt &#39;theta&#39;      | 1.0728e+01 | 1.0728e+01 | 5.3305e-15 | 4.9690e-16
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/problem.py:2565: DerivativesWarning:No derivative data found for Component &#39;vars&#39;.
 </pre></div>
 </div>
 </div>
