@@ -906,17 +906,28 @@ title="Print to PDF"
 <h2>Options<a class="headerlink" href="#options" title="Permalink to this headline">#</a></h2>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
-<div class="output text_html"><table>
-<thead>
-<tr><th style="text-align:center; max-width:600px; overflow-wrap:break-word;">Option            </th><th style="text-align:center; max-width:600px; overflow-wrap:break-word;">Default     </th><th style="text-align:center; max-width:600px; overflow-wrap:break-word;">Acceptable Values  </th><th style="text-align:center; max-width:600px; overflow-wrap:break-word;">Acceptable Types     </th><th style="text-align:center; max-width:600px; overflow-wrap:break-word;">Description                                                                                              </th></tr>
-</thead>
-<tbody>
-<tr><td style="text-align:left; max-width:600px; overflow-wrap:break-word;">assembled_jac_type</td><td style="text-align:left; max-width:600px; overflow-wrap:break-word;">csc         </td><td style="text-align:left; max-width:600px; overflow-wrap:break-word;">[&#x27;csc&#x27;, &#x27;dense&#x27;]   </td><td style="text-align:left; max-width:600px; overflow-wrap:break-word;">N/A                  </td><td style="text-align:left; max-width:600px; overflow-wrap:break-word;">Linear solver(s) in this group or implicit component, if using an assembled jacobian, will use this type.</td></tr>
-<tr><td style="text-align:left; max-width:600px; overflow-wrap:break-word;">ode_class         </td><td style="text-align:left; max-width:600px; overflow-wrap:break-word;">N/A         </td><td style="text-align:left; max-width:600px; overflow-wrap:break-word;">N/A                </td><td style="text-align:left; max-width:600px; overflow-wrap:break-word;">N/A                  </td><td style="text-align:left; max-width:600px; overflow-wrap:break-word;">System defining the ODE                                                                                  </td></tr>
-<tr><td style="text-align:left; max-width:600px; overflow-wrap:break-word;">ode_init_kwargs   </td><td style="text-align:left; max-width:600px; overflow-wrap:break-word;">{}          </td><td style="text-align:left; max-width:600px; overflow-wrap:break-word;">N/A                </td><td style="text-align:left; max-width:600px; overflow-wrap:break-word;">[&#x27;dict&#x27;]             </td><td style="text-align:left; max-width:600px; overflow-wrap:break-word;">Keyword arguments provided when initializing the ODE System                                              </td></tr>
-<tr><td style="text-align:left; max-width:600px; overflow-wrap:break-word;">transcription     </td><td style="text-align:left; max-width:600px; overflow-wrap:break-word;">**Required**</td><td style="text-align:left; max-width:600px; overflow-wrap:break-word;">N/A                </td><td style="text-align:left; max-width:600px; overflow-wrap:break-word;">[&#x27;TranscriptionBase&#x27;]</td><td style="text-align:left; max-width:600px; overflow-wrap:break-word;">Transcription technique of the optimal control problem.                                                  </td></tr>
-</tbody>
-</table></div></div>
+<div class="output text_html">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <style>
+        h2 {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2></h2>
+        <table style="border: 1px solid #999; border-collapse: collapse;">
+        <tr><th style="border: 1px solid #999; border-collapse: collapse; padding: 5px; background-color: #E9E9E9; text-align: left;">Option</th><th style="border: 1px solid #999; border-collapse: collapse; padding: 5px; background-color: #E9E9E9; text-align: left;">Default</th><th style="border: 1px solid #999; border-collapse: collapse; padding: 5px; background-color: #E9E9E9; text-align: left;">Acceptable Values</th><th style="border: 1px solid #999; border-collapse: collapse; padding: 5px; background-color: #E9E9E9; text-align: left;">Acceptable Types</th><th style="border: 1px solid #999; border-collapse: collapse; padding: 5px; background-color: #E9E9E9; text-align: left;">Description</th></tr>
+       <tr style="background-color: ghostwhite;"><td style="border: 1px solid #999; border-collapse: collapse; padding: 5px; text-align: left;">assembled_jac_type</td><td style="border: 1px solid #999; border-collapse: collapse; padding: 5px; text-align: left;">csc</td><td style="border: 1px solid #999; border-collapse: collapse; padding: 5px; text-align: left;">[&#x27;csc&#x27;, &#x27;dense&#x27;]</td><td style="border: 1px solid #999; border-collapse: collapse; padding: 5px; text-align: left;">N/A</td><td style="border: 1px solid #999; border-collapse: collapse; padding: 5px; text-align: left;">Linear solver(s) in this group or implicit component, if using an assembled jacobian, will use this type.</td></tr>
+       <tr style="background-color: #F3F3F3;"><td style="border: 1px solid #999; border-collapse: collapse; padding: 5px; text-align: left;">ode_class</td><td style="border: 1px solid #999; border-collapse: collapse; padding: 5px; text-align: left;">N/A</td><td style="border: 1px solid #999; border-collapse: collapse; padding: 5px; text-align: left;">N/A</td><td style="border: 1px solid #999; border-collapse: collapse; padding: 5px; text-align: left;">N/A</td><td style="border: 1px solid #999; border-collapse: collapse; padding: 5px; text-align: left;">System defining the ODE</td></tr>
+       <tr style="background-color: ghostwhite;"><td style="border: 1px solid #999; border-collapse: collapse; padding: 5px; text-align: left;">ode_init_kwargs</td><td style="border: 1px solid #999; border-collapse: collapse; padding: 5px; text-align: left;">{}</td><td style="border: 1px solid #999; border-collapse: collapse; padding: 5px; text-align: left;">N/A</td><td style="border: 1px solid #999; border-collapse: collapse; padding: 5px; text-align: left;">[&#x27;dict&#x27;]</td><td style="border: 1px solid #999; border-collapse: collapse; padding: 5px; text-align: left;">Keyword arguments provided when initializing the ODE System</td></tr>
+       <tr style="background-color: #F3F3F3;"><td style="border: 1px solid #999; border-collapse: collapse; padding: 5px; text-align: left;">transcription</td><td style="border: 1px solid #999; border-collapse: collapse; padding: 5px; text-align: left;">**Required**</td><td style="border: 1px solid #999; border-collapse: collapse; padding: 5px; text-align: left;">N/A</td><td style="border: 1px solid #999; border-collapse: collapse; padding: 5px; text-align: left;">[&#x27;TranscriptionBase&#x27;]</td><td style="border: 1px solid #999; border-collapse: collapse; padding: 5px; text-align: left;">Transcription technique of the optimal control problem.</td></tr>
+    </table>
+</body>
+</html>
+</div></div>
 </div>
 <p>The transcription is an instance of one of the <a class="reference internal" href="transcriptions_api.html"><span class="doc std std-doc">transcriptions</span></a> available in Dymos.</p>
 </section>
@@ -1667,14 +1678,17 @@ since Dymos doesn’t necessarily know the shape of ODE outputs until setup time
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name of the variable to constrain.  If name is not a state, control, or ‘time’,
-then this is assumed to be the path of the variable to be constrained in the ODE.</p>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name of the variable to constrain. May also provide an expression to be evaluated and constrained.
+If a single variable and the name is not a state, control, or ‘time’,
+then this is assumed to be the path of the variable to be constrained in the ODE.
+If an expression, it must be provided in the form of an equation with a left- and right-hand side.</p>
 </dd>
 <dt><strong>loc</strong><span class="classifier">str</span></dt><dd><p>The location of the boundary constraint (‘initial’ or ‘final’).</p>
 </dd>
-<dt><strong>constraint_name</strong><span class="classifier">str or None</span></dt><dd><p>The name of the variable as provided to the boundary constraint comp.  By
-default this is the last element in <cite>name</cite> when split by dots.  The user may
-override the constraint name if splitting the path causes name collisions.</p>
+<dt><strong>constraint_name</strong><span class="classifier">str or None</span></dt><dd><dl class="simple">
+<dt>The name of the boundary constraint. By default, this is ‘var_constraint’ if name is a single variable,</dt><dd><p>or the left-hand side of the equation if name is an expression.</p>
+</dd>
+</dl>
 </dd>
 <dt><strong>units</strong><span class="classifier">str or None</span></dt><dd><p>The units in which the boundary constraint is to be applied.  If None, use the
 units associated with the constrained output.  If provided, must be compatible with
@@ -1728,11 +1742,15 @@ indices should be a tuple or list giving the elements to constrain at each point
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name of the response variable in the system.</p>
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>Name of the variable to constrain. May also provide an expression to be evaluated and constrained.
+If a single variable and the name is not a state, control, or ‘time’,
+then this is assumed to be the path of the variable to be constrained in the ODE.
+If an expression, it must be provided in the form of an equation with a left- and right-hand side.</p>
 </dd>
-<dt><strong>constraint_name</strong><span class="classifier">str or None</span></dt><dd><p>The name of the variable as provided to the boundary constraint comp.  By
-default this is the last element in <cite>name</cite> when split by dots.  The user may
-override the constraint name if splitting the path causes name collisions.</p>
+<dt><strong>constraint_name</strong><span class="classifier">str or None</span></dt><dd><dl class="simple">
+<dt>The name of the path constraint. By default, this is ‘var_constraint’ if name is a single variable,</dt><dd><p>or the left-hand side of the equation if name is an expression.</p>
+</dd>
+</dl>
 </dd>
 <dt><strong>units</strong><span class="classifier">str or None</span></dt><dd><p>The units in which the boundary constraint is to be applied.  If None, use the
 units associated with the constrained output.  If provided, must be compatible with

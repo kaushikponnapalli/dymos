@@ -630,7 +630,7 @@ title="Open an issue"
 <span class="kn">from</span> <span class="nn">..utils.indexing</span> <span class="kn">import</span> <span class="n">get_constraint_flat_idxs</span>
 <span class="kn">from</span> <span class="nn">..utils.introspection</span> <span class="kn">import</span> <span class="n">configure_time_introspection</span><span class="p">,</span> <span class="n">_configure_constraint_introspection</span><span class="p">,</span> \
     <span class="n">configure_controls_introspection</span><span class="p">,</span> <span class="n">configure_parameters_introspection</span><span class="p">,</span> \
-    <span class="n">configure_timeseries_output_introspection</span><span class="p">,</span> <span class="n">classify_var</span><span class="p">,</span> <span class="n">get_promoted_vars</span>
+    <span class="n">configure_timeseries_output_introspection</span><span class="p">,</span> <span class="n">classify_var</span><span class="p">,</span> <span class="n">configure_timeseries_expr_introspection</span>
 <span class="kn">from</span> <span class="nn">..utils.misc</span> <span class="kn">import</span> <span class="n">_unspecified</span>
 <span class="kn">from</span> <span class="nn">..utils.lgl</span> <span class="kn">import</span> <span class="n">lgl</span>
 
@@ -1686,14 +1686,15 @@ title="Open an issue"
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        name : str</span>
-<span class="sd">            Name of the variable to constrain.  If name is not a state, control, or &#39;time&#39;,</span>
+<span class="sd">            Name of the variable to constrain. May also provide an expression to be evaluated and constrained.</span>
+<span class="sd">            If a single variable and the name is not a state, control, or &#39;time&#39;,</span>
 <span class="sd">            then this is assumed to be the path of the variable to be constrained in the ODE.</span>
+<span class="sd">            If an expression, it must be provided in the form of an equation with a left- and right-hand side.</span>
 <span class="sd">        loc : str</span>
 <span class="sd">            The location of the boundary constraint (&#39;initial&#39; or &#39;final&#39;).</span>
 <span class="sd">        constraint_name : str or None</span>
-<span class="sd">            The name of the variable as provided to the boundary constraint comp.  By</span>
-<span class="sd">            default this is the last element in `name` when split by dots.  The user may</span>
-<span class="sd">            override the constraint name if splitting the path causes name collisions.</span>
+<span class="sd">            The name of the boundary constraint. By default, this is &#39;var_constraint&#39; if name is a single variable,</span>
+<span class="sd">             or the left-hand side of the equation if name is an expression.</span>
 <span class="sd">        units : str or None</span>
 <span class="sd">            The units in which the boundary constraint is to be applied.  If None, use the</span>
 <span class="sd">            units associated with the constrained output.  If provided, must be compatible with</span>
@@ -1734,7 +1735,19 @@ title="Open an issue"
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Invalid boundary constraint location &quot;</span><span class="si">{</span><span class="n">loc</span><span class="si">}</span><span class="s1">&quot;. Must be &#39;</span>
                              <span class="s1">&#39;&quot;initial&quot; or &quot;final&quot;.&#39;</span><span class="p">)</span>
 
-        <span class="k">if</span> <span class="n">constraint_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">expr_operators</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;&#39;</span><span class="p">,</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span> <span class="s1">&#39;@&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;=&#39;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+            <span class="n">is_expr</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="s1">&#39;=&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">name</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="n">opr</span> <span class="ow">in</span> <span class="n">name</span> <span class="k">for</span> <span class="n">opr</span> <span class="ow">in</span> <span class="n">expr_operators</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The expression provided `</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">` has invalid format. &#39;</span>
+                             <span class="s1">&#39;Expression may be a single variable or an equation &#39;</span>
+                             <span class="s1">&#39;of the form `constraint_name = func(vars)`&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">is_expr</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">is_expr</span><span class="p">:</span>
+            <span class="n">constraint_name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">constraint_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">constraint_name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
         <span class="n">bc_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_initial_boundary_constraints</span> <span class="k">if</span> <span class="n">loc</span> <span class="o">==</span> <span class="s1">&#39;initial&#39;</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_final_boundary_constraints</span>
@@ -1744,6 +1757,14 @@ title="Open an issue"
         <span class="k">if</span> <span class="n">existing_bc</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cannot add new </span><span class="si">{</span><span class="n">loc</span><span class="si">}</span><span class="s1"> boundary constraint for variable `</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">` and indices </span><span class="si">{</span><span class="n">indices</span><span class="si">}</span><span class="s1">. &#39;</span>
                              <span class="sa">f</span><span class="s1">&#39;One already exists.&#39;</span><span class="p">)</span>
+
+        <span class="n">existing_bc_name</span> <span class="o">=</span> <span class="p">[</span><span class="n">bc</span> <span class="k">for</span> <span class="n">bc</span> <span class="ow">in</span> <span class="n">bc_list</span> <span class="k">if</span> <span class="n">bc</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">constraint_name</span> <span class="ow">and</span>
+                            <span class="n">bc</span><span class="p">[</span><span class="s1">&#39;indices&#39;</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">indices</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">existing_bc_name</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cannot add new </span><span class="si">{</span><span class="n">loc</span><span class="si">}</span><span class="s1"> boundary constraint named `</span><span class="si">{</span><span class="n">constraint_name</span><span class="si">}</span><span class="s1">`&#39;</span>
+                             <span class="sa">f</span><span class="s1">&#39; and indices </span><span class="si">{</span><span class="n">indices</span><span class="si">}</span><span class="s1">. The name `</span><span class="si">{</span><span class="n">constraint_name</span><span class="si">}</span><span class="s1">` is already in use&#39;</span>
+                             <span class="sa">f</span><span class="s1">&#39; as a </span><span class="si">{</span><span class="n">loc</span><span class="si">}</span><span class="s1"> boundary constraint&#39;</span><span class="p">)</span>
 
         <span class="n">bc</span> <span class="o">=</span> <span class="n">ConstraintOptionsDictionary</span><span class="p">()</span>
         <span class="n">bc_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bc</span><span class="p">)</span>
@@ -1762,6 +1783,7 @@ title="Open an issue"
         <span class="n">bc</span><span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">linear</span>
         <span class="n">bc</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">units</span>
         <span class="n">bc</span><span class="p">[</span><span class="s1">&#39;flat_indices&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">flat_indices</span>
+        <span class="n">bc</span><span class="p">[</span><span class="s1">&#39;is_expr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_expr</span>
 
         <span class="c1"># Automatically add the requested variable to the timeseries outputs if it&#39;s an ODE output.</span>
         <span class="n">var_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classify_var</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
@@ -1778,11 +1800,13 @@ title="Open an issue"
 <span class="sd">        Parameters</span>
 <span class="sd">        ----------</span>
 <span class="sd">        name : str</span>
-<span class="sd">            Name of the response variable in the system.</span>
+<span class="sd">            Name of the variable to constrain. May also provide an expression to be evaluated and constrained.</span>
+<span class="sd">            If a single variable and the name is not a state, control, or &#39;time&#39;,</span>
+<span class="sd">            then this is assumed to be the path of the variable to be constrained in the ODE.</span>
+<span class="sd">            If an expression, it must be provided in the form of an equation with a left- and right-hand side.</span>
 <span class="sd">        constraint_name : str or None</span>
-<span class="sd">            The name of the variable as provided to the boundary constraint comp.  By</span>
-<span class="sd">            default this is the last element in `name` when split by dots.  The user may</span>
-<span class="sd">            override the constraint name if splitting the path causes name collisions.</span>
+<span class="sd">            The name of the path constraint. By default, this is &#39;var_constraint&#39; if name is a single variable,</span>
+<span class="sd">             or the left-hand side of the equation if name is an expression.</span>
 <span class="sd">        units : str or None</span>
 <span class="sd">            The units in which the boundary constraint is to be applied.  If None, use the</span>
 <span class="sd">            units associated with the constrained output.  If provided, must be compatible with</span>
@@ -1819,7 +1843,19 @@ title="Open an issue"
 <span class="sd">            If True, treat indices as flattened C-ordered indices of elements to constrain at each given point in time.</span>
 <span class="sd">            Otherwise, indices should be a tuple or list giving the elements to constrain at each point in time.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="k">if</span> <span class="n">constraint_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">expr_operators</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;(&#39;</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">,</span> <span class="s1">&#39;/&#39;</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">,</span> <span class="s1">&#39;&amp;&#39;</span><span class="p">,</span> <span class="s1">&#39;%&#39;</span><span class="p">,</span> <span class="s1">&#39;@&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="s1">&#39;=&#39;</span> <span class="ow">in</span> <span class="n">name</span><span class="p">:</span>
+            <span class="n">is_expr</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">elif</span> <span class="s1">&#39;=&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">name</span> <span class="ow">and</span> <span class="nb">any</span><span class="p">(</span><span class="n">opr</span> <span class="ow">in</span> <span class="n">name</span> <span class="k">for</span> <span class="n">opr</span> <span class="ow">in</span> <span class="n">expr_operators</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;The expression provided `</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">` has invalid format. &#39;</span>
+                             <span class="s1">&#39;Expression may be a single variable or an equation &#39;</span>
+                             <span class="s1">&#39;of the form `constraint_name = func(vars)`&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">is_expr</span> <span class="o">=</span> <span class="kc">False</span>
+
+        <span class="k">if</span> <span class="n">is_expr</span><span class="p">:</span>
+            <span class="n">constraint_name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;=&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">constraint_name</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
             <span class="n">constraint_name</span> <span class="o">=</span> <span class="n">name</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
         <span class="n">existing_pc</span> <span class="o">=</span> <span class="p">[</span><span class="n">pc</span> <span class="k">for</span> <span class="n">pc</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path_constraints</span>
@@ -1828,6 +1864,14 @@ title="Open an issue"
         <span class="k">if</span> <span class="n">existing_pc</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cannot add new path constraint for variable `</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s1">` and indices </span><span class="si">{</span><span class="n">indices</span><span class="si">}</span><span class="s1">. &#39;</span>
                              <span class="sa">f</span><span class="s1">&#39;One already exists.&#39;</span><span class="p">)</span>
+
+        <span class="n">existing_bc_name</span> <span class="o">=</span> <span class="p">[</span><span class="n">pc</span> <span class="k">for</span> <span class="n">pc</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_path_constraints</span>
+                            <span class="k">if</span> <span class="n">pc</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">constraint_name</span> <span class="ow">and</span> <span class="n">pc</span><span class="p">[</span><span class="s1">&#39;indices&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">indices</span> <span class="ow">and</span>
+                            <span class="n">pc</span><span class="p">[</span><span class="s1">&#39;flat_indices&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">flat_indices</span><span class="p">]</span>
+
+        <span class="k">if</span> <span class="n">existing_bc_name</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Cannot add new path constraint named `</span><span class="si">{</span><span class="n">constraint_name</span><span class="si">}</span><span class="s1">` and indices </span><span class="si">{</span><span class="n">indices</span><span class="si">}</span><span class="s1">.&#39;</span>
+                             <span class="sa">f</span><span class="s1">&#39; The name `</span><span class="si">{</span><span class="n">constraint_name</span><span class="si">}</span><span class="s1">` is already in use as a path constraint&#39;</span><span class="p">)</span>
 
         <span class="n">pc</span> <span class="o">=</span> <span class="n">ConstraintOptionsDictionary</span><span class="p">()</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_path_constraints</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pc</span><span class="p">)</span>
@@ -1846,6 +1890,7 @@ title="Open an issue"
         <span class="n">pc</span><span class="p">[</span><span class="s1">&#39;linear&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">linear</span>
         <span class="n">pc</span><span class="p">[</span><span class="s1">&#39;units&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">units</span>
         <span class="n">pc</span><span class="p">[</span><span class="s1">&#39;flat_indices&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">flat_indices</span>
+        <span class="n">pc</span><span class="p">[</span><span class="s1">&#39;is_expr&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">is_expr</span>
 
         <span class="c1"># Automatically add the requested variable to the timeseries outputs if it&#39;s an ODE output.</span>
         <span class="n">var_type</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">classify_var</span><span class="p">(</span><span class="n">name</span><span class="p">)</span>
@@ -2368,7 +2413,9 @@ title="Open an issue"
 
         <span class="n">_configure_constraint_introspection</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
-        <span class="n">transcription</span><span class="o">.</span><span class="n">_configure_boundary_constraints</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">configure_timeseries_expr_introspection</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="n">transcription</span><span class="o">.</span><span class="n">configure_boundary_constraints</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 
         <span class="n">transcription</span><span class="o">.</span><span class="n">configure_path_constraints</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
 

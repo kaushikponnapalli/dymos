@@ -855,8 +855,8 @@ without friction along the wire moves from point A to point B in minimum time.</
 <section id="system-dynamics">
 <h2>System dynamics<a class="headerlink" href="#system-dynamics" title="Permalink to this headline">#</a></h2>
 <p>From the free-body diagram above, the evolution of the state variables is given by the following ordinary differential equations (ODE).</p>
-<div class="amsmath math notranslate nohighlight" id="equation-f0db0a38-6beb-4247-8788-aca71e1a8bd1">
-<span class="eqno">(13)<a class="headerlink" href="#equation-f0db0a38-6beb-4247-8788-aca71e1a8bd1" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8f3c75eb-27c8-4a54-8046-4d59c47fad08">
+<span class="eqno">(13)<a class="headerlink" href="#equation-8f3c75eb-27c8-4a54-8046-4d59c47fad08" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{d x}{d t} &amp;= v \sin(\theta) \\
     \frac{d y}{d t} &amp;= -v \cos(\theta) \\
     \frac{d v}{d t} &amp;= g \cos(\theta)
@@ -874,8 +874,8 @@ without friction along the wire moves from point A to point B in minimum time.</
 <p>In this case, starting point <strong>A</strong> is given as <em>(0, 10)</em>.
 The point moving along the curve will begin there with zero initial velocity.</p>
 <p>The initial conditions are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bad48610-0e88-46a9-893f-c928efca71cc">
-<span class="eqno">(14)<a class="headerlink" href="#equation-bad48610-0e88-46a9-893f-c928efca71cc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7fbe8ca2-f2cd-460b-9ee5-dbef3cda9068">
+<span class="eqno">(14)<a class="headerlink" href="#equation-7fbe8ca2-f2cd-460b-9ee5-dbef3cda9068" title="Permalink to this equation">#</a></span>\[\begin{align}
     x_0 &amp;= 0 \\
     y_0 &amp;= 10 \\
     v_0 &amp;= 0
@@ -883,8 +883,8 @@ The point moving along the curve will begin there with zero initial velocity.</p
 <p>The end point <strong>B</strong> is given as <em>(10, 5)</em>.
 The point will end there, but the velocity at that point is not constrained.</p>
 <p>The final conditions are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-01997d18-e122-44a9-b4bd-3ab6d8721400">
-<span class="eqno">(15)<a class="headerlink" href="#equation-01997d18-e122-44a9-b4bd-3ab6d8721400" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7b9e5527-d89a-4f5c-bce2-23a39adc1a2e">
+<span class="eqno">(15)<a class="headerlink" href="#equation-7b9e5527-d89a-4f5c-bce2-23a39adc1a2e" title="Permalink to this equation">#</a></span>\[\begin{align}
     x_f &amp;= 10 \\
     y_f &amp;= 5 \\
     v_f &amp;= \mathrm{free}
@@ -1049,17 +1049,17 @@ Component: BrachistochroneODE &#39;ode&#39;
 -------------------------------------------------------------------------------
 
 &#39;check&#39;    wrt &#39;g&#39;          | 0.0000e+00 | 0.0000e+00 | 0.0000e+00 | nan
-&#39;check&#39;    wrt &#39;theta&#39;      | 1.2669e+01 | 1.2669e+01 | 2.0351e-15 | 1.6064e-16
-&#39;check&#39;    wrt &#39;v&#39;          | 3.6633e+00 | 3.6633e+00 | 4.9651e-16 | 1.3553e-16
-&#39;vdot&#39;     wrt &#39;g&#39;          | 1.4985e+00 | 1.4985e+00 | 1.1102e-16 | 7.4088e-17
-&#39;vdot&#39;     wrt &#39;theta&#39;      | 1.6276e+01 | 1.6276e+01 | 8.8818e-16 | 5.4571e-17
+&#39;check&#39;    wrt &#39;theta&#39;      | 2.4339e+01 | 2.4339e+01 | 8.9268e-15 | 3.6677e-16
+&#39;check&#39;    wrt &#39;v&#39;          | 4.1603e+00 | 4.1603e+00 | 4.9651e-16 | 1.1935e-16
+&#39;vdot&#39;     wrt &#39;g&#39;          | 1.4594e+00 | 1.4594e+00 | 1.5762e-16 | 1.0801e-16
+&#39;vdot&#39;     wrt &#39;theta&#39;      | 1.6614e+01 | 1.6614e+01 | 3.8715e-15 | 2.3302e-16
 &#39;vdot&#39;     wrt &#39;v&#39;          | 0.0000e+00 | 0.0000e+00 | 0.0000e+00 | nan
 &#39;xdot&#39;     wrt &#39;g&#39;          | 0.0000e+00 | 0.0000e+00 | 0.0000e+00 | nan
-&#39;xdot&#39;     wrt &#39;theta&#39;      | 5.7953e+00 | 5.7953e+00 | 6.2804e-16 | 1.0837e-16
-&#39;xdot&#39;     wrt &#39;v&#39;          | 1.6596e+00 | 1.6596e+00 | 0.0000e+00 | 0.0000e+00
+&#39;xdot&#39;     wrt &#39;theta&#39;      | 5.9141e+00 | 5.9141e+00 | 9.4216e-16 | 1.5931e-16
+&#39;xdot&#39;     wrt &#39;v&#39;          | 1.6942e+00 | 1.6942e+00 | 2.7756e-16 | 1.6383e-16
 &#39;ydot&#39;     wrt &#39;g&#39;          | 0.0000e+00 | 0.0000e+00 | 0.0000e+00 | nan
-&#39;ydot&#39;     wrt &#39;theta&#39;      | 9.8341e+00 | 9.8341e+00 | 1.8319e-15 | 1.8628e-16
-&#39;ydot&#39;     wrt &#39;v&#39;          | 1.4985e+00 | 1.4985e+00 | 1.1102e-16 | 7.4088e-17
+&#39;ydot&#39;     wrt &#39;theta&#39;      | 1.0318e+01 | 1.0318e+01 | 1.8478e-15 | 1.7908e-16
+&#39;ydot&#39;     wrt &#39;v&#39;          | 1.4594e+00 | 1.4594e+00 | 1.5762e-16 | 1.0801e-16
 
 ##################################################################
 Sub Jacobian with Largest Relative Error: BrachistochroneODE &#39;ode&#39;
@@ -1067,11 +1067,7 @@ Sub Jacobian with Largest Relative Error: BrachistochroneODE &#39;ode&#39;
 
 &#39;&lt;output&gt;&#39; wrt &#39;&lt;variable&gt;&#39; | calc mag.  | check mag. | a(cal-chk) | r(cal-chk)
 -------------------------------------------------------------------------------
-&#39;ydot&#39;     wrt &#39;theta&#39;      | 9.8341e+00 | 9.8341e+00 | 1.8319e-15 | 1.8628e-16
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/problem.py:2565: DerivativesWarning:No derivative data found for Component &#39;_auto_ivc&#39;.
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/problem.py:2565: DerivativesWarning:No derivative data found for Component &#39;vars&#39;.
+&#39;check&#39;    wrt &#39;theta&#39;      | 2.4339e+01 | 2.4339e+01 | 8.9268e-15 | 3.6677e-16
 </pre></div>
 </div>
 </div>
@@ -1159,12 +1155,17 @@ Sub Jacobian with Largest Relative Error: BrachistochroneODE &#39;ode&#39;
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Constraint Report [traj] ---
     --- phase0 ---
         None
+
+Model viewer data has already been recorded for Driver.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model viewer data has already been recorded for Driver.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/utils/hooks.py:266: OpenMDAOWarning:Couldn&#39;t find the given &#39;post&#39; function in the post hooks for Driver._get_coloring.
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/utils/hooks.py:266: OpenMDAOWarning:Couldn&#39;t find the given &#39;post&#39; function in the post hooks for Driver._get_coloring.
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/utils/hooks.py:266: OpenMDAOWarning:Couldn&#39;t find the given &#39;post&#39; function in the post hooks for Driver._compute_totals.
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/utils/hooks.py:266: OpenMDAOWarning:Couldn&#39;t find the given &#39;post&#39; function in the post hooks for Driver._compute_totals.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.049712 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.031369 seconds.
 Total jacobian shape: (40, 50) 
 
 
@@ -1173,8 +1174,8 @@ FWD solves: 13   REV solves: 0
 Total colors vs. total size: 13 vs 50  (74.0% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.049712 sec.
-Time to compute coloring: 0.053406 sec.
+Time to compute sparsity: 0.031369 sec.
+Time to compute coloring: 0.034781 sec.
 Memory to compute coloring: 0.000000 MB.
 </pre></div>
 </div>
@@ -1185,10 +1186,6 @@ Memory to compute coloring: 0.000000 MB.
             Gradient evaluations: 24
 Optimization Complete
 -----------------------------------
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/tabulate/__init__.py:108: FutureWarning: elementwise comparison failed; returning scalar instead, but in the future will perform elementwise comparison
-  or (len(row) &gt;= 2 and row[1] == SEPARATING_LINE)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[1.80161673]
@@ -1319,6 +1316,15 @@ Key differences are shown when defining the transcription, specifying how to con
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/utils/hooks.py:266: OpenMDAOWarning:Couldn&#39;t find the given &#39;post&#39; function in the post hooks for Driver._get_coloring.
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/utils/hooks.py:266: OpenMDAOWarning:Couldn&#39;t find the given &#39;post&#39; function in the post hooks for Driver._get_coloring.
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/utils/hooks.py:266: OpenMDAOWarning:Couldn&#39;t find the given &#39;post&#39; function in the post hooks for Driver._get_coloring.
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/utils/hooks.py:266: OpenMDAOWarning:Couldn&#39;t find the given &#39;post&#39; function in the post hooks for Driver._compute_totals.
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/utils/hooks.py:266: OpenMDAOWarning:Couldn&#39;t find the given &#39;post&#39; function in the post hooks for Driver._compute_totals.
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/utils/hooks.py:266: OpenMDAOWarning:Couldn&#39;t find the given &#39;post&#39; function in the post hooks for Driver._compute_totals.
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/recorders/sqlite_recorder.py:227: UserWarning:The existing case recorder file, dymos_solution.db, is being overwritten.
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Constraint Report [traj] ---
     --- phase0 ---
         [final]   1.0000e+01 == x [m]
@@ -1327,10 +1333,7 @@ Key differences are shown when defining the transcription, specifying how to con
 Model viewer data has already been recorded for Driver.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/recorders/sqlite_recorder.py:227: UserWarning:The existing case recorder file, dymos_solution.db, is being overwritten.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.014363 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.009461 seconds.
 Total jacobian shape: (12, 22) 
 
 
@@ -1339,15 +1342,15 @@ FWD solves: 0   REV solves: 12
 Total colors vs. total size: 12 vs 12  (0.0% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.014363 sec.
-Time to compute coloring: 0.018231 sec.
+Time to compute sparsity: 0.009461 sec.
+Time to compute coloring: 0.014489 sec.
 Memory to compute coloring: 0.000000 MB.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/driver.py:1301: DerivativesWarning:ScipyOptimizeDriver: Coloring was deactivated.  Improvement of 0.0% was less than min allowed (5.0%).
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.012798 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.007729 seconds.
 Total jacobian shape: (12, 22) 
 
 
@@ -1356,12 +1359,25 @@ FWD solves: 0   REV solves: 12
 Total colors vs. total size: 12 vs 12  (0.0% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.012798 sec.
-Time to compute coloring: 0.019103 sec.
+Time to compute sparsity: 0.007729 sec.
+Time to compute coloring: 0.014270 sec.
+Memory to compute coloring: 0.000000 MB.
+Full total jacobian was computed 3 times, taking 0.007699 seconds.
+Total jacobian shape: (12, 22) 
+
+
+Jacobian shape: (12, 22)  (100.00% nonzero)
+FWD solves: 0   REV solves: 12
+Total colors vs. total size: 12 vs 12  (0.0% improvement)
+
+Sparsity computed using tolerance: 1e-25
+Time to compute sparsity: 0.007699 sec.
+Time to compute coloring: 0.014001 sec.
 Memory to compute coloring: 0.000000 MB.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/driver.py:1301: DerivativesWarning:ScipyOptimizeDriver: Coloring was deactivated.  Improvement of 0.0% was less than min allowed (5.0%).
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/driver.py:1301: DerivativesWarning:ScipyOptimizeDriver: Coloring was deactivated.  Improvement of 0.0% was less than min allowed (5.0%).
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully    (Exit mode 0)
