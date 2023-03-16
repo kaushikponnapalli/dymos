@@ -1,49 +1,60 @@
 
+
 <!DOCTYPE html>
 
-<html>
+
+<html lang="en" >
+
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
     <title>Water Rocket &#8212; Dymos</title>
-    
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
 
-    
-  <link rel="stylesheet"
-    href="../../_static/vendor/fontawesome/5.13.0/css/all.min.css">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
-  <link rel="preload" as="font" type="font/woff2" crossorigin
-    href="../../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+  
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
-    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" href="../../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
     <link rel="stylesheet" type="text/css" href="../../_static/togglebutton.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/myfile.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
-    
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <script src="../../_static/clipboard.min.js"></script>
     <script src="../../_static/copybutton.js"></script>
-    <script src="../../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script src="../../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
     <script>let toggleHintShow = 'Click to show';</script>
     <script>let toggleHintHide = 'Click to hide';</script>
     <script>let toggleOpenOnPrint = 'true';</script>
     <script src="../../_static/togglebutton.js"></script>
-    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
     <script src="../../_static/design-tabs.js"></script>
     <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
 const thebe_selector = ".thebe,.cell"
@@ -53,61 +64,93 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/water_rocket/water_rocket';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Cart-Pole Optimal Control" href="../cart_pole/cart_pole.html" />
     <link rel="prev" title="The Robertson Problem" href="../robertson_problem/robertson_problem.html" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="docsearch:language" content="None">
-    
-
-    <!-- Google Analytics -->
-    
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
-  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
-<!-- Checkboxes to toggle the left sidebar -->
-<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
-<label class="overlay overlay-navbar" for="__navigation">
-    <div class="visually-hidden">Toggle navigation sidebar</div>
-</label>
-<!-- Checkboxes to toggle the in-page toc -->
-<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
-<label class="overlay overlay-pagetoc" for="__page-toc">
-    <div class="visually-hidden">Toggle in-page Table of Contents</div>
-</label>
-<!-- Headers at the top -->
-<div class="announcement header-item noprint"></div>
-<div class="header header-item noprint"></div>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-    
-    <div class="container-fluid" id="banner"></div>
-
-    
-
-    <div class="container-xl">
-      <div class="row">
-          
-<!-- Sidebar -->
-<div class="bd-sidebar noprint" id="site-navigation">
-    <div class="bd-sidebar__content">
-        <div class="bd-sidebar__top"><div class="navbar-brand-box">
-    <a class="navbar-brand text-wrap" href="../../index.html">
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
       
-        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+      <div class="bd-sidebar-primary bd-sidebar">
         
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+    
+    
       
-      
-      <img src="../../_static/dymos_logo.png" class="logo" alt="logo">
-      
-      
-      <h1 class="site-logo" id="site-title">Dymos</h1>
-      
-    </a>
-</div><form class="bd-search d-flex align-items-center" action="../../search.html" method="get">
-  <i class="icon fas fa-search"></i>
-  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
-</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
-    <div class="bd-toc-item active">
+    
+    
+    <img src="../../_static/dymos_logo.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../../_static/dymos_logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
         
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
@@ -116,856 +159,368 @@ const thebe_selector_output = ".output, .cell_output"
                 </a>
             </li>
         </ul>
-        <p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Installation
- </span>
-</p>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Installation</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../installation.html">
-   Installing Dymos
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../installation.html">Installing Dymos</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Getting Started
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../getting_started/optimal_control.html">
-   Optimal Control
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../getting_started/transcriptions.html">
-   Optimal Control Transcriptions
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../getting_started/defining_odes.html">
-   Defining ODEs
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../getting_started/collocation.html">
-   What is collocation?
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../getting_started/intro_to_dymos/intro_ivp.html">
-   Modeling Dynamic Systems with Dymos
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../getting_started/intro_to_dymos/intro_segments.html">
-   Segments of Phases
-  </a>
- </li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/optimal_control.html">Optimal Control</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/transcriptions.html">Optimal Control Transcriptions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/defining_odes.html">Defining ODEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/collocation.html">What is collocation?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/intro_to_dymos/intro_ivp.html">Modeling Dynamic Systems with Dymos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../getting_started/intro_to_dymos/intro_segments.html">Segments of Phases</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Examples and Tutorials
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Examples and Tutorials</span></p>
 <ul class="current nav bd-sidenav">
- <li class="toctree-l1 current active has-children">
-  <a class="reference internal" href="../examples.html">
-   Dymos by Example
-  </a>
-  <input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/>
-  <label for="toctree-checkbox-1">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul class="current">
-   <li class="toctree-l2">
-    <a class="reference internal" href="../brachistochrone/brachistochrone.html">
-     The Brachistochrone
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../brachistochrone/brachistochrone_upstream_init_duration_states.html">
-     The Brachistochrone with externally-sourced initial state values
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../vanderpol/vanderpol.html">
-     The Van der Pol Oscillator
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../balanced_field/balanced_field.html">
-     Aircraft Balanced Field Length Calculation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../balanced_field/balanced_field_funccomp.html">
-     Balanced Field Length using OpenMDAO’s Function Wrapping Components.
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../bryson_denham/bryson_denham.html">
-     The Bryson-Denham Problem
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../commercial_aircraft/commercial_aircraft.html">
-     Commercial Aircraft Range Maximization by Differential Inclusion
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../double_integrator/double_integrator.html">
-     Double Integrator
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../hypersensitive/hypersensitive.html">
-     Hyper-Sensitive Problem
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../finite_burn_orbit_raise/finite_burn_orbit_raise.html">
-     Two-Burn Orbit Raise
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../length_constrained_brachistochrone/length_constrained_brachistochrone.html">
-     The Length-Constrained Brachistochrone
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../min_time_climb/min_time_climb.html">
-     Supersonic Interceptor Minimum Time Climb
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../mountain_car/mountain_car.html">
-     The Mountain Car Problem
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../multi_phase_cannonball/multi_phase_cannonball.html">
-     Multi-Phase Cannonball
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../multibranch_trajectory/multibranch_trajectory.html">
-     Multibranch Trajectory
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../racecar/racecar.html">
-     Race car Lap Simulation
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../reentry/reentry.html">
-     Single-Phase Space Shuttle Reentry
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ssto_earth/ssto_earth.html">
-     SSTO Earth Launch
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ssto_moon_linear_tangent/ssto_moon_linear_tangent.html">
-     SSTO Lunar Ascent with Linear Tangent Guidance
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../ssto_moon_polynomial_controls/ssto_moon_polynomial_controls.html">
-     SSTO Lunar Ascent with Polynomial Controls
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../robertson_problem/robertson_problem.html">
-     The Robertson Problem
-    </a>
-   </li>
-   <li class="toctree-l2 current active">
-    <a class="current reference internal" href="#">
-     Water Rocket
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../cart_pole/cart_pole.html">
-     Cart-Pole Optimal Control
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../brachistochrone/brachistochrone_tandem_phases.html">
-     Brachistochrone with tandem phases
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="../examples.html">Dymos by Example</a><input checked="" class="toctree-checkbox" id="toctree-checkbox-1" name="toctree-checkbox-1" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-1"><i class="fa-solid fa-chevron-down"></i></label><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../brachistochrone/brachistochrone.html">The Brachistochrone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../brachistochrone/brachistochrone_upstream_init_duration_states.html">The Brachistochrone with externally-sourced initial state values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../vanderpol/vanderpol.html">The Van der Pol Oscillator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../balanced_field/balanced_field.html">Aircraft Balanced Field Length Calculation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../balanced_field/balanced_field_funccomp.html">Balanced Field Length using OpenMDAO’s Function Wrapping Components.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../bryson_denham/bryson_denham.html">The Bryson-Denham Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../commercial_aircraft/commercial_aircraft.html">Commercial Aircraft Range Maximization by Differential Inclusion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../double_integrator/double_integrator.html">Double Integrator</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hull/hull_problem.html">The Hull Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../hypersensitive/hypersensitive.html">Hyper-Sensitive Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../finite_burn_orbit_raise/finite_burn_orbit_raise.html">Two-Burn Orbit Raise</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../length_constrained_brachistochrone/length_constrained_brachistochrone.html">The Length-Constrained Brachistochrone</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../min_time_climb/min_time_climb.html">Supersonic Interceptor Minimum Time Climb</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../mountain_car/mountain_car.html">The Mountain Car Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multi_phase_cannonball/multi_phase_cannonball.html">Multi-Phase Cannonball</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../multibranch_trajectory/multibranch_trajectory.html">Multibranch Trajectory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../racecar/racecar.html">Race car Lap Simulation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../reentry/reentry.html">Single-Phase Space Shuttle Reentry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ssto_earth/ssto_earth.html">SSTO Earth Launch</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ssto_moon_linear_tangent/ssto_moon_linear_tangent.html">SSTO Lunar Ascent with Linear Tangent Guidance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../ssto_moon_polynomial_controls/ssto_moon_polynomial_controls.html">SSTO Lunar Ascent with Polynomial Controls</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../robertson_problem/robertson_problem.html">The Robertson Problem</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Water Rocket</a></li>
+
+<li class="toctree-l2"><a class="reference internal" href="../cart_pole/cart_pole.html">Cart-Pole Optimal Control</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../brachistochrone/brachistochrone_tandem_phases.html">Brachistochrone with tandem phases</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Feature Reference
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../features/phases/phases_list.html">
-   Phases
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/>
-  <label for="toctree-checkbox-2">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../features/phases/phases.html">
-     Phases of a Trajectory
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../features/phases/analytic_phases.html">
-     Analytic Phases in Dymos
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../features/phases/segments.html">
-     Segments
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../features/phases/variables.html">
-     Variables
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../features/phases/constraints.html">
-     Constraints
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../features/phases/objective.html">
-     Objective
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../features/phases/timeseries.html">
-     Timeseries Outputs
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../features/trajectories/trajectories.html">
-   Organizing Phases into Trajectories
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../features/exploiting_sparsity.html">
-   Exploiting Sparsity for Faster Derivative Calculation
-  </a>
- </li>
- <li class="toctree-l1">
-  <a class="reference internal" href="../../features/plotting.html">
-   Plotting Timeseries
-  </a>
- </li>
+</li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Frequently Asked Questions
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Feature Reference</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../faq/faq.html">
-   Frequently Asked Questions
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/>
-  <label for="toctree-checkbox-3">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../faq/add_ode_output_to_timeseries.html">
-     How do I add an ODE output to the timeseries outputs?
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../faq/connect_scalar_parameters_to_ode.html">
-     How do I connect a scalar input to the ODE?
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../faq/upstream_analysis.html">
-     How do I connect the outputs of an upstream analysis as inputs to Dymos?
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../faq/downstream_analysis.html">
-     How do I connect the outputs of Dymos to a downstream analysis?
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../faq/tandem_phases.html">
-     How do I run two phases parallel-in-time?
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../faq/use_partial_coloring.html">
-     How can I more efficiently use finite-differenced components in the ODE?
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../faq/debugging.html">
-     How can I debug models when things go wrong?
-    </a>
-   </li>
-  </ul>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../features/phases/phases_list.html">Phases</a><input class="toctree-checkbox" id="toctree-checkbox-2" name="toctree-checkbox-2" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-2"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../features/phases/phases.html">Phases of a Trajectory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features/phases/analytic_phases.html">Analytic Phases in Dymos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features/phases/segments.html">Segments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features/phases/variables.html">Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features/phases/constraints.html">Constraints</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features/phases/objective.html">Objective</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../features/phases/timeseries.html">Timeseries Outputs</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Dymos API Reference
- </span>
-</p>
-<ul class="nav bd-sidenav">
- <li class="toctree-l1 has-children">
-  <a class="reference internal" href="../../api/api.html">
-   Dymos Reference API
-  </a>
-  <input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/>
-  <label for="toctree-checkbox-4">
-   <i class="fas fa-chevron-down">
-   </i>
-  </label>
-  <ul>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../api/run_problem_function.html">
-     The run_problem function
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../api/phase_api.html">
-     The Phase API
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../api/transcriptions_api.html">
-     The Transcriptions API
-    </a>
-   </li>
-   <li class="toctree-l2">
-    <a class="reference internal" href="../../api/trajectory_api.html">
-     The Trajectory API
-    </a>
-   </li>
-  </ul>
- </li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../features/trajectories/trajectories.html">Organizing Phases into Trajectories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features/exploiting_sparsity.html">Exploiting Sparsity for Faster Derivative Calculation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../features/plotting.html">Plotting Timeseries</a></li>
 </ul>
-<p aria-level="2" class="caption" role="heading">
- <span class="caption-text">
-  Contributing
- </span>
-</p>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Frequently Asked Questions</span></p>
 <ul class="nav bd-sidenav">
- <li class="toctree-l1">
-  <a class="reference internal" href="../../contributing/contributing.html">
-   Contributing to Dymos
-  </a>
- </li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../faq/faq.html">Frequently Asked Questions</a><input class="toctree-checkbox" id="toctree-checkbox-3" name="toctree-checkbox-3" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-3"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../faq/add_ode_output_to_timeseries.html">How do I add an ODE output to the timeseries outputs?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq/connect_scalar_parameters_to_ode.html">How do I connect a scalar input to the ODE?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq/upstream_analysis.html">How do I connect the outputs of an upstream analysis as inputs to Dymos?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq/downstream_analysis.html">How do I connect the outputs of Dymos to a downstream analysis?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq/tandem_phases.html">How do I run two phases parallel-in-time?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq/use_partial_coloring.html">How can I more efficiently use finite-differenced components in the ODE?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../faq/debugging.html">How can I debug models when things go wrong?</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Dymos API Reference</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="../../api/api.html">Dymos Reference API</a><input class="toctree-checkbox" id="toctree-checkbox-4" name="toctree-checkbox-4" type="checkbox"/><label class="toctree-toggle" for="toctree-checkbox-4"><i class="fa-solid fa-chevron-down"></i></label><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../api/run_problem_function.html">The run_problem function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/phase_api.html">The Phase API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/transcriptions_api.html">The Transcriptions API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../api/trajectory_api.html">The Trajectory API</a></li>
+</ul>
+</li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Contributing</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../../contributing/contributing.html">Contributing to Dymos</a></li>
 </ul>
 
     </div>
 </nav></div>
-        <div class="bd-sidebar__bottom">
-             <!-- To handle the deprecated key -->
-            
-            <div class="navbar_extra_footer">
-            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
-            </div>
-            
-        </div>
     </div>
-    <div id="rtd-footer-container"></div>
-</div>
-
-
-          
-
-
-          
-<!-- A tiny helper pixel to detect if we've scrolled -->
-<div class="sbt-scroll-pixel-helper"></div>
-<!-- Main content -->
-<div class="col py-0 content-container">
-    
-    <div class="header-article row sticky-top noprint">
-        
-
-
-
-<div class="col py-1 d-flex header-article-main">
-    <div class="header-article__left">
-        
-        <label for="__navigation"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="right"
-title="Toggle navigation"
->
   
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-bars"></i>
-  </span>
-
-</label>
-
-        
-    </div>
-    <div class="header-article__right">
-<div class="menu-dropdown menu-dropdown-launch-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Launch interactive content">
-      <i class="fas fa-rocket"></i>
-  </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://mybinder.org/v2/gh/OpenMDAO/dymos/master?urlpath=tree/docs/dymos_book/examples/water_rocket/water_rocket.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Binder"
->
   
-
-<span class="headerbtn__icon-container">
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
   
-    <img src="../../_static/images/logo_binder.svg">
-  </span>
-<span class="headerbtn__text-container">Binder</span>
-</a>
+  <div id="rtd-footer-container"></div>
 
-      </li>
+
+      </div>
       
-      <li>
-        <a href="https://colab.research.google.com/github/OpenMDAO/dymos/blob/master/docs/dymos_book/examples/water_rocket/water_rocket.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Launch on Colab"
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/OpenMDAO/dymos/blob/master/docs/dymos_book/examples/water_rocket/water_rocket.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch onColab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
   
     <img src="../../_static/images/logo_colab.png">
   </span>
-<span class="headerbtn__text-container">Colab</span>
+<span class="btn__text-container">Colab</span>
 </a>
-
-      </li>
+</li>
       
-    </ul>
-  </div>
+  </ul>
 </div>
 
-<button onclick="toggleFullScreen()"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="bottom"
-title="Fullscreen mode"
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/OpenMDAO/dymos" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
 >
   
 
-<span class="headerbtn__icon-container">
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/OpenMDAO/dymos/issues/new?title=Issue%20on%20page%20%2Fexamples/water_rocket/water_rocket.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../../_sources/examples/water_rocket/water_rocket.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
   <i class="fas fa-expand"></i>
   </span>
 
 </button>
 
-<div class="menu-dropdown menu-dropdown-repository-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Source repositories">
-      <i class="fab fa-github"></i>
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="https://github.com/OpenMDAO/dymos"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Source repository"
->
-  
+`);
+</script>
 
-<span class="headerbtn__icon-container">
-  <i class="fab fa-github"></i>
-  </span>
-<span class="headerbtn__text-container">repository</span>
-</a>
-
-      </li>
-      
-      <li>
-        <a href="https://github.com/OpenMDAO/dymos/issues/new?title=Issue%20on%20page%20%2Fexamples/water_rocket/water_rocket.html&body=Your%20issue%20content%20here."
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Open an issue"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-lightbulb"></i>
-  </span>
-<span class="headerbtn__text-container">open issue</span>
-</a>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-
-<div class="menu-dropdown menu-dropdown-download-buttons">
-  <button class="headerbtn menu-dropdown__trigger"
-      aria-label="Download this page">
-      <i class="fas fa-download"></i>
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
   </button>
-  <div class="menu-dropdown__content">
-    <ul>
-      <li>
-        <a href="../../_sources/examples/water_rocket/water_rocket.ipynb"
-   class="headerbtn"
-   data-toggle="tooltip"
-data-placement="left"
-title="Download source file"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file"></i>
-  </span>
-<span class="headerbtn__text-container">.ipynb</span>
-</a>
-
-      </li>
-      
-      <li>
-        
-<button onclick="printPdf(this)"
-  class="headerbtn"
-  data-toggle="tooltip"
-data-placement="left"
-title="Print to PDF"
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-file-pdf"></i>
-  </span>
-<span class="headerbtn__text-container">.pdf</span>
-</button>
-
-      </li>
-      
-    </ul>
-  </div>
-</div>
-<label for="__page-toc"
-  class="headerbtn headerbtn-page-toc"
-  
->
-  
-
-<span class="headerbtn__icon-container">
-  <i class="fas fa-list"></i>
-  </span>
-
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
 </label>
-
+</div></div>
+      
     </div>
+  
 </div>
-
-<!-- Table of contents -->
-<div class="col-md-3 bd-toc show noprint">
-    <div class="tocsection onthispage pt-5 pb-3">
-        <i class="fas fa-list"></i> Contents
-    </div>
-    <nav id="bd-toc-nav" aria-label="Page">
-        <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Water Rocket
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#nomenclature">
-     Nomenclature
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem-formulation">
-     Problem Formulation
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#model">
-     Model
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#water-engine">
-       Water engine
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#constitutive-equations-of-the-water-engine-model">
-       Constitutive equations of the water engine model
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
-       Water engine
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id8">
-       Constitutive equations of the water engine model
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#phases">
-     Phases
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#model-parameters">
-     Model parameters
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#putting-it-all-together">
-     Putting it all together
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#helper-functions-to-access-the-results">
-     Helper Functions to Access the Results
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#optimizing-for-height">
-     Optimizing for Height
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#maximum-height-solution-propulsive-phase">
-       Maximum Height Solution: Propulsive Phase
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#maximum-height-solution-height-vs-range">
-     Maximum Height Solution: Height vs. Range
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#maximum-height-solution-state-history">
-     Maximum Height Solution: State History
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#optimizing-for-range">
-   Optimizing for Range
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#maximum-range-solution-propulsive-phase">
-     Maximum Range Solution: Propulsive Phase
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#maximum-range-solution-height-vs-range">
-     Maximum Range Solution: Height vs. Range
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#maximum-range-solution-state-history">
-     Maximum Range Solution: State History
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#references">
-     References
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
-
-    </nav>
 </div>
-    </div>
-    <div class="article row">
-        <div class="col pl-md-3 pl-lg-5 content-container">
-            <!-- Table of contents that is only displayed when printing the page -->
-            <div id="jb-print-docs-body" class="onlyprint">
-                <h1>Water Rocket</h1>
-                <!-- Table of contents -->
-                <div id="print-main-content">
-                    <div id="jb-print-toc">
-                        
-                        <div>
-                            <h2> Contents </h2>
-                        </div>
-                        <nav aria-label="Page">
-                            <ul class="visible nav section-nav flex-column">
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#">
-   Water Rocket
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#nomenclature">
-     Nomenclature
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#problem-formulation">
-     Problem Formulation
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#model">
-     Model
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#water-engine">
-       Water engine
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#constitutive-equations-of-the-water-engine-model">
-       Constitutive equations of the water engine model
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id2">
-       Water engine
-      </a>
-     </li>
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#id8">
-       Constitutive equations of the water engine model
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#phases">
-     Phases
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#model-parameters">
-     Model parameters
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#putting-it-all-together">
-     Putting it all together
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#helper-functions-to-access-the-results">
-     Helper Functions to Access the Results
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#optimizing-for-height">
-     Optimizing for Height
-    </a>
-    <ul class="nav section-nav flex-column">
-     <li class="toc-h3 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#maximum-height-solution-propulsive-phase">
-       Maximum Height Solution: Propulsive Phase
-      </a>
-     </li>
-    </ul>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#maximum-height-solution-height-vs-range">
-     Maximum Height Solution: Height vs. Range
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#maximum-height-solution-state-history">
-     Maximum Height Solution: State History
-    </a>
-   </li>
-  </ul>
- </li>
- <li class="toc-h1 nav-item toc-entry">
-  <a class="reference internal nav-link" href="#optimizing-for-range">
-   Optimizing for Range
-  </a>
-  <ul class="visible nav section-nav flex-column">
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#maximum-range-solution-propulsive-phase">
-     Maximum Range Solution: Propulsive Phase
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#maximum-range-solution-height-vs-range">
-     Maximum Range Solution: Height vs. Range
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#maximum-range-solution-state-history">
-     Maximum Range Solution: State History
-    </a>
-   </li>
-   <li class="toc-h2 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#references">
-     References
-    </a>
-   </li>
-  </ul>
- </li>
-</ul>
+              
+              
 
-                        </nav>
-                    </div>
-                </div>
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Water Rocket</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
             </div>
-            <main id="main-content" role="main">
-                
-              <div>
-                
-  <div class="cell tag_active-ipynb tag_remove-input tag_remove-output docutils container">
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Water Rocket</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nomenclature">Nomenclature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-formulation">Problem Formulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model">Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#water-engine">Water engine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constitutive-equations-of-the-water-engine-model">Constitutive equations of the water engine model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phases">Phases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-parameters">Model parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">Putting it all together</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#helper-functions-to-access-the-results">Helper Functions to Access the Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-for-height">Optimizing for Height</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-height-solution-propulsive-phase">Maximum Height Solution: Propulsive Phase</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-height-solution-height-vs-range">Maximum Height Solution: Height vs. Range</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-height-solution-state-history">Maximum Height Solution: State History</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-for-range">Optimizing for Range</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-range-solution-propulsive-phase">Maximum Range Solution: Propulsive Phase</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-range-solution-height-vs-range">Maximum Range Solution: Height vs. Range</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-range-solution-state-history">Maximum Range Solution: State History</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+            </nav>
+        </div>
+    </div>
 </div>
-<section class="tex2jax_ignore mathjax_ignore" id="water-rocket">
-<h1>Water Rocket<a class="headerlink" href="#water-rocket" title="Permalink to this headline">#</a></h1>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="water-rocket">
+<h1>Water Rocket<a class="headerlink" href="#water-rocket" title="Permalink to this heading">#</a></h1>
 <p>Author: Bernardo Bahia Monteiro (<a class="reference external" href="mailto:bbahia&#37;&#52;&#48;umich&#46;edu">bbahia<span>&#64;</span>umich<span>&#46;</span>edu</a>)</p>
 <p>In this example, we will optimize a water rocket for range and height at the apogee, using design variables that are easily modifiable just before launch: the empty mass, the initial water volume and the launch angle.
-This example builds on <a class="reference internal" href="../multi_phase_cannonball/multi_phase_cannonball.html"><span class="doc std std-doc">multi-phase cannonball</span></a> ane is adapted from <em>Optimization of a Water Rocket in OpenMDAO/Dymos</em> <span id="id1">[<a class="reference internal" href="#id58" title="Bernardo Bahia Monteiro. Optimization of a water rocket in openmdao/dymos. Aug 2020. URL: engrxiv.org/nqta8, doi:10.31224/osf.io/nqta8.">BM20</a>]</span>.</p>
+This example builds on <a class="reference internal" href="../multi_phase_cannonball/multi_phase_cannonball.html"><span class="doc std std-doc">multi-phase cannonball</span></a> ane is adapted from <em>Optimization of a Water Rocket in OpenMDAO/Dymos</em> <span id="id1">[<a class="reference internal" href="#id51" title="Bernardo Bahia Monteiro. Optimization of a water rocket in openmdao/dymos. Aug 2020. URL: engrxiv.org/nqta8, doi:10.31224/osf.io/nqta8.">BM20</a>]</span>.</p>
 <section id="nomenclature">
-<h2>Nomenclature<a class="headerlink" href="#nomenclature" title="Permalink to this headline">#</a></h2>
-<table class="colwidths-auto table">
+<h2>Nomenclature<a class="headerlink" href="#nomenclature" title="Permalink to this heading">#</a></h2>
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Symbol</p></th>
 <th class="head"><p>definition</p></th>
@@ -1018,14 +573,14 @@ This example builds on <a class="reference internal" href="../multi_phase_cannon
 </table>
 </section>
 <section id="problem-formulation">
-<h2>Problem Formulation<a class="headerlink" href="#problem-formulation" title="Permalink to this headline">#</a></h2>
+<h2>Problem Formulation<a class="headerlink" href="#problem-formulation" title="Permalink to this heading">#</a></h2>
 <p>A natural objective function for a water rocket is the maximum height achieved by the rocket during flight, or the horizontal distance it travels, i.e. its range.
 The design of a water rocket is somewhat constrained by the soda bottle used as its engine.
 This means that the volume available for water and air is fixed, the initial launch pressure is limited by the bottle’s strength (since the pressure is directly related to the energy available for the rocket, it is easy to see that it should be as high as possible) and the nozzle throat area is also fixed.
 Given these manufacturing constraints, the design variables we are left with are the empty mass (it can be easily changed through adding ballast), the water volume at the launch, and the launch angle.
 With this considerations in mind, a natural formulation for the water rocket problem is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-fa40d96b-821f-4cb4-acec-b1e989b4b6cf">
-<span class="eqno">(79)<a class="headerlink" href="#equation-fa40d96b-821f-4cb4-acec-b1e989b4b6cf" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-69afab63-0e02-486c-99ea-352c64afbe3e">
+<span class="eqno">(84)<a class="headerlink" href="#equation-69afab63-0e02-486c-99ea-352c64afbe3e" title="Permalink to this equation">#</a></span>\[\begin{align}
     \text{maximize}   &amp;\quad \text{range or height} \\
     \text{w.r.t.}     &amp;\quad \text{empty mass, initial water volume, launch angle, trajectory} \\
     \text{subject to} &amp;\quad \text{flight dynamics} \\
@@ -1036,7 +591,7 @@ With this considerations in mind, a natural formulation for the water rocket pro
 \end{align}\]</div>
 </section>
 <section id="model">
-<h2>Model<a class="headerlink" href="#model" title="Permalink to this headline">#</a></h2>
+<h2>Model<a class="headerlink" href="#model" title="Permalink to this heading">#</a></h2>
 <p>The water rocket model is divided into three basic components: a <em>water engine</em>, responsible for modelling the fluid dynamics inside the rocket and returning its thrust;  the <em>aerodynamics</em>, responsible for calculating the atmospheric drag of the rocket; and the <em>equations of motion</em>, responsible for propagating the rocket’s trajectory in time, using Newton’s laws and the forces provided by the other two components.</p>
 <p>In order to integrate these three basic components, some additional interfacing components are necessary: an atmospheric model to provide values of ambient pressure for the water engine and air density to the calculation of the dynamic pressure for the aerodynamic model, and a component that calculates the instantaneous mass of the rocket by summing the water mass with the rocket’s empty mass.
 The high level layout of this model is shown in below.</p>
@@ -1057,12 +612,12 @@ This can cause convergence problems if the launch velocity is set to zero or the
 <p>Since the range of altitudes achieved by the water rocket is very small (100m), the air density and pressure are practically constant, thus the use of an atmospheric model is not necessary. However, using it makes it easier to reuse code from [multi-phase cannonball (../multi_phase_cannonball/multi_phase_cannonball.md).</p>
 </div>
 <section id="water-engine">
-<h3>Water engine<a class="headerlink" href="#water-engine" title="Permalink to this headline">#</a></h3>
+<h3>Water engine<a class="headerlink" href="#water-engine" title="Permalink to this heading">#</a></h3>
 <p>The water engine is modelled by assuming that the air expansion in the rocket
 follows an adiabatic process and the water flow is incompressible and inviscid,
 i.e.  it follows Bernoulli’s equation. We also make the following simplifying
 assumptions:</p>
-<ol class="simple">
+<ol class="arabic simple">
 <li><p>The thrust developed after the water is depleted is negligible</p></li>
 <li><p>The area inside the bottle is much smaller than the nozzle area</p></li>
 <li><p>The inertial forces do not affect the fluid dynamics inside the bottle</p></li>
@@ -1075,54 +630,8 @@ This simplified model, however, produces physically meaningful results.</p>
 The constitutive equations and the N2 diagram showing the model organization are shown below.</p>
 </section>
 <section id="constitutive-equations-of-the-water-engine-model">
-<h3>Constitutive equations of the water engine model<a class="headerlink" href="#constitutive-equations-of-the-water-engine-model" title="Permalink to this headline">#</a></h3>
-<table class="colwidths-auto table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Component</p></th>
-<th class="head"><p>Equation</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>water_exhaust_speed</p></td>
-<td><p><span class="math notranslate nohighlight">\(v_\text{out} = \sqrt{2(p-p_a)/\rho_w}\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p>water_flow_rate</p></td>
-<td><p><span class="math notranslate nohighlight">\(\dot{V}_w = -v_\text{out} A_\text{out}\)</span></p></td>
-</tr>
-<tr class="row-even"><td><p>pressure_rate</p></td>
-<td><p><span class="math notranslate nohighlight">\(\dot{p} = kp\frac{\dot{V_w}}{(V_b-V_w)}\)</span></p></td>
-</tr>
-<tr class="row-odd"><td><p>water_thrust</p></td>
-<td><p><span class="math notranslate nohighlight">\(T = (\rho_w v_\text{out})(v_\text{out}A_\text{out})\)</span></p></td>
-</tr>
-</tbody>
-</table>
-<figure>
-  <img src="figures/water_rocket_waterengine.svg"/>
-  <figcaption>N2 diagram for the water engine group</figcaption>
-</figure>
-</section>
-<section id="id2">
-<h3>Water engine<a class="headerlink" href="#id2" title="Permalink to this headline">#</a></h3>
-<p>The water engine is modelled by assuming that the air expansion in the rocket
-follows an adiabatic process and the water flow is incompressible and inviscid,
-i.e.  it follows Bernoulli’s equation. We also make the following simplifying
-assumptions:</p>
-<ol class="simple">
-<li><p>The thrust developed after the water is depleted is negligible</p></li>
-<li><p>The area inside the bottle is much smaller than the nozzle area</p></li>
-<li><p>The inertial forces do not affect the fluid dynamics inside the bottle</p></li>
-</ol>
-<p>This simplified modelling can be found in Prusa <span id="id3">[<a class="reference internal" href="#id43" title="Joseph M. Prusa. Hydrodynamics of a water rocket. SIAM Review, 42(4):719–726, jan 2000. doi:10.1137/s0036144598348223.">Pru00</a>]</span>.
-A more rigorous formulation, which drops all these simplifying assumptions can be found in Wheeler <span id="id4">[<a class="reference internal" href="#id51" title="Dean Wheeler. Modeling the thrust phase. 2002. URL: https://www.et.byu.edu/~wheeler/benchtop/pix/thrust_eqns.pdf.">Whe02</a>]</span>, Gommes <span id="id5">[<a class="reference internal" href="#id54" title="Cedric J. Gommes. A more thorough analysis of water rockets: moist adiabats, transient flows, and inertial forces in a soda bottle. American Journal of Physics, 78(3):236–243, mar 2010. doi:10.1119/1.3257702.">Gom10</a>]</span>, and Barria-Perotti <span id="id6">[<a class="reference internal" href="#id44" title="R Barrio-Perotti, E Blanco-Marigorta, J Fernández-Francos, and M Galdo-Vega. Theoretical and experimental analysis of the physics of water rockets. European Journal of Physics, 31(5):1131–1147, jul 2010. doi:10.1088/0143-0807/31/5/015.">BPBMFernandezFGV10</a>]</span>.</p>
-<p>The first assumption leads to an underestimation of the rocket performance, since the air left in the bottle after it is out of water is known to generate appreciable thrust <span id="id7">[<a class="reference internal" href="#id46" title="Glen E. Thorncroft, John R. Ridgely, and Christopher C. Pascual. Hydrodynamics and thrust characteristics of a water-propelled rocket. International Journal of Mechanical Engineering Education, 37(3):241–261, jul 2009. doi:10.7227/ijmee.37.3.9.">TRP09</a>]</span>.
-This simplified model, however, produces physically meaningful results.</p>
-<p>There are two states in this dynamical model, the water volume in the rocket <span class="math notranslate nohighlight">\(V_w\)</span> and the gauge pressure inside the rocket <span class="math notranslate nohighlight">\(p\)</span>.
-The constitutive equations and the N2 diagram showing the model organization are shown below.</p>
-</section>
-<section id="id8">
-<h3>Constitutive equations of the water engine model<a class="headerlink" href="#id8" title="Permalink to this headline">#</a></h3>
-<table class="colwidths-auto table">
+<h3>Constitutive equations of the water engine model<a class="headerlink" href="#constitutive-equations-of-the-water-engine-model" title="Permalink to this heading">#</a></h3>
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Component</p></th>
 <th class="head"><p>Equation</p></th>
@@ -1157,8 +666,6 @@ The constitutive equations and the N2 diagram showing the model organization are
 </pre></div>
 </div>
 </div>
-</div>
-<div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 <div class="cell tag_remove-input docutils container">
 <div class="cell_output docutils container">
@@ -1236,7 +743,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .output_html .vi { color: #19177C } /* Name.Variable.Instance */
 .output_html .vm { color: #19177C } /* Name.Variable.Magic */
 .output_html .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">WaterEngine</span><span class="p">(</span><span class="n">om</span><span class="o">.</span><span class="n">Group</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Computes thrust and water flow for a water.</span>
 
 <span class="sd">    Simplifications:</span>
@@ -1579,7 +1086,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .output_html .vi { color: #19177C } /* Name.Variable.Instance */
 .output_html .vm { color: #19177C } /* Name.Variable.Magic */
 .output_html .il { color: #666666 } /* Literal.Number.Integer.Long */</style><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">_WaterFlowRate</span><span class="p">(</span><span class="n">om</span><span class="o">.</span><span class="n">ExplicitComponent</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot; Computer water flow rate&quot;&quot;&quot;</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot; Computer water flow rate&quot;&quot;&quot;</span>
     <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">declare</span><span class="p">(</span><span class="s1">&#39;num_nodes&#39;</span><span class="p">,</span> <span class="n">types</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
 
@@ -1612,8 +1119,8 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 <p>The <code class="docutils literal notranslate"><span class="pre">_MassAdder</span></code> component calculates the rocket’s instantaneous mass by
 summing the water mass with the rockets empty mass, i.e.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-884d6777-b7f8-4dc9-a132-6b1bc5746eee">
-<span class="eqno">(80)<a class="headerlink" href="#equation-884d6777-b7f8-4dc9-a132-6b1bc5746eee" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-96efbbb9-01b3-44ed-84fd-6cc5e6286ede">
+<span class="eqno">(85)<a class="headerlink" href="#equation-96efbbb9-01b3-44ed-84fd-6cc5e6286ede" title="Permalink to this equation">#</a></span>\[\begin{align}
     m = m_\text{empty}+\rho_w V_w
 \end{align}\]</div>
 <div class="cell tag_remove-input docutils container">
@@ -1846,7 +1353,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </section>
 </section>
 <section id="phases">
-<h2>Phases<a class="headerlink" href="#phases" title="Permalink to this headline">#</a></h2>
+<h2>Phases<a class="headerlink" href="#phases" title="Permalink to this heading">#</a></h2>
 <p>The flight of the water rocket is split in three distinct phases: propelled ascent, ballistic ascent and ballistic descent.
 If the simplification of no thrust without water were lifted, there would be an extra “air propelled ascent” phase between the propelled ascent and ballistic ascent phases.</p>
 <p><strong>Propelled ascent:</strong> is the flight phase where the rocket still has water inside, and hence it is producing thrust.
@@ -2175,11 +1682,11 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </section>
 <section id="model-parameters">
-<h2>Model parameters<a class="headerlink" href="#model-parameters" title="Permalink to this headline">#</a></h2>
+<h2>Model parameters<a class="headerlink" href="#model-parameters" title="Permalink to this heading">#</a></h2>
 <p>The model requires a few constant parameters.
 The values used are shown in the following table.</p>
 <p>Values for parameters in the water rocket model</p>
-<table class="colwidths-auto table">
+<table class="table">
 <thead>
 <tr class="row-odd"><th class="head"><p>Parameter</p></th>
 <th class="head"><p>Value</p></th>
@@ -2191,22 +1698,22 @@ The values used are shown in the following table.</p>
 <tr class="row-even"><td><p><span class="math notranslate nohighlight">\(C_D\)</span></p></td>
 <td><p>0.3450</p></td>
 <td><p>-</p></td>
-<td><p><span id="id9">[<a class="reference internal" href="#id41" title="R Barrio-Perotti, E Blanco-Marigorta, K Argüelles-D\'ıaz, and J Fernández-Oro. Experimental evaluation of the drag coefficient of water rockets by a simple free-fall test. European Journal of Physics, 30(5):1039–1048, jul 2009. doi:10.1088/0143-0807/30/5/012.">BPBMADiazFernandezO09</a>]</span></p></td>
+<td><p><span id="id2">[<a class="reference internal" href="#id34" title="R Barrio-Perotti, E Blanco-Marigorta, K Argüelles-D\'ıaz, and J Fernández-Oro. Experimental evaluation of the drag coefficient of water rockets by a simple free-fall test. European Journal of Physics, 30(5):1039–1048, jul 2009. doi:10.1088/0143-0807/30/5/012.">BPBMADiazFernandezO09</a>]</span></p></td>
 </tr>
 <tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(S\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\pi 106^2/4\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(mm^2\)</span></p></td>
-<td><p><span id="id10">[<a class="reference internal" href="#id41" title="R Barrio-Perotti, E Blanco-Marigorta, K Argüelles-D\'ıaz, and J Fernández-Oro. Experimental evaluation of the drag coefficient of water rockets by a simple free-fall test. European Journal of Physics, 30(5):1039–1048, jul 2009. doi:10.1088/0143-0807/30/5/012.">BPBMADiazFernandezO09</a>]</span></p></td>
+<td><p><span id="id3">[<a class="reference internal" href="#id34" title="R Barrio-Perotti, E Blanco-Marigorta, K Argüelles-D\'ıaz, and J Fernández-Oro. Experimental evaluation of the drag coefficient of water rockets by a simple free-fall test. European Journal of Physics, 30(5):1039–1048, jul 2009. doi:10.1088/0143-0807/30/5/012.">BPBMADiazFernandezO09</a>]</span></p></td>
 </tr>
 <tr class="row-even"><td><p><span class="math notranslate nohighlight">\(k\)</span></p></td>
 <td><p>1.2</p></td>
 <td><p>-</p></td>
-<td><p><span id="id11">[<a class="reference internal" href="#id46" title="Glen E. Thorncroft, John R. Ridgely, and Christopher C. Pascual. Hydrodynamics and thrust characteristics of a water-propelled rocket. International Journal of Mechanical Engineering Education, 37(3):241–261, jul 2009. doi:10.7227/ijmee.37.3.9.">TRP09</a>]</span> <span id="id12">[<a class="reference internal" href="#id55" title="Laura Fischer, Thomas Günther, Linda Herzig, Tobias Jarzina, Frank Klinker, Sabine Knipper, Franz-Georg Schürmann, and Marvin Wollek. On the approximation of D.I.Y. water rocket dynamics including air drag. arXiv:2001.08828, 2020. arXiv:2001.08828.">FGH+20</a>]</span> <span id="id13">[<a class="reference internal" href="#id42" title="Alejandro Romanelli, Italo Bove, and Federico González Madina. Air expansion in a water rocket. American Journal of Physics, 81(10):762–766, oct 2013. doi:10.1119/1.4811116.">RBM13</a>]</span></p></td>
+<td><p><span id="id4">[<a class="reference internal" href="#id39" title="Glen E. Thorncroft, John R. Ridgely, and Christopher C. Pascual. Hydrodynamics and thrust characteristics of a water-propelled rocket. International Journal of Mechanical Engineering Education, 37(3):241–261, jul 2009. doi:10.7227/ijmee.37.3.9.">TRP09</a>]</span> <span id="id5">[<a class="reference internal" href="#id48" title="Laura Fischer, Thomas Günther, Linda Herzig, Tobias Jarzina, Frank Klinker, Sabine Knipper, Franz-Georg Schürmann, and Marvin Wollek. On the approximation of D.I.Y. water rocket dynamics including air drag. arXiv:2001.08828, 2020. arXiv:2001.08828.">FGH+20</a>]</span> <span id="id6">[<a class="reference internal" href="#id35" title="Alejandro Romanelli, Italo Bove, and Federico González Madina. Air expansion in a water rocket. American Journal of Physics, 81(10):762–766, oct 2013. doi:10.1119/1.4811116.">RBM13</a>]</span></p></td>
 </tr>
 <tr class="row-odd"><td><p><span class="math notranslate nohighlight">\(A_\text{out}\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(\pi22^2/4\)</span></p></td>
 <td><p><span class="math notranslate nohighlight">\(mm^2\)</span></p></td>
-<td><p><span id="id14">[<a class="reference internal" href="#id57" title="Nozzles. 2013. URL: http://www.aircommandrockets.com/nozzles.htm.">air13</a>]</span></p></td>
+<td><p><span id="id7">[<a class="reference internal" href="#id50" title="Nozzles. 2013. URL: http://www.aircommandrockets.com/nozzles.htm.">air13</a>]</span></p></td>
 </tr>
 <tr class="row-even"><td><p><span class="math notranslate nohighlight">\(V_b\)</span></p></td>
 <td><p>2</p></td>
@@ -2250,7 +1757,7 @@ It is limited by the structural properties of the bottle, which are modifiable b
 Finally, the starting point of the rocket is set to the origin.</p>
 </section>
 <section id="putting-it-all-together">
-<h2>Putting it all together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this headline">#</a></h2>
+<h2>Putting it all together<a class="headerlink" href="#putting-it-all-together" title="Permalink to this heading">#</a></h2>
 <p>The different phases must be combined in a single trajectory, and linked in a sequence.
 Here we also define the design variables.</p>
 <div class="cell docutils container">
@@ -2405,7 +1912,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </section>
 <section id="helper-functions-to-access-the-results">
-<h2>Helper Functions to Access the Results<a class="headerlink" href="#helper-functions-to-access-the-results" title="Permalink to this headline">#</a></h2>
+<h2>Helper Functions to Access the Results<a class="headerlink" href="#helper-functions-to-access-the-results" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">namedtuple</span>
@@ -2577,7 +2084,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </section>
 <section id="optimizing-for-height">
-<h2>Optimizing for Height<a class="headerlink" href="#optimizing-for-height" title="Permalink to this headline">#</a></h2>
+<h2>Optimizing for Height<a class="headerlink" href="#optimizing-for-height" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dymos.examples.water_rocket.phases</span> <span class="kn">import</span> <span class="n">new_water_rocket_trajectory</span><span class="p">,</span> <span class="n">set_sane_initial_guesses</span>
@@ -2611,10 +2118,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/utils/hooks.py:266: OpenMDAOWarning:Couldn&#39;t find the given &#39;post&#39; function in the post hooks for Driver._get_coloring.
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/utils/hooks.py:266: OpenMDAOWarning:Couldn&#39;t find the given &#39;post&#39; function in the post hooks for Driver._compute_totals.
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Constraint Report [traj] ---
     --- propelled_ascent ---
         None
@@ -2628,7 +2131,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 Model viewer data has already been recorded for Driver.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 2.740062 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 2.750875 seconds.
 Total jacobian shape: (1151, 1153) 
 </pre></div>
 </div>
@@ -2637,9 +2140,9 @@ FWD solves: 19   REV solves: 0
 Total colors vs. total size: 19 vs 1153  (98.4% improvement)
 
 Sparsity computed using tolerance: 1e-12
-Time to compute sparsity: 2.740062 sec.
-Time to compute coloring: 2.351366 sec.
-Memory to compute coloring: -20.132812 MB.
+Time to compute sparsity: 2.750875 sec.
+Time to compute coloring: 2.328780 sec.
+Memory to compute coloring: -10.003906 MB.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>List of user-set options:
@@ -2684,7 +2187,7 @@ Number of inequality constraint evaluations          = 0
 Number of equality constraint Jacobian evaluations   = 65
 Number of inequality constraint Jacobian evaluations = 0
 Number of Lagrangian Hessian evaluations             = 0
-Total seconds in IPOPT                               = 10.196
+Total seconds in IPOPT                               = 8.091
 
 EXIT: Optimal Solution Found.
 </pre></div>
@@ -2705,7 +2208,7 @@ Maximum velocity: 46.1550 m/s
 </div>
 </div>
 <section id="maximum-height-solution-propulsive-phase">
-<h3>Maximum Height Solution: Propulsive Phase<a class="headerlink" href="#maximum-height-solution-propulsive-phase" title="Permalink to this headline">#</a></h3>
+<h3>Maximum Height Solution: Propulsive Phase<a class="headerlink" href="#maximum-height-solution-propulsive-phase" title="Permalink to this heading">#</a></h3>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_propelled_ascent</span><span class="p">(</span><span class="n">sol_out</span><span class="p">,</span> <span class="n">sim_out</span><span class="p">)</span>
@@ -2713,13 +2216,13 @@ Maximum velocity: 46.1550 m/s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/water_rocket_28_0.png" src="../../_images/water_rocket_28_0.png" />
+<img alt="../../_images/161441c9ba365cb55970442d0ee8d08f3351961e42edac653de7f632777a9962.png" src="../../_images/161441c9ba365cb55970442d0ee8d08f3351961e42edac653de7f632777a9962.png" />
 </div>
 </div>
 </section>
 </section>
 <section id="maximum-height-solution-height-vs-range">
-<h2>Maximum Height Solution: Height vs. Range<a class="headerlink" href="#maximum-height-solution-height-vs-range" title="Permalink to this headline">#</a></h2>
+<h2>Maximum Height Solution: Height vs. Range<a class="headerlink" href="#maximum-height-solution-height-vs-range" title="Permalink to this heading">#</a></h2>
 <p>Note that the equations of motion used here are singular in vertical flight, so the launch angle (the initial flight path angle) was limited to 85 degrees.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2728,12 +2231,12 @@ Maximum velocity: 46.1550 m/s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/water_rocket_30_0.png" src="../../_images/water_rocket_30_0.png" />
+<img alt="../../_images/560da7617d2c0a9d97d690eddcd38fa66e993d571baeb7d84eca72ad862ad652.png" src="../../_images/560da7617d2c0a9d97d690eddcd38fa66e993d571baeb7d84eca72ad862ad652.png" />
 </div>
 </div>
 </section>
 <section id="maximum-height-solution-state-history">
-<h2>Maximum Height Solution: State History<a class="headerlink" href="#maximum-height-solution-state-history" title="Permalink to this headline">#</a></h2>
+<h2>Maximum Height Solution: State History<a class="headerlink" href="#maximum-height-solution-state-history" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_states</span><span class="p">(</span><span class="n">sol_out</span><span class="p">,</span> <span class="n">sim_out</span><span class="p">,</span> <span class="n">legend_loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">,</span> <span class="n">legend_ncol</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
@@ -2741,15 +2244,13 @@ Maximum velocity: 46.1550 m/s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/water_rocket_32_0.png" src="../../_images/water_rocket_32_0.png" />
+<img alt="../../_images/195a6f3a6ab96b99410ca6f6423af8525eda8330d848eddeb16bb6901380d4b5.png" src="../../_images/195a6f3a6ab96b99410ca6f6423af8525eda8330d848eddeb16bb6901380d4b5.png" />
 </div>
-</div>
-<div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 </section>
 </section>
 <section class="tex2jax_ignore mathjax_ignore" id="optimizing-for-range">
-<h1>Optimizing for Range<a class="headerlink" href="#optimizing-for-range" title="Permalink to this headline">#</a></h1>
+<h1>Optimizing for Range<a class="headerlink" href="#optimizing-for-range" title="Permalink to this heading">#</a></h1>
 <div class="cell tag_output_scroll docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">dymos.examples.water_rocket.phases</span> <span class="kn">import</span> <span class="n">new_water_rocket_trajectory</span><span class="p">,</span> <span class="n">set_sane_initial_guesses</span>
@@ -2783,12 +2284,6 @@ Maximum velocity: 46.1550 m/s
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/utils/hooks.py:266: OpenMDAOWarning:Couldn&#39;t find the given &#39;post&#39; function in the post hooks for Driver._compute_totals.
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/utils/hooks.py:266: OpenMDAOWarning:Couldn&#39;t find the given &#39;post&#39; function in the post hooks for Driver._compute_totals.
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/utils/hooks.py:266: OpenMDAOWarning:Couldn&#39;t find the given &#39;post&#39; function in the post hooks for Driver._get_coloring.
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/utils/hooks.py:266: OpenMDAOWarning:Couldn&#39;t find the given &#39;post&#39; function in the post hooks for Driver._get_coloring.
-</pre></div>
-</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Constraint Report [traj] ---
     --- propelled_ascent ---
         None
@@ -2802,10 +2297,12 @@ Maximum velocity: 46.1550 m/s
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model viewer data has already been recorded for Driver.
-Model viewer data has already been recorded for Driver.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 2.747302 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model viewer data has already been recorded for Driver.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 2.742784 seconds.
 Total jacobian shape: (1151, 1153) 
 </pre></div>
 </div>
@@ -2814,8 +2311,8 @@ FWD solves: 19   REV solves: 0
 Total colors vs. total size: 19 vs 1153  (98.4% improvement)
 
 Sparsity computed using tolerance: 1e-12
-Time to compute sparsity: 2.747302 sec.
-Time to compute coloring: 2.318643 sec.
+Time to compute sparsity: 2.742784 sec.
+Time to compute coloring: 2.257562 sec.
 Memory to compute coloring: 0.000000 MB.
 </pre></div>
 </div>
@@ -2861,7 +2358,7 @@ Number of inequality constraint evaluations          = 0
 Number of equality constraint Jacobian evaluations   = 59
 Number of inequality constraint Jacobian evaluations = 0
 Number of Lagrangian Hessian evaluations             = 0
-Total seconds in IPOPT                               = 10.111
+Total seconds in IPOPT                               = 7.692
 
 EXIT: Optimal Solution Found.
 
@@ -2872,11 +2369,11 @@ Optimization Problem -- Optimization using pyOpt_sparse
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                   10.1121
-       User Objective Time :       0.3268
-       User Sensitivity Time :     7.5156
-       Interface Time :            1.4771
-       Opt Solver Time:            0.7926
+    Total Time:                    7.6931
+       User Objective Time :       0.2973
+       User Sensitivity Time :     5.1681
+       Interface Time :            1.4505
+       Opt Solver Time:            0.7773
     Calls to Objective Function :      75
     Calls to Sens Function :           59
 
@@ -5194,6 +4691,10 @@ Optimization Problem -- Optimization using pyOpt_sparse
        1148  traj.linkages.ballistic_ascent:gam_final|descent:gam_initial               e   0.000000E+00   -2.470424E-26    0.000000E+00              9.00000E+100
        1149  traj.linkages.ballistic_ascent:v_final|descent:v_initial                   e   0.000000E+00    0.000000E+00    0.000000E+00              9.00000E+100
 
+
+   Exit Status
+      Inform  Description
+           0  Solve Succeeded
 --------------------------------------------------------------------------------
 </pre></div>
 </div>
@@ -5216,7 +4717,7 @@ Maximum velocity: 41.3132 m/s
 </div>
 </div>
 <section id="maximum-range-solution-propulsive-phase">
-<h2>Maximum Range Solution: Propulsive Phase<a class="headerlink" href="#maximum-range-solution-propulsive-phase" title="Permalink to this headline">#</a></h2>
+<h2>Maximum Range Solution: Propulsive Phase<a class="headerlink" href="#maximum-range-solution-propulsive-phase" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_propelled_ascent</span><span class="p">(</span><span class="n">sol_out</span><span class="p">,</span> <span class="n">sim_out</span><span class="p">)</span>
@@ -5224,12 +4725,12 @@ Maximum velocity: 41.3132 m/s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/water_rocket_37_0.png" src="../../_images/water_rocket_37_0.png" />
+<img alt="../../_images/cd893c39beacbf6e4f226a8e7fe4e252fdc39fdb50478047d394742ff6372635.png" src="../../_images/cd893c39beacbf6e4f226a8e7fe4e252fdc39fdb50478047d394742ff6372635.png" />
 </div>
 </div>
 </section>
 <section id="maximum-range-solution-height-vs-range">
-<h2>Maximum Range Solution: Height vs. Range<a class="headerlink" href="#maximum-range-solution-height-vs-range" title="Permalink to this headline">#</a></h2>
+<h2>Maximum Range Solution: Height vs. Range<a class="headerlink" href="#maximum-range-solution-height-vs-range" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_trajectory</span><span class="p">(</span><span class="n">sol_out</span><span class="p">,</span> <span class="n">sim_out</span><span class="p">,</span> <span class="n">legend_loc</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">)</span>
@@ -5237,12 +4738,12 @@ Maximum velocity: 41.3132 m/s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/water_rocket_39_0.png" src="../../_images/water_rocket_39_0.png" />
+<img alt="../../_images/1101d4b0e6e85c6453f977dad1435479e5bee329b767f9ad4413c39489b7a5c7.png" src="../../_images/1101d4b0e6e85c6453f977dad1435479e5bee329b767f9ad4413c39489b7a5c7.png" />
 </div>
 </div>
 </section>
 <section id="maximum-range-solution-state-history">
-<h2>Maximum Range Solution: State History<a class="headerlink" href="#maximum-range-solution-state-history" title="Permalink to this headline">#</a></h2>
+<h2>Maximum Range Solution: State History<a class="headerlink" href="#maximum-range-solution-state-history" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plot_states</span><span class="p">(</span><span class="n">sol_out</span><span class="p">,</span> <span class="n">sim_out</span><span class="p">,</span> <span class="n">legend_loc</span><span class="o">=</span><span class="s1">&#39;lower center&#39;</span><span class="p">)</span>
@@ -5250,47 +4751,38 @@ Maximum velocity: 41.3132 m/s
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/water_rocket_41_0.png" src="../../_images/water_rocket_41_0.png" />
+<img alt="../../_images/a91110bc3c1664ac3383324ab49bdffcd5e452a0df5ee6073c7ee71727866b21.png" src="../../_images/a91110bc3c1664ac3383324ab49bdffcd5e452a0df5ee6073c7ee71727866b21.png" />
 </div>
-</div>
-<div class="cell tag_remove-input tag_remove-output docutils container">
 </div>
 </section>
 <section id="references">
-<h2>References<a class="headerlink" href="#references" title="Permalink to this headline">#</a></h2>
-<div class="docutils container" id="id15">
-<dl class="citation">
-<dt class="label" id="id57"><span class="brackets">air13</span></dt>
-<dd><p>Nozzles. 2013. URL: <a class="reference external" href="http://www.aircommandrockets.com/nozzles.htm">http://www.aircommandrockets.com/nozzles.htm</a>.</p>
-</dd>
-<dt class="label" id="id58"><span class="brackets">BM20</span></dt>
-<dd><p>Bernardo Bahia Monteiro. Optimization of a water rocket in openmdao/dymos. Aug 2020. URL: <a class="reference external" href="engrxiv.org/nqta8">engrxiv.org/nqta8</a>, <a class="reference external" href="https://doi.org/10.31224/osf.io/nqta8">doi:10.31224/osf.io/nqta8</a>.</p>
-</dd>
-<dt class="label" id="id41"><span class="brackets">BPBMADiazFernandezO09</span></dt>
-<dd><p>R Barrio-Perotti, E Blanco-Marigorta, K Argüelles-D\'ıaz, and J Fernández-Oro. Experimental evaluation of the drag coefficient of water rockets by a simple free-fall test. <em>European Journal of Physics</em>, 30(5):1039–1048, jul 2009. <a class="reference external" href="https://doi.org/10.1088/0143-0807/30/5/012">doi:10.1088/0143-0807/30/5/012</a>.</p>
-</dd>
-<dt class="label" id="id44"><span class="brackets">BPBMFernandezFGV10</span></dt>
-<dd><p>R Barrio-Perotti, E Blanco-Marigorta, J Fernández-Francos, and M Galdo-Vega. Theoretical and experimental analysis of the physics of water rockets. <em>European Journal of Physics</em>, 31(5):1131–1147, jul 2010. <a class="reference external" href="https://doi.org/10.1088/0143-0807/31/5/015">doi:10.1088/0143-0807/31/5/015</a>.</p>
-</dd>
-<dt class="label" id="id55"><span class="brackets">FGH+20</span></dt>
-<dd><p>Laura Fischer, Thomas Günther, Linda Herzig, Tobias Jarzina, Frank Klinker, Sabine Knipper, Franz-Georg Schürmann, and Marvin Wollek. On the approximation of D.I.Y. water rocket dynamics including air drag. arXiv:2001.08828, 2020. <a class="reference external" href="https://arxiv.org/abs/2001.08828">arXiv:2001.08828</a>.</p>
-</dd>
-<dt class="label" id="id54"><span class="brackets">Gom10</span></dt>
-<dd><p>Cedric J. Gommes. A more thorough analysis of water rockets: moist adiabats, transient flows, and inertial forces in a soda bottle. <em>American Journal of Physics</em>, 78(3):236–243, mar 2010. <a class="reference external" href="https://doi.org/10.1119/1.3257702">doi:10.1119/1.3257702</a>.</p>
-</dd>
-<dt class="label" id="id43"><span class="brackets">Pru00</span></dt>
-<dd><p>Joseph M. Prusa. Hydrodynamics of a water rocket. <em>SIAM Review</em>, 42(4):719–726, jan 2000. <a class="reference external" href="https://doi.org/10.1137/s0036144598348223">doi:10.1137/s0036144598348223</a>.</p>
-</dd>
-<dt class="label" id="id42"><span class="brackets">RBM13</span></dt>
-<dd><p>Alejandro Romanelli, Italo Bove, and Federico González Madina. Air expansion in a water rocket. <em>American Journal of Physics</em>, 81(10):762–766, oct 2013. <a class="reference external" href="https://doi.org/10.1119/1.4811116">doi:10.1119/1.4811116</a>.</p>
-</dd>
-<dt class="label" id="id46"><span class="brackets">TRP09</span></dt>
-<dd><p>Glen E. Thorncroft, John R. Ridgely, and Christopher C. Pascual. Hydrodynamics and thrust characteristics of a water-propelled rocket. <em>International Journal of Mechanical Engineering Education</em>, 37(3):241–261, jul 2009. <a class="reference external" href="https://doi.org/10.7227/ijmee.37.3.9">doi:10.7227/ijmee.37.3.9</a>.</p>
-</dd>
-<dt class="label" id="id51"><span class="brackets">Whe02</span></dt>
-<dd><p>Dean Wheeler. Modeling the thrust phase. 2002. URL: <a class="reference external" href="https://www.et.byu.edu/~wheeler/benchtop/pix/thrust_eqns.pdf">https://www.et.byu.edu/~wheeler/benchtop/pix/thrust_eqns.pdf</a>.</p>
-</dd>
-</dl>
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">#</a></h2>
+<div class="docutils container" id="id8">
+<div class="citation" id="id50" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>air13<span class="fn-bracket">]</span></span>
+<p>Nozzles. 2013. URL: <a class="reference external" href="http://www.aircommandrockets.com/nozzles.htm">http://www.aircommandrockets.com/nozzles.htm</a>.</p>
+</div>
+<div class="citation" id="id51" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>BM20<span class="fn-bracket">]</span></span>
+<p>Bernardo Bahia Monteiro. Optimization of a water rocket in openmdao/dymos. Aug 2020. URL: <a class="reference external" href="engrxiv.org/nqta8">engrxiv.org/nqta8</a>, <a class="reference external" href="https://doi.org/10.31224/osf.io/nqta8">doi:10.31224/osf.io/nqta8</a>.</p>
+</div>
+<div class="citation" id="id34" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>BPBMADiazFernandezO09<span class="fn-bracket">]</span></span>
+<p>R Barrio-Perotti, E Blanco-Marigorta, K Argüelles-D\'ıaz, and J Fernández-Oro. Experimental evaluation of the drag coefficient of water rockets by a simple free-fall test. <em>European Journal of Physics</em>, 30(5):1039–1048, jul 2009. <a class="reference external" href="https://doi.org/10.1088/0143-0807/30/5/012">doi:10.1088/0143-0807/30/5/012</a>.</p>
+</div>
+<div class="citation" id="id48" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>FGH+20<span class="fn-bracket">]</span></span>
+<p>Laura Fischer, Thomas Günther, Linda Herzig, Tobias Jarzina, Frank Klinker, Sabine Knipper, Franz-Georg Schürmann, and Marvin Wollek. On the approximation of D.I.Y. water rocket dynamics including air drag. arXiv:2001.08828, 2020. <a class="reference external" href="https://arxiv.org/abs/2001.08828">arXiv:2001.08828</a>.</p>
+</div>
+<div class="citation" id="id35" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>RBM13<span class="fn-bracket">]</span></span>
+<p>Alejandro Romanelli, Italo Bove, and Federico González Madina. Air expansion in a water rocket. <em>American Journal of Physics</em>, 81(10):762–766, oct 2013. <a class="reference external" href="https://doi.org/10.1119/1.4811116">doi:10.1119/1.4811116</a>.</p>
+</div>
+<div class="citation" id="id39" role="doc-biblioentry">
+<span class="label"><span class="fn-bracket">[</span>TRP09<span class="fn-bracket">]</span></span>
+<p>Glen E. Thorncroft, John R. Ridgely, and Christopher C. Pascual. Hydrodynamics and thrust characteristics of a water-propelled rocket. <em>International Journal of Mechanical Engineering Education</em>, 37(3):241–261, jul 2009. <a class="reference external" href="https://doi.org/10.7227/ijmee.37.3.9">doi:10.7227/ijmee.37.3.9</a>.</p>
+</div>
+</div>
 </div>
 </section>
 </section>
@@ -5307,7 +4799,7 @@ Maximum velocity: 41.3132 m/s
             mode: "python"
         },
         kernelOptions: {
-            kernelName: "python3",
+            name: "python3",
             path: "./examples/water_rocket"
         },
         predefinedOutput: true
@@ -5315,50 +4807,126 @@ Maximum velocity: 41.3132 m/s
     </script>
     <script>kernelName = 'python3'</script>
 
-              </div>
+                </article>
               
-            </main>
-            <footer class="footer-article noprint">
-                
-    <!-- Previous / next buttons -->
-<div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="../robertson_problem/robertson_problem.html" title="previous page">
-        <i class="fas fa-angle-left"></i>
-        <div class="prev-next-info">
-            <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">The Robertson Problem</p>
-        </div>
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../robertson_problem/robertson_problem.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">The Robertson Problem</p>
+      </div>
     </a>
-    <a class='right-next' id="next-link" href="../cart_pole/cart_pole.html" title="next page">
-    <div class="prev-next-info">
+    <a class="right-next"
+       href="../cart_pole/cart_pole.html"
+       title="next page">
+      <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Cart-Pole Optimal Control</p>
-    </div>
-    <i class="fas fa-angle-right"></i>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
-            </footer>
-        </div>
-    </div>
-    <div class="footer-content row">
-        <footer class="col footer"><p>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Water Rocket</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#nomenclature">Nomenclature</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#problem-formulation">Problem Formulation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model">Model</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#water-engine">Water engine</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#constitutive-equations-of-the-water-engine-model">Constitutive equations of the water engine model</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#phases">Phases</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-parameters">Model parameters</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#putting-it-all-together">Putting it all together</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#helper-functions-to-access-the-results">Helper Functions to Access the Results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-for-height">Optimizing for Height</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-height-solution-propulsive-phase">Maximum Height Solution: Propulsive Phase</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-height-solution-height-vs-range">Maximum Height Solution: Height vs. Range</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-height-solution-state-history">Maximum Height Solution: State History</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#optimizing-for-range">Optimizing for Range</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-range-solution-propulsive-phase">Maximum Range Solution: Propulsive Phase</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-range-solution-height-vs-range">Maximum Range Solution: Height vs. Range</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#maximum-range-solution-state-history">Maximum Range Solution: State History</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
   
-    By The Dymos Development Team<br/>
-  
-      &copy; Copyright 2022.<br/>
-</p>
-        </footer>
-    </div>
+  <div class="footer-item">
     
-</div>
+<p class="component-author">
+By The Dymos Development Team
+</p>
 
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
 
-      </div>
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
     </div>
+  </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
 
-
+  <footer class="bd-footer">
+  </footer>
   </body>
 </html>
