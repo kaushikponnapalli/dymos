@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -36,11 +36,11 @@
     <link rel="stylesheet" type="text/css" href="../../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sphinx-thebe.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/myfile.css" />
-    <link rel="stylesheet" type="text/css" href="../../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/design-style.1e8bd061cd6da7fc9cf755528e8ffc24.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
@@ -498,16 +498,16 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="the-van-der-pol-oscillator">
 <h1>The Van der Pol Oscillator<a class="headerlink" href="#the-van-der-pol-oscillator" title="Permalink to this heading">#</a></h1>
 <p>In dynamics, the Van Der Pol oscillator <span id="id1">[<a class="reference internal" href="#id23" title="Wikipedia contributors. Van der pol oscillator — Wikipedia, the free encyclopedia. 2020. [Online; accessed 12-June-2020]. URL: https://en.wikipedia.org/w/index.php?title=Van_der_Pol_oscillator&amp;oldid=953857769.">Wikipediacontributors20</a>]</span> is a non-conservative oscillator with non-linear damping. It evolves in time according to the second-order differential equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cc388426-f962-4830-816f-7434a89f63e4">
-<span class="eqno">(16)<a class="headerlink" href="#equation-cc388426-f962-4830-816f-7434a89f63e4" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-71636841-82c5-4dc2-bfb3-0be79ce48e83">
+<span class="eqno">(16)<a class="headerlink" href="#equation-71636841-82c5-4dc2-bfb3-0be79ce48e83" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{d^2x}{dt^2} - u (1 - x^2) \frac{dx}{dt} + x &amp;= 0
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(x\)</span> is the position coordinate (a function of the time <span class="math notranslate nohighlight">\(t\)</span>), and <span class="math notranslate nohighlight">\(u\)</span> is a scalar parameter
 indicating the nonlinearity and the strength of the damping.</p>
 <p>To make this an optimal control problem, we want to find the smallest control that will dampen the oscillation
 (drive the state variables to zero). We can express this as an objective function <span class="math notranslate nohighlight">\(J\)</span> to minimize:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a3b1ba92-ffb1-41d4-b246-3e9cea2c59da">
-<span class="eqno">(17)<a class="headerlink" href="#equation-a3b1ba92-ffb1-41d4-b246-3e9cea2c59da" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-18fab54e-d945-4300-a2fb-d3db600f9d45">
+<span class="eqno">(17)<a class="headerlink" href="#equation-18fab54e-d945-4300-a2fb-d3db600f9d45" title="Permalink to this equation">#</a></span>\[\begin{align}
     J &amp;= \int x^2_0 + x^2_1 + u^2
 \end{align}\]</div>
 <p>In other words, we want to find the optimal (smallest) trajectory of the control <span class="math notranslate nohighlight">\(u\)</span> such that the oscillation
@@ -526,8 +526,8 @@ and the oscillation’s rate of change are driven to zero.</p>
 <section id="system-dynamics">
 <h2>System Dynamics<a class="headerlink" href="#system-dynamics" title="Permalink to this heading">#</a></h2>
 <p>The evolution of the state variables is given by the following ordinary differential equations (ODE):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-8088faf3-d5e8-4809-afaa-d7d5d706c51d">
-<span class="eqno">(18)<a class="headerlink" href="#equation-8088faf3-d5e8-4809-afaa-d7d5d706c51d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-7927ceb7-760b-4318-a94a-d3a90aeb20a4">
+<span class="eqno">(18)<a class="headerlink" href="#equation-7927ceb7-760b-4318-a94a-d3a90aeb20a4" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{dx_0}{dt} &amp;= (1 - x^2_1) x_0 - x_1 + u \\
     \frac{dx_1}{dt} &amp;= x_0 \\
     \frac{dJ}{dt} &amp;= x^2_0 + x^2_1 + u^2
@@ -544,16 +544,16 @@ and the oscillation’s rate of change are driven to zero.</p>
 <section id="the-initial-and-final-conditions">
 <h2>The initial and final conditions<a class="headerlink" href="#the-initial-and-final-conditions" title="Permalink to this heading">#</a></h2>
 <p>The initial conditions are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-c4c59018-e87c-4592-b48b-bd1b4f5c940a">
-<span class="eqno">(19)<a class="headerlink" href="#equation-c4c59018-e87c-4592-b48b-bd1b4f5c940a" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fa996dd8-d60e-460a-8461-e3809f27f222">
+<span class="eqno">(19)<a class="headerlink" href="#equation-fa996dd8-d60e-460a-8461-e3809f27f222" title="Permalink to this equation">#</a></span>\[\begin{align}
     t_i &amp;= 0 \\
     x_{0i} &amp;= 1 \\
     x_{1i} &amp;= 1 \\
       u_i &amp;= -0.75
 \end{align}\]</div>
 <p>The final conditions are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-49b85542-03df-421d-8154-15339dedd553">
-<span class="eqno">(20)<a class="headerlink" href="#equation-49b85542-03df-421d-8154-15339dedd553" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-42d7c51a-a877-4624-86a2-8b98438222b9">
+<span class="eqno">(20)<a class="headerlink" href="#equation-42d7c51a-a877-4624-86a2-8b98438222b9" title="Permalink to this equation">#</a></span>\[\begin{align}
     t_f &amp;= 10 \\
     x_{0f} &amp;= 0 \\
     x_{1f} &amp;= 0 \\
@@ -1111,17 +1111,17 @@ INFO: checking out_of_order
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:check_config:checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.128597 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.209581 seconds.
 Total jacobian shape: (60, 130) 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jacobian shape: (60, 130)  ( 5.15% nonzero)
+
+
+Jacobian shape: (60, 130)  ( 5.15% nonzero)
 FWD solves: 0   REV solves: 5
 Total colors vs. total size: 5 vs 60  (91.7% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.128597 sec.
-Time to compute coloring: 0.052467 sec.
+Time to compute sparsity: 0.209581 sec.
+Time to compute coloring: 0.077830 sec.
 Memory to compute coloring: 0.000000 MB.
 </pre></div>
 </div>
@@ -1152,7 +1152,7 @@ Total number of inequality constraints...............:        0
                                    (scaled)                 (unscaled)
 Objective...............:   2.8794727905908775e+00    2.8794727905908775e+00
 Dual infeasibility......:   3.5078177584857428e-09    3.5078177584857428e-09
-Constraint violation....:   4.0245584642661925e-15    4.0245584642661925e-15
+Constraint violation....:   3.6082248300317588e-15    3.6082248300317588e-15
 Variable bound violation:   9.8074164345263171e-09    9.8074164345263171e-09
 Complementarity.........:   1.0000000000000001e-11    1.0000000000000001e-11
 Overall NLP error.......:   3.5078177584857428e-09    3.5078177584857428e-09
@@ -1165,12 +1165,12 @@ Number of inequality constraint evaluations          = 0
 Number of equality constraint Jacobian evaluations   = 35
 Number of inequality constraint Jacobian evaluations = 0
 Number of Lagrangian Hessian evaluations             = 0
-Total seconds in IPOPT                               = 0.483
+Total seconds in IPOPT                               = 0.684
 
 EXIT: Optimal Solution Found.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/visualization/opt_report/opt_report.py:639: UserWarning: Attempting to set identical low and high ylims makes transformation singular; automatically expanding.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/visualization/opt_report/opt_report.py:634: UserWarning: Attempting to set identical low and high ylims makes transformation singular; automatically expanding.
   ax.set_ylim([ymin_plot, ymax_plot])
 </pre></div>
 </div>
@@ -1338,17 +1338,17 @@ INFO: checking out_of_order
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO:check_config:checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.125067 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.226027 seconds.
 Total jacobian shape: (60, 74) 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jacobian shape: (60, 74)  ( 8.74% nonzero)
+
+
+Jacobian shape: (60, 74)  ( 8.74% nonzero)
 FWD solves: 9   REV solves: 0
 Total colors vs. total size: 9 vs 74  (87.8% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.125067 sec.
-Time to compute coloring: 0.040558 sec.
+Time to compute sparsity: 0.226027 sec.
+Time to compute coloring: 0.062026 sec.
 Memory to compute coloring: 0.000000 MB.
 </pre></div>
 </div>
@@ -1386,8 +1386,9 @@ Optimization Complete
 --- Constraint Report [traj] ---
     --- phase0 ---
         None
-
-Model viewer data has already been recorded for Driver.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model viewer data has already been recorded for Driver.
 Model viewer data has already been recorded for Driver.
 </pre></div>
 </div>
@@ -1395,7 +1396,7 @@ Model viewer data has already been recorded for Driver.
 /usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/load_case.py:167: OpenMDAOWarning:phase0.states:x1 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.242239 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.407618 seconds.
 Total jacobian shape: (105, 149) 
 
 
@@ -1404,8 +1405,8 @@ FWD solves: 14   REV solves: 0
 Total colors vs. total size: 14 vs 149  (90.6% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.242239 sec.
-Time to compute coloring: 0.078687 sec.
+Time to compute sparsity: 0.407618 sec.
+Time to compute coloring: 0.120293 sec.
 Memory to compute coloring: 0.000000 MB.
 </pre></div>
 </div>
@@ -1432,15 +1433,17 @@ Optimization Complete
             Segment Ends = [-1.0, -0.8667, -0.7333, -0.6, -0.4667, -0.3333, -0.2, -0.0667, 0.0667, 0.2, 0.3333, 0.4667, 0.6, 0.7333, 0.8667, 1.0]
             Segment Order = [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
             Error = [7.669e-05, 0.0001911, 4.013e-05, 2.411e-06, 1.774e-06, 3.464e-06, 3.225e-07, 9.714e-07, 1.221e-07, 2.319e-07, 1.015e-08, 2.475e-08, 5.63e-08, 4.637e-08, 4.277e-07]
-    Phase: traj.phases.phase0
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Phase: traj.phases.phase0
         New Grid:
             Number of Segments = 21
             Segment Ends = [-1.0, -0.9333, -0.8667, -0.8, -0.7333, -0.6667, -0.6, -0.5333, -0.4667, -0.4, -0.3333, -0.2667, -0.2, -0.0667, 0.0667, 0.2, 0.3333, 0.4667, 0.6, 0.7333, 0.8667, 1.0]
             Segment Order = [5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5, 5]
         Refined: True
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>--- Constraint Report [traj] ---
+
+
+--- Constraint Report [traj] ---
     --- phase0 ---
         None
 
@@ -1452,7 +1455,7 @@ Model viewer data has already been recorded for Driver.
 /usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/load_case.py:167: OpenMDAOWarning:phase0.states:x1 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.345680 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.587475 seconds.
 Total jacobian shape: (147, 209) 
 
 
@@ -1461,8 +1464,8 @@ FWD solves: 14   REV solves: 0
 Total colors vs. total size: 14 vs 209  (93.3% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.345680 sec.
-Time to compute coloring: 0.110274 sec.
+Time to compute sparsity: 0.587475 sec.
+Time to compute coloring: 0.175729 sec.
 Memory to compute coloring: 0.000000 MB.
 </pre></div>
 </div>
@@ -1491,6 +1494,14 @@ Optimization Complete
             Error = [1.619e-05, 3.825e-06, 2.313e-06, 1.966e-05, 2.497e-05, 5.579e-06, 1.382e-07, 4.725e-07, 5.89e-07, 1.296e-07, 1.736e-07, 2.793e-07, 1.346e-05, 1.342e-06, 1.148e-06, 5.102e-07, 2.147e-07, 1.072e-07, 2.596e-08, 2.332e-07, 3.348e-07]
 </pre></div>
 </div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/grid_refinement/hp_adaptive/hp_adaptive.py:380: RuntimeWarning: divide by zero encountered in true_divide
+  q_smooth = (np.log(self.error[phase_path][smooth_need_refine_idxs] /
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/grid_refinement/hp_adaptive/hp_adaptive.py:412: RuntimeWarning: divide by zero encountered in true_divide
+  q_split = np.log((self.error[phase_path][split_seg_idxs] /
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/load_case.py:167: OpenMDAOWarning:phase0.states:x0 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/load_case.py:167: OpenMDAOWarning:phase0.states:x1 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
+</pre></div>
+</div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>    Phase: traj.phases.phase0
         New Grid:
             Number of Segments = 26
@@ -1507,13 +1518,7 @@ Model viewer data has already been recorded for Driver.
 Model viewer data has already been recorded for Driver.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/grid_refinement/hp_adaptive/hp_adaptive.py:380: RuntimeWarning: divide by zero encountered in true_divide
-  q_smooth = (np.log(self.error[phase_path][smooth_need_refine_idxs] /
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/grid_refinement/hp_adaptive/hp_adaptive.py:412: RuntimeWarning: divide by zero encountered in true_divide
-  q_split = np.log((self.error[phase_path][split_seg_idxs] /
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/load_case.py:167: OpenMDAOWarning:phase0.states:x0 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/load_case.py:167: OpenMDAOWarning:phase0.states:x1 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/driver.py:469: DriverWarning:The following design variable initial conditions are out of their specified bounds:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/driver.py:470: DriverWarning:The following design variable initial conditions are out of their specified bounds:
   traj.phases.phase0.control_group.indep_controls.controls:u
     val: [-4.11039661e-01 -3.44146602e-01 -2.19549058e-01 -9.74166423e-02
  -3.29887117e-02  2.42856591e-02  1.32857472e-01  2.36952189e-01
@@ -1565,20 +1570,19 @@ Model viewer data has already been recorded for Driver.
  1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.
  1. 1. 1. 1. 1. 1. 1.]
 Set the initial value of the design variable to a valid value or set the driver option[&#39;invalid_desvar_behavior&#39;] to &#39;ignore&#39;.
-This warning will become an error by default in OpenMDAO version 3.25.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.543601 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.906986 seconds.
 Total jacobian shape: (215, 314) 
-
-
-Jacobian shape: (215, 314)  ( 4.16% nonzero)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jacobian shape: (215, 314)  ( 4.16% nonzero)
 FWD solves: 0   REV solves: 33
 Total colors vs. total size: 33 vs 215  (84.7% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.543601 sec.
-Time to compute coloring: 0.178505 sec.
+Time to compute sparsity: 0.906986 sec.
+Time to compute coloring: 0.293344 sec.
 Memory to compute coloring: 0.000000 MB.
 </pre></div>
 </div>
@@ -1625,7 +1629,7 @@ Model viewer data has already been recorded for Driver.
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/load_case.py:167: OpenMDAOWarning:phase0.states:x0 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
 /usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/load_case.py:167: OpenMDAOWarning:phase0.states:x1 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/driver.py:469: DriverWarning:The following design variable initial conditions are out of their specified bounds:
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/driver.py:470: DriverWarning:The following design variable initial conditions are out of their specified bounds:
   traj.phases.phase0.control_group.indep_controls.controls:u
     val: [-4.10882855e-01 -3.42153970e-01 -2.14887657e-01 -9.38966004e-02
  -3.26088353e-02  2.72452832e-02  1.36049441e-01  2.38410055e-01
@@ -1687,10 +1691,9 @@ Model viewer data has already been recorded for Driver.
  1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.
  1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
 Set the initial value of the design variable to a valid value or set the driver option[&#39;invalid_desvar_behavior&#39;] to &#39;ignore&#39;.
-This warning will become an error by default in OpenMDAO version 3.25.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.703430 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 1.157988 seconds.
 Total jacobian shape: (258, 384) 
 </pre></div>
 </div>
@@ -1699,8 +1702,8 @@ FWD solves: 0   REV solves: 33
 Total colors vs. total size: 33 vs 258  (87.2% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.703430 sec.
-Time to compute coloring: 0.227065 sec.
+Time to compute sparsity: 1.157988 sec.
+Time to compute coloring: 0.355443 sec.
 Memory to compute coloring: 0.000000 MB.
 </pre></div>
 </div>
@@ -1742,12 +1745,14 @@ Optimization Complete
         None
 
 Model viewer data has already been recorded for Driver.
-Model viewer data has already been recorded for Driver.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model viewer data has already been recorded for Driver.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/load_case.py:167: OpenMDAOWarning:phase0.states:x0 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
 /usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/load_case.py:167: OpenMDAOWarning:phase0.states:x1 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/driver.py:469: DriverWarning:The following design variable initial conditions are out of their specified bounds:
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/driver.py:470: DriverWarning:The following design variable initial conditions are out of their specified bounds:
   traj.phases.phase0.control_group.indep_controls.controls:u
     val: [-4.11005300e-01 -3.77332584e-01 -3.06382913e-01 -2.15220277e-01
  -1.28405760e-01 -6.28062980e-02 -3.26409322e-02  2.72254714e-02
@@ -1811,10 +1816,9 @@ Model viewer data has already been recorded for Driver.
  1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.
  1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1. 1.]
 Set the initial value of the design variable to a valid value or set the driver option[&#39;invalid_desvar_behavior&#39;] to &#39;ignore&#39;.
-This warning will become an error by default in OpenMDAO version 3.25.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.716324 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 1.133056 seconds.
 Total jacobian shape: (261, 389) 
 </pre></div>
 </div>
@@ -1823,8 +1827,8 @@ FWD solves: 0   REV solves: 33
 Total colors vs. total size: 33 vs 261  (87.4% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity: 0.716324 sec.
-Time to compute coloring: 0.228703 sec.
+Time to compute sparsity: 1.133056 sec.
+Time to compute coloring: 0.349537 sec.
 Memory to compute coloring: 0.000000 MB.
 </pre></div>
 </div>
@@ -1837,8 +1841,9 @@ Optimization Complete
 -----------------------------------
 Successfully completed grid refinement.
 ==================================================
-
-Simulating trajectory traj
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulating trajectory traj
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
@@ -1862,7 +1867,7 @@ Simulating trajectory traj
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../_images/4762ab665ff76ae13632645f22328374b1e9b562bf86935696ab3af42131c807.png" src="../../_images/4762ab665ff76ae13632645f22328374b1e9b562bf86935696ab3af42131c807.png" />
+<img alt="../../_images/0b55e5f9e2bfe47cd76e3889d7d710455e86ebb25c7286cddaf40a58120f720c.png" src="../../_images/0b55e5f9e2bfe47cd76e3889d7d710455e86ebb25c7286cddaf40a58120f720c.png" />
 </div>
 </div>
 </section>
@@ -1904,7 +1909,10 @@ Simulating trajectory traj
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../brachistochrone/brachistochrone_upstream_init_duration_states.html"
@@ -1924,7 +1932,10 @@ Simulating trajectory traj
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -1957,7 +1968,7 @@ Simulating trajectory traj
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -1987,7 +1998,7 @@ By The Dymos Development Team
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -1996,8 +2007,8 @@ By The Dymos Development Team
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
