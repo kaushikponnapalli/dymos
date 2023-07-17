@@ -205,6 +205,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l2"><a class="reference internal" href="../../examples/cart_pole/cart_pole.html">Cart-Pole Optimal Control</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../examples/brachistochrone/brachistochrone_tandem_phases.html">Brachistochrone with tandem phases</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../examples/cannonball_implicit_duration/cannonball_implicit_duration.html">Cannonball Implicit Duration</a></li>
 </ul>
 </li>
 </ul>
@@ -504,8 +505,8 @@ Such phases are avaialble in dymos through the <code class="docutils literal not
 Compared to implicit approaches this reduces the size of the optimization problem by removing some design variables and corresponding defect constraints.
 Compared to explicit approaches it removes the need to numerically propagate the ODE, which is generally a performance bottleneck.</p>
 <p>For analytic phases, the OpenMDAO system we provide to the phase provides the <em>solution</em> to the ODE, not the ODE itself.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-287cc39d-4547-40d7-9e29-7983c0f29c84">
-<span class="eqno">(93)<a class="headerlink" href="#equation-287cc39d-4547-40d7-9e29-7983c0f29c84" title="Permalink to this equation">#</a></span>\[\begin{align}  
+<div class="amsmath math notranslate nohighlight" id="equation-7127c279-f87d-4b64-8f21-839f4ffcfcdc">
+<span class="eqno">(94)<a class="headerlink" href="#equation-7127c279-f87d-4b64-8f21-839f4ffcfcdc" title="Permalink to this equation">#</a></span>\[\begin{align}  
     \textbf x = \textbf f(t, \textbf p)
 \end{align}\]</div>
 <p>where
@@ -556,26 +557,26 @@ a shape of (3,).</p>
 <section id="a-basic-example">
 <h2>A basic example<a class="headerlink" href="#a-basic-example" title="Permalink to this heading">#</a></h2>
 <p>Suppose we want to use Dymos to solve the ODE</p>
-<div class="amsmath math notranslate nohighlight" id="equation-139d5f08-9802-4b79-888e-69853d0c568d">
-<span class="eqno">(94)<a class="headerlink" href="#equation-139d5f08-9802-4b79-888e-69853d0c568d" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a0394cdc-de49-4e91-bfc8-b64025624fe1">
+<span class="eqno">(95)<a class="headerlink" href="#equation-a0394cdc-de49-4e91-bfc8-b64025624fe1" title="Permalink to this equation">#</a></span>\[\begin{align}
   \frac{dx}{dt} = x - t^2 + 1
 \end{align}\]</div>
 <p>subject to:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7260ae53-75d7-4496-a5ad-5ccd28cbe9dd">
-<span class="eqno">(95)<a class="headerlink" href="#equation-7260ae53-75d7-4496-a5ad-5ccd28cbe9dd" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-026a3a87-b23c-47f0-9c66-1295169487d9">
+<span class="eqno">(96)<a class="headerlink" href="#equation-026a3a87-b23c-47f0-9c66-1295169487d9" title="Permalink to this equation">#</a></span>\[\begin{align}
   x(0) = 0.5
 \end{align}\]</div>
 <p>Here we want to find the value of <em>x</em> at t=2.</p>
 <p>We can absolutely use a pseudospectral method or explicit shooting in Dymos to find the value of <em>x</em> on a given interval using this information.
 But in this case, the solution is known analytically.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-aeaf4291-76f5-481b-a0b1-11d27430cc0f">
-<span class="eqno">(96)<a class="headerlink" href="#equation-aeaf4291-76f5-481b-a0b1-11d27430cc0f" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-5262ed08-4eeb-447a-ba6f-c361b674a35b">
+<span class="eqno">(97)<a class="headerlink" href="#equation-5262ed08-4eeb-447a-ba6f-c361b674a35b" title="Permalink to this equation">#</a></span>\[\begin{align}
   x(t) &amp;= t^2 + 2t + 1 - c_1e^t
 \end{align}\]</div>
 <p>We need to find the value of constant <span class="math notranslate nohighlight">\(c_1\)</span> to find our particular solution.
 Applying the given initial condition gives c_1 as 0.</p>
-<div class="amsmath math notranslate nohighlight" id="equation-a7336d35-2157-4675-96c5-d269fa595483">
-<span class="eqno">(97)<a class="headerlink" href="#equation-a7336d35-2157-4675-96c5-d269fa595483" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-569de849-678d-4fda-8f32-199e439989c5">
+<span class="eqno">(98)<a class="headerlink" href="#equation-569de849-678d-4fda-8f32-199e439989c5" title="Permalink to this equation">#</a></span>\[\begin{align}
   x(0) &amp;= 1 - c_1 = 0.5 \\
   c_1 &amp;\equiv y_0 = 0.5
 \end{align}\]</div>
@@ -640,7 +641,7 @@ Applying the given initial condition gives c_1 as 0.</p>
 <span class="n">p</span><span class="o">.</span><span class="n">run_model</span><span class="p">()</span>
 
 <span class="n">t</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.phase.timeseries.time&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.phase.timeseries.states:x&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;unitless&#39;</span><span class="p">)</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.phase.timeseries.x&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;unitless&#39;</span><span class="p">)</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x(</span><span class="si">{</span><span class="n">t</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">) = </span><span class="si">{</span><span class="n">x</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
 
@@ -666,7 +667,7 @@ Applying the given initial condition gives c_1 as 0.</p>
 x(2.0) = 5.305471950534675
 </pre></div>
 </div>
-<img alt="../../_images/1c53a3fea54265a4128164c66dae38d23256472b47c0383f212aa0875e1db96c.png" src="../../_images/1c53a3fea54265a4128164c66dae38d23256472b47c0383f212aa0875e1db96c.png" />
+<img alt="../../_images/9eff4f2cfa6638dd9ad284b3b52d3820d581429f18e19ee4a37406bc574d5b66.png" src="../../_images/9eff4f2cfa6638dd9ad284b3b52d3820d581429f18e19ee4a37406bc574d5b66.png" />
 </div>
 </div>
 </section>
@@ -753,11 +754,11 @@ You’ll need to make sure that both of the target parameters are not designated
 <span class="n">p</span><span class="o">.</span><span class="n">run_driver</span><span class="p">()</span>
 
 <span class="n">t_1</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.first_phase.timeseries.time&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">x_1</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.first_phase.timeseries.states:x&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;unitless&#39;</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">x_1</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.first_phase.timeseries.x&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;unitless&#39;</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">]</span>
 <span class="n">x0_1</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.first_phase.parameter_vals:x0&#39;</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">]</span>
 
 <span class="n">t_2</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.second_phase.timeseries.time&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;s&#39;</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">x_2</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.second_phase.timeseries.states:x&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;unitless&#39;</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">]</span>
+<span class="n">x_2</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.second_phase.timeseries.x&#39;</span><span class="p">,</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;unitless&#39;</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">]</span>
 <span class="n">x0_2</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">get_val</span><span class="p">(</span><span class="s1">&#39;traj.second_phase.parameter_vals:x0&#39;</span><span class="p">)[:,</span> <span class="mi">0</span><span class="p">]</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;x(</span><span class="si">{</span><span class="n">t_1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">) = </span><span class="si">{</span><span class="n">x_1</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
@@ -794,11 +795,13 @@ You’ll need to make sure that both of the target parameters are not designated
             Gradient evaluations: 4
 Optimization Complete
 -----------------------------------
-x(0.533871279941519) = 1.5000000542207101
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>x(0.533871279941519) = 1.5000000542207101
 x(2.0) = 5.305471950534675
 </pre></div>
 </div>
-<img alt="../../_images/2860189a772e62abf74b9bcc9364d3cb90aaba27aa28de01f95764ee38c6ed75.png" src="../../_images/2860189a772e62abf74b9bcc9364d3cb90aaba27aa28de01f95764ee38c6ed75.png" />
+<img alt="../../_images/66465153991d746e4ef78481f958c99563b760ed9ee2fac406d230929e7008d0.png" src="../../_images/66465153991d746e4ef78481f958c99563b760ed9ee2fac406d230929e7008d0.png" />
 </div>
 </div>
 </section>
@@ -900,7 +903,7 @@ By The Dymos Development Team
     
   <p class="copyright">
     
-      © Copyright 2022.
+      © Copyright 2023.
       <br/>
     
   </p>
