@@ -835,16 +835,16 @@ title="Print to PDF"
   <section class="tex2jax_ignore mathjax_ignore" id="the-van-der-pol-oscillator">
 <h1>The Van der Pol Oscillator<a class="headerlink" href="#the-van-der-pol-oscillator" title="Permalink to this heading">#</a></h1>
 <p>In dynamics, the Van Der Pol oscillator <span id="id1">[<a class="reference internal" href="#id23" title="Wikipedia contributors. Van der pol oscillator — Wikipedia, the free encyclopedia. 2020. [Online; accessed 12-June-2020]. URL: https://en.wikipedia.org/w/index.php?title=Van_der_Pol_oscillator&amp;oldid=953857769.">Wikipediacontributors20</a>]</span> is a non-conservative oscillator with non-linear damping. It evolves in time according to the second-order differential equation:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-4335b628-9ede-486d-97a3-956d9fd5ed06">
-<span class="eqno">(16)<a class="headerlink" href="#equation-4335b628-9ede-486d-97a3-956d9fd5ed06" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4f0d85d0-1bb5-4396-aba8-348f77be62f1">
+<span class="eqno">(16)<a class="headerlink" href="#equation-4f0d85d0-1bb5-4396-aba8-348f77be62f1" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{d^2x}{dt^2} - u (1 - x^2) \frac{dx}{dt} + x &amp;= 0
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(x\)</span> is the position coordinate (a function of the time <span class="math notranslate nohighlight">\(t\)</span>), and <span class="math notranslate nohighlight">\(u\)</span> is a scalar parameter
 indicating the nonlinearity and the strength of the damping.</p>
 <p>To make this an optimal control problem, we want to find the smallest control that will dampen the oscillation
 (drive the state variables to zero). We can express this as an objective function <span class="math notranslate nohighlight">\(J\)</span> to minimize:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-86a404dc-296f-4f25-b958-9e5c3740ebc5">
-<span class="eqno">(17)<a class="headerlink" href="#equation-86a404dc-296f-4f25-b958-9e5c3740ebc5" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-02c90fd7-2089-4ebe-93fe-72ac0d67788d">
+<span class="eqno">(17)<a class="headerlink" href="#equation-02c90fd7-2089-4ebe-93fe-72ac0d67788d" title="Permalink to this equation">#</a></span>\[\begin{align}
     J &amp;= \int x^2_0 + x^2_1 + u^2
 \end{align}\]</div>
 <p>In other words, we want to find the optimal (smallest) trajectory of the control <span class="math notranslate nohighlight">\(u\)</span> such that the oscillation
@@ -863,8 +863,8 @@ and the oscillation’s rate of change are driven to zero.</p>
 <section id="system-dynamics">
 <h2>System Dynamics<a class="headerlink" href="#system-dynamics" title="Permalink to this heading">#</a></h2>
 <p>The evolution of the state variables is given by the following ordinary differential equations (ODE):</p>
-<div class="amsmath math notranslate nohighlight" id="equation-497486c8-e888-4d95-aaca-6e9359e0d067">
-<span class="eqno">(18)<a class="headerlink" href="#equation-497486c8-e888-4d95-aaca-6e9359e0d067" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c0584760-8261-4a4f-bc1d-a9613ff24352">
+<span class="eqno">(18)<a class="headerlink" href="#equation-c0584760-8261-4a4f-bc1d-a9613ff24352" title="Permalink to this equation">#</a></span>\[\begin{align}
     \frac{dx_0}{dt} &amp;= (1 - x^2_1) x_0 - x_1 + u \\
     \frac{dx_1}{dt} &amp;= x_0 \\
     \frac{dJ}{dt} &amp;= x^2_0 + x^2_1 + u^2
@@ -881,16 +881,16 @@ and the oscillation’s rate of change are driven to zero.</p>
 <section id="the-initial-and-final-conditions">
 <h2>The initial and final conditions<a class="headerlink" href="#the-initial-and-final-conditions" title="Permalink to this heading">#</a></h2>
 <p>The initial conditions are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-1c96dd7a-8043-4dbb-8565-9ca56c3a5d63">
-<span class="eqno">(19)<a class="headerlink" href="#equation-1c96dd7a-8043-4dbb-8565-9ca56c3a5d63" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-65e02711-09a8-45f8-82d4-f271786ae208">
+<span class="eqno">(19)<a class="headerlink" href="#equation-65e02711-09a8-45f8-82d4-f271786ae208" title="Permalink to this equation">#</a></span>\[\begin{align}
     t_i &amp;= 0 \\
     x_{0i} &amp;= 1 \\
     x_{1i} &amp;= 1 \\
       u_i &amp;= -0.75
 \end{align}\]</div>
 <p>The final conditions are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e5236ed3-cb6a-43a5-83c1-d37dddd9f8c6">
-<span class="eqno">(20)<a class="headerlink" href="#equation-e5236ed3-cb6a-43a5-83c1-d37dddd9f8c6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-fe71754d-e8b7-4ce9-a9a1-f7a25825347f">
+<span class="eqno">(20)<a class="headerlink" href="#equation-fe71754d-e8b7-4ce9-a9a1-f7a25825347f" title="Permalink to this equation">#</a></span>\[\begin{align}
     t_f &amp;= 10 \\
     x_{0f} &amp;= 0 \\
     x_{1f} &amp;= 0 \\
@@ -1247,7 +1247,7 @@ control variable <span class="math notranslate nohighlight">\(u\)</span> vs time
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../_images/a4ae77d511c76116417944ac7b209fe397cc26297ff4ac3a473323f04266f6bc.png" src="../../_images/a4ae77d511c76116417944ac7b209fe397cc26297ff4ac3a473323f04266f6bc.png" />
+<img alt="../../_images/ed0add90a334cf8cd58b557d88666d44ab0950e3cf6637cc9ab4bddd94cc90a4.png" src="../../_images/ed0add90a334cf8cd58b557d88666d44ab0950e3cf6637cc9ab4bddd94cc90a4.png" />
 </div>
 </div>
 </section>
@@ -1335,11 +1335,11 @@ INFO: checking out_of_order
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/recorders/sqlite_recorder.py:227: UserWarning:The existing case recorder file, dymos_solution.db, is being overwritten.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.113152 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.113240 seconds.
 Total jacobian shape: (60, 130) 
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jacobian shape: (60, 130)  (5.15% nonzero)
+
+
+Jacobian shape: (60, 130)  (5.15% nonzero)
 FWD solves: 0   REV solves: 5
 Total colors vs. total size: 5 vs 60  (91.67% improvement)
 
@@ -1347,7 +1347,7 @@ Sparsity computed using tolerance: 1e-25
 Time to compute sparsity:   0.1132 sec
 Time to compute coloring:   0.0419 sec
 Memory to compute coloring:   0.2500 MB
-Coloring created on: 2023-12-21 16:25:20
+Coloring created on: 2024-03-15 16:41:00
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>List of user-set options:
@@ -1361,9 +1361,7 @@ Coloring created on: 2023-12-21 16:25:20
                              print_level = 4                     yes
                       print_user_options = yes                   yes
                                       sb = yes                   yes
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Total number of variables............................:      130
+Total number of variables............................:      130
                      variables with only lower bounds:        0
                 variables with lower and upper bounds:       45
                      variables with only upper bounds:        0
@@ -1392,7 +1390,7 @@ Number of inequality constraint evaluations          = 0
 Number of equality constraint Jacobian evaluations   = 35
 Number of inequality constraint Jacobian evaluations = 0
 Number of Lagrangian Hessian evaluations             = 0
-Total seconds in IPOPT                               = 0.392
+Total seconds in IPOPT                               = 0.394
 
 EXIT: Optimal Solution Found.
 </pre></div>
@@ -1429,7 +1427,7 @@ Model viewer data has already been recorded for Driver.
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../_images/3e12d2f8bebdea3c1ccefc7c03d016462de144fff91daebc66197a60eeb9560e.png" src="../../_images/3e12d2f8bebdea3c1ccefc7c03d016462de144fff91daebc66197a60eeb9560e.png" />
+<img alt="../../_images/b73073ce6cfa8f6ce39b10d6f5398d19dfb5daef799733c9fb28777def374dc4.png" src="../../_images/b73073ce6cfa8f6ce39b10d6f5398d19dfb5daef799733c9fb28777def374dc4.png" />
 </div>
 </div>
 </section>
@@ -1515,7 +1513,7 @@ INFO: checking out_of_order
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/recorders/sqlite_recorder.py:227: UserWarning:The existing case recorder file, dymos_solution.db, is being overwritten.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.111094 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.110657 seconds.
 Total jacobian shape: (60, 74) 
 
 
@@ -1524,10 +1522,10 @@ FWD solves: 9   REV solves: 0
 Total colors vs. total size: 9 vs 74  (87.84% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity:   0.1111 sec
-Time to compute coloring:   0.0311 sec
+Time to compute sparsity:   0.1107 sec
+Time to compute coloring:   0.0327 sec
 Memory to compute coloring:   0.0000 MB
-Coloring created on: 2023-12-21 16:25:23
+Coloring created on: 2024-03-15 16:41:02
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully    (Exit mode 0)
@@ -1569,11 +1567,11 @@ Model viewer data has already been recorded for Driver.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/system.py:4174: OpenMDAOWarning:Calling `list_inputs` before `final_setup` will only display the default values of variables and will not show the result of any `set_val` calls.
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/phase/phase.py:2789: OpenMDAOWarning:phase0.states:x0 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/phase/phase.py:2789: OpenMDAOWarning:phase0.states:x1 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/phase/phase.py:2979: OpenMDAOWarning:phase0.states:x0 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/phase/phase.py:2979: OpenMDAOWarning:phase0.states:x1 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.213766 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.211503 seconds.
 Total jacobian shape: (105, 149) 
 
 
@@ -1582,10 +1580,10 @@ FWD solves: 14   REV solves: 0
 Total colors vs. total size: 14 vs 149  (90.60% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity:   0.2138 sec
-Time to compute coloring:   0.0635 sec
+Time to compute sparsity:   0.2115 sec
+Time to compute coloring:   0.0634 sec
 Memory to compute coloring:   0.0000 MB
-Coloring created on: 2023-12-21 16:25:25
+Coloring created on: 2024-03-15 16:41:04
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully    (Exit mode 0)
@@ -1629,11 +1627,11 @@ Model viewer data has already been recorded for Driver.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/system.py:4174: OpenMDAOWarning:Calling `list_inputs` before `final_setup` will only display the default values of variables and will not show the result of any `set_val` calls.
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/phase/phase.py:2789: OpenMDAOWarning:phase0.states:x0 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/phase/phase.py:2789: OpenMDAOWarning:phase0.states:x1 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/phase/phase.py:2979: OpenMDAOWarning:phase0.states:x0 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/phase/phase.py:2979: OpenMDAOWarning:phase0.states:x1 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.300884 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.302073 seconds.
 Total jacobian shape: (147, 209) 
 
 
@@ -1642,10 +1640,10 @@ FWD solves: 14   REV solves: 0
 Total colors vs. total size: 14 vs 209  (93.30% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity:   0.3009 sec
-Time to compute coloring:   0.0864 sec
-Memory to compute coloring:   0.1250 MB
-Coloring created on: 2023-12-21 16:25:26
+Time to compute sparsity:   0.3021 sec
+Time to compute coloring:   0.0872 sec
+Memory to compute coloring:   0.0000 MB
+Coloring created on: 2024-03-15 16:41:05
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully    (Exit mode 0)
@@ -1693,11 +1691,11 @@ Model viewer data has already been recorded for Driver.
 /usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/grid_refinement/hp_adaptive/hp_adaptive.py:411: RuntimeWarning: divide by zero encountered in true_divide
   q_split = np.log((self.error[phase_path][split_seg_idxs] /
 /usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/system.py:4174: OpenMDAOWarning:Calling `list_inputs` before `final_setup` will only display the default values of variables and will not show the result of any `set_val` calls.
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/phase/phase.py:2789: OpenMDAOWarning:phase0.states:x0 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/phase/phase.py:2789: OpenMDAOWarning:phase0.states:x1 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/phase/phase.py:2979: OpenMDAOWarning:phase0.states:x0 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/phase/phase.py:2979: OpenMDAOWarning:phase0.states:x1 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.480346 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.472927 seconds.
 Total jacobian shape: (215, 314) 
 
 
@@ -1706,10 +1704,10 @@ FWD solves: 0   REV solves: 33
 Total colors vs. total size: 33 vs 215  (84.65% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity:   0.4803 sec
-Time to compute coloring:   0.1410 sec
+Time to compute sparsity:   0.4729 sec
+Time to compute coloring:   0.1439 sec
 Memory to compute coloring:   0.0000 MB
-Coloring created on: 2023-12-21 16:25:27
+Coloring created on: 2024-03-15 16:41:06
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully    (Exit mode 0)
@@ -1753,11 +1751,11 @@ Model viewer data has already been recorded for Driver.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/system.py:4174: OpenMDAOWarning:Calling `list_inputs` before `final_setup` will only display the default values of variables and will not show the result of any `set_val` calls.
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/phase/phase.py:2789: OpenMDAOWarning:phase0.states:x0 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/phase/phase.py:2789: OpenMDAOWarning:phase0.states:x1 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/phase/phase.py:2979: OpenMDAOWarning:phase0.states:x0 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/phase/phase.py:2979: OpenMDAOWarning:phase0.states:x1 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.594224 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.593697 seconds.
 Total jacobian shape: (258, 384) 
 
 
@@ -1766,10 +1764,10 @@ FWD solves: 0   REV solves: 33
 Total colors vs. total size: 33 vs 258  (87.21% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity:   0.5942 sec
-Time to compute coloring:   0.1785 sec
+Time to compute sparsity:   0.5937 sec
+Time to compute coloring:   0.1815 sec
 Memory to compute coloring:   0.0000 MB
-Coloring created on: 2023-12-21 16:25:29
+Coloring created on: 2024-03-15 16:41:08
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully    (Exit mode 0)
@@ -1813,11 +1811,11 @@ Model viewer data has already been recorded for Driver.
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/system.py:4174: OpenMDAOWarning:Calling `list_inputs` before `final_setup` will only display the default values of variables and will not show the result of any `set_val` calls.
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/phase/phase.py:2789: OpenMDAOWarning:phase0.states:x0 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
-/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/phase/phase.py:2789: OpenMDAOWarning:phase0.states:x1 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/phase/phase.py:2979: OpenMDAOWarning:phase0.states:x0 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/phase/phase.py:2979: OpenMDAOWarning:phase0.states:x1 specifies &#39;fix_final=True&#39;. If the given restart file has a different final value this will overwrite the user-specified value
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.599968 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.600169 seconds.
 Total jacobian shape: (261, 389) 
 
 
@@ -1826,10 +1824,10 @@ FWD solves: 0   REV solves: 33
 Total colors vs. total size: 33 vs 261  (87.36% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity:   0.6000 sec
-Time to compute coloring:   0.1812 sec
-Memory to compute coloring:   0.0000 MB
-Coloring created on: 2023-12-21 16:25:31
+Time to compute sparsity:   0.6002 sec
+Time to compute coloring:   0.1848 sec
+Memory to compute coloring:   0.1250 MB
+Coloring created on: 2024-03-15 16:41:11
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization terminated successfully    (Exit mode 0)
@@ -1871,7 +1869,7 @@ Model viewer data has already been recorded for Driver.
 </div>
 </details>
 <div class="cell_output docutils container">
-<img alt="../../_images/7261447940820d5a52479a928e5d4d1d2d439dfc8ca37acb3d8655be0b8890f7.png" src="../../_images/7261447940820d5a52479a928e5d4d1d2d439dfc8ca37acb3d8655be0b8890f7.png" />
+<img alt="../../_images/5a1bf5609958fc5671498e1482b1e814ff76976ce41f992be7c6737ad3fcd85c.png" src="../../_images/5a1bf5609958fc5671498e1482b1e814ff76976ce41f992be7c6737ad3fcd85c.png" />
 </div>
 </div>
 </section>
