@@ -1252,14 +1252,16 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 --------------------------------------------------------------------------------
 --- Analytic derivatives in component ------------------------------------------
 -------------------------------------------------------------------------------- 
-
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/recorders/sqlite_recorder.py:226: UserWarning:The existing case recorder file, dymos_solution.db, is being overwritten.
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model viewer data has already been recorded for Driver.
 Model viewer data has already been recorded for Driver.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/recorders/sqlite_recorder.py:227: UserWarning:The existing case recorder file, dymos_solution.db, is being overwritten.
-</pre></div>
-</div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/driver.py:469: DriverWarning:The following design variable initial conditions are out of their specified bounds:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/driver.py:466: DriverWarning:The following design variable initial conditions are out of their specified bounds:
   traj.phase0.t_duration
     val: [500.]
     lower: 50.0
@@ -1267,10 +1269,7 @@ Model viewer data has already been recorded for Driver.
 Set the initial value of the design variable to a valid value or set the driver option[&#39;invalid_desvar_behavior&#39;] to &#39;ignore&#39;.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model viewer data has already been recorded for Driver.
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.275338 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian for problem &#39;problem&#39; was computed 3 times, taking 0.28275800500000514 seconds.
 Total jacobian shape: (361, 212) 
 </pre></div>
 </div>
@@ -1279,13 +1278,13 @@ FWD solves: 13   REV solves: 0
 Total colors vs. total size: 13 vs 212  (93.87% improvement)
 
 Sparsity computed using tolerance: 1e-12
-Time to compute sparsity:   0.2753 sec
-Time to compute coloring:   0.2230 sec
+Time to compute sparsity:   0.2828 sec
+Time to compute coloring:   0.2229 sec
 Memory to compute coloring:   0.2500 MB
-Coloring created on: 2024-03-15 16:42:31
+Coloring created on: 2024-03-25 15:16:24
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/total_jac.py:1759: DerivativesWarning:Constraints or objectives [(&#39;traj.phases.phase0.timeseries.timeseries_comp.h&#39;, inds=[(0, 0)]), (&#39;traj.phases.phase0.timeseries.timeseries_comp.mach&#39;, inds=[(0, 0)])] cannot be impacted by the design variables of the problem.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/total_jac.py:1627: DerivativesWarning:Constraints or objectives [(&#39;traj.phases.phase0-&gt;path_constraint-&gt;h&#39;, inds=[(0, 0)]), (&#39;traj.phases.phase0-&gt;path_constraint-&gt;mach&#39;, inds=[(0, 0)])] cannot be impacted by the design variables of the problem.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization Problem -- Optimization using pyOpt_sparse
@@ -1294,11 +1293,11 @@ Coloring created on: 2024-03-15 16:42:31
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    5.7170
-       User Objective Time :       2.3581
-       User Sensitivity Time :     1.7278
-       Interface Time :            0.8413
-       Opt Solver Time:            0.7897
+    Total Time:                    6.3641
+       User Objective Time :       2.3529
+       User Sensitivity Time :     2.3549
+       Interface Time :            0.8699
+       Opt Solver Time:            0.7864
     Calls to Objective Function :     151
     Calls to Sens Function :          126
 
@@ -1892,13 +1891,13 @@ Coloring created on: 2024-03-15 16:42:31
 --------------------------------------------------------------------------------
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/utils/coloring.py:812: OMDeprecationWarning:display is deprecated. Use display_bokeh for rich html displays of coloringor display_txt for a text-based display.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/utils/coloring.py:1307: OMDeprecationWarning:display is deprecated. Use display_bokeh for rich html displays of coloringor display_txt for a text-based display.
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Figure size 500x1000 with 1 Axes&gt;
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/recorders/sqlite_recorder.py:227: UserWarning:The existing case recorder file, dymos_solution.db, is being overwritten.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/recorders/sqlite_recorder.py:226: UserWarning:The existing case recorder file, dymos_solution.db, is being overwritten.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Jacobian shape: (361, 212)  (3.44% nonzero)
@@ -1906,10 +1905,10 @@ FWD solves: 13   REV solves: 0
 Total colors vs. total size: 13 vs 212  (93.87% improvement)
 
 Sparsity computed using tolerance: 1e-12
-Time to compute sparsity:   0.2753 sec
-Time to compute coloring:   0.2230 sec
+Time to compute sparsity:   0.2828 sec
+Time to compute coloring:   0.2229 sec
 Memory to compute coloring:   0.2500 MB
-Coloring created on: 2024-03-15 16:42:31
+Coloring created on: 2024-03-25 15:16:24
 
 --- Constraint Report [traj] ---
     --- phase0 ---
@@ -1928,7 +1927,7 @@ Coloring created on: 2024-03-15 16:42:31
 Model viewer data has already been recorded for Driver.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/driver.py:469: DriverWarning:The following design variable initial conditions are out of their specified bounds:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/driver.py:466: DriverWarning:The following design variable initial conditions are out of their specified bounds:
   traj.phase0.t_duration
     val: [500.]
     lower: 50.0
@@ -1936,7 +1935,7 @@ Model viewer data has already been recorded for Driver.
 Set the initial value of the design variable to a valid value or set the driver option[&#39;invalid_desvar_behavior&#39;] to &#39;ignore&#39;.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.314544 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian for problem &#39;problem2&#39; was computed 3 times, taking 0.3179389560000345 seconds.
 Total jacobian shape: (361, 212) 
 </pre></div>
 </div>
@@ -1945,13 +1944,13 @@ FWD solves: 154   REV solves: 0
 Total colors vs. total size: 154 vs 212  (27.36% improvement)
 
 Sparsity computed using tolerance: 1e-12
-Time to compute sparsity:   0.3145 sec
-Time to compute coloring:   1.0289 sec
-Memory to compute coloring:  19.2305 MB
-Coloring created on: 2024-03-15 16:42:40
+Time to compute sparsity:   0.3179 sec
+Time to compute coloring:   1.0493 sec
+Memory to compute coloring:  12.6289 MB
+Coloring created on: 2024-03-25 15:16:33
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/total_jac.py:1759: DerivativesWarning:Constraints or objectives [(&#39;traj.phases.phase0.timeseries.timeseries_comp.h&#39;, inds=[(0, 0)]), (&#39;traj.phases.phase0.timeseries.timeseries_comp.mach&#39;, inds=[(0, 0)])] cannot be impacted by the design variables of the problem.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/total_jac.py:1627: DerivativesWarning:Constraints or objectives [(&#39;traj.phases.phase0-&gt;path_constraint-&gt;h&#39;, inds=[(0, 0)]), (&#39;traj.phases.phase0-&gt;path_constraint-&gt;mach&#39;, inds=[(0, 0)])] cannot be impacted by the design variables of the problem.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization Problem -- Optimization using pyOpt_sparse
@@ -1960,11 +1959,11 @@ Coloring created on: 2024-03-15 16:42:40
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                   16.5496
-       User Objective Time :       3.0912
-       User Sensitivity Time :    10.9342
-       Interface Time :            0.7979
-       Opt Solver Time:            1.7264
+    Total Time:                   17.3656
+       User Objective Time :       3.1350
+       User Sensitivity Time :    11.6410
+       Interface Time :            0.8325
+       Opt Solver Time:            1.7570
     Calls to Objective Function :     130
     Calls to Sens Function :          114
 
@@ -2566,10 +2565,10 @@ FWD solves: 154   REV solves: 0
 Total colors vs. total size: 154 vs 212  (27.36% improvement)
 
 Sparsity computed using tolerance: 1e-12
-Time to compute sparsity:   0.3145 sec
-Time to compute coloring:   1.0289 sec
-Memory to compute coloring:  19.2305 MB
-Coloring created on: 2024-03-15 16:42:40
+Time to compute sparsity:   0.3179 sec
+Time to compute coloring:   1.0493 sec
+Memory to compute coloring:  12.6289 MB
+Coloring created on: 2024-03-25 15:16:33
 
 --- Constraint Report [traj] ---
     --- phase0 ---
@@ -2588,7 +2587,7 @@ Coloring created on: 2024-03-15 16:42:40
 Model viewer data has already been recorded for Driver.
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/driver.py:469: DriverWarning:The following design variable initial conditions are out of their specified bounds:
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/driver.py:466: DriverWarning:The following design variable initial conditions are out of their specified bounds:
   traj.phase0.t_duration
     val: [500.]
     lower: 50.0
@@ -2603,8 +2602,8 @@ FWD solves: 2   REV solves: 0
 Total colors vs. total size: 2 vs 120  (98.33% improvement)
 
 Sparsity computed using tolerance: 1e-06
-Time to compute sparsity:   0.0079 sec
-Time to compute coloring:   0.0093 sec
+Time to compute sparsity:   0.0082 sec
+Time to compute coloring:   0.0095 sec
 Memory to compute coloring:   0.0000 MB
 
 Coloring for &#39;traj.phases.phase0.rhs_col.aero.q_comp&#39; (class DynamicPressureCompFD)
@@ -2614,12 +2613,12 @@ FWD solves: 2   REV solves: 0
 Total colors vs. total size: 2 vs 60  (96.67% improvement)
 
 Sparsity computed using tolerance: 1e-06
-Time to compute sparsity:   0.0041 sec
+Time to compute sparsity:   0.0045 sec
 Time to compute coloring:   0.0051 sec
 Memory to compute coloring:   0.0000 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian was computed 3 times, taking 0.320970 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian for problem &#39;problem3&#39; was computed 3 times, taking 0.32996669899989683 seconds.
 Total jacobian shape: (361, 212) 
 </pre></div>
 </div>
@@ -2628,13 +2627,13 @@ FWD solves: 13   REV solves: 0
 Total colors vs. total size: 13 vs 212  (93.87% improvement)
 
 Sparsity computed using tolerance: 1e-12
-Time to compute sparsity:   0.3210 sec
-Time to compute coloring:   0.2201 sec
+Time to compute sparsity:   0.3300 sec
+Time to compute coloring:   0.2246 sec
 Memory to compute coloring:   0.0000 MB
-Coloring created on: 2024-03-15 16:43:00
+Coloring created on: 2024-03-25 15:16:53
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/total_jac.py:1759: DerivativesWarning:Constraints or objectives [(&#39;traj.phases.phase0.timeseries.timeseries_comp.h&#39;, inds=[(0, 0)]), (&#39;traj.phases.phase0.timeseries.timeseries_comp.mach&#39;, inds=[(0, 0)])] cannot be impacted by the design variables of the problem.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/total_jac.py:1627: DerivativesWarning:Constraints or objectives [(&#39;traj.phases.phase0-&gt;path_constraint-&gt;h&#39;, inds=[(0, 0)]), (&#39;traj.phases.phase0-&gt;path_constraint-&gt;mach&#39;, inds=[(0, 0)])] cannot be impacted by the design variables of the problem.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization Problem -- Optimization using pyOpt_sparse
@@ -2643,11 +2642,11 @@ Coloring created on: 2024-03-15 16:43:00
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    5.4678
-       User Objective Time :       2.1282
-       User Sensitivity Time :     1.8924
-       Interface Time :            0.7368
-       Opt Solver Time:            0.7104
+    Total Time:                    5.9872
+       User Objective Time :       2.1416
+       User Sensitivity Time :     2.3750
+       Interface Time :            0.7648
+       Opt Solver Time:            0.7058
     Calls to Objective Function :     134
     Calls to Sens Function :          110
 
@@ -3249,10 +3248,10 @@ FWD solves: 13   REV solves: 0
 Total colors vs. total size: 13 vs 212  (93.87% improvement)
 
 Sparsity computed using tolerance: 1e-12
-Time to compute sparsity:   0.3210 sec
-Time to compute coloring:   0.2201 sec
+Time to compute sparsity:   0.3300 sec
+Time to compute coloring:   0.2246 sec
 Memory to compute coloring:   0.0000 MB
-Coloring created on: 2024-03-15 16:43:00
+Coloring created on: 2024-03-25 15:16:53
 </pre></div>
 </div>
 </div>

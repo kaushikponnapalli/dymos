@@ -832,13 +832,13 @@ Dynamic systems are typically defined by some set of ordinary
 differential equations (the ODE) which governs their behavior.</p>
 <p>Consider a simple damped harmonic oscillator.</p>
 <p><img alt="Damped harmonic oscillator free-body diagram" src="../../_images/spring_mass_damper.png" /></p>
-<div class="amsmath math notranslate nohighlight" id="equation-2b741c0c-ba2b-46a9-9091-76ecf7346308">
-<span class="eqno">(11)<a class="headerlink" href="#equation-2b741c0c-ba2b-46a9-9091-76ecf7346308" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ed3fa98d-cf52-4e77-bf37-56419d112196">
+<span class="eqno">(11)<a class="headerlink" href="#equation-ed3fa98d-cf52-4e77-bf37-56419d112196" title="Permalink to this equation">#</a></span>\[\begin{align}
     \ddot{x} &amp;= -\frac{kx}{m} - \frac{c \dot{x}}{m}
 \end{align}\]</div>
 <p>Converting this to a first order system results in an ODE system with two states:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-5622b202-a37c-484d-bb26-d7cbc1cfb746">
-<span class="eqno">(12)<a class="headerlink" href="#equation-5622b202-a37c-484d-bb26-d7cbc1cfb746" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-f5f8471c-21ff-4295-878c-c02be15e5b13">
+<span class="eqno">(12)<a class="headerlink" href="#equation-f5f8471c-21ff-4295-878c-c02be15e5b13" title="Permalink to this equation">#</a></span>\[\begin{align}
     \dot{x} &amp;= v \\
     \dot{v} &amp;= -\frac{kx}{m} - \frac{c \dot{x}}{m}
 \end{align}\]</div>
@@ -1246,7 +1246,8 @@ Optimization Complete
 -----------------------------------
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/total_jac.py:1759: DerivativesWarning:Constraints or objectives [(&#39;traj.phases.phase0.time.t&#39;, inds=[15])] cannot be impacted by the design variables of the problem.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/driver.py:1007: DriverWarning:ScipyOptimizeDriver: objective(s) [&#39;t&#39;] do not depend on any design variables. Please check your problem formulation.
+/usr/share/miniconda/envs/test/lib/python3.10/site-packages/openmdao/core/total_jac.py:1627: DerivativesWarning:Constraints or objectives [(&#39;traj.phase0.t&#39;, inds=[15])] cannot be impacted by the design variables of the problem.
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulating trajectory traj
