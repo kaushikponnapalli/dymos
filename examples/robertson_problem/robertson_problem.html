@@ -798,15 +798,15 @@ title="Print to PDF"
 <section id="the-ode-system">
 <h2>The ODE system<a class="headerlink" href="#the-ode-system" title="Permalink to this heading">#</a></h2>
 <p>The ODE of the Robertson Problem is</p>
-<div class="amsmath math notranslate nohighlight" id="equation-99004afb-d18c-4bb7-a7db-1abc3469c6fb">
-<span class="eqno">(82)<a class="headerlink" href="#equation-99004afb-d18c-4bb7-a7db-1abc3469c6fb" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-6211ce69-d527-4b49-bcfe-1a1a494c630d">
+<span class="eqno">(82)<a class="headerlink" href="#equation-6211ce69-d527-4b49-bcfe-1a1a494c630d" title="Permalink to this equation">#</a></span>\[\begin{align}
     \dot x = &amp;        - 0.04 x + 10^4 y \cdot z &amp;                          \\
     \dot y = &amp; \;\;\;\: 0.04 x - 10^4 y \cdot z &amp;        - 3\cdot 10^7 y^2 \\
     \dot z = &amp;                                  &amp; \;\;\;\: 3\cdot 10^7 y^2 \\
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span> and <span class="math notranslate nohighlight">\(z\)</span> are arbitrary states. The initial conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-bcaae5b5-e411-4a93-bbcc-bf1df300f00c">
-<span class="eqno">(83)<a class="headerlink" href="#equation-bcaae5b5-e411-4a93-bbcc-bf1df300f00c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-31f169a7-9be4-45f2-af1c-ceef78741f59">
+<span class="eqno">(83)<a class="headerlink" href="#equation-31f169a7-9be4-45f2-af1c-ceef78741f59" title="Permalink to this equation">#</a></span>\[\begin{align}
     x_0 &amp;= 1 \\
     y_0 &amp;= z_0 = 0.
 \end{align}\]</div>
@@ -927,12 +927,11 @@ Providing more segments in this case (or a higher segment order) increases the n
     <span class="c1">#</span>
     <span class="c1"># Set the initial values</span>
     <span class="c1">#</span>
-    <span class="n">p</span><span class="p">[</span><span class="s1">&#39;traj.phase0.t_initial&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
-    <span class="n">p</span><span class="p">[</span><span class="s1">&#39;traj.phase0.t_duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">t_final</span>
 
-    <span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.initial_states:x0&#39;</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
-    <span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.initial_states:y0&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
-    <span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase0.initial_states:z0&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
+    <span class="n">phase</span><span class="o">.</span><span class="n">set_time_val</span><span class="p">(</span><span class="n">initial</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="n">t_final</span><span class="p">)</span>
+    <span class="n">phase</span><span class="o">.</span><span class="n">set_state_val</span><span class="p">(</span><span class="s1">&#39;x0&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.7</span><span class="p">])</span>
+    <span class="n">phase</span><span class="o">.</span><span class="n">set_state_val</span><span class="p">(</span><span class="s1">&#39;y0&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1e-5</span><span class="p">])</span>
+    <span class="n">phase</span><span class="o">.</span><span class="n">set_state_val</span><span class="p">(</span><span class="s1">&#39;z0&#39;</span><span class="p">,</span> <span class="p">[</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">])</span>
 
     <span class="k">return</span> <span class="n">p</span>
 </pre></div>
@@ -1000,7 +999,7 @@ INFO: checking out_of_order
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/d2941cda93d8f1179b0ae311eeba58af4dc6fb7309a6378e6faa569151741afd.png" src="../../_images/d2941cda93d8f1179b0ae311eeba58af4dc6fb7309a6378e6faa569151741afd.png" />
+<img alt="../../_images/0fd9f69b2251d12b49b47e97509ae3305dd7629a58e2db544c4d0b2edb1ca1a2.png" src="../../_images/0fd9f69b2251d12b49b47e97509ae3305dd7629a58e2db544c4d0b2edb1ca1a2.png" />
 </div>
 </div>
 </section>

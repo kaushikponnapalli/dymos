@@ -815,8 +815,8 @@ cannonball problem, we will simultaneously find the optimal design for
 the cannonball (its radius) and the optimal flight profile (its launch
 angle). However, here we will use a single phase that terminates at the
 condition</p>
-<div class="amsmath math notranslate nohighlight" id="equation-678e38e6-066a-4db0-944f-8abc85c0a597">
-<span class="eqno">(91)<a class="headerlink" href="#equation-678e38e6-066a-4db0-944f-8abc85c0a597" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-00f2212b-0a4c-4418-ab09-997ff8003d7e">
+<span class="eqno">(91)<a class="headerlink" href="#equation-00f2212b-0a4c-4418-ab09-997ff8003d7e" title="Permalink to this equation">#</a></span>\[\begin{align}
     h(t_f) = 0
 \end{align}\]</div>
 <section id="the-cannonball-sizing-component">
@@ -1069,13 +1069,12 @@ necessarily optimal once air resistance is taken into account.</p>
 
 <span class="n">guess</span> <span class="o">=</span> <span class="n">initial_guess</span><span class="p">(</span><span class="n">t_dur</span><span class="o">=</span><span class="mf">30.0</span><span class="p">)</span>
 
-<span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase.t_initial&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span>
-<span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase.t_duration&#39;</span><span class="p">,</span> <span class="mf">30.0</span><span class="p">)</span>
+<span class="n">phase</span><span class="o">.</span><span class="n">set_time_val</span><span class="p">(</span><span class="n">initial</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mf">30.0</span><span class="p">)</span>
 
-<span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase.states:r&#39;</span><span class="p">,</span> <span class="n">phase</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">ys</span><span class="o">=</span><span class="n">guess</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">],</span> <span class="n">xs</span><span class="o">=</span><span class="n">guess</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]))</span>
-<span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase.states:h&#39;</span><span class="p">,</span> <span class="n">phase</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="n">ys</span><span class="o">=</span><span class="n">guess</span><span class="p">[</span><span class="s1">&#39;h&#39;</span><span class="p">],</span> <span class="n">xs</span><span class="o">=</span><span class="n">guess</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]))</span>
-<span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase.states:v&#39;</span><span class="p">,</span> <span class="n">phase</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">ys</span><span class="o">=</span><span class="n">guess</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">],</span> <span class="n">xs</span><span class="o">=</span><span class="n">guess</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]))</span>
-<span class="n">p</span><span class="o">.</span><span class="n">set_val</span><span class="p">(</span><span class="s1">&#39;traj.phase.states:gam&#39;</span><span class="p">,</span> <span class="n">phase</span><span class="o">.</span><span class="n">interp</span><span class="p">(</span><span class="s1">&#39;gam&#39;</span><span class="p">,</span> <span class="n">ys</span><span class="o">=</span><span class="n">guess</span><span class="p">[</span><span class="s1">&#39;gam&#39;</span><span class="p">],</span> <span class="n">xs</span><span class="o">=</span><span class="n">guess</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">]),</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;rad&#39;</span><span class="p">)</span>
+<span class="n">phase</span><span class="o">.</span><span class="n">set_state_val</span><span class="p">(</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">vals</span><span class="o">=</span><span class="n">guess</span><span class="p">[</span><span class="s1">&#39;r&#39;</span><span class="p">],</span> <span class="n">time_vals</span><span class="o">=</span><span class="n">guess</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">])</span>
+<span class="n">phase</span><span class="o">.</span><span class="n">set_state_val</span><span class="p">(</span><span class="s1">&#39;h&#39;</span><span class="p">,</span> <span class="n">vals</span><span class="o">=</span><span class="n">guess</span><span class="p">[</span><span class="s1">&#39;h&#39;</span><span class="p">],</span> <span class="n">time_vals</span><span class="o">=</span><span class="n">guess</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">])</span>
+<span class="n">phase</span><span class="o">.</span><span class="n">set_state_val</span><span class="p">(</span><span class="s1">&#39;v&#39;</span><span class="p">,</span> <span class="n">vals</span><span class="o">=</span><span class="n">guess</span><span class="p">[</span><span class="s1">&#39;v&#39;</span><span class="p">],</span> <span class="n">time_vals</span><span class="o">=</span><span class="n">guess</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">])</span>
+<span class="n">phase</span><span class="o">.</span><span class="n">set_state_val</span><span class="p">(</span><span class="s1">&#39;gam&#39;</span><span class="p">,</span> <span class="n">vals</span><span class="o">=</span><span class="n">guess</span><span class="p">[</span><span class="s1">&#39;gam&#39;</span><span class="p">],</span> <span class="n">time_vals</span><span class="o">=</span><span class="n">guess</span><span class="p">[</span><span class="s1">&#39;t&#39;</span><span class="p">],</span> <span class="n">units</span><span class="o">=</span><span class="s1">&#39;rad&#39;</span><span class="p">)</span>
 
 <span class="c1">#####################################################</span>
 <span class="c1"># Run the optimization and final explicit simulation</span>
@@ -1085,7 +1084,7 @@ necessarily optimal once air resistance is taken into account.</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.10/site-packages/dymos/transcriptions/transcription_base.py:448: OpenMDAOWarning:&#39;traj.phases.phase&#39; &lt;class Phase&gt;
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.11/site-packages/dymos/transcriptions/transcription_base.py:448: OpenMDAOWarning:&#39;traj.phases.phase&#39; &lt;class Phase&gt;
   Non-default solvers are required
     implicit duration: True
     solved segments: True
@@ -1099,6 +1098,9 @@ necessarily optimal once air resistance is taken into account.</p>
     --- phase ---
         [initial] 0.0000e+00 &lt;= ke &lt;= 4.0000e+05  [J]
 
+
+&#39;rhs_checking&#39; is disabled for &#39;DirectSolver in &#39;traj.phases.phase&#39; &lt;class Phase&gt;&#39; but that solver has redundant adjoint solves. If it is expensive to compute derivatives for this solver, turning on &#39;rhs_checking&#39; may improve performance.
+
 Model viewer data has already been recorded for Driver.
 Model viewer data has already been recorded for Driver.
 </pre></div>
@@ -1110,12 +1112,12 @@ FWD solves: 6   REV solves: 0
 Total colors vs. total size: 6 vs 303  (98.02% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity:   0.1125 sec
-Time to compute coloring:   0.0382 sec
-Memory to compute coloring:   0.2500 MB
+Time to compute sparsity:   0.0911 sec
+Time to compute coloring:   0.0315 sec
+Memory to compute coloring:   0.5000 MB
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian for problem &#39;cannonball_implicit_duration&#39; was computed 3 times, taking 0.28502813099999 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian for problem &#39;cannonball_implicit_duration&#39; was computed 3 times, taking 0.25569310100001985 seconds.
 Total jacobian shape: (98, 100) 
 
 
@@ -1124,10 +1126,10 @@ FWD solves: 27   REV solves: 0
 Total colors vs. total size: 27 vs 100  (73.00% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity:   0.2850 sec
-Time to compute coloring:   0.0939 sec
-Memory to compute coloring:   2.2500 MB
-Coloring created on: 2024-03-25 15:09:33
+Time to compute sparsity:   0.2557 sec
+Time to compute coloring:   0.0805 sec
+Memory to compute coloring:   1.0000 MB
+Coloring created on: 2024-06-11 13:59:10
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization Problem -- Optimization using pyOpt_sparse
@@ -1136,11 +1138,11 @@ Coloring created on: 2024-03-25 15:09:33
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                   19.1209
-       User Objective Time :      16.0910
-       User Sensitivity Time :     2.6621
-       Interface Time :            0.2055
-       Opt Solver Time:            0.1623
+    Total Time:                   16.2695
+       User Objective Time :      13.7131
+       User Sensitivity Time :     2.2508
+       Interface Time :            0.1612
+       Opt Solver Time:            0.1445
     Calls to Objective Function :     239
     Calls to Sens Function :           55
 
@@ -1366,7 +1368,16 @@ Model viewer data has already been recorded for Driver.
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Problem: cannonball_implicit_duration
+Driver:  pyOptSparseDriver
+  success     : True
+  iterations  : 240
+  runtime     : 1.6937E+01 s
+  model_evals : 240
+  model_time  : 1.3648E+01 s
+  deriv_evals : 55
+  deriv_time  : 1.9888E+00 s
+  exit_status : SUCCESS
 </pre></div>
 </div>
 </div>
