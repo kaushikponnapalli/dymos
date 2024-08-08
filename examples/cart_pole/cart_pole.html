@@ -535,6 +535,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../length_constrained_brachistochrone/length_constrained_brachistochrone.html">The Length-Constrained Brachistochrone</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../min_time_climb/min_time_climb.html">Supersonic Interceptor Minimum Time Climb</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../mountain_car/mountain_car.html">The Mountain Car Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moon_landing/moon_landing.html">Moon Landing Problem</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../multi_phase_cannonball/multi_phase_cannonball.html">Multi-Phase Cannonball</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../multibranch_trajectory/multibranch_trajectory.html">Multibranch Trajectory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../racecar/racecar.html">Race car Lap Simulation</a></li>
@@ -831,16 +832,16 @@ Friction force is ignored to simplify the problem.</p>
 <section id="trajectory-optimization-problem">
 <h2>Trajectory Optimization Problem<a class="headerlink" href="#trajectory-optimization-problem" title="Permalink to this heading">#</a></h2>
 <p>We use the following quadratic objective function to approximately minimize the total control effort:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-92970681-9adc-4540-be2f-042067eabf3e">
-<span class="eqno">(86)<a class="headerlink" href="#equation-92970681-9adc-4540-be2f-042067eabf3e" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-e5b5da0c-982e-44c3-9192-e5dd92236717">
+<span class="eqno">(91)<a class="headerlink" href="#equation-e5b5da0c-982e-44c3-9192-e5dd92236717" title="Permalink to this equation">#</a></span>\[\begin{equation}
     J = \int_{t_0}^{t_f} F(t)^2 dt ~~ \rightarrow ~ \min
 \end{equation}\]</div>
 <p>where <span class="math notranslate nohighlight">\(F(t)\)</span> is the external force, <span class="math notranslate nohighlight">\(t_0\)</span> is the initial time, and <span class="math notranslate nohighlight">\(t_f\)</span> is the final time.</p>
 <section id="dynamics">
 <h3>Dynamics<a class="headerlink" href="#dynamics" title="Permalink to this heading">#</a></h3>
 <p>The equations of motion of the cart-pole system are given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-515e22c1-b6b8-4039-a80d-6c9bce97c756">
-<span class="eqno">(87)<a class="headerlink" href="#equation-515e22c1-b6b8-4039-a80d-6c9bce97c756" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-f01390c6-33d3-4756-8469-9c0045bb9b49">
+<span class="eqno">(92)<a class="headerlink" href="#equation-f01390c6-33d3-4756-8469-9c0045bb9b49" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \begin{bmatrix}
         \ddot{x} \\ \ddot{\theta}
     \end{bmatrix} =
@@ -857,13 +858,13 @@ Friction force is ignored to simplify the problem.</p>
 To do so, we define our state vector to be <span class="math notranslate nohighlight">\(X = [x, \dot{x}, \theta, \dot{\theta}]^T\)</span>.
 We also add an “energy” state <span class="math notranslate nohighlight">\(e\)</span> and set <span class="math notranslate nohighlight">\(\dot{e} = F^2\)</span> to keep track of the accumulated control input.
 By setting setting <span class="math notranslate nohighlight">\(e_0 = 0\)</span>, the objective function is equal to the final value of the state <span class="math notranslate nohighlight">\(e\)</span>:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-be929f40-ab39-4fb1-b9dc-8b1ab87a6139">
-<span class="eqno">(88)<a class="headerlink" href="#equation-be929f40-ab39-4fb1-b9dc-8b1ab87a6139" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-50eada86-7351-477d-8363-b7da0aba5299">
+<span class="eqno">(93)<a class="headerlink" href="#equation-50eada86-7351-477d-8363-b7da0aba5299" title="Permalink to this equation">#</a></span>\[\begin{equation}
     J = \int_{t_0}^{t_f} \dot{e} ~dt = e_f
 \end{equation}\]</div>
 <p>To summarize, the ODE for the cart-pole system is given by</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cb6a7400-8f2a-4a33-9946-776741cd6dd4">
-<span class="eqno">(89)<a class="headerlink" href="#equation-cb6a7400-8f2a-4a33-9946-776741cd6dd4" title="Permalink to this equation">#</a></span>\[\begin{equation}
+<div class="amsmath math notranslate nohighlight" id="equation-b24a0abf-b513-4696-b7bf-8fee95805451">
+<span class="eqno">(94)<a class="headerlink" href="#equation-b24a0abf-b513-4696-b7bf-8fee95805451" title="Permalink to this equation">#</a></span>\[\begin{equation}
     \begin{bmatrix}
         \dot{x} \\ \dot{\theta} \\ \ddot{x} \\ \ddot{\theta} \\ \dot{e} 
     \end{bmatrix} =
@@ -884,8 +885,8 @@ By setting setting <span class="math notranslate nohighlight">\(e_0 = 0\)</span>
 <section id="initial-and-terminal-conditions">
 <h3>Initial and terminal conditions<a class="headerlink" href="#initial-and-terminal-conditions" title="Permalink to this heading">#</a></h3>
 <p>The initial state variables are all zero at <span class="math notranslate nohighlight">\(t_0 = 0\)</span>, and the final conditions at time <span class="math notranslate nohighlight">\(t_f\)</span> are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7e423084-de09-44da-a76f-70c91c255052">
-<span class="eqno">(90)<a class="headerlink" href="#equation-7e423084-de09-44da-a76f-70c91c255052" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-8c387299-a275-42a3-a957-94b695f66e98">
+<span class="eqno">(95)<a class="headerlink" href="#equation-8c387299-a275-42a3-a957-94b695f66e98" title="Permalink to this equation">#</a></span>\[\begin{align}
     x_f &amp;= d \\
     \dot{x}_f &amp;= 0 \\
     \theta_f &amp;= \pi \\
@@ -1193,7 +1194,7 @@ First, we instantiate the OpenMDAO problem and set up the Dymos trajectory, phas
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;dymos.phase.phase.Phase at 0x7fc2b19197d0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;dymos.phase.phase.Phase at 0x7f69bcbf9210&gt;
 </pre></div>
 </div>
 </div>
@@ -1276,7 +1277,7 @@ We then call the <code class="docutils literal notranslate"><span class="pre">se
         [final]   0.0000e+00 == f [N]
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;openmdao.core.problem.Problem at 0x7fc2b39cdfd0&gt;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;openmdao.core.problem.Problem at 0x7f69bcbb7e90&gt;
 </pre></div>
 </div>
 </div>
@@ -1307,7 +1308,7 @@ We then call the <code class="docutils literal notranslate"><span class="pre">se
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Model viewer data has already been recorded for Driver.
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian for problem &#39;problem&#39; was computed 3 times, taking 0.5596129609999707 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian for problem &#39;problem&#39; was computed 3 times, taking 0.5729204020000225 seconds.
 Total jacobian shape: (206, 281) 
 
 
@@ -1316,17 +1317,69 @@ FWD solves: 10   REV solves: 0
 Total colors vs. total size: 10 vs 281  (96.44% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity:   0.5596 sec
-Time to compute coloring:   0.0885 sec
+Time to compute sparsity:   0.5729 sec
+Time to compute coloring:   0.0897 sec
 Memory to compute coloring:   0.1250 MB
-Coloring created on: 2024-06-11 13:59:32
+Coloring created on: 2024-08-08 16:07:58
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.11/site-packages/openmdao/core/group.py:1098: DerivativesWarning:Constraints or objectives [ode_eval.control_interp.control_rates:f_rate2] cannot be impacted by the design variables of the problem because no partials were defined for them in their parent component(s).
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking out_of_order
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking system
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking solvers
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking dup_inputs
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking missing_recorders
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: The Problem has no recorder of any kind attached
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking unserializable_options
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking comp_has_no_outputs
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulating trajectory traj
 Model viewer data has already been recorded for Driver.
+INFO: checking out_of_order
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking system
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking solvers
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking dup_inputs
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking missing_recorders
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: The Problem has no recorder of any kind attached
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking unserializable_options
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking comp_has_no_outputs
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.11/site-packages/openmdao/core/group.py:1101: DerivativesWarning:Constraints or objectives [ode_eval.control_interp.control_rates:f_rate2] cannot be impacted by the design variables of the problem because no partials were defined for them in their parent component(s).
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
@@ -1336,11 +1389,11 @@ Model viewer data has already been recorded for Driver.
 Driver:  pyOptSparseDriver
   success     : True
   iterations  : 37
-  runtime     : 1.9875E+00 s
+  runtime     : 2.0759E+00 s
   model_evals : 37
-  model_time  : 3.3972E-02 s
+  model_time  : 3.6640E-02 s
   deriv_evals : 36
-  deriv_time  : 4.2940E-01 s
+  deriv_time  : 4.4490E-01 s
   exit_status : SUCCESS
 </pre></div>
 </div>

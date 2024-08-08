@@ -535,6 +535,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../length_constrained_brachistochrone/length_constrained_brachistochrone.html">The Length-Constrained Brachistochrone</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../min_time_climb/min_time_climb.html">Supersonic Interceptor Minimum Time Climb</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../mountain_car/mountain_car.html">The Mountain Car Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moon_landing/moon_landing.html">Moon Landing Problem</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../multi_phase_cannonball/multi_phase_cannonball.html">Multi-Phase Cannonball</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../multibranch_trajectory/multibranch_trajectory.html">Multibranch Trajectory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../racecar/racecar.html">Race car Lap Simulation</a></li>
@@ -809,8 +810,8 @@ optimal control problem governed by six equations of motion and limited
 by the aerodynamic heating rate. For a detailed layout of this problem
 and other optimal control problems see Betts <span id="id1">[<a class="reference internal" href="#id19" title="J. Betts. Practical Methods for Optimal Control and Estimation Using Nonlinear Programming. Society for Industrial and Applied Mathematics, second edition, 2010. URL: https://epubs.siam.org/doi/abs/10.1137/1.9780898718577, arXiv:https://epubs.siam.org/doi/pdf/10.1137/1.9780898718577, doi:10.1137/1.9780898718577.">Bet10</a>]</span>.
 The governing equations of motion for this problem are:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-70c1a9e6-de3f-444b-8f61-2346bb26e4c6">
-<span class="eqno">(74)<a class="headerlink" href="#equation-70c1a9e6-de3f-444b-8f61-2346bb26e4c6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-3e2243cd-6e30-4f28-8731-06b6c2957a47">
+<span class="eqno">(79)<a class="headerlink" href="#equation-3e2243cd-6e30-4f28-8731-06b6c2957a47" title="Permalink to this equation">#</a></span>\[\begin{align}
   \frac{dh}{dt} &amp;= v \sin \gamma \\
   \frac{d\phi}{dt} &amp;= \frac{v}{r} \cos \gamma \frac{\sin \psi}{\cos \theta} \\
   \frac{d\theta}{dt} &amp;= \frac{v}{r} \cos \gamma \cos \psi  \\
@@ -833,8 +834,8 @@ final altitude, without exceding a maximum heat rate at the leading
 edges. This heat rate is constrained by <span class="math notranslate nohighlight">\(q \leq 70\)</span> where q
 <span class="math notranslate nohighlight">\([\frac{btu}{ft^2s}]\)</span> is the heating rate.</p>
 <p>The initial conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-3c1fda4f-2890-41b0-b2f1-d723a34ef478">
-<span class="eqno">(75)<a class="headerlink" href="#equation-3c1fda4f-2890-41b0-b2f1-d723a34ef478" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-90623393-d1ed-4c1f-acf5-917e2952ede4">
+<span class="eqno">(80)<a class="headerlink" href="#equation-90623393-d1ed-4c1f-acf5-917e2952ede4" title="Permalink to this equation">#</a></span>\[\begin{align}
   h_0 &amp;= 26000 \\
   v_0 &amp;= 25600 \\
   \phi_0 &amp;= 0 \\
@@ -843,8 +844,8 @@ edges. This heat rate is constrained by <span class="math notranslate nohighligh
   \psi_0 &amp;= \frac{\pi}{2}
 \end{align}\]</div>
 <p>and the final conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-7e37ec25-6262-4529-8066-4a217d177e96">
-<span class="eqno">(76)<a class="headerlink" href="#equation-7e37ec25-6262-4529-8066-4a217d177e96" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-ed840028-4a6e-4d37-899b-360a48891ce9">
+<span class="eqno">(81)<a class="headerlink" href="#equation-ed840028-4a6e-4d37-899b-360a48891ce9" title="Permalink to this equation">#</a></span>\[\begin{align}
   h_0 &amp;= 80000 \\
   v_0 &amp;= 2500 \\
   \gamma_0 &amp;= -0.08727 \\
@@ -862,13 +863,13 @@ second component computes the aerodynamic forces of lift and drag on the
 shuttle. The third component is where the heating rate on the leading
 edge of the shuttles wings is computed. The heating rate is given by
 <span class="math notranslate nohighlight">\(q = q_a q_r\)</span> where</p>
-<div class="amsmath math notranslate nohighlight" id="equation-e591c4ec-03c8-4e03-b666-c504b2398fdc">
-<span class="eqno">(77)<a class="headerlink" href="#equation-e591c4ec-03c8-4e03-b666-c504b2398fdc" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-97f792de-7bbc-4104-bf6f-41131a9b5a05">
+<span class="eqno">(82)<a class="headerlink" href="#equation-97f792de-7bbc-4104-bf6f-41131a9b5a05" title="Permalink to this equation">#</a></span>\[\begin{align}
   q_a &amp;= c_0 + c_1\alpha + c_2 \alpha^2 + c_3 \alpha^3
 \end{align}\]</div>
 <p>and</p>
-<div class="amsmath math notranslate nohighlight" id="equation-87700ffc-68af-4560-aa9c-aed74ae8b58c">
-<span class="eqno">(78)<a class="headerlink" href="#equation-87700ffc-68af-4560-aa9c-aed74ae8b58c" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4ef43eae-60e6-4a36-8910-215b7e8c8494">
+<span class="eqno">(83)<a class="headerlink" href="#equation-4ef43eae-60e6-4a36-8910-215b7e8c8494" title="Permalink to this equation">#</a></span>\[\begin{align}
   q_r &amp;= 17700 \rho^.5 (.0001v)^{3.07}
 \end{align}\]</div>
 <p>where <span class="math notranslate nohighlight">\(c_0, c_1, c_2,\)</span> and <span class="math notranslate nohighlight">\(c_3\)</span> are constants, <span class="math notranslate nohighlight">\(\alpha\)</span> <span class="math notranslate nohighlight">\([deg]\)</span> is the
@@ -1456,7 +1457,7 @@ INFO: checking out_of_order
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian for problem &#39;problem&#39; was computed 3 times, taking 0.7766019399999777 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian for problem &#39;problem&#39; was computed 3 times, taking 0.7864848609999626 seconds.
 Total jacobian shape: (327, 358) 
 </pre></div>
 </div>
@@ -1465,10 +1466,10 @@ FWD solves: 20   REV solves: 0
 Total colors vs. total size: 20 vs 358  (94.41% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity:   0.7766 sec
-Time to compute coloring:   0.2753 sec
-Memory to compute coloring:   0.3750 MB
-Coloring created on: 2024-06-11 14:02:44
+Time to compute sparsity:   0.7865 sec
+Time to compute coloring:   0.2767 sec
+Memory to compute coloring:   0.2500 MB
+Coloring created on: 2024-08-08 16:11:18
 </pre></div>
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.11/site-packages/dymos/examples/shuttle_reentry/heating_comp.py:45: RuntimeWarning: invalid value encountered in power
@@ -1481,11 +1482,11 @@ Coloring created on: 2024-06-11 14:02:44
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                   22.3290
-       User Objective Time :       0.3469
-       User Sensitivity Time :     3.2795
-       Interface Time :            0.7987
-       Opt Solver Time:           17.9039
+    Total Time:                   22.2361
+       User Objective Time :       0.3522
+       User Sensitivity Time :     3.2644
+       Interface Time :            0.8008
+       Opt Solver Time:           17.8186
     Calls to Objective Function :     274
     Calls to Sens Function :          141
 
@@ -2191,11 +2192,63 @@ Coloring created on: 2024-06-11 14:02:44
 --------------------------------------------------------------------------------
 </pre></div>
 </div>
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.11/site-packages/openmdao/core/group.py:1098: DerivativesWarning:Constraints or objectives [ode_eval.control_interp.control_rates:alpha_rate2, ode_eval.control_interp.control_rates:beta_rate2] cannot be impacted by the design variables of the problem because no partials were defined for them in their parent component(s).
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking out_of_order
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking system
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking solvers
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking dup_inputs
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking missing_recorders
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: The Problem has no recorder of any kind attached
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking unserializable_options
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking comp_has_no_outputs
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulating trajectory traj
 Model viewer data has already been recorded for Driver.
+INFO: checking out_of_order
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking system
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking solvers
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking dup_inputs
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking missing_recorders
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: The Problem has no recorder of any kind attached
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking unserializable_options
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking comp_has_no_outputs
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
+</pre></div>
+</div>
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.11/site-packages/openmdao/core/group.py:1101: DerivativesWarning:Constraints or objectives [ode_eval.control_interp.control_rates:alpha_rate2, ode_eval.control_interp.control_rates:beta_rate2] cannot be impacted by the design variables of the problem because no partials were defined for them in their parent component(s).
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
@@ -2205,11 +2258,11 @@ Model viewer data has already been recorded for Driver.
 Driver:  pyOptSparseDriver
   success     : True
   iterations  : 275
-  runtime     : 2.3488E+01 s
+  runtime     : 2.3398E+01 s
   model_evals : 275
-  model_time  : 2.4680E-01 s
+  model_time  : 2.5019E-01 s
   deriv_evals : 141
-  deriv_time  : 2.3061E+00 s
+  deriv_time  : 2.3152E+00 s
   exit_status : SUCCESS
 </pre></div>
 </div>
@@ -2235,7 +2288,7 @@ Driver:  pyOptSparseDriver
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/b29d0d5df7766f909161596663a02452762cd75051a912bafd3f9a0d42452bd9.png" src="../../_images/b29d0d5df7766f909161596663a02452762cd75051a912bafd3f9a0d42452bd9.png" />
+<img alt="../../_images/cd1080b0bd10864bee006733985e48743e050861c7bb367fac892ce05a20e0af.png" src="../../_images/cd1080b0bd10864bee006733985e48743e050861c7bb367fac892ce05a20e0af.png" />
 </div>
 </div>
 </section>

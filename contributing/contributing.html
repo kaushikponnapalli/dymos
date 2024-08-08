@@ -534,6 +534,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../examples/length_constrained_brachistochrone/length_constrained_brachistochrone.html">The Length-Constrained Brachistochrone</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/min_time_climb/min_time_climb.html">Supersonic Interceptor Minimum Time Climb</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/mountain_car/mountain_car.html">The Mountain Car Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../examples/moon_landing/moon_landing.html">Moon Landing Problem</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/multi_phase_cannonball/multi_phase_cannonball.html">Multi-Phase Cannonball</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/multibranch_trajectory/multibranch_trajectory.html">Multibranch Trajectory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../examples/racecar/racecar.html">Race car Lap Simulation</a></li>
@@ -1054,21 +1055,21 @@ Component: BrachistochroneODE &#39;ode&#39;
 +-----------------+------------------+-------------+-------------+-------------+-------------+------------+
 | of &#39;&lt;variable&gt;&#39; | wrt &#39;&lt;variable&gt;&#39; |   calc mag. |  check mag. |  a(cal-chk) |  r(cal-chk) | error desc |
 +=================+==================+=============+=============+=============+=============+============+
-| &#39;check&#39;         | &#39;theta&#39;          |  3.4170e+02 |  3.4170e+02 |  2.6645e-15 |  7.7978e-18 |            |
+| &#39;check&#39;         | &#39;theta&#39;          |  2.7318e+01 |  2.7318e+01 |  4.9651e-16 |  1.8175e-17 |            |
 +-----------------+------------------+-------------+-------------+-------------+-------------+------------+
-| &#39;check&#39;         | &#39;v&#39;              |  9.4821e+00 |  9.4821e+00 |  8.8818e-16 |  9.3669e-17 |            |
+| &#39;check&#39;         | &#39;v&#39;              |  3.0674e+00 |  3.0674e+00 |  0.0000e+00 |  0.0000e+00 |            |
 +-----------------+------------------+-------------+-------------+-------------+-------------+------------+
-| &#39;vdot&#39;          | &#39;theta&#39;          |  1.2603e+01 |  1.2603e+01 |  1.2561e-15 |  9.9661e-17 |            |
+| &#39;vdot&#39;          | &#39;theta&#39;          |  1.7646e+01 |  1.7646e+01 |  2.5121e-15 |  1.4236e-16 |            |
 +-----------------+------------------+-------------+-------------+-------------+-------------+------------+
 | &#39;vdot&#39;          | &#39;v&#39;              |  0.0000e+00 |  0.0000e+00 |  0.0000e+00 |         nan |            |
 +-----------------+------------------+-------------+-------------+-------------+-------------+------------+
-| &#39;xdot&#39;          | &#39;theta&#39;          |  9.9967e+00 |  9.9967e+00 |  1.0175e-15 |  1.0179e-16 |            |
+| &#39;xdot&#39;          | &#39;theta&#39;          |  1.0536e+01 |  1.0536e+01 |  2.2204e-16 |  2.1075e-17 |            |
 +-----------------+------------------+-------------+-------------+-------------+-------------+------------+
-| &#39;xdot&#39;          | &#39;v&#39;              |  1.2852e+00 |  1.2852e+00 |  0.0000e+00 |  0.0000e+00 |            |
+| &#39;xdot&#39;          | &#39;v&#39;              |  1.7994e+00 |  1.7994e+00 |  1.9230e-16 |  1.0687e-16 |            |
 +-----------------+------------------+-------------+-------------+-------------+-------------+------------+
-| &#39;ydot&#39;          | &#39;theta&#39;          |  9.5351e+00 |  9.5351e+00 |  5.5511e-17 |  5.8218e-18 |            |
+| &#39;ydot&#39;          | &#39;theta&#39;          |  1.4678e+01 |  1.4678e+01 |  2.6645e-15 |  1.8153e-16 |            |
 +-----------------+------------------+-------------+-------------+-------------+-------------+------------+
-| &#39;ydot&#39;          | &#39;v&#39;              |  1.8298e+00 |  1.8298e+00 |  1.5701e-16 |  8.5806e-17 |            |
+| &#39;ydot&#39;          | &#39;v&#39;              |  1.3275e+00 |  1.3275e+00 |  2.7756e-17 |  2.0908e-17 |            |
 +-----------------+------------------+-------------+-------------+-------------+-------------+------------+
 
 ##################################################################
@@ -1077,7 +1078,7 @@ Sub Jacobian with Largest Relative Error: BrachistochroneODE &#39;ode&#39;
 +-----------------+------------------+-------------+-------------+-------------+-------------+
 | of &#39;&lt;variable&gt;&#39; | wrt &#39;&lt;variable&gt;&#39; |   calc mag. |  check mag. |  a(cal-chk) |  r(cal-chk) |
 +=================+==================+=============+=============+=============+=============+
-| &#39;xdot&#39;          | &#39;theta&#39;          |  9.9967e+00 |  9.9967e+00 |  1.0175e-15 |  1.0179e-16 |
+| &#39;ydot&#39;          | &#39;theta&#39;          |  1.4678e+01 |  1.4678e+01 |  2.6645e-15 |  1.8153e-16 |
 +-----------------+------------------+-------------+-------------+-------------+-------------+
 </pre></div>
 </div>

@@ -535,6 +535,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l2"><a class="reference internal" href="../length_constrained_brachistochrone/length_constrained_brachistochrone.html">The Length-Constrained Brachistochrone</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../min_time_climb/min_time_climb.html">Supersonic Interceptor Minimum Time Climb</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../mountain_car/mountain_car.html">The Mountain Car Problem</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../moon_landing/moon_landing.html">Moon Landing Problem</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../multi_phase_cannonball/multi_phase_cannonball.html">Multi-Phase Cannonball</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../multibranch_trajectory/multibranch_trajectory.html">Multibranch Trajectory</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../racecar/racecar.html">Race car Lap Simulation</a></li>
@@ -799,20 +800,20 @@ traveled by a block (that starts and ends at rest) sliding without
 friction along a horizontal surface, with acceleration as the control.</p>
 <p>We minimize the final time, <span class="math notranslate nohighlight">\(t_f\)</span>, by varying the dynamic control,
 <span class="math notranslate nohighlight">\(u\)</span>, subject to the dynamics:</p>
-<div class="amsmath math notranslate nohighlight" id="equation-cb209037-69a8-46eb-888c-ac0b8925b7d8">
-<span class="eqno">(45)<a class="headerlink" href="#equation-cb209037-69a8-46eb-888c-ac0b8925b7d8" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-c0de6b07-d030-4065-8148-54ccdcbd2dea">
+<span class="eqno">(45)<a class="headerlink" href="#equation-c0de6b07-d030-4065-8148-54ccdcbd2dea" title="Permalink to this equation">#</a></span>\[\begin{align}
   \frac{dx}{dt} &amp;= v \\
   \frac{dv}{dt} &amp;= u
 \end{align}\]</div>
 <p>The initial conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-16b1ee85-e97e-4cd6-987d-5901045dbcf6">
-<span class="eqno">(46)<a class="headerlink" href="#equation-16b1ee85-e97e-4cd6-987d-5901045dbcf6" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-a4e2db7a-feb5-461d-b9cc-117f76948777">
+<span class="eqno">(46)<a class="headerlink" href="#equation-a4e2db7a-feb5-461d-b9cc-117f76948777" title="Permalink to this equation">#</a></span>\[\begin{align}
   x_0 &amp;= 0 \\
   v_0 &amp;= 0
 \end{align}\]</div>
 <p>and the final conditions are</p>
-<div class="amsmath math notranslate nohighlight" id="equation-dfea8387-dcb6-4494-9b28-495d8e93ae15">
-<span class="eqno">(47)<a class="headerlink" href="#equation-dfea8387-dcb6-4494-9b28-495d8e93ae15" title="Permalink to this equation">#</a></span>\[\begin{align}
+<div class="amsmath math notranslate nohighlight" id="equation-4612bff3-f2e7-4afe-b958-076ce8a77cdc">
+<span class="eqno">(47)<a class="headerlink" href="#equation-4612bff3-f2e7-4afe-b958-076ce8a77cdc" title="Permalink to this equation">#</a></span>\[\begin{align}
   x_f &amp;= \rm{free} \\
   v_f &amp;= 0
 \end{align}\]</div>
@@ -1085,7 +1086,7 @@ INFO: checking out_of_order
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian for problem &#39;problem&#39; was computed 3 times, taking 0.06137430499995844 seconds.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Full total jacobian for problem &#39;problem&#39; was computed 3 times, taking 0.06076506199997311 seconds.
 Total jacobian shape: (181, 327) 
 </pre></div>
 </div>
@@ -1094,10 +1095,10 @@ FWD solves: 0   REV solves: 6
 Total colors vs. total size: 6 vs 181  (96.69% improvement)
 
 Sparsity computed using tolerance: 1e-25
-Time to compute sparsity:   0.0614 sec
-Time to compute coloring:   0.0817 sec
-Memory to compute coloring:   0.3750 MB
-Coloring created on: 2024-06-11 14:00:16
+Time to compute sparsity:   0.0608 sec
+Time to compute coloring:   0.0810 sec
+Memory to compute coloring:   0.2500 MB
+Coloring created on: 2024-08-08 16:08:43
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Optimization Problem -- Optimization using pyOpt_sparse
@@ -1106,11 +1107,11 @@ Coloring created on: 2024-06-11 14:00:16
 
     Solution: 
 --------------------------------------------------------------------------------
-    Total Time:                    1.9551
-       User Objective Time :       0.0164
-       User Sensitivity Time :     0.0571
-       Interface Time :            0.0722
-       Opt Solver Time:            1.8094
+    Total Time:                    2.4100
+       User Objective Time :       0.0175
+       User Sensitivity Time :     0.6395
+       Interface Time :            0.0704
+       Opt Solver Time:            1.6826
     Calls to Objective Function :      19
     Calls to Sens Function :           19
 
@@ -1699,11 +1700,71 @@ Coloring created on: 2024-06-11 14:00:16
 </div>
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda/envs/test/lib/python3.11/site-packages/openmdao/visualization/opt_report/opt_report.py:625: UserWarning: Attempting to set identical low and high ylims makes transformation singular; automatically expanding.
   ax.set_ylim([ymin_plot, ymax_plot])
-/usr/share/miniconda/envs/test/lib/python3.11/site-packages/openmdao/core/group.py:1098: DerivativesWarning:Constraints or objectives [ode_eval.control_interp.control_rates:u_rate2] cannot be impacted by the design variables of the problem because no partials were defined for them in their parent component(s).
+/usr/share/miniconda/envs/test/lib/python3.11/site-packages/openmdao/core/group.py:1101: DerivativesWarning:Constraints or objectives [ode_eval.control_interp.control_rates:u_rate2] cannot be impacted by the design variables of the problem because no partials were defined for them in their parent component(s).
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking out_of_order
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking system
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking solvers
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking dup_inputs
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking missing_recorders
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: The Problem has no recorder of any kind attached
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking unserializable_options
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking comp_has_no_outputs
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: The following Components do not have any outputs:
+   traj.phases.phase0.ode
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Simulating trajectory traj
 Model viewer data has already been recorded for Driver.
+INFO: checking out_of_order
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking system
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking solvers
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking dup_inputs
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking missing_recorders
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: The Problem has no recorder of any kind attached
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking unserializable_options
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking comp_has_no_outputs
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>WARNING: The following Components do not have any outputs:
+   traj.phases.phase0.ode
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>INFO: checking auto_ivc_warnings
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Done simulating trajectory traj
@@ -1713,11 +1774,11 @@ Model viewer data has already been recorded for Driver.
 Driver:  pyOptSparseDriver
   success     : True
   iterations  : 21
-  runtime     : 2.7090E+00 s
+  runtime     : 2.5984E+00 s
   model_evals : 21
-  model_time  : 1.1272E-02 s
-  deriv_evals : 21
-  deriv_time  : 7.6304E-02 s
+  model_time  : 1.2079E-02 s
+  deriv_evals : 20
+  deriv_time  : 7.3442E-02 s
   exit_status : SUCCESS
 </pre></div>
 </div>
@@ -1742,7 +1803,7 @@ Driver:  pyOptSparseDriver
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../../_images/3ae42e7ee17cddfdd30d8346af99f8f05f199d8969384c34326db6174a989131.png" src="../../_images/3ae42e7ee17cddfdd30d8346af99f8f05f199d8969384c34326db6174a989131.png" />
+<img alt="../../_images/7ac77e413378a76da3bc78d3d9c8bc119bfff02acb951604a73775c58e0cccd5.png" src="../../_images/7ac77e413378a76da3bc78d3d9c8bc119bfff02acb951604a73775c58e0cccd5.png" />
 </div>
 </div>
 </section>
